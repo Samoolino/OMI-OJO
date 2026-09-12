@@ -1,0 +1,39 @@
+openapi: 3.0.3
+info:
+  title: Blue-Ether Environmental Data API
+  version: 1.0.0
+  description: Telemetry and environmental data interface for authorized DaaS clients.
+servers:
+  - url: https://api.blue-ether.io/v1/data
+paths:
+  /pods/{pod_id}/telemetry:
+    get:
+      summary: Retrieve authorized pod telemetry
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: pod_id
+          required: true
+          schema: {type: string}
+      responses:
+        '200':
+          description: Telemetry payload
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  timestamp: {type: string, format: date-time}
+                  rainfall_mm: {type: number, minimum: 0}
+                  rh_percent: {type: number, minimum: 0, maximum: 100}
+                  pm25_ug_m3: {type: number, minimum: 0}
+                  collected_liters: {type: number, minimum: 0}
+                  storage_liters: {type: number, minimum: 0}
+                  data_quality: {type: string}
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
