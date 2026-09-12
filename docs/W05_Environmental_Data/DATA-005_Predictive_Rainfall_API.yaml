@@ -1,0 +1,135 @@
+openapi: 3.0.3
+info:
+  title: Blue-Ether Predictive Rainfall & Accuracy API
+  description: >-
+    Forecast rainfall and harvestable-water yield for the Blue-Ether 37-LCDA
+    grid. Forecasts are operational estimates and are never treated as measured
+    DMRV production data.
+  version: 1.0.0
+servers:
+  - url: https://api.blue-ether.io/v1/forecast
+paths:
+  /yield/{lcda_id}:
+    get:
+      summary: Predict harvestable water yield for the next 72 hours
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: lcda_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pod_id
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 72-hour prediction payload
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/YieldForecast'
+        '401':
+          description: Invalid API key
+        '404':
+          description: LCDA not found
+  /accuracy/{lcda_id}:
+    get:
+      summary: Retrieve historical forecast accuracy against telemetry
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: lcda_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: evaluation_period_days
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 3650
+            default: 30
+      responses:
+        '200':
+          description: Model accuracy report
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccuracyReport'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+  schemas:
+    YieldForecast:
+      type: object
+      required:
+        - forecast_window_start
+        - forecast_window_end
+        - predicted_rainfall_mm
+        - predicted_net_harvest_liters
+        - confidence_interval_percent
+        - logistics_trigger
+        - model_version
+      properties:
+        forecast_window_start:
+          type: string
+          format: date-time
+        forecast_window_end:
+          type: string
+          format: date-time
+        predicted_rainfall_mm:
+          type: number
+          minimum: 0
+        predicted_net_harvest_liters:
+          type: number
+          minimum: 0
+          description: Forecast usable yield after modelled first-flush/QC/storage losses.
+        confidence_interval_percent:
+          type: integer
+          minimum: 0
+          maximum: 100
+        logistics_trigger:
+          type: boolean
+          description: True when predicted usable yield is expected to exceed 50 L storage capacity.
+        model_version:
+          type: string
+        generated_at:
+          type: string
+          format: date-time
+    AccuracyReport:
+      type: object
+      required:
+        - evaluation_period_days
+        - total_predicted_mm
+        - total_actual_measured_mm
+        - mean_absolute_error_mm
+        - accuracy_score_percent
+        - model_version
+      properties:
+        evaluation_period_days:
+          type: integer
+        total_predicted_mm:
+          type: number
+        total_actual_measured_mm:
+          type: number
+        mean_absolute_error_mm:
+          type: number
+          minimum: 0
+        accuracy_score_percent:
+          type: number
+          minimum: 0
+          maximum: 100
+        model_version:
+          type: string
+        evaluated_at:
+          type: string
+          format: date-time
