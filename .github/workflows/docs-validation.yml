@@ -1,0 +1,36 @@
+name: Blue-Ether Documentation Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate required VDR artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            README.md
+            docs/W01_Corporate_Governance/GOV-000_Brand_Architecture_Matrix.md
+            docs/W01_Corporate_Governance/GOV-002_MOMB_Master_Operational_Book.md
+            docs/W03_Finance_Investment/FIN-001_Financial_Model_Logic.md
+            docs/W03_Finance_Investment/FIN-010_Executive_Pitch_Deck.md
+            docs/W05_Environmental_Data/DATA-004_DaaS_API_Specification.yaml
+            docs/W05_Environmental_Data/DATA-005_Predictive_Rainfall_API.yaml
+            docs/W06_Water_Harvesting/WAT-002B_Rainfall_Validation_Model.md
+            docs/W06_Water_Harvesting/WAT-003_First_Flush_Protocol.md
+            docs/W10_Ecological_Regeneration/ECO-001_SII_UW_Calculation_Engine.md
+          )
+          for f in "${files[@]}"; do test -s "$f" || { echo "Missing artifact: $f"; exit 1; }; done
+          python - <<'PY'
+          import pathlib, yaml
+          for p in pathlib.Path('docs').rglob('*.yaml'):
+              with p.open() as f: yaml.safe_load(f)
+              print('YAML OK:', p)
+          PY
