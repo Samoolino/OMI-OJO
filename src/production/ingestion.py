@@ -124,12 +124,23 @@ def rainfall_observation(
     latitude: float | None = None,
     longitude: float | None = None,
     quality: str = "UNASSESSED",
+    kind: str = "STATION",
+    data_status: str = "MEASURED",
 ) -> Observation:
+    """Normalize one rainfall value while preserving its evidence classification."""
     if rainfall_mm < 0:
         raise ValueError("rainfall cannot be negative")
     retrieved_at = utc_now()
     seed = json.dumps(
-        {"source_id": source_id, "observed_at": observed_at, "rainfall_mm": rainfall_mm, "latitude": latitude, "longitude": longitude},
+        {
+            "source_id": source_id,
+            "observed_at": observed_at,
+            "rainfall_mm": rainfall_mm,
+            "latitude": latitude,
+            "longitude": longitude,
+            "kind": kind,
+            "data_status": data_status,
+        },
         sort_keys=True,
         separators=(",", ":"),
     )
@@ -137,7 +148,7 @@ def rainfall_observation(
         observation_id=deterministic_id("obs", seed),
         source_id=source_id,
         provider=provider,
-        kind="STATION",
+        kind=kind,
         variable="precipitation",
         value=rainfall_mm,
         unit="mm",
@@ -146,5 +157,76 @@ def rainfall_observation(
         latitude=latitude,
         longitude=longitude,
         quality=quality,
-        data_status="MEASURED",
+        data_status=data_status,
     )
+
+
+def open_meteo_rainfall_observations(
+    latitude: float,
+    longitude: float,
+    *,
+    start_date: str,
+    end_date: str,
+    source_id: str = "open-meteo-archive",
+    base_url: str = "https://archive-api.open-meteo.com/v1/archive",
+    model: str | None = None,
+) -> list[Observation]:
+    """Ingest Open-Meteo historical precipitation as explicitly MODELED evidence.
+
+    Open-Meteo historical weather data is reanalysis/model output, not a site
+    rain-gauge measurement. The adapter boundary therefore emits Observation
+    records classified as MODELED so downstream DMRV cannot mistake them for
+    physical telemetry. Hourly precipitation is the preceding-hour total.
+    """
+    from urllib.parse import urlencode
+
+    params = {
+        "latitude": str(latitude),
+        "longitude": str(longitude),
+        "start_date": start_date,
+        "end_date": end_date,
+        "hourly": "precipitation",
+        "timezone": "UTC",
+    }
+    if model:
+        params["models"] = model
+
+    payload = fetch_json(f"{base_url}?{urlencode(params)}")
+    hourly = payload.get("hourly")
+    if not isinstance(hourly, dict):
+        raise ValueError("Open-Meteo response missing hourly data")
+    times = hourly.get("time")
+    values = hourly.get("precipitation")
+    if not isinstance(times, list) or not isinstance(values, list):
+        raise ValueError("Open-Meteo response missing hourly time/precipitation arrays")
+    if len(times) != len(values):
+        raise ValueError("Open-Meteo time and precipitation arrays must have equal length")
+
+    retrieved_at = utc_now()
+    observations: list[Observation] = []
+    for observed_at, rainfall_mm in zip(times, values):
+        if rainfall_mm is None:
+            continue
+        try:
+            value = float(rainfall_mm)
+        except (TypeError, ValueError) as exc:
+            raise ValueError("Open-Meteo precipitation values must be numeric or null") from exc
+        observations.append(
+            rainfall_observation(
+                source_id=source_id,
+                provider="Open-Meteo",
+                observed_at=str(observed_at),
+                rainfall_mm=value,
+                latitude=latitude,
+                longitude=longitude,
+                quality="SOURCE_VALIDATED",
+                kind="REANALYSIS",
+                data_status="MODELED",
+            )
+        )
+
+    # Retrieval time is deliberately not part of the deterministic observation
+    # ID, so the same source/time/value cannot silently become a new observation.
+    # Each Observation retains its own ingestion timestamp for audit provenance.
+    _ = retrieved_at
+    return observations
