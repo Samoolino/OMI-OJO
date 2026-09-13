@@ -1,0 +1,22 @@
+{
+  "schema_version": "BE-S4-EVIDENCE-1",
+  "purpose": "Controlled evidence contract for moving from S3 implementation toward S4 empirical validation.",
+  "non_negotiable": [
+    "forecast data is immutable and never overwritten",
+    "measured telemetry retains source and retrieval provenance",
+    "forecast, measured, calculated, modelled, estimated and proxy values remain distinct",
+    "water-quality evidence requires QMS/laboratory provenance before verification",
+    "GHG claims require activity data, emission factor, methodology and uncertainty",
+    "blockchain anchoring proves evidence integrity and does not replace source verification"
+  ],
+  "required_evidence": {
+    "rainfall": ["site_or_reference_station", "measurement_period", "unit", "quality_status", "source_provenance"],
+    "forecast": ["snapshot_id", "retrieved_at", "provider", "forecast_horizon", "reconciliation_against_measurement"],
+    "water_quality": ["sample_id", "batch_id", "method", "laboratory_or_sensor_provenance", "quality_status"],
+    "dmrv": ["canonical_manifest", "file_hashes", "evidence_root", "review_status"],
+    "ghg": ["baseline", "project_scenario", "activity_data", "emission_factor", "methodology_version", "uncertainty"],
+    "regulatory": ["jurisdiction", "requirement", "evidence", "review_owner", "status"],
+    "security": ["scope", "test_evidence", "findings", "remediation_status"]
+  },
+  "release_rule": "No P15/P16 promotion until all mandatory S4 evidence categories have reviewable evidence."
+}
