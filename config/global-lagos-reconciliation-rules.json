@@ -1,0 +1,28 @@
+{
+  "schema_version":"1.0.0",
+  "program_id":"GLOBAL-LAGOS-NG",
+  "purpose":"Deterministic cross-source reconciliation rules for environmental observations.",
+  "principle":"Sources are aligned before comparison. The system never silently averages, overwrites, or upgrades a data class.",
+  "rules":{
+    "temporal_alignment":"Compare only observations whose timestamps satisfy the indicator-specific alignment window; record the actual temporal offset.",
+    "spatial_alignment":"Compare only observations whose coordinates/product footprint can be mapped to the same venue or explicitly defined spatial aggregation; record spatial method and separation.",
+    "unit_normalization":"Normalize units only through a versioned deterministic conversion; preserve original provider value and unit.",
+    "methodology":"Do not compare unlike quantities as if identical. Modelled concentration, satellite column quantity, direct station concentration, forecast precipitation, and gauge precipitation retain distinct data classes.",
+    "missing_provenance":"REJECTED",
+    "missing_coordinate":"REVIEW_REQUIRED",
+    "missing_timestamp":"REJECTED",
+    "missing_unit":"REJECTED",
+    "source_disagreement":"REVIEW_REQUIRED unless an indicator-specific tolerance rule has been explicitly approved.",
+    "promotion":"Reconciliation can produce ALIGNED or WITHIN_RULE, but cannot itself promote MODELLED, FORECAST or SATELLITE to OBSERVED."
+  },
+  "indicator_profiles":{
+    "rainfall":{"primary_role":"forecast/context","secondary_role":"direct_observation","comparison":"forecast_vs_observation_skill"},
+    "no2":{"primary_role":"modelled_surface_or_air_quality_context","secondary_role":"satellite_remote_sensing","comparison":"spatial_temporal_method_alignment_required"},
+    "so2":{"primary_role":"modelled_air_quality_context","secondary_role":"satellite_remote_sensing","comparison":"spatial_temporal_method_alignment_required"},
+    "o3":{"primary_role":"modelled_air_quality_context","secondary_role":"satellite_remote_sensing","comparison":"spatial_temporal_method_alignment_required"},
+    "co":{"primary_role":"modelled_air_quality_context","secondary_role":"satellite_remote_sensing","comparison":"spatial_temporal_method_alignment_required"},
+    "pm25":{"primary_role":"modelled_air_quality_context","secondary_role":"direct_sensor","comparison":"sensor_qa_and_spatial_alignment_required"},
+    "pm10":{"primary_role":"modelled_air_quality_context","secondary_role":"direct_sensor","comparison":"sensor_qa_and_spatial_alignment_required"}
+  },
+  "result_states":["NOT_RUN","ALIGNED","WITHIN_RULE","REVIEW_REQUIRED","REJECTED"]
+}
