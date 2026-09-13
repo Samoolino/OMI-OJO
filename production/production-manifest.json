@@ -1,0 +1,35 @@
+{
+  "milestone": "M-1",
+  "release_sequence": "P1-P17",
+  "system": "Blue-Ether OS",
+  "status": "S3_IMPLEMENTED_S4_GATED",
+  "gates": {
+    "P1": "PASS",
+    "P2": "PASS",
+    "P3": "PASS",
+    "P4": "PASS",
+    "P5": "PASS",
+    "P6": "PASS",
+    "P7": "PASS",
+    "P8": "PASS",
+    "P9": "PASS",
+    "P10": "PASS",
+    "P11": "PASS_DRY_RUN_ADAPTER",
+    "P12": "PASS_CORE",
+    "P13": "PASS",
+    "P14": "PASS_CORE_TESTS",
+    "P15": "PENDING_EMPIRICAL_VERIFICATION",
+    "P16": "PENDING_PRODUCTION_RELEASE",
+    "P17": "PENDING_FINAL_MAKEFILE"
+  },
+  "mandatory_s4_evidence": [
+    "empirical rainfall validation",
+    "forecast accuracy against measured telemetry",
+    "water-quality/QMS verification",
+    "DMRV review",
+    "GHG methodology review",
+    "regulatory review",
+    "security review"
+  ],
+  "production_claim_policy": "Never promote forecast, modelled, calculated or estimated values to measured or verified without evidence."
+}
