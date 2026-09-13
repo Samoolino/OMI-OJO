@@ -1,0 +1,56 @@
+{
+  "schema_id": "GLOBAL-LAGOS-VIDEO-EVIDENCE-1",
+  "purpose": "Evidence-grade video feed and cryptographic provenance boundary for future authorized physical harvesting and post-collection operations.",
+  "phase_policy": "REPORTING_ONLY_UNTIL_FIELD_VALIDATION",
+  "claim_policy": "A video feed proves that a recorded media object exists and can support process evidence; it does not by itself prove rainfall volume, water quality, custody, authenticity, or regulatory compliance.",
+  "feed_transport": {
+    "LIVE_STREAM": ["WebRTC", "SRT", "RTSP_BRIDGE"],
+    "POLLING_METADATA": ["HTTPS_API"],
+    "ARCHIVE": ["OBJECT_STORAGE"]
+  },
+  "capture_requirements": {
+    "camera_id": true,
+    "venue_id": true,
+    "operation_id": true,
+    "capture_started_at": true,
+    "capture_ended_at": true,
+    "device_clock_status": true,
+    "geolocation_status": true,
+    "operator_or_system_identity": true,
+    "firmware_or_capture_profile": true,
+    "media_codec_profile": true
+  },
+  "cryptographic_chain": {
+    "algorithm": "SHA-256",
+    "per_segment_hash": true,
+    "manifest_hash": true,
+    "previous_hash_link": true,
+    "canonical_metadata_hash": true,
+    "evidence_root": "HASH_TREE_ROOT",
+    "anchor_status": ["NOT_ANCHORED", "ANCHOR_PENDING", "ANCHORED"],
+    "signature": "OPTIONAL_AUTHORIZED_DEVICE_SIGNATURE",
+    "key_management": "KEY_REFERENCE_ONLY; PRIVATE_KEYS_MUST_NOT_BE_STORED_IN_REPOSITORY"
+  },
+  "event_linkage": {
+    "rain_event_id": "optional_until_event_confirmed",
+    "collection_event_id": "required_for_harvest_operation",
+    "first_flush_event_id": "required_when_applicable",
+    "collection_batch_id": "required_for_post_collection",
+    "water_quality_sample_id": "required_when_sampling_occurs",
+    "bottle_or_container_batch_id": "required_when_bottling_occurs",
+    "seal_id": "required_when_sealing_occurs",
+    "dmrv_package_id": "required_for_review_package"
+  },
+  "privacy_security": {
+    "public_stream": "SANITIZED_ONLY",
+    "restricted_operations": "ACCESS_CONTROLLED",
+    "governor_residence": "NO_PUBLIC_EXACT_LOCATION_OR_OPERATIONAL_FEED_UNLESS_AUTHORIZED",
+    "credentials": "NEVER_EMBED_IN_MEDIA_OR_METADATA"
+  },
+  "retention": {
+    "raw_media": "POLICY_DEFINED_OBJECT_STORAGE",
+    "evidence_manifest": "IMMUTABLE_APPEND_ONLY",
+    "corrections": "SUCCESSOR_RECORD_ONLY"
+  },
+  "dmrv_role": "Video evidence is a linked provenance stream within the DMRV package, reconciled with telemetry, collection records, laboratory/QMS records and custody events before any VERIFIED status."
+}
