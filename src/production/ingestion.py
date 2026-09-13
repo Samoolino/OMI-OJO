@@ -1,8 +1,7 @@
 """Deterministic, provenance-preserving HTTP ingestion primitives.
 
-This module deliberately does not promote external data to VERIFIED. It only
-creates immutable source observations/snapshots that downstream DMRV gates can
-review and reconcile.
+External data is immutable evidence input. Ingestion state and data status are
+kept distinct so downstream DMRV can require measured telemetry explicitly.
 """
 from __future__ import annotations
 
@@ -28,6 +27,7 @@ class Observation:
     latitude: float | None
     longitude: float | None
     quality: str
+    data_status: str = "MEASURED"
     status: str = "INGESTED"
 
     def canonical(self) -> str:
@@ -85,11 +85,7 @@ def open_meteo_forecast_snapshot(
     base_url: str = "https://api.open-meteo.com/v1/forecast",
     extra_params: dict[str, str] | None = None,
 ) -> ForecastSnapshot:
-    """Create an immutable forecast snapshot for a site.
-
-    The payload is retained exactly as returned. A new retrieval always creates
-    a new snapshot; historical snapshots must never be overwritten.
-    """
+    """Create an immutable forecast snapshot; never overwrite prior snapshots."""
     from urllib.parse import urlencode
 
     params = {
@@ -101,8 +97,7 @@ def open_meteo_forecast_snapshot(
     }
     if extra_params:
         params.update(extra_params)
-    url = f"{base_url}?{urlencode(params)}"
-    payload = fetch_json(url)
+    payload = fetch_json(f"{base_url}?{urlencode(params)}")
     retrieved_at = utc_now()
     canonical_input = json.dumps(
         {"source_id": source_id, "retrieved_at": retrieved_at, "latitude": latitude, "longitude": longitude, "payload": payload},
@@ -151,4 +146,5 @@ def rainfall_observation(
         latitude=latitude,
         longitude=longitude,
         quality=quality,
+        data_status="MEASURED",
     )
