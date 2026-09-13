@@ -2,60 +2,66 @@
 
 **Repository:** `Samoolino/OMI-OJO`  
 **System:** Blue-Ether 37-LCDA Water + Environmental Data Operating System  
-**Initialization state:** S2 — SPECIFIED
+**Milestone:** M-1 — Investor-Ready Evidence Core  
+**Production sequence:** P1–P17  
+**Current state:** S3 — IMPLEMENTED / S4 GATED
 
 ## Purpose
 
-This repository is the version-controlled Virtual Data Room (VDR) and technical operating baseline for Project Blue-Ether. It brings governance, finance/investment materials, environmental data specifications, rainfall/yield validation, water-harvesting engineering controls, and ecological-regeneration methodology into one auditable structure.
+This repository is the version-controlled technical operating baseline and investor evidence system for Project Blue-Ether. It connects predictive rainfall intelligence, rainwater harvesting, premium harvest classification, water-quality evidence, bottling/seal provenance, DMRV, ESG/GHG reporting and blockchain evidence anchoring.
 
-## VDR architecture
+## Production sequence
 
 ```text
-blue-ether-os/
-├── README.md
-├── .github/workflows/
-├── docs/
-│   ├── W01_Corporate_Governance/
-│   │   ├── GOV-000_Brand_Architecture_Matrix.md
-│   │   └── GOV-002_MOMB_Master_Operational_Book.md
-│   ├── W03_Finance_Investment/
-│   │   ├── FIN-001_Financial_Model_Logic.md
-│   │   ├── FIN-009_SAFE_Term_Sheet.pdf
-│   │   └── FIN-010_Executive_Pitch_Deck.md
-│   ├── W05_Environmental_Data/
-│   │   ├── DATA-004_DaaS_API_Specification.yaml
-│   │   └── DATA-005_Predictive_Rainfall_API.yaml
-│   ├── W06_Water_Harvesting/
-│   │   ├── WAT-002B_Rainfall_Validation_Model.md
-│   │   └── WAT-003_First_Flush_Protocol.md
-│   └── W10_Ecological_Regeneration/
-│       └── ECO-001_SII_UW_Calculation_Engine.md
-└── src/
-    ├── dapps/
-    │   ├── dmrv-portal/
-    │   └── qms-portal/
-    └── contracts/
+M-1
+ ├── P1  Production foundation
+ ├── P2  Source/weather intelligence
+ ├── P3  Rainfall event engine
+ ├── P4  Production interpolation & collection planning
+ ├── P5  Collection orchestrator / first-flush control
+ ├── P6  Environmental & water fingerprint
+ ├── P7  Premium harvest & batch engine
+ ├── P8  Bottling / instant seal / evidence hash
+ ├── P9  Evidence package / DMRV
+ ├── P10 ESG / GHG / regulatory reporting
+ ├── P11 Blockchain evidence anchor boundary
+ ├── P12 Public verification
+ ├── P13 Investor evidence room
+ ├── P14 Integrated production tests
+ ├── P15 Production readiness gate
+ ├── P16 Controlled pre-production release
+ └── P17 FINAL — Makefile
 ```
 
-## Critical financial-model control
+## Physical-to-digital production chain
 
-The **400 L/pod/month** value is treated as a model assumption, not a certified production guarantee. `WAT-002B` separates meteorological observations, event-level first-flush loss, environmental-quality rejection, storage constraints, and measured telemetry. The model must be recalibrated from observed pod data before the 400 L assumption is represented as bankable production capacity.
+```text
+Forecast
+  → Rain Event
+  → Collection Plan
+  → First-Flush Control
+  → Premium Collection
+  → Water Quality
+  → Batch Lock
+  → Bottling
+  → Instant Seal
+  → Evidence Hash
+  → DMRV Package
+  → Blockchain Anchor
+  → Public Verification
+  → Investor Evidence
+```
 
-## Rainfall API control
+## Evidence boundary
 
-`DATA-005` defines a 72-hour yield forecast and an accuracy endpoint. Forecast output is explicitly operational: it can inform cartridge logistics, but it does not authorize production, water-quality release, or financial recognition by itself.
+Forecasts remain forecasts. Measured telemetry remains measured telemetry. Modelled, calculated, estimated and proxy indicators are explicitly labelled. The blockchain layer anchors evidence hashes; raw telemetry is not placed on-chain.
 
-## Document states
+The **400 L/pod/month** value remains a financial-model assumption, not a certified production guarantee. `WAT-002B` and observed pod telemetry govern recalibration before production capacity is treated as bankable.
 
-- **S0 — IDEA:** not yet specified.
-- **S1 — ARCHITECTED:** structure and ownership defined.
-- **S2 — SPECIFIED:** requirements, controls and acceptance criteria documented.
-- **S3 — IMPLEMENTED:** software/document artifact exists in the repository.
-- **S4 — VERIFIED:** tests, evidence and review completed.
-- **S5 — OPERATIONAL:** approved for controlled production use.
+## Readiness policy
 
-Current initialization target: **S3 repository implementation**, with S4 verification gates still required for empirical rainfall validation, forecast accuracy, QMS, DMRV and financial claims.
+`make readiness` is fail-closed. The repository is not promoted to S4/S5 merely because software exists. Empirical rainfall validation, forecast accuracy, QMS/water-quality review, DMRV review, GHG methodology review, regulatory review and security review remain required before controlled production use.
 
-## Safety / assurance boundary
+## Final operational interface
 
-This repository does not treat forecast values as measured values. All investor, ESG, regulatory and commercial claims must be traceable to source data, calculation version, timestamp, unit conventions and approval status.
+The final operational command surface is the root `Makefile`. Run `make production-check` before any release or deployment. `make deploy` and `make release` refuse to proceed while mandatory readiness gates remain pending.
