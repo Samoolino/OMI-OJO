@@ -1,0 +1,90 @@
+{
+  "audit": "functional-implementation-vs-objectives",
+  "milestone": "M-1",
+  "repository_state": "S3_IMPLEMENTED_S4_GATED",
+  "audit_basis": "repository structure, production manifests, source modules, tests, Makefile and readiness policy",
+  "execution_claim": "This audit does not claim that live external sources, physical sensors, laboratory systems, blockchain networks, regulatory approvals or production deployments have been successfully exercised.",
+  "objective_domains": {
+    "forecast_and_source_intelligence": {
+      "implementation": "IMPLEMENTED_BOUNDARY",
+      "evidence": ["src/production/ingestion.py", "config/source-registry.json", "src/production/sources.py"],
+      "gap": "Operator validation and measured-site source onboarding remain pending."
+    },
+    "rainfall_event_detection": {
+      "implementation": "IMPLEMENTED_CORE",
+      "evidence": ["src/production/rainfall.py", "src/production/events.py"],
+      "gap": "Requires live/empirical telemetry integration for production validation."
+    },
+    "forecast_vs_measured_reconciliation": {
+      "implementation": "IMPLEMENTED_CORE",
+      "evidence": ["src/production/reconciliation.py", "tests/test_reconciliation.py"],
+      "gap": "No empirical site dataset has yet been accepted as S4 evidence."
+    },
+    "production_volume_and_collection_planning": {
+      "implementation": "IMPLEMENTED_CORE",
+      "evidence": ["src/production/volume.py", "src/production/planning.py", "src/production/collection.py"],
+      "gap": "Physical catchment, bag, first-flush and station parameters require operator/site calibration."
+    },
+    "environmental_and_water_fingerprint": {
+      "implementation": "SCHEMA_AND_CORE_LOGIC",
+      "evidence": ["src/production/quality.py", "src/production/models.py"],
+      "gap": "Lab/QMS evidence and approved measurement procedures remain pending."
+    },
+    "premium_harvest_and_batch": {
+      "implementation": "IMPLEMENTED_CORE",
+      "evidence": ["src/production/premium.py", "src/production/provenance.py"],
+      "gap": "Premium classification requires approved methodology and empirical quality evidence."
+    },
+    "bottling_seal_and_provenance": {
+      "implementation": "IMPLEMENTED_CORE",
+      "evidence": ["src/production/provenance.py", "src/production/evidence.py"],
+      "gap": "Physical label/QR/NFC and seal hardware integration is not evidenced as live."
+    },
+    "dmrv_and_evidence_package": {
+      "implementation": "IMPLEMENTED_CORE",
+      "evidence": ["src/production/evidence.py", "production/s4-evidence-contract.json"],
+      "gap": "Independent DMRV review and end-to-end production evidence package are pending."
+    },
+    "esg_and_ghg_reporting": {
+      "implementation": "FRAMEWORK_CORE",
+      "evidence": ["src/production/impact.py", "production/production-manifest.json"],
+      "gap": "Methodology review, approved emission factors, activity data and uncertainty evidence are pending."
+    },
+    "blockchain_evidence_anchor": {
+      "implementation": "DRY_RUN_ADAPTER",
+      "evidence": ["src/production/blockchain.py", "production/production-manifest.json"],
+      "gap": "No production chain/network anchoring evidence is asserted."
+    },
+    "public_verification": {
+      "implementation": "CORE_LOGIC_BOUNDARY",
+      "evidence": ["src/production/verification.py"],
+      "gap": "A deployed public verifier/UI and production evidence registry are not evidenced in the repository state."
+    },
+    "investor_evidence_room": {
+      "implementation": "MANIFEST_AND_EVIDENCE_BOUNDARY",
+      "evidence": ["production/investor-evidence-manifest.json", "README.md"],
+      "gap": "Investor-facing live evidence must remain explicitly labelled LIVE, SIMULATED, PENDING or N/A until independently supported."
+    },
+    "ci_and_readiness": {
+      "implementation": "IMPLEMENTED_FAIL_CLOSED",
+      "evidence": [".github/workflows/production-validation.yml", "production/gate.py", "Makefile"],
+      "gap": "CI/readiness execution result must be observed from GitHub Actions before claiming a passing build."
+    }
+  },
+  "objective_comparison": {
+    "physical_rainwater_harvesting": "SOFTWARE_MODELLED_NOT_PHYSICALLY_VERIFIED",
+    "premium_harvest_conditions": "LOGIC_DEFINED_NOT_EMPIRICALLY_VERIFIED",
+    "unique_hash_label_provenance": "DIGITAL_CORE_IMPLEMENTED_PHYSICAL_LABEL_INTEGRATION_PENDING",
+    "measurable_ghg": "METHODOLOGY_BOUNDARY_DEFINED_EVIDENCE_PENDING",
+    "advanced_dmrV": "CORE_EVIDENCE_ARCHITECTURE_IMPLEMENTED_REVIEW_PENDING",
+    "reliable_api_sensor_lab_data": "ADAPTER_AND_REGISTRY_BOUNDARY_IMPLEMENTED_OPERATOR_VALIDATION_PENDING",
+    "investor_ready_concept_evidence": "STRUCTURED_AND_FAIL_CLOSED_NOT_YET_PRODUCTION_VERIFIED"
+  },
+  "release_decision": {
+    "P1_P14": "IMPLEMENTED_AT_REPOSITORY_LEVEL",
+    "P15": "BLOCKED_PENDING_S4_EVIDENCE",
+    "P16": "BLOCKED_PENDING_P15",
+    "P17": "FINAL_MAKEFILE_EXISTS_BUT_MANIFEST_RETAINS_PENDING_STATUS_FOR_SEQUENCE_COMPATIBILITY",
+    "next_focus": "S4-E12 onward: connect event detection, planning, measured telemetry, water-lab/QMS, DMRV packaging, ESG/GHG evidence, anchor and verifier into an auditable end-to-end controlled scenario."
+  }
+}
