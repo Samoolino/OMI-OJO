@@ -1,0 +1,63 @@
+version: 1
+project: OMI-OJO
+status_flow:
+  - DRAFT
+  - EVIDENCE_PENDING
+  - EVIDENCE_CAPTURED
+  - DMRV_VALIDATED
+  - VERIFIER_REVIEW
+  - VERIFIED
+  - INVESTOR_READY
+rooms:
+  - id: 00_INVESTOR_INDEX
+    purpose: investment overview and navigation
+  - id: 01_CORPORATE_LEGAL
+    purpose: corporate, ownership, governance, IP and legal diligence
+  - id: 02_PRODUCT_AND_DAPP
+    purpose: product, DMRV, API, security and infrastructure diligence
+  - id: 03_ESG_AND_ENVIRONMENT
+    purpose: ESG, environmental baseline, water and climate evidence
+  - id: 04_DMRV_EVIDENCE
+    purpose: physical-to-digital environmental evidence
+  - id: 05_GHG_AND_CLIMATE
+    purpose: GHG boundaries, activity data, factors, calculations and assumptions
+  - id: 06_PHYSICAL_INFRASTRUCTURE
+    purpose: collectors, first flush, sample containers, materials and QA
+  - id: 07_MARKET_AND_COMMERCIAL
+    purpose: market, customers, pilots, pricing and partnerships
+  - id: 08_FINANCIAL
+    purpose: financial history, model, unit economics and use of funds
+  - id: 09_RISK_AND_GOVERNANCE
+    purpose: enterprise, climate, cyber, measurement and greenwashing risk
+  - id: 10_INVESTMENT
+    purpose: fundraising, SAFE, cap table and closing evidence
+claim:
+  required:
+    - metric
+    - unit
+    - source_type
+    - provenance
+    - methodology
+    - evidence_hash
+    - verification_status
+  source_types:
+    - MODELED
+    - MEASURED
+    - CALCULATED
+    - VERIFIED
+  verification_statuses:
+    - PENDING
+    - IN_REVIEW
+    - VERIFIED
+    - REJECTED
+rainfall_event:
+  required:
+    - event_id
+    - collection_point_id
+    - collector_id
+    - observed_at
+    - volume_l
+    - evidence_hash
+  contextual_sources:
+    - Open-Meteo
+  rule: Open-Meteo/reanalysis is modeled contextual evidence and cannot be promoted to measured evidence.
