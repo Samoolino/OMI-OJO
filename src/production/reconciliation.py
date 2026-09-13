@@ -53,7 +53,7 @@ def compare_forecast_to_measurement(
 ) -> RainfallComparison:
     if observation.variable != rainfall_variable:
         raise ValueError("observation is not the configured rainfall variable")
-    if observation.status != "MEASURED":
+    if observation.data_status != "MEASURED":
         raise ValueError("forecast reconciliation requires a MEASURED observation")
     forecast_value = extract_hourly_rainfall_mm(snapshot, observation.observed_at)
     comparison = reconcile(forecast_value, observation.value)
