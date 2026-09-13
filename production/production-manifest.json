@@ -1,8 +1,9 @@
 {
   "milestone": "M-1",
   "release_sequence": "P1-P17",
+  "post_p17_sequence": "P18-P20",
   "system": "Blue-Ether OS",
-  "status": "S3_IMPLEMENTED_S4_GATED",
+  "status": "S4_IMPLEMENTATION_IN_PROGRESS",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -20,7 +21,10 @@
     "P14": "PASS_CORE_TESTS",
     "P15": "PENDING_EMPIRICAL_VERIFICATION",
     "P16": "PENDING_PRODUCTION_RELEASE",
-    "P17": "PENDING_FINAL_MAKEFILE"
+    "P17": "PASS_FINAL_MAKEFILE",
+    "P18": "PASS_CORE_ADAPTER",
+    "P19": "PASS_INVESTMENT_READINESS_CORE",
+    "P20": "PASS_CORE_MEASURED_TELEMETRY_ADAPTER"
   },
   "mandatory_s4_evidence": [
     "empirical rainfall validation",
@@ -30,6 +34,16 @@
     "GHG methodology review",
     "regulatory review",
     "security review"
+  ],
+  "next_sequence": [
+    "S4-E13 event integration",
+    "S4-E14 measured telemetry reconciliation integration",
+    "S4-E15 water-lab/QMS evidence adapter",
+    "S4-E16 deterministic DMRV package builder",
+    "S4-E17 ESG/GHG reporting integration",
+    "S4-E18 blockchain evidence anchor integration",
+    "S4-E19 verifier/investor frontend data integration",
+    "S4-E20 controlled end-to-end integration test"
   ],
   "production_claim_policy": "Never promote forecast, modelled, calculated or estimated values to measured or verified without evidence."
 }
