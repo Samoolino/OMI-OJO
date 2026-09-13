@@ -1,0 +1,57 @@
+{
+  "program_id": "GLOBAL-LAGOS-GRID",
+  "anchor": "GLOBAL-LAGOS-NG",
+  "status": "ROADMAP",
+  "principle": "Lagos Nigeria is the reference implementation; other places named Lagos become comparative deployment grids only after the Nigeria evidence package is validated.",
+  "grids": [
+    {
+      "id": "LAGOS-NG",
+      "name": "Lagos, Nigeria",
+      "country": "Nigeria",
+      "role": "REFERENCE_PILOT",
+      "status": "ACTIVE_DESIGN"
+    },
+    {
+      "id": "LAGOS-DE-MORENO-MX",
+      "name": "Lagos de Moreno",
+      "country": "Mexico",
+      "state": "Jalisco",
+      "role": "FUTURE_COMPARATIVE_GRID",
+      "status": "ROADMAP",
+      "coordinates": {"latitude":21.350,"longitude":-101.917,"precision":"city_centroid","source":"public geographic reference"}
+    },
+    {
+      "id": "LAGOS-ALGARVE-PT",
+      "name": "Lagos, Algarve",
+      "country": "Portugal",
+      "region": "Algarve",
+      "role": "FUTURE_COMPARATIVE_GRID",
+      "status": "ROADMAP",
+      "coordinates": null,
+      "geotag_query":"Lagos, Algarve, Portugal"
+    },
+    {
+      "id": "DOS-LAGOS",
+      "name": "Dos Lagos",
+      "country": null,
+      "role": "IDENTITY_TO_BE_DISAMBIGUATED",
+      "status": "ROADMAP",
+      "coordinates": null,
+      "note":"Dos Lagos is not unique enough to assign a deployment geography without an explicit city/country. Resolve before creating a geographic pilot record."
+    }
+  ],
+  "remaining_lagos": {
+    "discovery_method": "country-aware gazetteer plus authoritative municipal sources",
+    "required_fields": ["canonical_name","country","administrative_region","role","coordinates","source","deployment_status"],
+    "rule": "No place is added to the deployment grid solely because its name contains Lagos; each location requires geographic disambiguation and an authoritative source."
+  },
+  "sequencing": [
+    "validate Lagos Nigeria",
+    "publish controlled Global Lagos Nigeria evidence package",
+    "select international Lagos comparators",
+    "perform local regulatory and water-resource assessment",
+    "establish local measurement and DMRV adapters",
+    "run comparative pilot",
+    "evaluate cross-grid scalability"
+  ]
+}
