@@ -1,0 +1,22 @@
+{
+  "schema_version":"1.0.0",
+  "program_id":"GLOBAL-LAGOS-NG",
+  "purpose":"Provider adapter boundary for real environmental reporting. This registry defines transport and provenance contracts; it does not fabricate or simulate live observations.",
+  "adapter_states":["CONFIGURED","AVAILABLE","STALE","ERROR","DISABLED"],
+  "feed_classes":["PUSH_STREAM","POLLING_API","ARCHIVE_QUERY"],
+  "providers":[
+    {"id":"open_meteo_weather","provider":"Open-Meteo","class":"POLLING_API","base_interface":"forecast/current weather API","indicators":["rainfall","temperature","relative_humidity","wind","solar_radiation"],"required_inputs":["latitude","longitude","observation_time_or_window"],"raw_response_required":true,"status_rule":"Never label forecast/model output as OBSERVED."},
+    {"id":"open_meteo_air_quality","provider":"Open-Meteo Air Quality","class":"POLLING_API","base_interface":"air quality API","indicators":["no2","so2","o3","co","pm25","pm10","aerosol"],"required_inputs":["latitude","longitude","forecast_or_archive_window"],"raw_response_required":true,"status_rule":"Provider output remains MODELLED unless the source contract explicitly identifies another data class."},
+    {"id":"local_weather_station","provider":"Authorized local weather station","class":"PUSH_STREAM_OR_POLLING_API","base_interface":"station observation adapter","indicators":["rainfall","temperature","relative_humidity","wind"],"required_inputs":["station_id","timestamp"],"raw_response_required":true,"activation":"Requires authorized instrument deployment and station identity."},
+    {"id":"local_particulate_sensor","provider":"Authorized local particulate sensor","class":"PUSH_STREAM_OR_POLLING_API","base_interface":"station sensor adapter","indicators":["pm25","pm10"],"required_inputs":["station_id","timestamp"],"raw_response_required":true,"activation":"Requires calibrated/quality-controlled sensor deployment."},
+    {"id":"copernicus_s5p_tropomi","provider":"Copernicus Sentinel-5P/TROPOMI","class":"ARCHIVE_QUERY","base_interface":"Copernicus Data Space observation/query adapter","indicators":["no2","so2","o3","co","aerosol"],"required_inputs":["spatial_geometry","time_window","product_identifier"],"raw_response_required":true,"status_rule":"Remain SATELLITE and preserve product spatial/temporal characteristics."},
+    {"id":"satellite_radiation","provider":"Satellite-derived radiation dataset","class":"ARCHIVE_QUERY","base_interface":"Earth observation adapter","indicators":["solar_radiation"],"required_inputs":["spatial_geometry","time_window","dataset_identifier"],"raw_response_required":true,"status_rule":"Remain SATELLITE unless a deterministic calculation is explicitly produced from the source."}
+  ],
+  "common_adapter_contract":{
+    "request":"Provider-specific request parameters plus venue identity and observation window.",
+    "response":"Raw payload reference + normalized observation records + provider metadata.",
+    "mandatory_provenance":["provider","source_id","retrieval_time","observation_time","latitude","longitude","unit","data_class","raw_evidence_reference"],
+    "failure_behavior":"Fail closed. No value is promoted to reportable when provenance, time, location, unit, or source integrity is missing.",
+    "immutability":"Normalized records are append-only; corrections create successor records linked to the superseded observation."
+  }
+}
