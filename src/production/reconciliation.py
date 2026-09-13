@@ -27,6 +27,24 @@ class RainfallComparison:
         return max(0.0, 100.0 - self.comparison.percentage_error)
 
 
+def extract_hourly_rainfall_mm(snapshot: ForecastSnapshot, observed_at: str) -> float:
+    """Read forecasted hourly precipitation matching a measurement time."""
+    hourly = snapshot.payload.get("hourly")
+    if not isinstance(hourly, dict):
+        raise ValueError("forecast snapshot has no hourly forecast block")
+    times = hourly.get("time")
+    precipitation = hourly.get("precipitation")
+    if not isinstance(times, list) or not isinstance(precipitation, list):
+        raise ValueError("forecast hourly block is incomplete")
+    try:
+        index = times.index(observed_at)
+    except ValueError as exc:
+        raise ValueError("measurement timestamp is not present in forecast snapshot") from exc
+    if index >= len(precipitation) or not isinstance(precipitation[index], (int, float)):
+        raise ValueError("forecast precipitation value is missing or non-numeric")
+    return float(precipitation[index])
+
+
 def compare_forecast_to_measurement(
     snapshot: ForecastSnapshot,
     observation: Observation,
@@ -37,17 +55,15 @@ def compare_forecast_to_measurement(
         raise ValueError("observation is not the configured rainfall variable")
     if observation.status != "MEASURED":
         raise ValueError("forecast reconciliation requires a MEASURED observation")
-    forecast_value = snapshot.payload.get(rainfall_variable)
-    if not isinstance(forecast_value, (int, float)):
-        raise ValueError("forecast snapshot has no numeric rainfall value")
-    comparison = reconcile(float(forecast_value), observation.value)
+    forecast_value = extract_hourly_rainfall_mm(snapshot, observation.observed_at)
+    comparison = reconcile(forecast_value, observation.value)
     return RainfallComparison(
         forecast_snapshot_id=snapshot.snapshot_id,
         observation_id=observation.observation_id,
-        forecast_mm=float(forecast_value),
+        forecast_mm=forecast_value,
         measured_mm=observation.value,
         comparison=comparison,
-        matched_at=observation.observed_at,
+        matched_at=datetime.fromisoformat(observation.observed_at.replace("Z", "+00:00")),
     )
 
 
