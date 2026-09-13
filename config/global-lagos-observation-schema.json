@@ -1,0 +1,10 @@
+{
+  "schema_version":"1.0.0",
+  "record_type":"GLOBAL_LAGOS_ENVIRONMENTAL_OBSERVATION",
+  "immutable_principle":"Original observations are append-only. Corrections create linked successor records; prior records are never overwritten.",
+  "required_fields":["observation_id","venue_id","indicator_id","latitude","longitude","coordinate_accuracy_m","coordinate_source","coordinate_verification_status","observation_time","retrieval_time","value","unit","data_class","quality_status","primary_provider","primary_source_id","methodology_version","canonical_payload_hash"],
+  "optional_cross_verification_fields":["secondary_provider","secondary_source_id","temporal_alignment","spatial_alignment","difference","reconciliation_status","uncertainty"],
+  "data_class_rules":{"OBSERVED":"direct instrument or authoritative observation","FORECAST":"future prediction and never a measurement","MODELLED":"derived model output and never a measurement","SATELLITE":"remote-sensing observation with stated spatial/temporal characteristics","CALCULATED":"deterministically derived from disclosed inputs","PROXY":"indirect indicator requiring explicit qualification"},
+  "quality_statuses":["RAW","INGESTED","QUALITY_CHECKED","VALIDATED","REVIEW_REQUIRED","REJECTED"],
+  "visibility":"PUBLIC_SAFE_RECORDS_MUST_EXCLUDE_SENSITIVE_SECURITY_COORDINATES_AND_CREDENTIALS"
+}
