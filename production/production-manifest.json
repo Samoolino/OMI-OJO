@@ -10,23 +10,28 @@
     "P18": "PASS_CORE_ADAPTER", "P19": "PASS_INVESTMENT_READINESS_CORE", "P20": "PASS_CORE_MEASURED_TELEMETRY_ADAPTER",
     "S4-E13": "PASS_CORE_EVENT_INTEGRATION", "S4-E21": "PASS_GLOBAL_LAGOS_PILOT_GRID_DEFINITION",
     "S4-E22.1": "PASS_PROVIDER_INDICATOR_REGISTRY", "S4-E22.2": "PASS_IMMUTABLE_OBSERVATION_SCHEMA", "S4-E22.3": "PASS_GLOBAL_LAGOS_40_NODE_VENUE_REGISTRY", "S4-E22.4": "PASS_COORDINATE_VERIFICATION_WORKFLOW", "S4-E22.5": "PASS_PROVIDER_ADAPTER_BOUNDARY",
-    "S4-E22.6": "PASS_VIDEO_EVIDENCE_CRYPTOGRAPHIC_BOUNDARY"
+    "S4-E22.6": "PASS_VIDEO_EVIDENCE_CRYPTOGRAPHIC_BOUNDARY", "S4-E22.7": "PASS_DETERMINISTIC_EVIDENCE_PACKAGE_CONTRACT", "S4-E22.8": "PASS_GLOBAL_LAGOS_WEBGL_EVIDENCE_SURFACE", "S4-E22.9": "PASS_PROJECT_NAVIGATION_SURFACE", "S4-E22.10": "PASS_NODE_EVIDENCE_CARDS", "S4-E22.11": "PASS_PUBLIC_SAFE_VERIFICATION_VIEW", "S4-E22.12": "PASS_INVESTOR_EVIDENCE_VIEW"
   },
   "mandatory_s4_evidence": [
     "empirical rainfall validation", "forecast accuracy against measured telemetry", "water-quality/QMS verification", "DMRV review", "GHG methodology review", "regulatory review", "security review", "authorized pilot-site surveys and verified geotags", "provider integration and reconciliation tests", "controlled video capture, hash-chain, manifest reconstruction, access-control and DMRV linkage tests"
   ],
-  "next_sequence": [
-    "S4-E22.7 immutable observation evidence package builder",
-    "S4-E22.8 Global Lagos WebGL evidence-node integration",
-    "S4-E22.9 project/header/footer route integration",
-    "S4-E22.10 individual node evidence cards",
-    "S4-E22.11 public verification view",
-    "S4-E22.12 investor evidence view",
-    "S4-E22.13 controlled provider integration test",
-    "S4-E22.14 controlled video evidence integration test"
-  ],
+  "next_sequence": ["S4-E22.13 controlled provider integration test", "S4-E22.14 controlled video evidence integration test"],
+  "frontend_completion": {
+    "landing": "implemented",
+    "global_lagos_40_node_surface": "implemented",
+    "node_inspection_cards": "implemented",
+    "indicator_source_pairs": "implemented",
+    "evidence_registry": "implemented",
+    "dmrv_view": "implemented",
+    "esg_ghg_view": "implemented",
+    "investor_view": "implemented",
+    "video_evidence_port": "implemented_as_gated_field_validation_surface",
+    "public_security_boundary": "implemented",
+    "responsive_mobile_surface": "implemented"
+  },
   "production_claim_policy": "Never promote forecast, modelled, calculated or estimated values to measured or verified without evidence.",
   "reportability_policy": "REPORTABLE means provenance, timestamp, coordinate, unit, methodology, quality and reconciliation rules pass; REPORTABLE does not mean MEASURED, VERIFIED or ANCHORED.",
   "live_feed_policy": "Only genuine provider transport capabilities may be labelled PUSH_STREAM. HTTP retrieval remains POLLING_API; retrospective datasets remain ARCHIVE_QUERY. Video transport is separately classified as WebRTC, SRT, RTSP bridge or archived media and must not be conflated with environmental sensor transport.",
-  "video_evidence_policy": "Video is corroborating provenance evidence, not standalone proof of physical harvest, quantity, water quality or compliance. Cryptographic integrity is established through segment hashes, linked manifests and an evidence root; verification requires independent DMRV reconciliation."
+  "video_evidence_policy": "Video is corroborating provenance evidence, not standalone proof of physical harvest, quantity, water quality or compliance. Cryptographic integrity is established through segment hashes, linked manifests and an evidence root; verification requires independent DMRV reconciliation.",
+  "implementation_note": "S4-E22.7 establishes the deterministic evidence-package contract; runtime provider/video integration remains gated by S4-E22.13 and S4-E22.14."
 }
