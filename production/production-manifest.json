@@ -26,7 +26,12 @@
     "P19": "PASS_INVESTMENT_READINESS_CORE",
     "P20": "PASS_CORE_MEASURED_TELEMETRY_ADAPTER",
     "S4-E13": "PASS_CORE_EVENT_INTEGRATION",
-    "S4-E21": "PASS_GLOBAL_LAGOS_PILOT_GRID_DEFINITION"
+    "S4-E21": "PASS_GLOBAL_LAGOS_PILOT_GRID_DEFINITION",
+    "S4-E22.1": "PASS_PROVIDER_INDICATOR_REGISTRY",
+    "S4-E22.2": "PASS_IMMUTABLE_OBSERVATION_SCHEMA",
+    "S4-E22.3": "PASS_GLOBAL_LAGOS_40_NODE_VENUE_REGISTRY",
+    "S4-E22.4": "PASS_COORDINATE_VERIFICATION_WORKFLOW",
+    "S4-E22.5": "PASS_PROVIDER_ADAPTER_BOUNDARY"
   },
   "mandatory_s4_evidence": [
     "empirical rainfall validation",
@@ -36,17 +41,20 @@
     "GHG methodology review",
     "regulatory review",
     "security review",
-    "authorized pilot-site surveys and verified geotags"
+    "authorized pilot-site surveys and verified geotags",
+    "provider integration and reconciliation tests"
   ],
   "next_sequence": [
-    "S4-E14 measured telemetry reconciliation integration",
-    "S4-E15 water-lab/QMS evidence adapter",
-    "S4-E16 deterministic DMRV package builder",
-    "S4-E17 ESG/GHG reporting integration",
-    "S4-E18 blockchain evidence anchor integration",
-    "S4-E19 verifier/investor frontend data integration",
-    "S4-E20 controlled end-to-end integration test",
-    "S4-E22 Global Lagos frontend integration and venue verification workflow"
+    "S4-E22.6 primary/secondary reconciliation engine",
+    "S4-E22.7 immutable observation evidence package builder",
+    "S4-E22.8 Global Lagos WebGL evidence-node integration",
+    "S4-E22.9 project/header/footer route integration",
+    "S4-E22.10 individual node evidence cards",
+    "S4-E22.11 public verification view",
+    "S4-E22.12 investor evidence view",
+    "S4-E22.13 controlled provider integration test"
   ],
-  "production_claim_policy": "Never promote forecast, modelled, calculated or estimated values to measured or verified without evidence."
+  "production_claim_policy": "Never promote forecast, modelled, calculated or estimated values to measured or verified without evidence.",
+  "reportability_policy": "REPORTABLE means provenance, timestamp, coordinate, unit, methodology, quality and reconciliation rules pass; REPORTABLE does not mean MEASURED, VERIFIED or ANCHORED.",
+  "live_feed_policy": "Only genuine provider transport capabilities may be labelled PUSH_STREAM. HTTP retrieval remains POLLING_API; retrospective datasets remain ARCHIVE_QUERY."
 }
