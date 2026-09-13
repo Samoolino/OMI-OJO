@@ -1,0 +1,25 @@
+{
+  "schema_version": "BE-INVESTOR-0.1",
+  "status": "IMPLEMENTED_PENDING_VERIFICATION",
+  "sections": [
+    "project_constitution",
+    "business_model",
+    "production_methodology",
+    "rainfall_validation",
+    "forecast_performance",
+    "collection_infrastructure",
+    "harvest_evidence",
+    "water_quality",
+    "premium_harvest_methodology",
+    "dmrv_methodology",
+    "esg_framework",
+    "ghg_methodology",
+    "regulatory_mapping",
+    "verification_reports",
+    "financial_model",
+    "risk_register",
+    "blockchain_proofs",
+    "production_dashboard"
+  ],
+  "claim_policy": "No live, financial, ESG, GHG or water-quality claim is promoted to VERIFIED without corresponding evidence and approval status."
+}
