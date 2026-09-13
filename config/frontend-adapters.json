@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "principle": "Adapters enrich visualization and evidence workflows; they never upgrade evidence status by themselves.",
+  "adapters": [
+    {
+      "id": "webgl-core",
+      "role": "interactive-climate-visualization",
+      "status": "IMPLEMENTED",
+      "credentials": false,
+      "truth_boundary": "visualization-only"
+    },
+    {
+      "id": "mapbox-gl",
+      "role": "3d-geospatial-weather-and-catchment-context",
+      "status": "READY_TO_CONNECT",
+      "credentials": true,
+      "truth_boundary": "map/spatial-context; project evidence remains authoritative",
+      "source": "https://docs.mapbox.com/mapbox-gl-js/guides/"
+    },
+    {
+      "id": "climatiq",
+      "role": "ghg-emission-factor-and-co2e-calculation",
+      "status": "READY_TO_CONNECT",
+      "credentials": true,
+      "server_side_only": true,
+      "truth_boundary": "calculation result requires preserved factor, activity data, methodology and audit trail",
+      "source": "https://www.climatiq.io/docs/api-reference"
+    },
+    {
+      "id": "site-rain-gauge",
+      "role": "measured-rainfall-telemetry",
+      "status": "PENDING_DEVICE_QA",
+      "credentials": true,
+      "truth_boundary": "measured evidence only after instrument identity, calibration and QA are accepted"
+    },
+    {
+      "id": "water-lab",
+      "role": "water-quality-and-qms",
+      "status": "PENDING_QMS_MAPPING",
+      "credentials": true,
+      "truth_boundary": "quality evidence only after chain-of-custody, method and laboratory review"
+    },
+    {
+      "id": "blockchain-anchor",
+      "role": "evidence-proof-anchor",
+      "status": "DRY_RUN_ADAPTER",
+      "credentials": true,
+      "truth_boundary": "on-chain proof only after real transaction and independent proof capture"
+    }
+  ]
+}
