@@ -1,0 +1,37 @@
+{
+  "schema_id": "GLOBAL-LAGOS-EVIDENCE-PACKAGE-1",
+  "record_type": "GLOBAL_LAGOS_EVIDENCE_PACKAGE",
+  "version": "1.0.0",
+  "canonicalization": "UTF-8 JSON with lexicographically sorted object keys; arrays retain declared order",
+  "hash_algorithm": "SHA-256",
+  "append_only": true,
+  "correction_policy": "Corrections create a successor package linked to superseded_package_id; originals are never overwritten.",
+  "required_components": [
+    "observation_records",
+    "provider_provenance",
+    "coordinate_provenance",
+    "quality_and_reconciliation",
+    "video_evidence_manifests",
+    "event_links",
+    "review_state"
+  ],
+  "video_component": {
+    "required_fields": ["manifest_id", "segment_hashes", "previous_hash", "manifest_hash", "evidence_root", "anchor_status"],
+    "standalone_claim_limit": "Video corroborates process provenance but cannot alone establish rainfall quantity, water quality, custody, authenticity or compliance."
+  },
+  "promotion_rules": {
+    "REPORTABLE": "All required provenance, time, coordinate, unit, methodology and quality fields pass configured rules.",
+    "VALIDATED": "Reportable evidence passes deterministic reconciliation and review rules.",
+    "VERIFIED": "Authorized independent review confirms the evidence package and linked records.",
+    "ANCHORED": "The canonical evidence root has been successfully anchored to an approved blockchain network."
+  },
+  "fail_closed": [
+    "missing_provenance",
+    "missing_timestamp",
+    "missing_unit",
+    "broken_video_hash_chain",
+    "conflicting_sources",
+    "unresolved_coordinate_mismatch",
+    "unauthorized_security_sensitive_location"
+  ]
+}
