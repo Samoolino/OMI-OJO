@@ -24,7 +24,8 @@
     "P17": "PASS_FINAL_MAKEFILE",
     "P18": "PASS_CORE_ADAPTER",
     "P19": "PASS_INVESTMENT_READINESS_CORE",
-    "P20": "PASS_CORE_MEASURED_TELEMETRY_ADAPTER"
+    "P20": "PASS_CORE_MEASURED_TELEMETRY_ADAPTER",
+    "S4-E13": "PASS_CORE_EVENT_INTEGRATION"
   },
   "mandatory_s4_evidence": [
     "empirical rainfall validation",
@@ -36,7 +37,6 @@
     "security review"
   ],
   "next_sequence": [
-    "S4-E13 event integration",
     "S4-E14 measured telemetry reconciliation integration",
     "S4-E15 water-lab/QMS evidence adapter",
     "S4-E16 deterministic DMRV package builder",
