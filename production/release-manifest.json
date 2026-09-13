@@ -1,0 +1,10 @@
+{
+  "release_id": "BE-S3-P16",
+  "status": "CONTROLLED_PRE_PRODUCTION",
+  "milestone": "M-1",
+  "sequence": "P1-P16",
+  "deployment_policy": "Production deployment remains gated until P15 readiness evidence passes.",
+  "network_policy": "Blockchain anchoring is adapter-based; raw telemetry remains off-chain.",
+  "claim_policy": "Investor, ESG, GHG, regulatory and water-quality claims require source evidence and approval status.",
+  "current_release_class": "S3_IMPLEMENTED"
+}
