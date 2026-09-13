@@ -1,0 +1,33 @@
+{
+  "schema_version": "BE-S4-SOURCE-1",
+  "policy": "Sources are registered before ingestion; ingestion does not imply verification.",
+  "sources": [
+    {
+      "source_id": "open-meteo-forecast",
+      "provider": "Open-Meteo",
+      "kind": "FORECAST",
+      "trust_tier": 2,
+      "variables": ["precipitation", "temperature", "relative_humidity", "pressure", "wind_speed"],
+      "enabled": true,
+      "verification_status": "PENDING_OPERATOR_VALIDATION"
+    },
+    {
+      "source_id": "site-rain-gauge",
+      "provider": "SITE_SENSOR",
+      "kind": "STATION",
+      "trust_tier": 1,
+      "variables": ["precipitation"],
+      "enabled": false,
+      "verification_status": "PENDING_DEVICE_QA"
+    },
+    {
+      "source_id": "water-lab-result",
+      "provider": "ACCREDITED_LAB",
+      "kind": "LAB",
+      "trust_tier": 1,
+      "variables": ["water_quality"],
+      "enabled": false,
+      "verification_status": "PENDING_QMS_MAPPING"
+    }
+  ]
+}
