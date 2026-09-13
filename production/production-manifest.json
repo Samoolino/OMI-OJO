@@ -5,56 +5,28 @@
   "system": "Blue-Ether OS",
   "status": "S4_IMPLEMENTATION_IN_PROGRESS",
   "gates": {
-    "P1": "PASS",
-    "P2": "PASS",
-    "P3": "PASS",
-    "P4": "PASS",
-    "P5": "PASS",
-    "P6": "PASS",
-    "P7": "PASS",
-    "P8": "PASS",
-    "P9": "PASS",
-    "P10": "PASS",
-    "P11": "PASS_DRY_RUN_ADAPTER",
-    "P12": "PASS_CORE",
-    "P13": "PASS",
-    "P14": "PASS_CORE_TESTS",
-    "P15": "PENDING_EMPIRICAL_VERIFICATION",
-    "P16": "PENDING_PRODUCTION_RELEASE",
-    "P17": "PASS_FINAL_MAKEFILE",
-    "P18": "PASS_CORE_ADAPTER",
-    "P19": "PASS_INVESTMENT_READINESS_CORE",
-    "P20": "PASS_CORE_MEASURED_TELEMETRY_ADAPTER",
-    "S4-E13": "PASS_CORE_EVENT_INTEGRATION",
-    "S4-E21": "PASS_GLOBAL_LAGOS_PILOT_GRID_DEFINITION",
-    "S4-E22.1": "PASS_PROVIDER_INDICATOR_REGISTRY",
-    "S4-E22.2": "PASS_IMMUTABLE_OBSERVATION_SCHEMA",
-    "S4-E22.3": "PASS_GLOBAL_LAGOS_40_NODE_VENUE_REGISTRY",
-    "S4-E22.4": "PASS_COORDINATE_VERIFICATION_WORKFLOW",
-    "S4-E22.5": "PASS_PROVIDER_ADAPTER_BOUNDARY"
+    "P1": "PASS", "P2": "PASS", "P3": "PASS", "P4": "PASS", "P5": "PASS", "P6": "PASS", "P7": "PASS", "P8": "PASS", "P9": "PASS", "P10": "PASS",
+    "P11": "PASS_DRY_RUN_ADAPTER", "P12": "PASS_CORE", "P13": "PASS", "P14": "PASS_CORE_TESTS", "P15": "PENDING_EMPIRICAL_VERIFICATION", "P16": "PENDING_PRODUCTION_RELEASE", "P17": "PASS_FINAL_MAKEFILE",
+    "P18": "PASS_CORE_ADAPTER", "P19": "PASS_INVESTMENT_READINESS_CORE", "P20": "PASS_CORE_MEASURED_TELEMETRY_ADAPTER",
+    "S4-E13": "PASS_CORE_EVENT_INTEGRATION", "S4-E21": "PASS_GLOBAL_LAGOS_PILOT_GRID_DEFINITION",
+    "S4-E22.1": "PASS_PROVIDER_INDICATOR_REGISTRY", "S4-E22.2": "PASS_IMMUTABLE_OBSERVATION_SCHEMA", "S4-E22.3": "PASS_GLOBAL_LAGOS_40_NODE_VENUE_REGISTRY", "S4-E22.4": "PASS_COORDINATE_VERIFICATION_WORKFLOW", "S4-E22.5": "PASS_PROVIDER_ADAPTER_BOUNDARY",
+    "S4-E22.6": "PASS_VIDEO_EVIDENCE_CRYPTOGRAPHIC_BOUNDARY"
   },
   "mandatory_s4_evidence": [
-    "empirical rainfall validation",
-    "forecast accuracy against measured telemetry",
-    "water-quality/QMS verification",
-    "DMRV review",
-    "GHG methodology review",
-    "regulatory review",
-    "security review",
-    "authorized pilot-site surveys and verified geotags",
-    "provider integration and reconciliation tests"
+    "empirical rainfall validation", "forecast accuracy against measured telemetry", "water-quality/QMS verification", "DMRV review", "GHG methodology review", "regulatory review", "security review", "authorized pilot-site surveys and verified geotags", "provider integration and reconciliation tests", "controlled video capture, hash-chain, manifest reconstruction, access-control and DMRV linkage tests"
   ],
   "next_sequence": [
-    "S4-E22.6 primary/secondary reconciliation engine",
     "S4-E22.7 immutable observation evidence package builder",
     "S4-E22.8 Global Lagos WebGL evidence-node integration",
     "S4-E22.9 project/header/footer route integration",
     "S4-E22.10 individual node evidence cards",
     "S4-E22.11 public verification view",
     "S4-E22.12 investor evidence view",
-    "S4-E22.13 controlled provider integration test"
+    "S4-E22.13 controlled provider integration test",
+    "S4-E22.14 controlled video evidence integration test"
   ],
   "production_claim_policy": "Never promote forecast, modelled, calculated or estimated values to measured or verified without evidence.",
   "reportability_policy": "REPORTABLE means provenance, timestamp, coordinate, unit, methodology, quality and reconciliation rules pass; REPORTABLE does not mean MEASURED, VERIFIED or ANCHORED.",
-  "live_feed_policy": "Only genuine provider transport capabilities may be labelled PUSH_STREAM. HTTP retrieval remains POLLING_API; retrospective datasets remain ARCHIVE_QUERY."
+  "live_feed_policy": "Only genuine provider transport capabilities may be labelled PUSH_STREAM. HTTP retrieval remains POLLING_API; retrospective datasets remain ARCHIVE_QUERY. Video transport is separately classified as WebRTC, SRT, RTSP bridge or archived media and must not be conflated with environmental sensor transport.",
+  "video_evidence_policy": "Video is corroborating provenance evidence, not standalone proof of physical harvest, quantity, water quality or compliance. Cryptographic integrity is established through segment hashes, linked manifests and an evidence root; verification requires independent DMRV reconciliation."
 }
