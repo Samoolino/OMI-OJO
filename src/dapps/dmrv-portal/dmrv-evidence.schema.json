@@ -1,0 +1,18 @@
+{
+  "title": "Blue-Ether DMRV observed evidence v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidenceId", "lcdaId", "observedAt", "rainfallMm", "yieldLitres", "measurementClass", "payloadHash", "metadata"],
+  "properties": {
+    "evidenceId": { "type": "string", "pattern": "^0x[a-fA-F0-9]{64}$" },
+    "lcdaId": { "type": "string", "minLength": 1 },
+    "observedAt": { "type": "string" },
+    "rainfallMm": { "type": "number", "minimum": 0 },
+    "yieldLitres": { "type": "number", "minimum": 0 },
+    "measurementClass": { "const": "OBSERVED" },
+    "payloadHash": { "type": "string", "pattern": "^0x[a-fA-F0-9]{64}$" },
+    "sourceHash": { "type": "string", "pattern": "^0x[a-fA-F0-9]{64}$" },
+    "metadataHash": { "type": "string", "pattern": "^0x[a-fA-F0-9]{64}$" },
+    "metadata": { "type": "object" }
+  }
+}
