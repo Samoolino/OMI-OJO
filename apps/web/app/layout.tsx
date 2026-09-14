@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}</body></html>;
+  return <html lang="en"><body><div style={{position:"sticky",top:0,zIndex:1000,padding:"8px 16px",textAlign:"center",background:"rgba(5,24,25,.94)",borderBottom:"1px solid rgba(120,190,160,.18)"}}><a href="/lagos-to-dubai" style={{textDecoration:"none",fontSize:12,letterSpacing:".08em"}}>LAGOS → DUBAI · GLOBAL PREMIUM RAINWATER + ESG EVIDENCE PILOT</a></div>{children}</body></html>;
 }
