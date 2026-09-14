@@ -1,0 +1,126 @@
+{
+  "schema_id": "LAGOS-TO-DUBAI-GLOBAL-PILOT-1",
+  "project": "LAGOS TO DUBAI",
+  "anchor": "GLOBAL LAGOS",
+  "purpose": "Extend the Blue-Ether environmental evidence and Premium RainWater reporting model across selected Lagos-linked geographic pilots while preserving source provenance, non-contradiction, DMRV and public-safe reporting controls.",
+  "status": "DESIGNED_FOR_IMPLEMENTATION",
+  "claim_policy": "A geographic node is not evidence of measurement, harvest, production or verification. Claims require source-backed observations and the configured evidence lifecycle.",
+  "node_nomenclature": {
+    "node_id": "Country/administrative/site stable identifier",
+    "administrative_level": "Authoritative political/geographic level",
+    "anchor_node": "Named Lagos-linked geographic connector",
+    "representative_node": "National or regional monitoring placeholder pending site qualification",
+    "harvest_node": "Future authorized physical rainwater collection site",
+    "evidence_state": "UNCONFIGURED|READY|REPORTABLE|VALIDATED|VERIFIED|ANCHORED"
+  },
+  "countries": [
+    {
+      "country_id": "NG",
+      "name": "Nigeria",
+      "anchor": "Lagos Nigeria",
+      "strategy": "REFERENCE_PILOT",
+      "administrative_model": "state > LGA > LCDA > site",
+      "node_plan": "37 LCDAs + 3 institutional/environmental nodes",
+      "status": "ACTIVE_DESIGN"
+    },
+    {
+      "country_id": "PT",
+      "name": "Portugal",
+      "anchor": "Lagos, Algarve",
+      "strategy": "NATIONAL_DISTRICT_GRID",
+      "administrative_model": "district/autonomous region > municipality > parish > site",
+      "node_plan": "Portugal-wide district representation with Lagos Algarve as connector; expand to municipalities/parishes as qualified",
+      "data_strategy": "IPMA observations/forecasts + approved satellite/archive sources",
+      "status": "READY_FOR_COUNTRY_GRID"
+    },
+    {
+      "country_id": "CL",
+      "name": "Chile",
+      "anchor": "Los Lagos Region",
+      "project_label": "Dos Lagos",
+      "strategy": "REGIONAL_ANCHOR_PLUS_NATIONAL_GRID",
+      "administrative_model": "region > province > commune > site",
+      "node_plan": "Los Lagos detailed sub-grid plus representative nodes for other regions; expand to provinces/communes as qualified",
+      "data_strategy": "MeteoChile observations/forecasts + approved satellite/archive sources",
+      "status": "READY_FOR_COUNTRY_GRID",
+      "naming_rule": "Dos Lagos is project branding; Los Lagos is the official administrative reference."
+    },
+    {
+      "country_id": "MX",
+      "name": "Mexico",
+      "anchor": "Lagos de Moreno, Jalisco",
+      "strategy": "ANCHOR_STATE_PLUS_NATIONAL_GRID",
+      "administrative_model": "federal entity > municipality > locality/site",
+      "node_plan": "Lagos de Moreno/Jalisco detailed representation plus one representative node per other federal entity initially",
+      "data_strategy": "INEGI geographic/statistical framework + approved meteorological/air-quality sources",
+      "status": "READY_FOR_COUNTRY_GRID"
+    },
+    {
+      "country_id": "BR",
+      "name": "Brazil",
+      "anchor": null,
+      "strategy": "PENDING_ANCHOR",
+      "administrative_model": "state/federal district > municipality > district > subdistrict > site",
+      "node_plan": "Reserve national/state/city pages and node framework; do not assign a Lagos anchor until geographic identity is confirmed",
+      "data_strategy": "IBGE geographic framework + INMET/environmental sources",
+      "status": "PENDING_ANCHOR"
+    },
+    {
+      "country_id": "AE",
+      "name": "United Arab Emirates",
+      "anchor": "Dubai",
+      "strategy": "FEDERATION_GRID",
+      "administrative_model": "emirate > municipality/urban area > site",
+      "node_plan": "Seven emirate nodes with Dubai as thematic connector; expand qualified urban/environmental sites",
+      "data_strategy": "UAE official environmental/air-quality infrastructure + meteorological/satellite sources",
+      "status": "READY_FOR_COUNTRY_GRID"
+    }
+  ],
+  "universal_indicators": [
+    "rainfall",
+    "rainfall_prediction",
+    "atmospheric_moisture",
+    "temperature",
+    "relative_humidity",
+    "wind",
+    "pressure",
+    "solar_radiation",
+    "NO2",
+    "SO2",
+    "O3",
+    "CO",
+    "PM2.5",
+    "PM10",
+    "aerosol_dust",
+    "water_quality_future_field_layer",
+    "GHG_activity_data",
+    "ESG_social_indicators",
+    "ESG_governance_indicators",
+    "regulatory_evidence"
+  ],
+  "feed_states": ["UNCONFIGURED", "READY", "CONFIGURED", "RECEIVING", "DEGRADED", "OFFLINE", "ARCHIVE_READY"],
+  "transport_classes": ["POLLING_API", "PUSH_STREAM", "ARCHIVE_QUERY", "WEBRTC", "SRT", "RTSP_BRIDGE"],
+  "source_rule": "Only documented provider capabilities may determine transport class. HTTP is POLLING_API; historical datasets are ARCHIVE_QUERY.",
+  "non_contradiction_engine": {
+    "required_before_claim": ["source", "source_id", "observation_time", "retrieval_time", "location", "unit", "data_class", "methodology_version", "quality_status"],
+    "checks": ["temporal_alignment", "spatial_alignment", "unit_compatibility", "methodology_compatibility", "source_provenance", "duplicate_detection", "claim_scope", "cross_source_difference"],
+    "fail_closed": ["missing_provenance", "missing_timestamp", "missing_unit", "unresolved_coordinate_mismatch", "material_source_conflict", "unsupported_claim_promotion"],
+    "principle": "Non-contradiction is established through disclosed methodology and reconciliation; sources are not blindly averaged."
+  },
+  "premium_rainwater": {
+    "current_state": "REPORTING_DESIGN_ONLY",
+    "product_identity": "Premium RainWater evidence-linked product",
+    "condition_basis": ["rainfall_event", "antecedent_conditions", "atmospheric_conditions", "collection_conditions", "first_flush", "future_water_quality", "batch_provenance"],
+    "rule": "Premium classification must reference an evidence package and cannot be inferred from geography, forecast or branding alone."
+  },
+  "analytics": {
+    "tableau": "ANALYTICS_AND_MAPPING_LAYER",
+    "authority": "Blue-Ether canonical evidence records remain authoritative",
+    "planned_views": ["country map", "administrative districts", "node status", "rainfall", "atmospheric conditions", "ESG", "GHG", "impact", "comparative pilot"]
+  },
+  "blockchain": {
+    "role": "evidence integrity and verification anchor",
+    "sequence": "source -> observation -> QA -> reconciliation -> canonical evidence package -> SHA-256 evidence root -> supported network anchor -> verification registry",
+    "rule": "Blockchain anchoring does not make an unsupported environmental claim true; the source-backed evidence package remains authoritative."
+  }
+}
