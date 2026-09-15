@@ -1,228 +1,277 @@
-# OMI-OJO — INMerge Institutional Investment Pitch
+# OMI-OJO — Institutional Investment Pitch Deck
 
 **Submission edition:** 2026  
 **Stage:** M-1 / controlled infrastructure validation  
 **Reference deployment:** Lagos, Nigeria  
 **Expansion thesis:** Europe + Caucasus + Central Asia  
+**Commercial thesis:** ESG/data infrastructure first; Premium environmental-market evidence as an add-on  
 
-> **Important:** all current traction/readiness statements are evidence-scoped. Physical production, verified carbon credits, potable-water status and commercial revenue are not claimed unless independently evidenced.
+> **Evidence discipline:** physical production, verified carbon credits, potable-water status and commercial revenue are not claimed unless independently evidenced.
 
 ## Slide 1 — Cover
 
 ### OMI-OJO
-**Climate-Water Intelligence & Digital MRV Infrastructure**
+**Climate-Water Intelligence, Evidence & Digital MRV Infrastructure**
 
-**Built from Lagos. Designed for water-resilient cities.**
+**Built from Lagos. Designed for EuroAsia. Structured for global deployment.**
 
-Environmental data → technical measurement → evidence → verification → institutional reporting.
+Environmental data → technical measurement → verification infrastructure → ESG/GHG reporting → institutional decision-making.
 
-## Slide 2 — The problem
+## Slide 2 — The institutional problem
 
-Climate-water projects are increasingly important, but the evidence chain is fragmented.
+Climate-water projects generate data, but the evidence chain is fragmented.
 
-- rainfall and environmental data come from different providers;
+- weather and environmental sources differ in provenance and resolution;
 - physical interventions are difficult to reconcile with digital records;
-- ESG reports can separate claims from source evidence;
-- investors/funders need auditable milestone evidence;
-- future environmental-credit projects require defensible monitoring and verification.
+- ESG reporting can separate claims from source evidence;
+- funders and investors need milestone-level proof;
+- infrastructure operators need auditable operational records;
+- future environmental-credit projects require methodology-specific monitoring and verification.
 
-**The gap:** infrastructure exists, data exists, reporting exists — but the evidence spine between them is weak.
+**The gap:** data, infrastructure and reporting exist separately; the evidence spine connecting them is weak.
 
 ## Slide 3 — The solution
 
-OMI-OJO is the evidence and intelligence layer connecting:
+OMI-OJO is the **evidence and intelligence layer** connecting:
 
-**Climate data + field telemetry + physical water assets + DMRV + institutional reporting + integrity anchoring.**
+**Climate data + field telemetry + physical water assets + technical measurement + DMRV + institutional reporting + integrity anchoring.**
 
-The platform does not replace sensors, laboratories, regulators or independent verifiers. It makes their evidence interoperable and traceable.
+It does not replace sensors, laboratories, regulators or independent verifiers. It makes their evidence interoperable, traceable and reviewable.
 
-## Slide 4 — Product architecture
+## Slide 4 — Business architecture
 
 ```text
-DATA SOURCES
-Weather / satellite / site / telemetry / video
-          ↓
-OMI-OJO DATA & QUALITY LAYER
-Provenance / timestamp / coordinate / unit / method
-          ↓
-WATER + CLIMATE INTELLIGENCE
-Rain events / collection models / efficiency / risk
-          ↓
-DMRV ENGINE
-Evidence package / reconciliation / review
-          ↓
-INTEGRITY LAYER
-SHA-256 root / blockchain anchor / public verifier
-          ↓
-INSTITUTIONAL OUTPUTS
-ESG / GHG / funder / investor / regulatory reporting
+DATA & INTELLIGENCE
+weather / satellite / site / telemetry
+             ↓
+MEASUREMENT & INFRASTRUCTURE
+nodes / rainfall / water / QMS
+             ↓
+EVIDENCE & DMRV
+provenance / QC / reconciliation / review
+             ↓
+INTEGRITY
+SHA-256 roots / blockchain anchors
+             ↓
+INSTITUTIONAL REPORTING
+ESG / GHG / funder / investor / regulatory
+             ↓
+PREMIUM ENVIRONMENTAL-MARKET LAYER
+methodology-ready carbon-relevant evidence
 ```
 
-## Slide 5 — What is already built
+## Slide 5 — Product suite
 
-Repository baseline identifies:
+### OMI-OJO OS
+Evidence registry, ingestion, DMRV, reviewer workflow and institutional reporting.
 
-- M-1 Investor-Ready Evidence Core;
-- P1–P20 software/data/evidence foundation;
-- Global Lagos 40-node surface;
-- immutable observation/provenance boundaries;
-- provider transport classifications;
-- deterministic evidence-package contract;
-- public-safe verification surface;
-- investor evidence view;
-- DMRV and ESG/GHG presentation surfaces;
-- Lagos-to-Dubai geographic expansion surface;
-- controlled grant/network strategy surface.
+### OMI-OJO Nodes
+Hardware-agnostic physical measurement and telemetry interface.
 
-**Current limitation:** controlled runtime, empirical field validation and physical production remain gated.
+### OMI-OJO Intelligence
+Rainfall, collection, water-efficiency, drought/stormwater and climate-risk analytics.
+
+### OMI-OJO MRV
+Deterministic evidence packages, reconciliation, review states and integrity proofs.
+
+### OMI-OJO Institutional
+ESG/GHG, VDR, funder, operator and regulatory reporting.
+
+### OMI-OJO Premium
+Enhanced measurement, QMS/water-quality evidence and methodology-ready environmental/carbon evidence as an add-on.
 
 ## Slide 6 — Evidence is the product moat
 
-Every material value carries an evidence class:
+Every material value has an explicit evidence class:
 
 `OBSERVED | FORECAST | MODELLED | SATELLITE | CALCULATED | PROXY`
 
-Every release carries a controlled status:
+Every release has a controlled state:
 
 `DESIGNED → IMPLEMENTED → INTEGRATION_READY → CONTROLLED_TEST → REPORTABLE → VALIDATED → VERIFIED → ANCHORED → RELEASED`
 
 This prevents a forecast becoming a measurement, a dashboard becoming verification, or a blockchain transaction becoming environmental truth.
 
-## Slide 7 — Lagos reference deployment
+## Slide 7 — Four proof layers
 
-**Global Lagos** is the proof environment.
+### 1. Concept proof
+Hypothesis, architecture, assumptions and intended use.
 
-Reference architecture:
+### 2. Technical proof
+Schemas, APIs, calculations, tests and deterministic evidence packages.
 
-- 37 LCDA-related nodes;
-- Governor's Office;
-- Governor's Residence under security-controlled representation;
-- NCF Lekki Conservation;
-- rainfall/environmental data layer;
-- controlled physical-validation pathway;
-- DMRV + ESG/GHG + institutional evidence layer.
+### 3. Field/product proof
+Authorized physical measurements and reproducible product operations.
 
-The repository explicitly treats the **400 L/pod/month** figure as a financial-model assumption until empirical telemetry validates it.
+### 4. Institutional proof
+Technical/QMS review, independent verification, integrity anchoring and release.
 
-## Slide 8 — EuroAsia expansion
+**Investment rule:** every claim in the deck is labelled by its actual proof layer.
 
-### One evidence architecture, multiple water-risk contexts
+## Slide 8 — Lagos reference deployment
 
-**Lagos / Nigeria**
-Wet-climate capture and urban resilience.
+**Global Lagos** is the empirical reference environment.
 
-**Europe**
-Water efficiency, rainwater/stormwater management, reuse and institutional reporting.
+Repository-defined architecture includes a 40-node Lagos surface, environmental-data layer, controlled physical-validation pathway and DMRV/ESG/GHG reporting layer.
 
-**Azerbaijan / Caucasus**
-Climate-water resilience and institutional/corporate infrastructure partnerships.
+The repository explicitly keeps physical production and empirical verification gated. The **400 L/pod/month** value remains a financial-model assumption until field telemetry supports it.
 
-**Central Asia**
-Drought intelligence, water efficiency, storage/irrigation evidence and resilience planning.
+## Slide 9 — EuroAsia expansion
 
-International deployments inherit technology/evidence semantics — never evidence values.
+### One evidence architecture, different water-risk contexts
 
-## Slide 9 — Business model
+**Lagos / Nigeria** — rainfall, capture, urban resilience and evidence proof.
 
-### Recurring
-- node/site SaaS
-- institutional DMRV subscription
-- ESG/GHG reporting subscription
-- environmental data/API access
+**Europe** — water efficiency, rainwater/stormwater management, reuse and institutional reporting.
 
-### Implementation
+**Azerbaijan / Caucasus** — climate-water resilience and institutional/corporate infrastructure partnerships.
+
+**Central Asia** — drought intelligence, water efficiency, irrigation/storage evidence and resilience planning.
+
+International deployments reuse technology/evidence semantics — **never evidence values**.
+
+## Slide 10 — Business model
+
+### Recurring software
+- node/site subscriptions
+- institutional DMRV/reporting subscriptions
+- data/API subscriptions
+
+### Deployment
 - site onboarding
 - telemetry/provider integration
-- DMRV configuration
-- evidence-system deployment
+- methodology configuration
+- evidence-system implementation
+
+### Institutional services
+- ESG/GHG reporting
+- VDR/evidence rooms
+- verification coordination
+- project monitoring
 
 ### Infrastructure
-- OMI-OJO Node deployment
-- measurement/telemetry integration
+- node/integration margin
+- measurement equipment integration
 
-### Institutional
-- funder/VDR evidence services
-- verification coordination
-- enterprise reporting
+### Premium
+Enhanced evidence continuity, QMS/water-quality workflows, methodology readiness and climate-finance evidence.
 
-### Future optional layer
-Environmental-credit project data infrastructure, subject to methodology, validation, verification and registry rules.
+## Slide 11 — Premium product: Carbon Evidence Amplification
 
-## Slide 10 — Carbon opportunity without carbon overclaim
+**Premium is an evidence product, not an automatic carbon-credit product.**
 
-**OMI-OJO does not claim that rainwater collection automatically creates carbon credits.**
+Premium adds:
 
-The platform creates high-quality activity data that may support eligible environmental-credit methodologies.
+- higher-frequency telemetry/evidence capture;
+- expanded environmental indicator library;
+- water-quality/QMS evidence workflows;
+- baseline/additionality evidence management;
+- methodology-ready calculation inputs;
+- independent-review coordination;
+- registry/standard preparation where applicable;
+- enhanced investor/climate-finance reporting.
 
-Required chain:
+### Controlled carbon pathway
 
-`ACTIVITY → METHODOLOGY → BASELINE → ADDITIONALITY → MONITORING → CALCULATION → VALIDATION → VERIFICATION → ISSUANCE → RETIREMENT`
+`ACTIVITY DATA → METHODOLOGY ELIGIBILITY → BASELINE/ADDITIONALITY → MONITORING → CALCULATION → VALIDATION → VERIFICATION → ISSUANCE → RETIREMENT`
 
-This separation protects investors, customers and the company from unsupported environmental claims.
+OMI-OJO does not claim a credit merely because water is captured, stored or reported.
 
-## Slide 11 — Investment and grant use
+## Slide 12 — Why the premium layer matters
 
-### Initial validation programme: US$50,000 target
+Core OMI-OJO monetizes **evidence infrastructure**.
 
-Illustrative work-package allocation:
+Premium monetizes the additional work required when a customer needs:
 
-- **WP1 — DMRV/evidence infrastructure:** US$12k
-- **WP2 — environmental data + telemetry:** US$8k
-- **WP3 — integrity anchoring + verifier:** US$7k
-- **WP4 — Lagos controlled field validation:** US$12k
-- **WP5 — ESG/GHG methodology + independent review:** US$6k
-- **WP6 — VDR/institutional commercialization:** US$5k
+**more measurements → stronger provenance → deeper technical evidence → methodology readiness → independent review → climate-finance/market documentation.**
 
-Budget is milestone-linked and subject to final procurement/quotes.
+This creates a higher-value enterprise package without making unissued carbon credits the base valuation premise.
 
-## Slide 12 — Milestones
+## Slide 13 — Market and customers
+
+### Primary customer groups
+- municipalities/public infrastructure operators
+- commercial buildings/campuses/hospitality
+- industrial/agricultural operators
+- corporate sustainability teams
+- climate/ESG programme sponsors
+- project developers and infrastructure financiers
+- development programmes/NGOs
+- insurers and resilience stakeholders
+- environmental data and verification partners
+
+### Expansion model
+Lagos reference → Azerbaijan/Caucasus gateway → European water-smart deployments → Central Asian drought/water-efficiency deployments.
+
+## Slide 14 — Traction / current proof status
+
+### Built / defined in the repository
+- M-1 Investor-Ready Evidence Core
+- P1–P20 software/data/evidence foundation
+- Global Lagos reference surface
+- evidence classes and status machine
+- deterministic evidence-package model
+- public verification concept
+- institutional/VDR reporting surfaces
+- Lagos-to-EuroAsia expansion architecture
+- carbon evidence policy and claim boundary
+
+### Still gated
+- controlled live provider integrations
+- empirical field telemetry
+- QMS/water-quality validation
+- independent DMRV review
+- physical production release
+- commercial revenue validation
+
+**This distinction is intentional and investment-grade.**
+
+## Slide 15 — Investment / grant programme
+
+### Initial validation target: US$50,000
+
+**WP1 — DMRV/evidence infrastructure:** $12k  
+**WP2 — environmental data + telemetry:** $8k  
+**WP3 — integrity anchoring + verifier:** $7k  
+**WP4 — Lagos controlled field validation:** $12k  
+**WP5 — ESG/GHG methodology + independent review:** $6k  
+**WP6 — VDR + EuroAsia commercialization:** $5k
+
+Funding is milestone-linked and subject to procurement/quotes.
+
+## Slide 16 — Milestones and acceptance evidence
 
 ### 0–3 months
-- controlled provider integration
-- universal node runtime
-- non-contradiction engine
-- VDR evidence index
-- blockchain anchor test
+Provider/telemetry integration, deterministic DMRV tests, VDR evidence index, integrity-anchor test.
+
+**Acceptance:** reproducible software/data test records.
 
 ### 3–6 months
-- authorized Lagos field deployment
-- measured telemetry
-- water/QMS evidence
-- controlled DMRV review
-- ESG/GHG methodology review
+Authorized Lagos field deployment, measured telemetry, water/QMS evidence, DMRV review.
+
+**Acceptance:** site authorization + measurement/QMS/review records.
 
 ### 6–12 months
-- institutional pilot contracts
-- Azerbaijan/Caucasus market-entry pilot
-- EU/Central Asia adaptation
-- repeatable node deployment model
+Institutional pilots, Azerbaijan/Caucasus market-entry pilot, EU/Central Asia adapters.
 
-## Slide 13 — Why now / why us
+**Acceptance:** customer/pilot evidence + country-specific controlled tests.
 
-**Why now:** climate-water resilience is moving from policy discussion to infrastructure, measurement and investment requirements.
+## Slide 17 — Competitive positioning
 
-**Why OMI-OJO:** the repository already separates evidence, validation, verification, integrity and production-release states instead of collapsing them into a marketing claim.
-
-**Why Lagos:** a demanding emerging-city reference environment provides a practical test of distributed climate-water evidence infrastructure.
-
-**Why EuroAsia:** the same platform can adapt to both high-rainfall resilience and water-scarcity/efficiency markets.
-
-## Slide 14 — Competitive positioning
-
-| Category | Typical strength | OMI-OJO position |
+| Category | Typical capability | OMI-OJO role |
 |---|---|---|
-| Weather APIs | environmental data | data + evidence lineage |
+| Weather APIs | environmental data | provenance + evidence lineage |
 | IoT platforms | telemetry | telemetry + DMRV |
 | ESG software | reporting | source-to-report evidence |
-| Carbon MRV | emissions projects | water/climate activity evidence + future carbon adapter |
-| Blockchain registries | integrity | integrity attached to evidence packages |
-| Water hardware | physical assets | hardware-agnostic evidence/control layer |
+| Carbon MRV | emissions projects | water/climate activity evidence + methodology adapter |
+| Blockchain registries | integrity | evidence-package integrity anchor |
+| Water hardware | physical infrastructure | hardware-agnostic evidence/control plane |
 
-**Positioning:** the control/evidence plane across these systems.
+**Position:** institutional evidence/control plane across data, infrastructure and reporting systems.
 
-## Slide 15 — Team & governance
+## Slide 18 — Team and governance
 
-Institutional operating roles defined in the repository:
+Institutional operating roles:
 
 - Executive/Project Sponsor
 - Technical Lead
@@ -234,19 +283,21 @@ Institutional operating roles defined in the repository:
 - Legal/Regulatory Lead
 - Independent Reviewer
 
-Founder/team names and LinkedIn references should be populated with verified profiles before submission.
+Founder/team names and verified LinkedIn profiles must be inserted before submission.
 
-## Slide 16 — The ask
+## Slide 19 — The ask
 
-### Seeking strategic capital, pilot partners and regional expansion
+### Seeking strategic capital, pilot customers and EuroAsia expansion partners
 
-**Immediate objective:** finance and validate the evidence infrastructure and Lagos reference deployment.
+**Immediate:** validate the Lagos reference deployment and institutional evidence infrastructure.
 
-**Strategic objective:** establish OMI-OJO as an institutional water-climate evidence layer for Europe, the Caucasus and Central Asia.
+**Next:** establish Azerbaijan/Caucasus market entry and European/Central Asian adapters.
 
-**Partner types:** municipalities, corporates, infrastructure operators, climate funds, development programmes, data providers, QMS laboratories, verification organisations and investors.
+**Commercial objective:** recurring evidence/DMRV revenue + infrastructure deployment + Premium environmental-market readiness.
 
-## Slide 17 — Closing
+**Partner types:** municipalities, corporates, infrastructure operators, climate funds, development programmes, data providers, laboratories, verification organisations and investors.
+
+## Slide 20 — Closing
 
 ### From environmental activity to investment-grade evidence.
 
@@ -258,25 +309,33 @@ Founder/team names and LinkedIn references should be populated with verified pro
 
 ---
 
-# Submission specification
+# Submission specification — INMerge 2026
 
-The current INMerge application requests: startup name, website, headquarters country, industry, a description of **500 characters or less**, logo, presentation deck, product, market size, business model, revenue/investments, team/LinkedIn references, stage, launch date, revenue to date, VC portfolio, external funding, English pitch ability, expectations and professional reference. INMerge's startup terms also require a legally established/in-process entity, controlled IP and a product/prototype/validated service ready for presentation.
+The current INMerge application requests startup name, website, headquarters country, industry, a **500-character-or-less** description, logo, presentation deck, product, market size, business model, revenue/investments, team/LinkedIn references, stage, launch date, revenue to date, VC portfolio, external funding, English-pitch ability, expectations and professional reference. urlOfficial INMerge applicationhttps://www.inmerge.az/startups/apply
 
-### Application facts to keep evidence-accurate
+INMerge's current startup terms state that the startup must be legally established or formally being established, own/control the submitted IP, and have a product, prototype or validated service ready for presentation. They also distinguish participation from any guarantee of selection or investment. urlINMerge startup termshttps://www.inmerge.az/startup-term-conditions
 
-- Revenue: enter actual revenue; use **0** if none.
-- External funding: enter actual non-bootstrapped funding; do not treat grants requested as funds raised.
+### Evidence-accurate application values
+
+- Revenue: actual revenue only; use 0 if none.
+- External funding: actual non-bootstrapped funding only.
 - VC portfolio: state accurately.
-- Product stage: **M-1 / controlled infrastructure validation** unless a later gate has passed.
-- Launch date: use the actual product/service launch date; do not backdate the physical production.
-- Carbon credits: do not list as issued unless actual registry evidence exists.
-- Team LinkedIn: use verified profile URLs only.
-- Professional reference: use a real, consented reference only.
+- Stage: M-1 / controlled infrastructure validation unless a later gate has passed.
+- Launch date: actual product/service launch date.
+- Carbon credits: do not list as issued without registry evidence.
+- Team LinkedIn: verified profiles only.
+- Professional reference: real, consented reference only.
 
-### INMerge positioning
+### Application positioning
 
 **Primary industry:** ClimateTech / Environmental Data / Water Infrastructure / ESG-MRV.
 
-**Primary expectations:** Raising Investments; Regional Expansion; Meeting new corporates; Networking; Grant Money Prize.
+**Expectations:** Raising Investments; Regional Expansion; Meeting new corporates; Networking; Grant Money Prize.
 
-**Core narrative:** an institutional evidence and intelligence platform originating in Lagos and expanding into EuroAsia water-resilience markets.
+**500-character application narrative:**
+
+> OMI-OJO is a climate-water intelligence and digital MRV platform that turns distributed water-resilience activity into traceable, institutionally reviewable evidence. It connects environmental data, technical measurements, physical water assets, ESG/GHG reporting and integrity anchoring. Lagos is the reference deployment; the platform is designed for Europe, the Caucasus and Central Asia. A Premium layer adds methodology-ready environmental/carbon evidence without treating activity data as an automatic carbon credit.
+
+### Deck design standard
+
+Use a clean institutional visual system: one proposition per slide, minimal text, diagrams for architecture, tables for commercial logic, explicit evidence-status labels, and no unverified impact headline. The narrative should follow **Problem → Solution → Product → Proof → Business → Premium → Market → Capital → Expansion → Ask**.
