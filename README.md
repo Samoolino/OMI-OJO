@@ -1,13 +1,17 @@
 # Blue-Ether OS
 
 **Repository:** `Samoolino/OMI-OJO`  
-**System:** Blue-Ether 37-LCDA Water + Environmental Data Operating System  
+**System:** Blue-Ether / OMI-OJO Climate-Water Intelligence & Environmental Evidence OS  
 **Milestone:** M-1 — Investor-Ready Evidence Core  
 **Current state:** Institutional production framework active; controlled runtime and physical validation remain gated.
 
-## Purpose
+## Business definition
 
-This repository is the version-controlled technical operating baseline and institutional evidence system for Project Blue-Ether. It connects predictive rainfall intelligence, environmental observations, controlled rainwater harvesting, premium-condition classification, water-quality/QMS evidence, bottling/seal provenance, DMRV, ESG/GHG reporting and blockchain evidence anchoring.
+OMI-OJO is a **climate-water intelligence and digital MRV infrastructure platform** connecting environmental data, technical measurements, physical water assets, evidence packaging, independent review, ESG/GHG reporting and blockchain integrity anchoring.
+
+**Reference deployment:** Lagos, Nigeria.  
+**Expansion thesis:** Europe + Caucasus + Central Asia.  
+**Business rule:** `ACTIVITY DATA ≠ ENVIRONMENTAL CLAIM ≠ VERIFIED CARBON CREDIT`.
 
 ## Production architecture
 
@@ -15,24 +19,22 @@ This repository is the version-controlled technical operating baseline and insti
 M-1 — INVESTOR-READY EVIDENCE CORE
 │
 ├── P1–P20  Software/data/evidence foundation
-│
 ├── S4      Controlled evidence integration
 │   ├── Providers + measured telemetry
 │   ├── Rain events + reconciliation
 │   ├── Video evidence
 │   ├── Water/QMS evidence
 │   └── DMRV / ESG / security / regulatory review
-│
-├── S5      Global Lagos → Dubai geographic scale
+├── S5      Global Lagos → EuroAsia expansion architecture
 │   ├── Nigeria reference pilot
-│   ├── Portugal
+│   ├── Portugal / EU adaptation
 │   ├── Chile / Los Lagos
 │   ├── Mexico / Lagos de Moreno
 │   ├── Brazil — anchor pending
-│   └── UAE — seven emirates / Dubai connector
-│
+│   ├── UAE / Dubai connector
+│   ├── Azerbaijan / Caucasus gateway
+│   └── Central Asia adaptation
 ├── S6A     Blockchain + builder/grant infrastructure validation
-│
 └── S6B     Physical Premium RainWater validation / production
 ```
 
@@ -42,6 +44,7 @@ M-1 — INVESTOR-READY EVIDENCE CORE
 Authorization
  → Source / Site Registration
  → Observation / Operation
+ → Technical Measurement
  → Quality Control
  → Reconciliation
  → Validation
@@ -53,6 +56,14 @@ Authorization
  → Milestone Acceptance
  → Release / Scale
 ```
+
+## Product stack
+
+1. **OMI-OJO OS** — evidence, DMRV and reporting platform.
+2. **OMI-OJO Nodes** — hardware-agnostic physical measurement/infrastructure interface.
+3. **OMI-OJO Intelligence** — rainfall, water-efficiency, collection and climate-risk analytics.
+4. **OMI-OJO MRV** — deterministic evidence packages, review workflow and verification surfaces.
+5. **OMI-OJO Institutional** — funder, investor/VDR, operator, regulatory and audit reporting.
 
 ## Physical-to-digital production chain
 
@@ -80,28 +91,43 @@ Forecasts remain forecasts. Measured telemetry remains measured telemetry. Model
 
 The **400 L/pod/month** value remains a financial-model assumption, not a certified production guarantee. `WAT-002B` and observed pod telemetry govern recalibration before production capacity is treated as bankable.
 
+## Carbon/environmental-credit boundary
+
+OMI-OJO can produce carbon-relevant activity data and support eligible environmental-credit projects, but it does not treat collection activity as an automatic carbon credit. Any credit pathway requires an applicable methodology, baseline, additionality, monitoring plan, calculation, validation, verification and registry issuance/retirement where applicable.
+
+**Current carbon status:** conceptual / carbon-relevant data only.
+
+See `docs/investment/OMI-OJO-CARBON-EVIDENCE-POLICY.md`.
+
 ## Institutional claim policy
 
 `REPORTABLE ≠ MEASURED ≠ VALIDATED ≠ VERIFIED ≠ ANCHORED ≠ RELEASED`.
 
 A configured interface is not a live feed. A forecast is not a measurement. A blockchain transaction is not environmental validation. A grant award is not production evidence. Geography alone cannot establish Premium RainWater status. No potable/human-consumption claim is permitted without applicable treatment, laboratory, QMS and regulatory evidence.
 
+## Investment package
+
+- `docs/investment/OMI-OJO-BUSINESS-SCOPE.md` — institutional business logic, product scope, customers, revenue model, proof layers and capital logic.
+- `docs/investment/OMI-OJO-INMERGE-PITCH-DECK.md` — submission-ready investment narrative and application specification.
+- `docs/investment/OMI-OJO-CARBON-EVIDENCE-POLICY.md` — controlled carbon/environmental-credit claim pathway.
+- `docs/investment/VDR/` — diligence/evidence room structure.
+- `docs/investment/VDR/ESG_EVIDENCE_COVENANT.md` — capital-to-impact reporting schedule.
+
 ## Funding and token boundary
 
-Builder/testnet/network gas credits are requested only as infrastructure resources needed to validate the evidence-anchoring system. Grant requests map funds to measurable work packages and acceptance evidence.
+Builder/testnet/network gas credits are infrastructure resources needed to validate the evidence-anchoring system. Grant requests map funds to measurable work packages and acceptance evidence.
 
-A project token is **DEFERRED** and is not required for the current institutional validation stage. Any future token would require a separate legal, tax, accounting, governance and product review.
+A project token is **DEFERRED** and is not required for the current institutional validation stage. Any future token requires separate legal, tax, accounting, governance and product review.
 
 ## Readiness policy
 
-`make readiness` is fail-closed. Empirical rainfall validation, forecast accuracy, controlled provider integration, QMS/water-quality review, DMRV review, GHG methodology review, regulatory review, security review, authorized site surveys and physical field validation remain required before the relevant production claims can be released.
+`make readiness` is fail-closed. Empirical rainfall validation, forecast accuracy, controlled provider integration, QMS/water-quality review, DMRV review, GHG methodology review, regulatory review, security review, authorized site surveys and physical field validation remain required before relevant production claims can be released.
 
 ## Documentation
 
 - `docs/production-execution-guide.md` — operational production map.
 - `docs/institutional-production-framework.md` — institutional governance, component register, gate model and engagement structure.
 - `production/production-manifest.json` — machine-readable release state.
-- `docs/investment/VDR/` — diligence/evidence room structure.
 - `docs/W01_Corporate_Governance/` — governance operating documents.
 - `docs/W05_Environmental_Data/` — environmental data specifications.
 - `docs/W06_Water_Harvesting/` — collection and rainfall validation controls.
