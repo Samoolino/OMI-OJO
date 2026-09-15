@@ -1,0 +1,42 @@
+{
+  "product": "OMI-OJO",
+  "system": "Blue-Ether OS",
+  "version": "1.0",
+  "stage": "M-1",
+  "current_release_posture": "ARCHITECTURE_READY_CONTROLLED_RUNTIME_PENDING",
+  "reference_deployment": "Lagos, Nigeria",
+  "expansion_regions": ["Europe", "Azerbaijan/Caucasus", "Central Asia"],
+  "product_layers": [
+    "evidence_dmrv_platform",
+    "physical_measurement_nodes",
+    "climate_water_intelligence",
+    "integrity_verification",
+    "institutional_reporting"
+  ],
+  "evidence_classes": ["OBSERVED", "FORECAST", "MODELLED", "SATELLITE", "CALCULATED", "PROXY"],
+  "release_states": ["DESIGNED", "IMPLEMENTED", "INTEGRATION_READY", "CONTROLLED_TEST", "REPORTABLE", "VALIDATED", "VERIFIED", "ANCHORED", "RELEASED", "HOLD", "DEFERRED"],
+  "measurement_contract": {
+    "required_fields": ["event_id", "timestamp", "location_reference", "source", "measurement_or_model_class", "unit", "methodology_version", "raw_evidence_reference", "calculation_reference", "quality_state", "evidence_hash"],
+    "non_contradiction": true,
+    "corrections": "append_only_successor_records"
+  },
+  "business_model": {
+    "recurring": ["node_site_saas", "dmrv_subscription", "esg_ghg_reporting", "data_api"],
+    "implementation": ["site_onboarding", "telemetry_integration", "provider_integration", "dmrv_configuration"],
+    "infrastructure": ["node_deployment", "measurement_integration"],
+    "institutional": ["vdr_evidence_services", "verification_coordination", "enterprise_reporting"],
+    "future_optional": ["environmental_credit_data_infrastructure"]
+  },
+  "carbon_policy": {
+    "status": "CONCEPTUAL_CARBON_RELEVANT_DATA_ONLY",
+    "automatic_credit_claim": false,
+    "required_path": ["methodology", "baseline", "additionality", "monitoring", "calculation", "validation", "verification", "registry_issuance", "retirement_where_applicable"]
+  },
+  "physical_production_status": "NOT_RELEASED",
+  "project_token_status": "DEFERRED",
+  "financial_model_assumption": {
+    "water_output_l_per_pod_month": 400,
+    "status": "ASSUMPTION_NOT_CERTIFIED_PRODUCTION"
+  },
+  "institutional_domains": ["governance", "environmental_data_dmrv", "water_physical_operations", "technology_blockchain", "esg_ghg_impact", "capital_institutional_engagement"]
+}
