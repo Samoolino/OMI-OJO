@@ -2,18 +2,29 @@
 
 **System baseline:** Blue-Ether OS / OMI-OJO  
 **Milestone:** M-1 — Investor-Ready Evidence Core  
-**Business scope version:** 1.0  
+**Business scope version:** 1.1  
 **Purpose:** investment-grade business logic linking technical measurements, verification infrastructure, products, ESG/GHG reporting and future environmental-credit eligibility without overstating evidence.
 
 ## 1. Business definition
 
 OMI-OJO is a **climate-water intelligence and digital MRV infrastructure platform**. It connects environmental data, measured field telemetry, physical water assets, evidence packaging, independent review, ESG/GHG reporting and blockchain integrity anchoring.
 
-The Lagos deployment is the reference/proof environment. International deployments reuse the evidence semantics and technology contracts, but never inherit evidence values from another geography.
+The Lagos deployment is the reference/proof environment. International deployments reuse evidence semantics and technology contracts, but never inherit evidence values from another geography.
 
 **Core proposition:** turn distributed water-resilience activity into structured, traceable and institutionally reviewable evidence.
 
-## 2. What the business sells
+## 2. Business scope
+
+OMI-OJO operates across four connected business planes:
+
+1. **Data & Intelligence Plane** — environmental sources, forecasting, modelling and climate-water analytics.
+2. **Measurement & Infrastructure Plane** — physical nodes, telemetry, water measurements, QMS and field operations.
+3. **Verification & Reporting Plane** — evidence packages, reconciliation, review, DMRV, ESG/GHG and institutional reporting.
+4. **Premium Environmental-Market Plane** — methodology-ready carbon-relevant evidence and climate-finance support, subject to external eligibility, validation, verification and registry rules.
+
+The first three planes are the core business. The fourth is an optional premium expansion layer.
+
+## 3. What the business sells
 
 ### A. OMI-OJO OS — Evidence & MRV platform
 - source/provider registry
@@ -58,7 +69,14 @@ The Lagos deployment is the reference/proof environment. International deploymen
 - regulatory evidence packages
 - audit lineage
 
-## 3. Business customers
+### F. OMI-OJO Premium — Environmental Evidence & Carbon Amplification
+Premium is an add-on, not the foundation of the business. It increases evidence depth, continuity and institutional usefulness for projects seeking environmental-market or climate-finance readiness.
+
+Premium can include enhanced telemetry, water-quality/QMS evidence, expanded environmental indicators, baseline/additionality evidence management, methodology-ready packaging, independent-review coordination and registry/standard preparation where applicable.
+
+**Premium does not equal carbon issuance.** It amplifies evidence quality; any environmental-credit outcome remains dependent on an applicable methodology and external validation/verification/registry process.
+
+## 4. Business customers
 
 1. Municipalities and public infrastructure operators
 2. Commercial buildings, campuses and hospitality groups
@@ -67,11 +85,11 @@ The Lagos deployment is the reference/proof environment. International deploymen
 5. Project developers and infrastructure financiers
 6. Environmental data and verification partners
 7. NGOs/development programmes
-8. Insurers and risk/ resilience stakeholders
+8. Insurers and resilience stakeholders
 9. Corporate sustainability teams
 10. Future accredited carbon/environmental-market participants
 
-## 4. Revenue logic
+## 5. Revenue logic
 
 ### Recurring software
 - node/site subscription
@@ -102,10 +120,10 @@ The Lagos deployment is the reference/proof environment. International deploymen
 - project monitoring contracts
 - institutional evidence-room services
 
-### Environmental-market readiness
-OMI-OJO may support data and evidence infrastructure for future environmental-credit projects. It does **not** sell a carbon credit merely because a project captures water or produces an ESG report.
+### Premium environmental-market readiness
+Premium subscriptions and project fees for enhanced evidence continuity, methodology readiness, carbon-relevant data packaging, climate-finance evidence and verification coordination. No revenue assumption should depend on unissued carbon credits.
 
-## 5. Measurement → evidence → business logic
+## 6. Measurement → evidence → business logic
 
 ```text
 SOURCE / SITE AUTHORIZATION
@@ -138,7 +156,7 @@ RECURRING SERVICE / PROJECT SCALE
 
 A blockchain transaction is an integrity proof, not environmental truth. A dashboard is a presentation layer, not verification.
 
-## 6. Evidence status contract
+## 7. Evidence status contract
 
 `DESIGNED → IMPLEMENTED → INTEGRATION_READY → CONTROLLED_TEST → REPORTABLE → VALIDATED → VERIFIED → ANCHORED → RELEASED`
 
@@ -152,12 +170,12 @@ A blockchain transaction is an integrity proof, not environmental truth. A dashb
 - **Anchored:** the evidence root has a reproducible blockchain proof.
 - **Released:** all relevant production/regulatory gates are passed.
 
-## 7. Product proof model
+## 8. Product proof model
 
-Every product or project claim should expose four proof layers:
+Every product or project claim exposes four proof layers:
 
 ### Layer 1 — Concept proof
-What is being proposed and what assumptions are being made.
+What is proposed and what assumptions are made.
 
 ### Layer 2 — Technical proof
 What software, data pipelines, schemas, interfaces and calculations exist.
@@ -168,9 +186,9 @@ What was actually measured or physically performed under an authorized test.
 ### Layer 4 — Institutional proof
 What was independently reviewed, accepted, anchored and released.
 
-Investment materials must distinguish these layers rather than merging them into one “impact” number.
+Investment materials must distinguish these layers rather than merge them into one impact number.
 
-## 8. Carbon and environmental-credit boundary
+## 9. Carbon and environmental-credit boundary
 
 OMI-OJO may produce **carbon-relevant activity data** where an applicable methodology exists. It may also produce water-resilience, energy-displacement or other environmental indicators.
 
@@ -196,13 +214,13 @@ Before any credit claim, the project must establish, as applicable:
 
 Until those requirements are met, the status is **CONCEPTUAL / CARBON-RELEVANT DATA ONLY**.
 
-## 9. Lagos reference deployment
+## 10. Lagos reference deployment
 
-The Lagos reference environment remains the empirical proof layer for the wider platform. The current repository defines a 40-node Global Lagos surface and a controlled evidence architecture, while explicitly keeping physical production and empirical verification gated.
+The Lagos reference environment remains the empirical proof layer for the wider platform. The repository defines a 40-node Global Lagos surface and controlled evidence architecture, while explicitly keeping physical production and empirical verification gated.
 
 The 400 L/pod/month value remains a financial-model assumption until field telemetry and validation support a production claim.
 
-## 10. EuroAsia expansion logic
+## 11. EuroAsia expansion logic
 
 The platform is geography-adaptive:
 
@@ -213,7 +231,7 @@ The platform is geography-adaptive:
 
 The same node/evidence contracts apply, but each deployment requires local source, regulatory, measurement and verification gates.
 
-## 11. Institutional capital logic
+## 12. Institutional capital logic
 
 Capital is linked to measurable work packages:
 
@@ -224,10 +242,11 @@ Capital is linked to measurable work packages:
 | WP3 Integrity | anchor + verifier | transaction/proof test |
 | WP4 Lagos field | authorized measurement pilot | site/field/QMS evidence |
 | WP5 ESG/GHG | reviewed methodology | calculation + review record |
-| WP6 Expansion | country adapters | controlled cross-country tests |
-| WP7 VDR | investor evidence room | indexed evidence set |
+| WP6 Premium | methodology-ready evidence | premium evidence index + review record |
+| WP7 Expansion | country adapters | controlled cross-country tests |
+| WP8 VDR | investor evidence room | indexed evidence set |
 
-## 12. Investment proposition
+## 13. Investment proposition
 
 OMI-OJO is not positioned as a speculative carbon-token business. The investment case is the creation of **institutional-grade infrastructure for measurable climate-water projects**.
 
@@ -235,9 +254,9 @@ The moat is the combined evidence spine:
 
 `DATA → MEASUREMENT → RECONCILIATION → DMRV → REVIEW → INTEGRITY → REPORTING → SCALE`
 
-Future environmental-market value is an optional downstream application, not the current valuation premise.
+Premium environmental-market capability creates an optional downstream monetization layer without making unverified carbon issuance the current valuation premise.
 
-## 13. Non-negotiable exclusions
+## 14. Non-negotiable exclusions
 
 OMI-OJO must not claim:
 
