@@ -64,6 +64,26 @@ Authorization
 3. **OMI-OJO Intelligence** — rainfall, water-efficiency, collection and climate-risk analytics.
 4. **OMI-OJO MRV** — deterministic evidence packages, review workflow and verification surfaces.
 5. **OMI-OJO Institutional** — funder, investor/VDR, operator, regulatory and audit reporting.
+6. **OMI-OJO Premium** — enhanced measurement, QMS/water-quality and methodology-ready environmental/carbon evidence as an add-on.
+
+## Investment architecture
+
+The current institutional scope separates the company into four business planes:
+
+- Data & Intelligence
+- Measurement & Infrastructure
+- Verification & Reporting
+- Premium Environmental-Market Evidence
+
+The business case is the evidence infrastructure; environmental-credit activity is a downstream, methodology-dependent application.
+
+See:
+
+- `docs/investment/OMI-OJO-BUSINESS-SCOPE.md`
+- `docs/investment/OMI-OJO-VERIFICATION-ARCHITECTURE.md`
+- `docs/investment/OMI-OJO-INMERGE-PITCH-DECK.md`
+- `docs/investment/OMI-OJO-CARBON-EVIDENCE-POLICY.md`
+- `docs/investment/VDR/`
 
 ## Physical-to-digital production chain
 
@@ -104,14 +124,6 @@ See `docs/investment/OMI-OJO-CARBON-EVIDENCE-POLICY.md`.
 `REPORTABLE ≠ MEASURED ≠ VALIDATED ≠ VERIFIED ≠ ANCHORED ≠ RELEASED`.
 
 A configured interface is not a live feed. A forecast is not a measurement. A blockchain transaction is not environmental validation. A grant award is not production evidence. Geography alone cannot establish Premium RainWater status. No potable/human-consumption claim is permitted without applicable treatment, laboratory, QMS and regulatory evidence.
-
-## Investment package
-
-- `docs/investment/OMI-OJO-BUSINESS-SCOPE.md` — institutional business logic, product scope, customers, revenue model, proof layers and capital logic.
-- `docs/investment/OMI-OJO-INMERGE-PITCH-DECK.md` — submission-ready investment narrative and application specification.
-- `docs/investment/OMI-OJO-CARBON-EVIDENCE-POLICY.md` — controlled carbon/environmental-credit claim pathway.
-- `docs/investment/VDR/` — diligence/evidence room structure.
-- `docs/investment/VDR/ESG_EVIDENCE_COVENANT.md` — capital-to-impact reporting schedule.
 
 ## Funding and token boundary
 
