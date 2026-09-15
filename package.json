@@ -1,0 +1,13 @@
+{
+  "name": "omi-ojo",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace apps/web",
+    "dev": "npm run dev --workspace apps/web",
+    "start": "npm run start --workspace apps/web"
+  }
+}
