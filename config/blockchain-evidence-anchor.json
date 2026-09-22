@@ -1,0 +1,32 @@
+{
+  "schema_version": "S6A-NETWORK-1.0",
+  "project": "OMI-OJO",
+  "purpose": "deterministic evidence-root anchoring",
+  "policy": "anchor_integrity_only",
+  "project_token": "DEFERRED",
+  "networks": [
+    {
+      "network_id": "CONTROLLED_TESTNET",
+      "chain_id": null,
+      "environment": "CONTROLLED_TEST",
+      "contract_address": null,
+      "status": "CONTROLLED_TEST",
+      "finality_policy": "network_specific",
+      "cost_policy": "builder_or_grant_infrastructure"
+    }
+  ],
+  "anchor_record_fields": [
+    "evidence_id",
+    "schema_version",
+    "evidence_root",
+    "network_id",
+    "chain_id",
+    "contract_address",
+    "transaction_hash",
+    "block_number",
+    "block_timestamp",
+    "anchor_status",
+    "anchored_at",
+    "verifier_version"
+  ]
+}
