@@ -226,3 +226,76 @@ Grant budgets should map to measurable work packages: node coverage, provider ac
 S6 is intentionally separate from the evidence platform. Physical collection, first-flush control, water-quality/QMS, bottling, seal provenance and premium-harvest labeling become production claims only after authorized field validation, measurement, custody and review are complete.
 
 Until then, Blue-Ether OS is an investor-grade environmental evidence and dMRV platform designed to become the control plane for those activities.
+
+
+## 11. Active production stage — S6A
+
+The project has now formally entered **S6A — Controlled Digital Evidence Infrastructure Validation**.
+
+S6A is the first production implementation stage after the clarified scope. Its objective is to prove that an OMI-OJO evidence package can move deterministically from source records to a cryptographic root, controlled blockchain anchor and independently verifiable receipt.
+
+### S6A sequence
+
+```
+Evidence records
+  ↓
+Canonical evidence package
+  ↓
+Deterministic evidence root
+  ↓
+Authorized anchor
+  ↓
+Blockchain transaction
+  ↓
+Receipt / block proof
+  ↓
+Public verifier
+```
+
+### S6A acceptance gates
+
+- **S6A.1** deterministic evidence package
+- **S6A.2** controlled anchor contract
+- **S6A.3** receipt reconstruction
+- **S6A.4** public verifier
+- **S6A.5** append-only correction chain
+- **S6A.6** security review
+- **S6A.7** builder/grant evidence package
+
+The detailed specification is maintained at `docs/s6a-blockchain-evidence-anchor.md`.
+
+### Current S6A state
+
+```
+S6A SPECIFICATION              COMPLETE
+DETERMINISTIC PACKAGE          SPECIFIED
+NETWORK REGISTRY               SPECIFIED
+ANCHOR CONTRACT                NEXT IMPLEMENTATION
+ANCHOR SERVICE                 NEXT IMPLEMENTATION
+PUBLIC VERIFIER                NEXT IMPLEMENTATION
+SECURITY REVIEW                REQUIRED
+S6A VALIDATION                 PENDING EXECUTION
+```
+
+S6A must not be represented as blockchain-verified environmental performance until the controlled tests and independent review are complete.
+
+### S6B remains separate
+
+Physical Premium RainWater production remains:
+
+```
+SITE AUTHORIZATION
+→ COLLECTOR INSPECTION
+→ RAIN EVENT
+→ FIRST FLUSH
+→ CONTROLLED COLLECTION
+→ SAMPLE / CUSTODY
+→ LAB / QMS
+→ BATCH / SEAL
+→ DMRV
+→ BLOCKCHAIN ANCHOR
+→ PREMIUM-CONDITION DECISION
+→ REGULATORY / PRODUCT RELEASE
+```
+
+A successful S6A anchor is necessary infrastructure for the evidence chain but is not a substitute for S6B physical, QMS or regulatory validation.
