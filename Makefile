@@ -1,4 +1,4 @@
-.PHONY: bootstrap install lint typecheck test test-integration test-dmrv test-security sources-validate weather-ingest rainfall-events forecast-reconcile production-plan collection-plan collection-validate harvest-validate water-quality-validate batch-create batch-lock bottle seal evidence hash anchor verify esg ghg reporting investor-build verifier-build simulation readiness production-check deploy release
+.PHONY: bootstrap install lint typecheck test test-integration test-dmrv test-security s6a-test s6a-check sources-validate weather-ingest rainfall-events forecast-reconcile production-plan collection-plan collection-validate harvest-validate water-quality-validate batch-create batch-lock bottle seal evidence hash anchor verify esg ghg reporting investor-build verifier-build simulation readiness production-check deploy release
 
 PYTHON ?= python3
 
@@ -13,6 +13,12 @@ typecheck:
 
 test:
 	@$(PYTHON) -m unittest discover -s tests -p 'test_*.py' -v
+
+s6a-test:
+	@$(PYTHON) -m unittest tests.test_evidence_anchor -v
+
+s6a-check: s6a-test
+	@$(PYTHON) -m compileall -q src/production src/contracts
 
 test-integration test-dmrv test-security:
 	@$(MAKE) test
