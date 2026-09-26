@@ -56,6 +56,29 @@ Required before equipment is installed or collection occurs:
 
 **No-go:** missing, expired, ambiguous or out-of-scope authorization.
 
+
+## 3A. S6C.1 authorization-package review contract
+
+The authorization package is reviewed as a deterministic gate before survey/installation preparation proceeds.
+
+Review artifacts are represented by `config/s6c-authorization-package-review.json`.
+
+The reviewer must establish:
+
+- authorization identity, scope and validity;
+- installation permission;
+- field safety readiness;
+- sampling/laboratory pathway;
+- data/security/privacy boundary;
+- location-verification pathway;
+- collector and first-flush readiness;
+- rain-event observation pathway.
+
+The independent reviewer must be separately identified. A single operator cannot be treated as the sole authorization and independent-check authority for a material gate.
+
+**S6C.1 acceptance does not authorize collection.** It only permits progression to the location-verification and controlled field-preparation gates.
+
+
 ## 4. Gate S6C.2 — Survey and location verification
 
 Use the existing Global Lagos coordinate lifecycle:
