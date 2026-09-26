@@ -2,7 +2,7 @@
   "milestone": "M-1",
   "system": "Blue-Ether OS / OMI-OJO",
   "status": "S6C_CONTROLLED_FIELD_AUTHORIZATION_READY",
-  "execution_readiness": "S6C_AUTHORIZATION_PACKAGE_READY_PHYSICAL_VALIDATION_PENDING",
+  "execution_readiness": "S6C.1_REVIEW_READY_PHYSICAL_VALIDATION_PENDING",
   "production_guide": "docs/production-execution-guide.md",
   "institutional_framework": "docs/institutional-production-framework.md",
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
@@ -60,7 +60,7 @@
     "S6A": "CONTROLLED_IMPLEMENTATION_IN_PROGRESS",
     "S6B": "READY_FOR_CONTROLLED_APPLICATION",
     "S6C": "DESIGNED_FOR_CONTROLLED_AUTHORIZATION",
-    "S6C.1": "IMPLEMENTED_AUTHORIZATION_PACKAGE",
+    "S6C.1": "REVIEW_CONTRACT_READY_AUTHORIZATION_EVIDENCE_PENDING",
     "S6C.2": "IMPLEMENTED_SURVEY_GIS_CROSSCHECK_GATE",
     "S6C.3": "IMPLEMENTED_COLLECTOR_READINESS_GATE",
     "S6C.4": "IMPLEMENTED_RAIN_EVENT_WATCH_GATE",
@@ -110,9 +110,10 @@
   "physical_status": "NOT_RELEASED",
   "project_token_status": "DEFERRED",
   "funding_award_status": "NOT_AWARDED",
-  "next_gate": "S6C.1_AUTHORIZATION_PACKAGE_REVIEW",
+  "next_gate": "S6C.1_AUTHORIZATION_EVIDENCE_SUBMISSION",
   "s6c_field_authorization": "config/s6c-lagos-field-authorization.json",
   "s6c_runbook": "docs/s6c-lagos-field-validation-runbook.md",
   "s6c_rain_event_schema": "config/s6c-lagos-rain-event-record.json",
-  "s6c_sampling_custody_schema": "config/s6c-lagos-sampling-custody.json"
+  "s6c_sampling_custody_schema": "config/s6c-lagos-sampling-custody.json",
+  "s6c_authorization_review": "config/s6c-authorization-package-review.json"
 }
