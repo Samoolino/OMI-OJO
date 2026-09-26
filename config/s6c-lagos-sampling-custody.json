@@ -1,0 +1,41 @@
+{
+  "schema": "blue-ether.s6c.sampling-custody.v1",
+  "status": "SCHEMA_READY_CONTROLLED_SAMPLE_PENDING",
+  "required": [
+    "sample_id",
+    "collection_operation_id",
+    "container_id",
+    "collected_at",
+    "collector_identity",
+    "custody_events",
+    "laboratory_receipt",
+    "quality_status",
+    "canonical_hash"
+  ],
+  "custody_event_required_fields": [
+    "event_id",
+    "from_party",
+    "to_party",
+    "timestamp",
+    "condition",
+    "seal_state",
+    "evidence_reference"
+  ],
+  "lifecycle": [
+    "PLANNED",
+    "COLLECTED",
+    "SEALED",
+    "IN_CUSTODY",
+    "RECEIVED_BY_LAB",
+    "TESTED",
+    "REVIEWED"
+  ],
+  "fail_closed": [
+    "missing sample identity",
+    "broken custody sequence",
+    "missing timestamp",
+    "seal mismatch",
+    "unresolved laboratory exception"
+  ],
+  "claim_boundary": "A custody record proves traceability of the sample record; it does not prove water quality or potability."
+}
