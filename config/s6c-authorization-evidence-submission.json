@@ -1,0 +1,65 @@
+{
+  "schema": "blue-ether.s6c.authorization-evidence-submission.v1",
+  "milestone": "S6C.1",
+  "status": "SUBMISSION_TEMPLATE_READY_ACTUAL_AUTHORIZATION_EVIDENCE_PENDING",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Deterministic intake package for actual authorization evidence before controlled field survey, installation or collection release.",
+  "decision_states": ["MISSING","PRESENT","INVALID","EXPIRED","REVIEWED","ACCEPTED","HOLD","REJECTED"],
+  "submission": {
+    "submission_id": null,
+    "site_id": null,
+    "submitted_at": null,
+    "submitted_by": null,
+    "authority_name": null,
+    "authorization_reference": null,
+    "scope": null,
+    "issue_date": null,
+    "expiry_date": null,
+    "status": "MISSING"
+  },
+  "required_evidence": [
+    {"id":"AUTH-01","type":"SITE_ACCESS_AUTHORIZATION","status":"MISSING","evidence_ref":null,"sha256":null,"issued_by":null,"issue_date":null,"expiry_date":null,"scope_match":null,"reviewed_by":null},
+    {"id":"AUTH-02","type":"COLLECTOR_INSTALLATION_PERMISSION","status":"MISSING","evidence_ref":null,"sha256":null,"issued_by":null,"issue_date":null,"expiry_date":null,"scope_match":null,"reviewed_by":null},
+    {"id":"AUTH-03","type":"FIELD_SAFETY_ASSESSMENT","status":"MISSING","evidence_ref":null,"sha256":null,"issued_by":null,"issue_date":null,"expiry_date":null,"scope_match":null,"reviewed_by":null},
+    {"id":"AUTH-04","type":"SAMPLING_LAB_READINESS","status":"MISSING","evidence_ref":null,"sha256":null,"issued_by":null,"issue_date":null,"expiry_date":null,"scope_match":null,"reviewed_by":null},
+    {"id":"AUTH-05","type":"DATA_SECURITY_PRIVACY_BOUNDARY","status":"MISSING","evidence_ref":null,"sha256":null,"issued_by":null,"issue_date":null,"expiry_date":null,"scope_match":null,"reviewed_by":null},
+    {"id":"AUTH-06","type":"LOCATION_VERIFICATION_AUTHORIZATION","status":"MISSING","evidence_ref":null,"sha256":null,"issued_by":null,"issue_date":null,"expiry_date":null,"scope_match":null,"reviewed_by":null},
+    {"id":"AUTH-07","type":"COLLECTOR_READINESS_CONFIRMATION","status":"MISSING","evidence_ref":null,"sha256":null,"issued_by":null,"issue_date":null,"expiry_date":null,"scope_match":null,"reviewed_by":null},
+    {"id":"AUTH-08","type":"RAIN_EVENT_READINESS_CONFIRMATION","status":"MISSING","evidence_ref":null,"sha256":null,"issued_by":null,"issue_date":null,"expiry_date":null,"scope_match":null,"reviewed_by":null}
+  ],
+  "review_controls": {
+    "independent_reviewer_required": true,
+    "reviewer_must_not_be_sole_authorizer_operator": true,
+    "decision": "PENDING",
+    "all_required_evidence_present": false,
+    "all_required_evidence_valid": false,
+    "all_authorizations_in_scope": false,
+    "expiry_checked": false,
+    "public_safe_location_boundary_checked": false,
+    "decision_reference": null,
+    "reviewed_at": null
+  },
+  "canonicalization": {
+    "format": "UTF-8 JSON",
+    "object_keys": "lexicographically_sorted",
+    "arrays": "declared_order_preserved",
+    "hash": "SHA-256",
+    "canonical_hash": null
+  },
+  "fail_closed_conditions": [
+    "required authorization missing",
+    "authorization expired",
+    "authorization scope mismatch",
+    "unverifiable issuing authority or reference",
+    "material contradiction",
+    "required safety or laboratory readiness evidence missing",
+    "independent review absent",
+    "sensitive exact location exposed in public package",
+    "evidence hash mismatch"
+  ],
+  "release_boundary": {
+    "accepted_s6c1_allows": ["progression to S6C.2 survey and location verification"],
+    "accepted_s6c1_does_not_allow": ["collector installation","rainwater collection","product bottling","product release","potability claim","environmental credit claim"]
+  },
+  "next_gate": "S6C.1_AUTHORIZATION_EVIDENCE_REVIEW"
+}
