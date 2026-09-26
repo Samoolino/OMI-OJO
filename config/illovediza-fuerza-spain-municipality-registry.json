@@ -1,0 +1,58 @@
+{
+  "pilot": "Illovediza Fuerza",
+  "country": "Spain",
+  "registry_purpose": "Authoritative administrative node binding for national environmental reporting; not evidence of physical deployment.",
+  "administrative_hierarchy": ["autonomous_community_or_city", "province", "municipality", "authorized_field_site"],
+  "reference_sources": [
+    {
+      "provider": "Instituto Nacional de Estadistica (INE)",
+      "dataset": "Municipal Register / Codes of municipalities",
+      "role": "authoritative administrative identity and municipality coding"
+    },
+    {
+      "provider": "Administracion General del Estado",
+      "dataset": "Official administrative directory",
+      "role": "autonomous-community and autonomous-city hierarchy cross-check"
+    }
+  ],
+  "reference_coverage": {
+    "autonomous_communities": 17,
+    "autonomous_cities": 2,
+    "provinces": 50,
+    "municipalities": 8132,
+    "note": "Counts are versioned reference metadata and must be refreshed from the authoritative source before production promotion."
+  },
+  "node_contract": {
+    "node_id": "ES-MUNI-{official_municipality_code}",
+    "required_identity": ["official_name", "official_code", "province", "autonomous_community_or_city"],
+    "required_geography": ["centroid_or_site_coordinates", "coordinate_source", "boundary_source"],
+    "environmental_binding": ["rainfall", "rainfall_forecast", "temperature", "humidity", "pressure", "wind", "atmospheric_moisture", "air_quality", "satellite_or_remote_sensing_when_available"],
+    "evidence_fields": ["timestamp", "provider", "method", "unit", "quality", "evidence_class", "reconciliation_state", "evidence_hash"],
+    "physical_site_fields": ["authorization_state", "site_coordinates", "collector_state", "water_qms_state", "batch_state", "seal_state"]
+  },
+  "state_rules": {
+    "administrative_node": "REPORTING_READY",
+    "environmental_feed": "UNCONFIGURED until provider endpoint and reconciliation tests are completed",
+    "physical_collection": "NOT_RELEASED until site authorization, SOP, QMS and regulatory gates pass",
+    "premium_rainwater": "NOT_CLAIMABLE until evidence-linked collection and applicable water-quality/QMS criteria pass",
+    "blockchain": "ANCHOR_ONLY after deterministic evidence package creation; blockchain does not establish environmental truth"
+  },
+  "non_contradiction": {
+    "required": ["time_compatibility", "spatial_compatibility", "unit_compatibility", "method_compatibility", "provenance", "quality"],
+    "conflict_action": "FAIL_CLOSED",
+    "correction_model": "append_only_successor_record"
+  },
+  "implementation_sequence": [
+    "ES-2 administrative hierarchy binding",
+    "ES-3 municipality node registry",
+    "ES-4 provider/feed binding",
+    "ES-5 reconciliation",
+    "ES-6 non-contradiction runtime",
+    "ES-7 DMRV mapping",
+    "ES-8 ESG/GHG mapping",
+    "ES-9 blockchain evidence anchoring",
+    "ES-10 institutional dashboard",
+    "ES-11 authorized field sites",
+    "ES-12 physical rainwater validation"
+  ]
+}
