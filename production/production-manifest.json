@@ -1,14 +1,14 @@
 {
   "milestone": "M-1",
   "system": "Blue-Ether OS / OMI-OJO",
-  "status": "S6B_BUILDER_GRANT_EVIDENCE_READY",
-  "execution_readiness": "S6B_APPLICATION_READY_S6A_CONTROLLED_DEPLOYMENT_PENDING",
+  "status": "S6C_CONTROLLED_FIELD_AUTHORIZATION_READY",
+  "execution_readiness": "S6C_AUTHORIZATION_PACKAGE_READY_PHYSICAL_VALIDATION_PENDING",
   "production_guide": "docs/production-execution-guide.md",
   "institutional_framework": "docs/institutional-production-framework.md",
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
   "s6b_work_package": "config/s6b-builder-grant-work-package.json",
   "s6b_evidence_package": "docs/s6b-builder-grant-evidence-package.md",
-  "production_map_version": "M-1/S6A-S6B_INSTITUTIONAL_V3",
+  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V4",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -59,7 +59,19 @@
     "S6A.7": "BUILDER_GRANT_EVIDENCE_DEFINED",
     "S6A": "CONTROLLED_IMPLEMENTATION_IN_PROGRESS",
     "S6B": "READY_FOR_CONTROLLED_APPLICATION",
-    "S6C": "NEXT_CONTROLLED_LAGOS_FIELD_AUTHORIZATION"
+    "S6C": "DESIGNED_FOR_CONTROLLED_AUTHORIZATION",
+    "S6C.1": "IMPLEMENTED_AUTHORIZATION_PACKAGE",
+    "S6C.2": "IMPLEMENTED_SURVEY_GIS_CROSSCHECK_GATE",
+    "S6C.3": "IMPLEMENTED_COLLECTOR_READINESS_GATE",
+    "S6C.4": "IMPLEMENTED_RAIN_EVENT_WATCH_GATE",
+    "S6C.5": "IMPLEMENTED_FIRST_FLUSH_CONTROL",
+    "S6C.6": "CONTROLLED_COLLECTION_NOT_RELEASED",
+    "S6C.7": "IMPLEMENTED_SAMPLING_CUSTODY_SCHEMA",
+    "S6C.8": "QMS_LAB_READINESS_REQUIRED",
+    "S6C.9": "BATCH_SEAL_RELEASE_GATE_DEFINED",
+    "S6C.10": "DMRV_PACKAGE_GATE_DEFINED",
+    "S6C.11": "BLOCKCHAIN_ANCHOR_GATE_DEFINED",
+    "S6C.12": "PREMIUM_CONDITION_REVIEW_REQUIRED"
   },
   "institutional_domains": [
     "governance_authorization",
@@ -98,5 +110,9 @@
   "physical_status": "NOT_RELEASED",
   "project_token_status": "DEFERRED",
   "funding_award_status": "NOT_AWARDED",
-  "next_gate": "S6C_CONTROLLED_LAGOS_FIELD_AUTHORIZATION"
+  "next_gate": "S6C.1_AUTHORIZATION_PACKAGE_REVIEW",
+  "s6c_field_authorization": "config/s6c-lagos-field-authorization.json",
+  "s6c_runbook": "docs/s6c-lagos-field-validation-runbook.md",
+  "s6c_rain_event_schema": "config/s6c-lagos-rain-event-record.json",
+  "s6c_sampling_custody_schema": "config/s6c-lagos-sampling-custody.json"
 }
