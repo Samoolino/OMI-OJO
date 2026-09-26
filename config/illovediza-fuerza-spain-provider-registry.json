@@ -1,0 +1,52 @@
+{
+  "pilot": "Illovediza Fuerza",
+  "stage": "ES-4 provider/feed binding",
+  "policy": "Provider availability is not equivalent to configured live ingestion. A feed becomes RECEIVING only after authenticated retrieval, schema validation, timestamp/coordinate/unit checks, provenance capture, and reconciliation tests pass.",
+  "providers": [
+    {
+      "provider": "AEMET OpenData",
+      "authority": "Agencia Estatal de Meteorologia",
+      "coverage": ["weather_observations", "municipal_forecasts", "station_climatology", "radiation", "ozone", "radar", "satellite_products", "lightning"],
+      "transport": ["POLLING_API", "ARCHIVE_QUERY"],
+      "authentication": "API_KEY",
+      "status": "CONFIGURATION_REQUIRED",
+      "official_reference": "https://www.aemet.es/en/datos_abiertos/AEMET_OpenData",
+      "runtime_note": "AEMET documents REST/OpenData access and current municipal daily/hourly forecast endpoints. API keys require lifecycle management."
+    },
+    {
+      "provider": "Spanish Official Air Quality Catalogue",
+      "authority": "Spanish public administration / datos.gob.es catalogue",
+      "coverage": ["air_quality_station_registry", "air_quality_measurements_when_dataset_endpoint_is_bound"],
+      "transport": ["POLLING_API", "ARCHIVE_QUERY", "GEO_DATA"],
+      "status": "SOURCE_REGISTERED_ENDPOINT_BINDING_REQUIRED",
+      "official_reference": "https://datos.gob.es/es/catalogo/e0dat0002-estaciones-de-calidad-del-aire",
+      "runtime_note": "Station metadata and service distributions are registered; measurement feeds require dataset-specific endpoint and schema binding before live status."
+    }
+  ],
+  "indicator_binding_rules": {
+    "rainfall": ["AEMET station observation when spatially appropriate", "AEMET municipal forecast for forecast class"],
+    "forecast": ["AEMET municipal daily", "AEMET municipal hourly"],
+    "temperature": ["AEMET observation"],
+    "humidity": ["AEMET observation"],
+    "pressure": ["AEMET observation"],
+    "wind": ["AEMET observation"],
+    "radiation": ["AEMET radiation products where applicable"],
+    "ozone": ["AEMET ozone products where applicable", "air-quality network when endpoint is bound"],
+    "NO2": ["air-quality network when measurement endpoint is bound"],
+    "PM25_PM10": ["air-quality network when measurement endpoint is bound"],
+    "satellite": ["AEMET satellite products where applicable"]
+  },
+  "reconciliation": {
+    "minimum_fields": ["provider", "source_record_id", "observed_at", "latitude", "longitude_or_station_id", "variable", "value", "unit", "method", "quality", "retrieved_at"],
+    "rules": ["time_window", "spatial_proximity", "unit_normalization", "duplicate_detection", "missingness", "provider_provenance", "method_compatibility"],
+    "conflict_state": "EXCEPTION_REVIEW",
+    "material_conflict_action": "FAIL_CLOSED"
+  },
+  "state_machine": ["UNCONFIGURED", "CONFIGURED", "RECEIVING", "DEGRADED", "OFFLINE", "ARCHIVE_READY", "RECONCILED", "REPORTABLE"],
+  "security": {
+    "api_keys": "server_side_secret_only",
+    "client_exposure": false,
+    "credential_rotation": true,
+    "expiry_monitoring": true
+  }
+}
