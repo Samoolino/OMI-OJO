@@ -1,0 +1,207 @@
+{
+  "milestone": "S6C",
+  "system": "Blue-Ether OS / OMI-OJO",
+  "status": "DESIGNED_FOR_CONTROLLED_AUTHORIZATION",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Prepare the Global Lagos reference/proof pilot for an authorized, controlled Premium RainWater field-validation event without representing a site, installation, harvest, laboratory result or product release as completed.",
+  "site_boundary": {
+    "candidate_site_status": "AUTHORIZATION_REQUIRED",
+    "candidate_site_ids": [],
+    "exact_coordinates": "NOT_PROVIDED",
+    "coordinate_policy": "No fabricated field coordinates. Exact coordinates may enter the evidence chain only after authorized survey capture and independent GIS cross-check.",
+    "sensitive_location_policy": "Security-sensitive locations remain generalized in public and investor surfaces; restricted operational coordinates require authorization."
+  },
+  "authorization_record": {
+    "required": true,
+    "authority": {
+      "organization": null,
+      "authorized_by": null,
+      "authorization_reference": null,
+      "issued_at": null,
+      "expires_at": null,
+      "scope": null
+    },
+    "required_artifacts": [
+      "site authorization",
+      "land/access permission",
+      "collector installation approval",
+      "field safety assessment",
+      "water sampling/laboratory arrangements",
+      "data/privacy/security authorization where applicable"
+    ],
+    "release_rule": "No physical collection begins until required authorization records are complete, current and linked to the field operation."
+  },
+  "site_verification": {
+    "lifecycle": [
+      "REFERENCE_ONLY",
+      "SURVEY_REQUESTED",
+      "SURVEY_CAPTURED",
+      "GIS_CROSSCHECKED",
+      "VERIFIED"
+    ],
+    "mismatch_state": "REVIEW_REQUIRED",
+    "prohibited_shortcut": "A municipality, venue or map centroid is not a verified collector location."
+  },
+  "collector_readiness": {
+    "required_controls": [
+      "cleanable controlled collection apparatus",
+      "identified catchment and collection surfaces",
+      "first-flush diversion control",
+      "sealed collection container",
+      "unique operation identifier",
+      "calibrated/qualified measurement devices where used",
+      "time synchronization",
+      "sanitation and contamination controls",
+      "operator identity and authorization"
+    ],
+    "experimental_product_boundary": "Experimental bag/bottle concepts are not the scientific reference apparatus for the first controlled event."
+  },
+  "rain_event_gate": {
+    "required_before_collection": [
+      "forecast context recorded as FORECAST",
+      "authoritative/qualified observation source identified",
+      "rain event start/end criteria defined",
+      "antecedent rainfall context captured",
+      "collection readiness confirmed"
+    ],
+    "evidence_classes": [
+      "OBSERVED",
+      "FORECAST",
+      "MODELLED",
+      "SATELLITE",
+      "CALCULATED",
+      "PROXY"
+    ],
+    "rule": "Forecasts and models may trigger operational watch but never become measurements."
+  },
+  "first_flush": {
+    "required": true,
+    "reference": "docs/W06_Water_Harvesting/WAT-003_First_Flush_Protocol.md",
+    "record_fields": [
+      "first_flush_record_id",
+      "operation_id",
+      "start_time",
+      "diversion_start",
+      "diversion_end",
+      "control_state",
+      "operator",
+      "exception",
+      "evidence_reference"
+    ],
+    "fail_closed_conditions": [
+      "first-flush control unavailable",
+      "uncertain diversion state",
+      "contamination event",
+      "missing timestamp"
+    ]
+  },
+  "sampling_and_custody": {
+    "required": true,
+    "controls": [
+      "sample_id",
+      "collection_operation_id",
+      "container_id",
+      "custody_transfer_log",
+      "collection_time",
+      "storage conditions",
+      "laboratory recipient",
+      "laboratory method/reference",
+      "seal or tamper evidence where applicable"
+    ],
+    "status_lifecycle": [
+      "PLANNED",
+      "COLLECTED",
+      "SEALED",
+      "IN_CUSTODY",
+      "RECEIVED_BY_LAB",
+      "TESTED",
+      "REVIEWED"
+    ]
+  },
+  "water_qms": {
+    "required_before_premium_release": true,
+    "status": "PLANNED",
+    "requirements": [
+      "applicable laboratory/QMS method defined",
+      "sample identity and custody reconciled",
+      "results linked to the exact sample/batch",
+      "laboratory provenance retained",
+      "exceptions reviewed",
+      "regulatory/product criteria evaluated before any potable or consumer claim"
+    ],
+    "claim_boundary": "Blockchain anchoring does not establish water quality, potability or regulatory compliance."
+  },
+  "batch_and_seal": {
+    "required_before_product_release": true,
+    "controls": [
+      "batch_id",
+      "source_operation_id",
+      "sample_links",
+      "container/seal identifier",
+      "batch creation timestamp",
+      "quantity record",
+      "provenance hash",
+      "release reviewer"
+    ],
+    "status": "NOT_RELEASED"
+  },
+  "dmrv_and_anchor": {
+    "sequence": [
+      "COLLECTION_RECORD",
+      "SAMPLE_CUSTODY",
+      "WATER_QMS",
+      "BATCH_SEAL",
+      "DMRV_PACKAGE",
+      "EVIDENCE_ROOT",
+      "BLOCKCHAIN_ANCHOR"
+    ],
+    "anchor_rule": "Only a deterministic evidence package root is anchored. Anchoring does not upgrade unsupported observations to VERIFIED."
+  },
+  "premium_condition": {
+    "classification_inputs": [
+      "rain_event",
+      "antecedent_rainfall",
+      "atmospheric_evidence",
+      "collection_integrity",
+      "first_flush",
+      "sampling_custody",
+      "water_qms",
+      "batch_provenance",
+      "seal_integrity",
+      "dmrv_review"
+    ],
+    "release_state": "HOLD_UNTIL_ALL_REQUIRED_EVIDENCE_REVIEWED"
+  },
+  "hold_conditions": [
+    "missing authorization",
+    "unverified site identity",
+    "coordinate mismatch",
+    "missing timestamp",
+    "missing provenance",
+    "uncertain first-flush state",
+    "broken custody chain",
+    "unresolved laboratory/QMS exception",
+    "batch/seal mismatch",
+    "conflicting evidence",
+    "unauthorized sensitive-location exposure",
+    "critical safety finding"
+  ],
+  "public_claims_boundary": {
+    "allowed": [
+      "designed controlled pilot",
+      "authorization required",
+      "evidence architecture implemented",
+      "field validation pending"
+    ],
+    "prohibited_until_evidenced": [
+      "harvest completed",
+      "bottled product produced",
+      "potable water",
+      "verified water-quality result",
+      "verified environmental impact",
+      "regulatory approval",
+      "blockchain-proven environmental truth"
+    ]
+  },
+  "next_gate": "S6C.1_AUTHORIZATION_PACKAGE_REVIEW"
+}
