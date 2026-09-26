@@ -1,0 +1,48 @@
+{
+  "schema": "blue-ether.s6c.rain-event-record.v1",
+  "status": "SCHEMA_READY_CONTROLLED_EVENT_PENDING",
+  "required": [
+    "rain_event_id",
+    "operation_id",
+    "venue_id",
+    "observation_start",
+    "observation_end",
+    "event_definition",
+    "source_records",
+    "evidence_class",
+    "quality_status",
+    "provenance",
+    "canonical_hash"
+  ],
+  "event_definition": {
+    "start_rule": "Configured precipitation threshold and qualified observation evidence",
+    "end_rule": "Configured cessation interval and qualified observation evidence",
+    "antecedent_window": "Configured and recorded before event review"
+  },
+  "evidence_class_rule": "FORECAST and MODELLED records may support watch conditions but cannot satisfy a measured-event claim.",
+  "source_alignment": [
+    "time",
+    "location",
+    "unit",
+    "methodology"
+  ],
+  "quality_statuses": [
+    "RECEIVING",
+    "NORMALIZED",
+    "QUALITY_CHECKED",
+    "SPATIALLY_ALIGNED",
+    "TEMPORALLY_ALIGNED",
+    "CROSS_SOURCE_RECONCILED",
+    "REPORTABLE",
+    "HOLD"
+  ],
+  "fail_closed": [
+    "missing timestamp",
+    "missing source provenance",
+    "unit conflict",
+    "material spatial mismatch",
+    "material temporal mismatch",
+    "unresolved source conflict"
+  ],
+  "physical_claim_boundary": "Schema readiness does not indicate that a rain event has occurred or been measured."
+}
