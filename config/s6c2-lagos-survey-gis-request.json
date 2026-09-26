@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_id": "blue-ether.s6c2.lagos-survey-gis-request.v1",
+  "milestone": "M-1",
+  "stage": "S6C.2",
+  "status": "SURVEY_REQUEST_TEMPLATE_READY_AUTHORIZATION_ACCEPTANCE_REQUIRED",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Define a controlled request and evidence contract for Lagos site survey and GIS cross-check without fabricating coordinates or authorizing physical collection.",
+  "prerequisite": {
+    "required_gate": "S6C.1_AUTHORIZATION_EVIDENCE_REVIEW",
+    "required_decision": "ACCEPTED",
+    "rule": "No survey capture or physical field activity may be represented as authorized until the S6C.1 decision is independently reviewed and recorded as ACCEPTED."
+  },
+  "site_identity": {
+    "site_id": "required",
+    "public_site_label": "required",
+    "operational_site_reference": "restricted_when_sensitive",
+    "security_sensitive_location_rule": "Do not publish exact coordinates or operational security details for protected locations."
+  },
+  "survey_request": {
+    "request_id": "required",
+    "requested_at": "required",
+    "requested_by": "required",
+    "authorized_scope_reference": "required",
+    "surveyor_identity": "required",
+    "survey_method": "required",
+    "capture_device_or_method": "required",
+    "intended_gis_sources": ["required"]
+  },
+  "coordinate_lifecycle": [
+    "REFERENCE_ONLY",
+    "SURVEY_REQUESTED",
+    "SURVEY_CAPTURED",
+    "GIS_CROSSCHECKED",
+    "VERIFIED",
+    "REVIEW_REQUIRED"
+  ],
+  "coordinate_evidence": {
+    "reference_coordinate": "optional_authoritative_reference_only",
+    "captured_coordinate": "required_at_capture_stage",
+    "capture_timestamp": "required_at_capture_stage",
+    "coordinate_system": "required_at_capture_stage",
+    "provenance": "required",
+    "authoritative_gis_crosscheck": "required",
+    "independent_checker": "required_at_crosscheck_stage",
+    "crosscheck_result": "MATCHED_OR_MISMATCHED",
+    "mismatch_resolution_reference": "required_when_mismatched",
+    "public_safe_representation": "required"
+  },
+  "rules": [
+    "Never invent, interpolate, or silently substitute exact coordinates.",
+    "A reference coordinate is not a surveyed coordinate.",
+    "Survey capture is not GIS verification.",
+    "GIS verification requires an authoritative source and an independent cross-check.",
+    "Any material coordinate mismatch enters REVIEW_REQUIRED until resolved.",
+    "Exact coordinates for security-sensitive sites remain restricted and are excluded from public/investor surfaces.",
+    "A verified coordinate does not by itself authorize collector installation, rainwater collection, bottling, laboratory release, or product release."
+  ],
+  "evidence_requirements": [
+    "accepted_s6c1_decision_reference",
+    "survey_request_record",
+    "survey_capture_record",
+    "coordinate_provenance",
+    "authoritative_gis_crosscheck",
+    "independent_review",
+    "public_safe_location_record"
+  ],
+  "fail_closed_conditions": [
+    "S6C.1 acceptance evidence missing",
+    "authorization expired or scope mismatch",
+    "fabricated or unverifiable coordinate",
+    "missing capture timestamp",
+    "missing coordinate system",
+    "missing provenance",
+    "missing authoritative GIS cross-check",
+    "material coordinate mismatch",
+    "missing independent checker",
+    "unauthorized sensitive-location disclosure"
+  ],
+  "state_transition": {
+    "allowed": [
+      "REFERENCE_ONLY -> SURVEY_REQUESTED",
+      "SURVEY_REQUESTED -> SURVEY_CAPTURED",
+      "SURVEY_CAPTURED -> GIS_CROSSCHECKED",
+      "GIS_CROSSCHECKED -> VERIFIED",
+      "GIS_CROSSCHECKED -> REVIEW_REQUIRED",
+      "REVIEW_REQUIRED -> GIS_CROSSCHECKED"
+    ],
+    "prohibited": [
+      "REFERENCE_ONLY -> VERIFIED",
+      "SURVEY_REQUESTED -> VERIFIED",
+      "any_state -> PHYSICAL_COLLECTION_AUTHORIZED"
+    ]
+  },
+  "claim_boundary": {
+    "permitted_before_verified": [
+      "survey requested",
+      "survey evidence pending",
+      "reference location only"
+    ],
+    "permitted_after_verified": [
+      "surveyed and independently GIS-cross-checked location"
+    ],
+    "prohibited_without_separate_gates": [
+      "rainwater harvested",
+      "rainwater bottled",
+      "product released",
+      "potable water",
+      "measured environmental result",
+      "regulatory approval",
+      "verified environmental credit"
+    ]
+  },
+  "canonicalization": {
+    "encoding": "UTF-8",
+    "object_keys": "lexicographically_sorted",
+    "arrays": "retain_declared_order",
+    "hash": "SHA-256"
+  },
+  "next_gate": "S6C.3_COLLECTOR_READINESS_GATE"
+}
