@@ -1,0 +1,101 @@
+{
+  "schema": "blue-ether.s6c.authorization-package-review.v1",
+  "milestone": "S6C.1",
+  "status": "REVIEW_TEMPLATE_READY_AUTHORIZATION_EVIDENCE_PENDING",
+  "purpose": "Deterministic checklist for reviewing a proposed Lagos field site before any physical installation or collection.",
+  "decision_states": [
+    "PENDING",
+    "ACCEPTED",
+    "HOLD",
+    "REJECTED",
+    "EXPIRED"
+  ],
+  "authorization_subject": {
+    "site_id": null,
+    "organization": null,
+    "responsible_authority": null,
+    "authorization_reference": null,
+    "scope": null,
+    "issued_at": null,
+    "expires_at": null
+  },
+  "required_evidence": [
+    {
+      "id": "AUTH-01",
+      "name": "Site/access authorization",
+      "required": true,
+      "acceptance": "Current document identifies authorized site/scope and responsible authority."
+    },
+    {
+      "id": "AUTH-02",
+      "name": "Installation permission",
+      "required": true,
+      "acceptance": "Collector installation is expressly permitted within the authorized scope."
+    },
+    {
+      "id": "AUTH-03",
+      "name": "Field safety assessment",
+      "required": true,
+      "acceptance": "Hazards, controls, emergency procedure and responsible operator are recorded."
+    },
+    {
+      "id": "AUTH-04",
+      "name": "Sampling/laboratory readiness",
+      "required": true,
+      "acceptance": "Sample handling, laboratory recipient and applicable methods are defined before collection."
+    },
+    {
+      "id": "AUTH-05",
+      "name": "Data/security/privacy boundary",
+      "required": true,
+      "acceptance": "Public/restricted data handling and sensitive-location treatment are defined."
+    },
+    {
+      "id": "AUTH-06",
+      "name": "Location verification",
+      "required": true,
+      "acceptance": "Survey evidence and independent GIS cross-check exist; exact coordinates remain restricted where required."
+    },
+    {
+      "id": "AUTH-07",
+      "name": "Collector readiness",
+      "required": true,
+      "acceptance": "Controlled apparatus, first-flush control, sealed container, measurement and time controls are ready."
+    },
+    {
+      "id": "AUTH-08",
+      "name": "Rain-event readiness",
+      "required": true,
+      "acceptance": "Qualified observation source, event criteria and antecedent-rainfall procedure are defined."
+    }
+  ],
+  "independent_check": {
+    "required": true,
+    "reviewer_identity": null,
+    "review_time": null,
+    "conflicts_declared": null,
+    "result": null,
+    "rule": "The same person cannot be treated as the sole authorization, field operator and independent reviewer for a material gate."
+  },
+  "fail_closed": [
+    "authorization absent",
+    "authorization expired",
+    "scope mismatch",
+    "unverified location",
+    "unresolved safety issue",
+    "laboratory pathway undefined",
+    "first-flush control unavailable",
+    "public-safe boundary undefined",
+    "material conflict of evidence"
+  ],
+  "release_rule": "S6C.1 acceptance permits progression to controlled field preparation only. It does not itself authorize a rain-event collection.",
+  "prohibited_claims_before_field_evidence": [
+    "site is operational",
+    "collector is installed",
+    "rain event was harvested",
+    "water was bottled",
+    "water is potable",
+    "product is released"
+  ],
+  "next_gate": "S6C.2_SURVEY_AND_LOCATION_VERIFICATION"
+}
