@@ -1,0 +1,41 @@
+{
+  "pilot": "Illovediza Fuerza",
+  "country": "Spain",
+  "purpose": "Map normalized environmental and operational records into controlled DMRV evidence classes without upgrading unsupported claims.",
+  "indicator_domains": {
+    "meteorology": ["rainfall", "rainfall_forecast", "temperature", "relative_humidity", "pressure", "wind_speed", "wind_direction", "atmospheric_moisture"],
+    "air_quality": ["NO2", "O3", "PM2_5", "PM10", "SO2", "CO", "aerosol_or_dust"],
+    "remote_sensing": ["satellite_precipitation", "land_surface_context", "vegetation_or_land_cover_when_relevant"],
+    "water": ["collection_volume", "first_flush_state", "sample_custody", "water_quality_parameters", "batch_id", "seal_state"],
+    "esg_ghg": ["energy", "fuel", "transport", "materials", "waste", "emission_factor", "calculated_emissions", "uncertainty"],
+    "governance": ["site_authorization", "operator_identity", "method_version", "review_state", "exception_state"]
+  },
+  "evidence_classes": {
+    "REPORTABLE": "Source, timestamp, unit, spatial identity, provenance and quality checks pass.",
+    "MEASURED": "A physical measurement or explicitly identified measurement feed exists; method and instrument/source are recorded.",
+    "MODELED": "Value is produced by a model or forecast and remains semantically distinct from measurement.",
+    "VALIDATED": "Defined validation procedure has passed and supporting evidence is retained.",
+    "VERIFIED": "Authorized independent or second-party review has passed the applicable verification procedure.",
+    "ANCHORED": "Deterministic evidence package has been cryptographically anchored; this does not prove environmental truth.",
+    "RELEASED": "Applicable operational, QMS and regulatory/product-release gates have passed."
+  },
+  "dmrv_record": {
+    "required": ["node_id", "indicator", "value", "unit", "timestamp", "spatial_reference", "source_id", "source_record_id", "method", "evidence_class", "quality_state", "provenance", "schema_version"],
+    "optional": ["uncertainty", "calculation_formula", "emission_factor_id", "reviewer_id", "supersedes", "exception_id"]
+  },
+  "package_rules": {
+    "canonicalization": "Deterministic field ordering, explicit units and normalized timestamps.",
+    "hash": "SHA-256 over canonical evidence package.",
+    "anchor": "Only package root/hash is eligible for blockchain anchoring.",
+    "immutability": "Corrections create successor records; historical evidence is not overwritten."
+  },
+  "promotion_rules": [
+    "REPORTABLE requires complete provenance and quality checks.",
+    "MEASURED cannot be assigned to forecasts or model outputs.",
+    "VALIDATED requires a defined validation method and retained evidence.",
+    "VERIFIED requires an authorized review procedure.",
+    "ANCHORED only describes cryptographic anchoring.",
+    "RELEASED requires all applicable physical, QMS, regulatory and governance gates."
+  ],
+  "fail_closed": ["missing_source", "unit_conflict", "material_time_conflict", "material_spatial_conflict", "unknown_method", "invalid_provenance", "unresolved_cross_source_conflict"]
+}
