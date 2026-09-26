@@ -1,12 +1,14 @@
 {
   "milestone": "M-1",
   "system": "Blue-Ether OS / OMI-OJO",
-  "status": "S6A_CONTROLLED_INFRASTRUCTURE_VALIDATION",
-  "execution_readiness": "S6A_IMPLEMENTATION_READY_CONTROLLED_DEPLOYMENT_PENDING",
+  "status": "S6B_BUILDER_GRANT_EVIDENCE_READY",
+  "execution_readiness": "S6B_APPLICATION_READY_S6A_CONTROLLED_DEPLOYMENT_PENDING",
   "production_guide": "docs/production-execution-guide.md",
   "institutional_framework": "docs/institutional-production-framework.md",
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
-  "production_map_version": "M-1/S6A-S6B_INSTITUTIONAL_V2",
+  "s6b_work_package": "config/s6b-builder-grant-work-package.json",
+  "s6b_evidence_package": "docs/s6b-builder-grant-evidence-package.md",
+  "production_map_version": "M-1/S6A-S6B_INSTITUTIONAL_V3",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -48,14 +50,6 @@
     "S5.4": "PASS_UAE_SEVEN_EMIRATE_SURFACE",
     "S5.5": "PASS_FEED_ACTUALIZATION_CONTRACT",
     "S5.6": "PASS_GRANT_AND_NETWORK_STRATEGY_SURFACE",
-    "S5.7": "NEXT_UNIVERSAL_NODE_SCHEMA_RUNTIME",
-    "S5.8": "NEXT_NON_CONTRADICTION_RUNTIME",
-    "S5.9": "NEXT_MULTI_COUNTRY_DMRV_ADAPTERS",
-    "S5.10": "NEXT_BLOCKCHAIN_ANCHOR_ARCHITECTURE",
-    "S5.11": "NEXT_VDR_EVIDENCE_INDEX",
-    "S5.12": "NEXT_TABLEAU_ANALYTICS_CONTRACT",
-    "S5.13-S5.19": "NEXT_COUNTRY_AND_CROSS_CONTINENTAL_EXPANSION",
-    "S5.20": "NEXT_GLOBAL_CONTROLLED_VALIDATION",
     "S6A.1": "IMPLEMENTED_DETERMINISTIC_PACKAGE",
     "S6A.2": "CONTRACT_IMPLEMENTED_CONTROLLED_DEPLOYMENT_PENDING",
     "S6A.3": "IMPLEMENTED_ANCHOR_RECORD_SCHEMA",
@@ -64,7 +58,8 @@
     "S6A.6": "SECURITY_REVIEW_REQUIRED",
     "S6A.7": "BUILDER_GRANT_EVIDENCE_DEFINED",
     "S6A": "CONTROLLED_IMPLEMENTATION_IN_PROGRESS",
-    "S6B": "PHYSICAL_VALIDATION_PENDING_AUTHORIZATION"
+    "S6B": "READY_FOR_CONTROLLED_APPLICATION",
+    "S6C": "NEXT_CONTROLLED_LAGOS_FIELD_AUTHORIZATION"
   },
   "institutional_domains": [
     "governance_authorization",
@@ -98,14 +93,10 @@
   "institutional_gate_rule": "Every material release must identify scope, release authority, evidence, independent check, permissible claims, prohibited claims and hold/rollback condition; evidence reference must be recorded before gate promotion.",
   "premium_rainwater_release_rule": "Premium status requires an evidence-linked rain event, collection integrity, first-flush record, sampling/custody, applicable water-quality/QMS evidence, batch/seal provenance, DMRV review and regulatory/product-release criteria.",
   "blockchain_policy": "Blockchain anchors deterministic evidence roots and provides integrity/auditability; it does not establish environmental truth, water quality, regulatory compliance or grant funding.",
-  "funding_policy": "Grant/builder requests are structured as measurable work packages with outputs, evidence, budgets, owners and acceptance criteria. Builder/testnet/gas credits are infrastructure resources. Project token remains DEFERRED pending separate legal, tax, accounting, governance and product review.",
+  "funding_policy": "Grant/builder requests are measurable work packages. Funding status is never inferred from technical readiness. Builder/testnet/gas credits are infrastructure resources. Project token remains DEFERRED.",
   "geographic_policy": "Global Lagos Nigeria remains the reference/proof pilot. International grids inherit evidence semantics, not evidence values. Brazil remains anchor-pending.",
-  "production_claim_policy": "Never promote forecast, modelled, calculated, estimated or proxy values to measured or verified without the required evidence and review.",
-  "reportability_policy": "REPORTABLE requires provenance, timestamp, coordinate, unit, methodology, quality and reconciliation rules to pass; REPORTABLE does not mean MEASURED, VERIFIED or ANCHORED.",
-  "non_contradiction_policy": "Claims require compatible time, space, units, methodology, provenance and quality. Material conflicts fail closed; sources are not blindly averaged. Corrections are append-only successor records.",
-  "live_feed_policy": "Only documented provider transport determines PUSH_STREAM. HTTP retrieval is POLLING_API; historical/reanalysis/satellite retrieval is ARCHIVE_QUERY; video transport is separately classified.",
   "physical_status": "NOT_RELEASED",
   "project_token_status": "DEFERRED",
-  "brazil_anchor_status": "PENDING",
-  "implementation_note": "S6A deterministic evidence package, anchor record, verifier primitive, network registry and Solidity anchor contract are implemented. Controlled deployment, receipt integration, public verifier UI integration and security review remain gated."
+  "funding_award_status": "NOT_AWARDED",
+  "next_gate": "S6C_CONTROLLED_LAGOS_FIELD_AUTHORIZATION"
 }
