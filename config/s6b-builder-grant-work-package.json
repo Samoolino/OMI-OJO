@@ -1,0 +1,75 @@
+{
+  "milestone": "S6B",
+  "system": "Blue-Ether OS / OMI-OJO",
+  "status": "READY_FOR_CONTROLLED_APPLICATION",
+  "purpose": "Package the implemented DMRV and blockchain evidence infrastructure as a measurable builder/grant work package without representing funding as awarded.",
+  "funding_boundary": {
+    "project_funding_status": "NOT_AWARDED",
+    "project_token": "DEFERRED",
+    "eligible_infrastructure": [
+      "DMRV evidence-package runtime",
+      "provider/reconciliation infrastructure",
+      "blockchain anchor test deployment",
+      "public verification surface",
+      "security review",
+      "controlled telemetry integration",
+      "VDR/evidence-index generation",
+      "documentation and reproducibility"
+    ],
+    "excluded_until_authorized": [
+      "production token issuance",
+      "unverified environmental credits",
+      "unsupported carbon claims",
+      "physical water production without site authorization"
+    ]
+  },
+  "work_packages": [
+    {
+      "id": "WP-S6B-01",
+      "name": "Deterministic DMRV package builder",
+      "deliverables": ["canonical package schema", "hash reproducibility tests", "package fixtures"],
+      "acceptance": "Identical canonical inputs produce identical evidence roots."
+    },
+    {
+      "id": "WP-S6B-02",
+      "name": "Blockchain evidence anchor",
+      "deliverables": ["controlled testnet deployment", "deployment record", "anchor transaction", "receipt"],
+      "acceptance": "A test evidence root can be anchored and independently verified."
+    },
+    {
+      "id": "WP-S6B-03",
+      "name": "Public verification",
+      "deliverables": ["public-safe verifier", "matched/mismatched/not-found states", "restricted-data boundary"],
+      "acceptance": "Verifier exposes integrity state without exposing secrets or sensitive locations."
+    },
+    {
+      "id": "WP-S6B-04",
+      "name": "Security and governance",
+      "deliverables": ["threat model", "authorization policy", "duplicate/replay tests", "secret-management procedure"],
+      "acceptance": "Security review evidence is retained and unresolved critical findings block release."
+    },
+    {
+      "id": "WP-S6B-05",
+      "name": "VDR evidence package",
+      "deliverables": ["evidence index", "architecture evidence", "test evidence", "deployment evidence", "claims boundary"],
+      "acceptance": "An external reviewer can reconstruct the controlled demonstration from the VDR."
+    }
+  ],
+  "funding_evidence": {
+    "required_before_submission": [
+      "repository commit references",
+      "architecture specification",
+      "test results",
+      "deployment receipts when available",
+      "budget by work package",
+      "owner and reviewer",
+      "risk register",
+      "permissible and prohibited claims"
+    ],
+    "claim_rule": "Funding application status must be represented as PROPOSED, SUBMITTED, UNDER_REVIEW, AWARDED, DECLINED or WITHDRAWN; never imply AWARDED without documentary evidence."
+  },
+  "physical_boundary": {
+    "status": "NOT_RELEASED",
+    "next_separate_gate": "authorized Lagos field validation"
+  }
+}
