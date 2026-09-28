@@ -1,0 +1,18 @@
+{
+  "schema_version": "UB-02.1",
+  "platform": "OMI-OJO",
+  "positioning": "Climate & Environmental Data + Evidence Infrastructure",
+  "product_families": [
+    {"id":"data","name":"OMI-OJO Data","role":"source, ingestion and governed environmental data"},
+    {"id":"evidence","name":"OMI-OJO Evidence","role":"dMRV, provenance, reconciliation, review and verification"},
+    {"id":"intelligence","name":"OMI-OJO Intelligence","role":"climate, water, ESG, GHG and climate-risk intelligence"},
+    {"id":"institutional","name":"OMI-OJO Institutional","role":"VDR, grant, investor, regulatory and audit delivery"},
+    {"id":"edge","name":"OMI-OJO Edge","role":"physical nodes, sensors, telemetry and field operations"},
+    {"id":"premium","name":"OMI-OJO Premium","role":"advanced physical evidence and controlled product release"}
+  ],
+  "pipeline": ["REGISTER","OBSERVE","MEASURE","QUALIFY","CALCULATE","EVIDENCE","REVIEW","RELEASE"],
+  "data_layers": ["physical","source","observed","governed","intelligence","esg_ghg_risk","dmrv_assurance","institutional_finance"],
+  "cross_cutting": ["governance","security","privacy","methodologies","claims","regulatory","release_gates"],
+  "blockchain_boundary": "integrity_of_deterministic_evidence_roots_only",
+  "project_token_status": "DEFERRED"
+}
