@@ -1,0 +1,24 @@
+{
+  "schema_version": "UB-02.1",
+  "rule": "retain_existing_project_ids",
+  "reference_pilot": "GLOBAL-LAGOS-NG",
+  "projects": [
+    {"id":"M-1","role":"platform baseline","products":["data","evidence","intelligence","institutional"],"layers":["L0","L1","L2","L3","L4","L5","L6","L7"]},
+    {"id":"P1-P20","role":"core capability programme","products":["data","evidence","intelligence","institutional"],"mapping_mode":"individual_capability_mapping_required"},
+    {"id":"S4","role":"controlled evidence integration","products":["data","evidence"],"layers":["L1","L2","L3","L6"]},
+    {"id":"S5","role":"global deployment framework","products":["data","intelligence","institutional"],"layers":["L1","L2","L3","L4","L5","L6","L7"]},
+    {"id":"S6A","role":"network and integrity infrastructure","products":["evidence","institutional"],"layers":["L6","L7"]},
+    {"id":"S6B","role":"builder and grant infrastructure","products":["data","evidence","intelligence","institutional"],"layers":["L1","L2","L3","L4","L5","L6","L7"]},
+    {"id":"S6C","role":"Lagos physical validation reference deployment","products":["edge","data","evidence","intelligence","premium"],"layers":["L0","L1","L2","L3","L4","L5","L6","L7"]},
+    {"id":"S6C.2","role":"survey and GIS cross-check","products":["edge","data"],"layers":["L0","L1","L2","L3"]},
+    {"id":"ES4","role":"provider reconciliation sequence","products":["data","evidence"],"layers":["L1","L2","L3","L6"]},
+    {"id":"ES5","role":"reconciliation sequence","products":["data","evidence"],"layers":["L2","L3","L6"]},
+    {"id":"ES6","role":"dMRV evidence package sequence","products":["evidence","institutional"],"layers":["L6","L7"]},
+    {"id":"GLOBAL-LAGOS-NG","role":"reference/proof deployment","products":["edge","data","evidence","intelligence","institutional"],"layers":["L0","L1","L2","L3","L4","L5","L6","L7"]},
+    {"id":"LAGOS-TO-DUBAI","role":"global deployment programme","products":["data","intelligence","institutional"],"geographies":["NG","PT","CL","MX","AE","BR-pending"],"layers":["L1","L2","L3","L4","L5","L6","L7"]}
+  ],
+  "injection_contract": ["project_id","vertical","geography","products","data_requirements","sources","methodologies","indicators","evidence_requirements","reports","network","anchor","release_gates"],
+  "geographic_policy": "international deployments inherit evidence semantics, not unsupported evidence values from Lagos",
+  "funding_policy": "funding state is independent from technical readiness",
+  "physical_status": "NOT_RELEASED"
+}
