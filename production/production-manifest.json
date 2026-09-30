@@ -1,14 +1,14 @@
 {
   "milestone": "M-1",
   "system": "Blue-Ether OS / OMI-OJO",
-  "status": "S9.3_GOVERNED_SCALE_ASSURANCE_DASHBOARD_AUDIT_PACK_DEFINED",
-  "execution_readiness": "S9.3_ASSURANCE_DASHBOARD_READY_EMPIRICAL_ASSURANCE_EVIDENCE_PENDING",
+  "status": "S9.4_INDEPENDENT_ASSURANCE_GOVERNED_SCALE_CERTIFICATION_READINESS_DEFINED",
+  "execution_readiness": "S9.4_ASSURANCE_READINESS_READY_INDEPENDENT_REVIEW_EVIDENCE_PENDING",
   "production_guide": "docs/production-execution-guide.md",
   "institutional_framework": "docs/institutional-production-framework.md",
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
   "s6b_work_package": "config/s6b-builder-grant-work-package.json",
   "s6b_evidence_package": "docs/s6b-builder-grant-evidence-package.md",
-  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V31",
+  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V32",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -88,7 +88,8 @@
     "S9": "IMPLEMENTED_GOVERNED_SCALE_EXECUTION_AND_CONTINUOUS_ASSURANCE",
     "S9.1": "IMPLEMENTED_CONTINUOUS_ASSURANCE_AND_INDEPENDENT_CONTROL_EFFECTIVENESS",
     "S9.2": "IMPLEMENTED_GOVERNED_SCALE_CONTROL_EFFECTIVENESS_AND_EXCEPTION_AUTOMATION",
-    "S9.3": "IMPLEMENTED_GOVERNED_SCALE_ASSURANCE_DASHBOARD_AND_AUDIT_PACK"
+    "S9.3": "IMPLEMENTED_GOVERNED_SCALE_ASSURANCE_DASHBOARD_AND_AUDIT_PACK",
+    "S9.4": "IMPLEMENTED_INDEPENDENT_ASSURANCE_GOVERNED_SCALE_CERTIFICATION_READINESS"
   },
   "institutional_domains": [
     "governance_authorization",
@@ -127,7 +128,7 @@
   "physical_status": "NOT_RELEASED",
   "project_token_status": "DEFERRED",
   "funding_award_status": "NOT_AWARDED",
-  "next_gate": "S9.4_INDEPENDENT_ASSURANCE_AND_GOVERNED_SCALE_CERTIFICATION_READINESS",
+  "next_gate": "S9.5_GOVERNED_SCALE_ASSURANCE_EXECUTION_AND_DISCLOSURE_CONTROL",
   "s6c_field_authorization": "config/s6c-lagos-field-authorization.json",
   "s6c_runbook": "docs/s6c-lagos-field-validation-runbook.md",
   "s6c_rain_event_schema": "config/s6c-lagos-rain-event-record.json",
@@ -169,8 +170,8 @@
   "frontend_engagement": {
     "status": "IMPLEMENTED",
     "landing_scope_surface": "apps/web/app/page.tsx",
-    "current_control_surface": "Assurance Dashboard / S9.3",
-    "production_stage_surface": "M-1 → S6A → S6B → S6C → POST-S6C → S7 → S8 → S9 → S9.1 → S9.2 → S9.3",
+    "current_control_surface": "Independent Assurance Readiness / S9.4",
+    "production_stage_surface": "M-1 → S6A → S6B → S6C → POST-S6C → S7 → S8 → S9 → S9.1 → S9.2 → S9.3 → S9.4",
     "operating_ladder_surface": "DESIGNED → IMPLEMENTED → INTEGRATION_READY → CONTROLLED_TEST → REPORTABLE → VALIDATED → VERIFIED → ANCHORED → RELEASED",
     "semantic_boundaries": [
       "administrative node ≠ physical site",
@@ -179,7 +180,7 @@
       "software readiness ≠ product release"
     ],
     "current_physical_state": "NOT_RELEASED",
-    "next_frontend_gate": "S9.4_INDEPENDENT_ASSURANCE_AND_GOVERNED_SCALE_CERTIFICATION_READINESS"
+    "next_frontend_gate": "S9.5_GOVERNED_SCALE_ASSURANCE_EXECUTION_AND_DISCLOSURE_CONTROL"
   },
   "s8_2_operational_readiness": "config/s8.2-site-operational-readiness-controlled-pilot.json",
   "s8_2_operational_readiness_runbook": "docs/s8.2-site-operational-readiness-controlled-pilot-runbook.md",
@@ -198,5 +199,7 @@
   "s9_2_exception_automation": "config/s9.2-governed-scale-control-effectiveness-exception-automation.json",
   "s9_2_exception_automation_runbook": "docs/s9.2-governed-scale-control-effectiveness-exception-automation-runbook.md",
   "s9_3_assurance_dashboard": "config/s9.3-governed-scale-assurance-dashboard-audit-pack.json",
-  "s9_3_assurance_dashboard_runbook": "docs/s9.3-governed-scale-assurance-dashboard-audit-pack-runbook.md"
+  "s9_3_assurance_dashboard_runbook": "docs/s9.3-governed-scale-assurance-dashboard-audit-pack-runbook.md",
+  "s9_4_independent_assurance_readiness": "config/s9.4-independent-assurance-governed-scale-certification-readiness.json",
+  "s9_4_independent_assurance_runbook": "docs/s9.4-independent-assurance-governed-scale-certification-readiness-runbook.md"
 }
