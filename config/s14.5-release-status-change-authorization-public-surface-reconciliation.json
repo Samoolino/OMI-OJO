@@ -1,0 +1,85 @@
+{
+  "id": "S14.5-RELEASE-STATUS-CHANGE-AUTHORIZATION-AND-PUBLIC-SURFACE-RECONCILIATION",
+  "title": "Release-Status Change Authorization and Public-Surface Reconciliation",
+  "state": "READY_FOR_ACTUAL_MONITORING_WINDOW",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S14.4_CONTINUOUS_ASSURANCE_AND_RELEASE_STATUS_REVIEW",
+  "purpose": "Control any change to an authorized release status and ensure public, investor, product and internal surfaces represent only the currently authorized record.",
+  "sequence": [
+    "STATUS_CHANGE_TRIGGER",
+    "CURRENT_STATUS_AND_SCOPE_FREEZE",
+    "ASSURANCE_FINDING_RECONCILIATION",
+    "REGULATORY_AND_QMS_IMPACT_REVIEW",
+    "CHANGE_AUTHORITY_REVIEW",
+    "NEW_STATUS_DECISION",
+    "SUCCESSOR_RECORD_CREATION",
+    "PUBLIC_PRODUCT_AND_INVESTOR_SURFACE_RECONCILIATION",
+    "WITHDRAW_OR_SUPERSEDE_STALE_SURFACES",
+    "EFFECTIVE_TIME_LOCK",
+    "AUDIT_TRAIL_LOCK"
+  ],
+  "triggers": [
+    "assurance_finding",
+    "material_QMS_change",
+    "regulatory_condition_change",
+    "traceability_exception",
+    "evidence_correction",
+    "methodology_boundary_factor_change",
+    "product_specification_change",
+    "claim_or_label_change",
+    "security_integrity_event",
+    "authorized_operational_change"
+  ],
+  "status_options": [
+    "AUTHORIZED_ACTIVE",
+    "CONDITIONAL",
+    "SCOPE_REDUCED",
+    "SUSPENDED",
+    "WITHDRAWN",
+    "SUPERSEDED",
+    "HOLD"
+  ],
+  "states": [
+    "NOT_TRIGGERED",
+    "REVIEW",
+    "AUTHORIZATION_PENDING",
+    "AUTHORIZED",
+    "SURFACE_RECONCILIATION",
+    "HOLD",
+    "SUPERSEDED",
+    "CLOSED"
+  ],
+  "outcomes": [
+    "NO_STATUS_CHANGE",
+    "STATUS_CONFIRMED",
+    "STATUS_CHANGED",
+    "SCOPE_REDUCED",
+    "SUSPENDED",
+    "WITHDRAWN",
+    "SUPERSEDED",
+    "HOLD"
+  ],
+  "fail_closed": [
+    "status change lacks trigger evidence",
+    "current scope not frozen",
+    "authority missing",
+    "regulatory/QMS impact unresolved",
+    "successor record absent",
+    "public/investor/product surfaces diverge",
+    "stale claim not withdrawn",
+    "effective time absent",
+    "historical status overwritten"
+  ],
+  "invariants": [
+    "status changes are explicit and versioned",
+    "historical status is preserved",
+    "public surfaces cannot outrun authorized internal record",
+    "withdrawal is not deletion",
+    "supersession preserves lineage",
+    "status authorization does not create environmental observations",
+    "blockchain anchor does not authorize status change"
+  ],
+  "no_event_policy": "No release status, public claim, regulatory approval, sale, harvest observation or environmental observation is asserted by implementation.",
+  "next_gate": "S14.6-RELEASE-CONTINUITY-AND-DATA-INTEGRITY-ASSURANCE"
+}
