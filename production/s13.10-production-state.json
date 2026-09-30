@@ -1,0 +1,9 @@
+{
+  "sequence": "S13.10_EVIDENCE_RECONCILIATION",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "observations_created": false,
+  "precondition": "S13.9_DMRV_PACKAGE_LOCKED",
+  "next_gate": "S13.11_ANCHOR_CANDIDATE_BUILD"
+}
