@@ -1,0 +1,86 @@
+{
+  "stage": "S7.2",
+  "name": "Exception and Corrective Action Control",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Control material exceptions detected through monitoring and reconciliation, including containment, root-cause investigation, corrective/preventive action, authority, verification of effectiveness and evidence succession.",
+  "upstream_gate": "S7.1_CONTINUOUS_DMRV_AUDIT_RECONCILIATION",
+  "states": [
+    "EXCEPTION_READY",
+    "CONTAINED",
+    "INVESTIGATION",
+    "CAPA_OPEN",
+    "EFFECTIVENESS_REVIEW",
+    "CLOSED",
+    "HOLD",
+    "FAILED"
+  ],
+  "required_inputs": [
+    "exception trigger",
+    "affected release/batch scope",
+    "source evidence",
+    "severity/materiality assessment",
+    "containment authority",
+    "investigation owner",
+    "corrective action plan",
+    "verification criteria",
+    "closure authority"
+  ],
+  "exception_record": {
+    "exception_id": "required",
+    "detected_at": "required",
+    "detected_by": "required",
+    "scope": "required",
+    "trigger": "required",
+    "evidence_refs": "required",
+    "severity": "required",
+    "containment_action": "required_when_applicable",
+    "root_cause_method": "required_when_investigation",
+    "root_cause": "required_when_established",
+    "corrective_actions": "required",
+    "preventive_actions": "required_when_applicable",
+    "owner": "required",
+    "due_date": "required",
+    "effectiveness_criteria": "required",
+    "effectiveness_evidence": "required_when_reviewed",
+    "closure_authority": "required_when_closed",
+    "successor_package_refs": "required_when_evidence_changes",
+    "integrity_digest": "required"
+  },
+  "controls": [
+    "contain affected scope where warranted",
+    "preserve original evidence",
+    "classify severity and materiality",
+    "investigate using a recorded method",
+    "assign accountable owner and due date",
+    "verify effectiveness before closure",
+    "create successor DMRV/anchor when evidence changes",
+    "maintain complete audit trail"
+  ],
+  "fail_closed_conditions": [
+    "affected scope unidentified",
+    "containment authority absent where required",
+    "material evidence not preserved",
+    "root cause unsupported",
+    "corrective action owner missing",
+    "effectiveness criteria absent",
+    "material action closed without effectiveness evidence",
+    "successor record missing after evidence change",
+    "closure authority absent",
+    "integrity evidence missing"
+  ],
+  "permissible_claims": [
+    "an exception was detected",
+    "affected scope was placed on hold when authorized",
+    "corrective action is open or completed",
+    "effectiveness was reviewed when evidence exists"
+  ],
+  "prohibited_claims": [
+    "closure proves no future risk",
+    "absence of exceptions proves compliance",
+    "CAPA closure rewrites historical evidence",
+    "corrective action itself proves regulatory approval",
+    "new batches inherit closure status"
+  ],
+  "next_gate": "S7.3_INDEPENDENT_AUDIT_AND_EFFECTIVENESS_ASSURANCE"
+}
