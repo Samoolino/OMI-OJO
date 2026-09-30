@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";\nimport { buildLiveSnapshot } from "../snapshot";
+import { resolveAuthorizedSite } from "../site-registry";
 
 type ProjectContract = {
   project_id: string;
@@ -69,19 +70,56 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "project_reporting_contract_not_found", project }, { status: 404 });
   }
 
-  if (!site || site !== contract.site_id || latitude === null || longitude === null) {
+  if (!site || site !== contract.site_id) {
     return NextResponse.json({
       schema_version: "UB-02.LIVE-REPORTING.1",
       state: "LOCATION_INPUT_REQUIRED",
       project,
-      required: ["site", "lat", "lon"],
+      required: ["site"],
       contract,
-      note: "Coordinates must come from an authorized project site/GIS record. The service will not infer a physical site from a city label.",
+      note: "The physical site must be selected from the engagement contract.",
+    }, { status: 422 });
+  }
+
+  const authorization = resolveAuthorizedSite(project, site);
+  if (authorization.state !== "AUTHORIZED") {
+    return NextResponse.json({
+      schema_version: "UB-02.LIVE-REPORTING.2",
+      state: authorization.state,
+      project,
+      site,
+      required: ["authorized project GIS/site record"],
+      site_registry: authorization.site,
+      note: "Submitted coordinates cannot authorize a physical site. Remote/modelled data remains blocked until the canonical site registry contains an authorized coordinate record.",
+    }, { status: 422 });
+  }
+
+  if (latitude === null || longitude === null) {
+    return NextResponse.json({
+      schema_version: "UB-02.LIVE-REPORTING.2",
+      state: "LOCATION_INPUT_REQUIRED",
+      project,
+      site,
+      required: ["lat", "lon"],
+      note: "Runtime coordinates are required for the remote query, but must match the canonical authorized site record.",
     }, { status: 422 });
   }
 
   if (latitude < -90 || latitude > 90 || longitude < -180 || longitude > 180) {
     return NextResponse.json({ error: "invalid_coordinates" }, { status: 422 });
+  }
+
+  if (Math.abs(latitude - authorization.site!.latitude!) > 0.000001 ||
+      Math.abs(longitude - authorization.site!.longitude!) > 0.000001) {
+    return NextResponse.json({
+      schema_version: "UB-02.LIVE-REPORTING.2",
+      state: "LOCATION_COORDINATES_MISMATCH",
+      project,
+      site,
+      submitted_location: { latitude, longitude },
+      authorized_location: { latitude: authorization.site!.latitude, longitude: authorization.site!.longitude },
+      note: "Remote source queries must use the canonical authorized site coordinates.",
+    }, { status: 422 });
   }
 
   const url = new URL("https://api.open-meteo.com/v1/forecast");
