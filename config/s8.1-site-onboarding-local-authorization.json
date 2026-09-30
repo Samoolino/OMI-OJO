@@ -1,0 +1,84 @@
+{
+  "stage": "S8.1",
+  "name": "Site Onboarding and Local Authorization",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Control admission of a proposed physical site into the multisite program through identity, authorization, geospatial verification, operator readiness and local regulatory/QMS pathway checks.",
+  "states": [
+    "ONBOARDING_READY",
+    "IDENTITY_REVIEW",
+    "AUTHORIZATION_REVIEW",
+    "SITE_READY",
+    "HOLD",
+    "REJECTED",
+    "DEFERRED"
+  ],
+  "required_inputs": [
+    "site proposal",
+    "unique site identifier",
+    "geography and node classification",
+    "local authorization evidence",
+    "geospatial verification where applicable",
+    "operator identity and responsibility",
+    "collector readiness",
+    "local regulatory scope",
+    "QMS/laboratory pathway",
+    "environmental data-provider mappings",
+    "DMRV profile",
+    "evidence-anchor configuration"
+  ],
+  "site_admission_record": {
+    "site_id": "required",
+    "proposal_id": "required",
+    "geography": "required",
+    "node_class": "required",
+    "physical_site": "required",
+    "authorization_refs": "required",
+    "coordinate_verification_ref": "required_if_physical",
+    "operator_ref": "required",
+    "collector_readiness_ref": "required_if_collection",
+    "regulatory_scope": "required",
+    "qms_pathway_ref": "required_if_water_or_product_testing",
+    "provider_refs": "required",
+    "dmrv_profile_ref": "required",
+    "anchor_registry_ref": "required",
+    "admission_decision": "required",
+    "decision_authority": "required",
+    "decision_timestamp": "required",
+    "integrity_digest": "required"
+  },
+  "decision_rules": [
+    "administrative/reporting nodes may be onboarded without being classified as physical sites",
+    "physical collection requires site-specific authorization",
+    "physical site identity must be geospatially verified before collection",
+    "operator and collector accountability must be explicit",
+    "local regulatory and product-release scope must be identified before release planning",
+    "QMS pathway must be identified where water/product testing applies",
+    "DMRV and anchor identities must be unique to the site"
+  ],
+  "fail_closed_conditions": [
+    "site identity ambiguous",
+    "physical site coordinates unverified",
+    "authorization absent or expired",
+    "operator accountability missing",
+    "collector readiness missing for planned collection",
+    "regulatory scope undefined",
+    "QMS pathway missing where applicable",
+    "DMRV identity collision",
+    "anchor configuration unresolved",
+    "admission decision lacks authority"
+  ],
+  "permissible_claims": [
+    "site proposal is under onboarding review",
+    "a defined site has been admitted to the controlled program",
+    "a reporting node exists without implying physical installation"
+  ],
+  "prohibited_claims": [
+    "onboarding proves physical operation",
+    "authorization proves water quality",
+    "site admission proves a harvest occurred",
+    "administrative mapping proves installation",
+    "DMRV registration proves environmental performance"
+  ],
+  "next_gate": "S8.2_SITE_OPERATIONAL_READINESS_AND_CONTROLLED_PILOT"
+}
