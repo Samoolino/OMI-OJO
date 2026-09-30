@@ -1,14 +1,14 @@
 {
   "milestone": "M-1",
   "system": "Blue-Ether OS / OMI-OJO",
-  "status": "S9.1_CONTINUOUS_ASSURANCE_INDEPENDENT_CONTROL_EFFECTIVENESS_DEFINED",
-  "execution_readiness": "S9.1_ASSURANCE_READY_INDEPENDENT_REVIEW_EVIDENCE_PENDING",
+  "status": "S9.2_GOVERNED_SCALE_CONTROL_EFFECTIVENESS_EXCEPTION_AUTOMATION_DEFINED",
+  "execution_readiness": "S9.2_EXCEPTION_AUTOMATION_READY_CONTROL_SIGNALS_PENDING",
   "production_guide": "docs/production-execution-guide.md",
   "institutional_framework": "docs/institutional-production-framework.md",
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
   "s6b_work_package": "config/s6b-builder-grant-work-package.json",
   "s6b_evidence_package": "docs/s6b-builder-grant-evidence-package.md",
-  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V29",
+  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V30",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -86,7 +86,8 @@
     "S8.5": "IMPLEMENTED_CONTROLLED_MULTISITE_EXECUTION_AND_REPLICATION_REVIEW",
     "S8.6": "IMPLEMENTED_MULTISITE_EVIDENCE_CONSOLIDATION_AND_SCALE_READINESS",
     "S9": "IMPLEMENTED_GOVERNED_SCALE_EXECUTION_AND_CONTINUOUS_ASSURANCE",
-    "S9.1": "IMPLEMENTED_CONTINUOUS_ASSURANCE_AND_INDEPENDENT_CONTROL_EFFECTIVENESS"
+    "S9.1": "IMPLEMENTED_CONTINUOUS_ASSURANCE_AND_INDEPENDENT_CONTROL_EFFECTIVENESS",
+    "S9.2": "IMPLEMENTED_GOVERNED_SCALE_CONTROL_EFFECTIVENESS_AND_EXCEPTION_AUTOMATION"
   },
   "institutional_domains": [
     "governance_authorization",
@@ -125,7 +126,7 @@
   "physical_status": "NOT_RELEASED",
   "project_token_status": "DEFERRED",
   "funding_award_status": "NOT_AWARDED",
-  "next_gate": "S9.2_GOVERNED_SCALE_CONTROL_EFFECTIVENESS_AND_EXCEPTION_AUTOMATION",
+  "next_gate": "S9.3_GOVERNED_SCALE_ASSURANCE_DASHBOARD_AND_AUDIT_PACK",
   "s6c_field_authorization": "config/s6c-lagos-field-authorization.json",
   "s6c_runbook": "docs/s6c-lagos-field-validation-runbook.md",
   "s6c_rain_event_schema": "config/s6c-lagos-rain-event-record.json",
@@ -167,7 +168,7 @@
   "frontend_engagement": {
     "status": "IMPLEMENTED",
     "landing_scope_surface": "apps/web/app/page.tsx",
-    "current_control_surface": "Continuous Assurance / S9.1",
+    "current_control_surface": "Exception Automation / S9.2",
     "production_stage_surface": "M-1 → S6A → S6B → S6C → POST-S6C → S7 → S8 → S8.1",
     "operating_ladder_surface": "DESIGNED → IMPLEMENTED → INTEGRATION_READY → CONTROLLED_TEST → REPORTABLE → VALIDATED → VERIFIED → ANCHORED → RELEASED",
     "semantic_boundaries": [
@@ -177,7 +178,7 @@
       "software readiness ≠ product release"
     ],
     "current_physical_state": "NOT_RELEASED",
-    "next_frontend_gate": "S9.2_GOVERNED_SCALE_CONTROL_EFFECTIVENESS_AND_EXCEPTION_AUTOMATION"
+    "next_frontend_gate": "S9.3_GOVERNED_SCALE_ASSURANCE_DASHBOARD_AND_AUDIT_PACK"
   },
   "s8_2_operational_readiness": "config/s8.2-site-operational-readiness-controlled-pilot.json",
   "s8_2_operational_readiness_runbook": "docs/s8.2-site-operational-readiness-controlled-pilot-runbook.md",
@@ -192,5 +193,7 @@
   "s9_governed_scale": "config/s9-governed-scale-execution-continuous-assurance.json",
   "s9_governed_scale_runbook": "docs/s9-governed-scale-execution-continuous-assurance-runbook.md",
   "s9_1_assurance": "config/s9.1-continuous-assurance-independent-control-effectiveness.json",
-  "s9_1_assurance_runbook": "docs/s9.1-continuous-assurance-independent-control-effectiveness-runbook.md"
+  "s9_1_assurance_runbook": "docs/s9.1-continuous-assurance-independent-control-effectiveness-runbook.md",
+  "s9_2_exception_automation": "config/s9.2-governed-scale-control-effectiveness-exception-automation.json",
+  "s9_2_exception_automation_runbook": "docs/s9.2-governed-scale-control-effectiveness-exception-automation-runbook.md"
 }
