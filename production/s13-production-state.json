@@ -1,0 +1,9 @@
+{
+  "sequence": "S13_FIRST_LIVE_HARVEST_EVIDENCE_EVENT",
+  "state": "READY_FOR_AUTHORIZED_FIELD_EXECUTION",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S12.17_FIELD_AUTHORIZED",
+  "event_evidence": "NONE_CREATED_BY_THIS_IMPLEMENTATION",
+  "next_transition": "ACTIVATE_ONLY_ON_ACTUAL_AUTHORIZED_RAIN_EVENT"
+}
