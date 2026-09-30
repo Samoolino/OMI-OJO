@@ -1,0 +1,9 @@
+{
+  "sequence": "S13.2_RAIN_EVENT_CONFIRMATION_PRE_EVENT_SITE_CHECK",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "observations_created": false,
+  "precondition": "S13.1_ACTIVATION_READY",
+  "next_gate": "S13.3_FIRST_FLUSH_DIVERSION_CONTROL"
+}
