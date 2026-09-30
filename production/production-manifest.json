@@ -1,14 +1,14 @@
 {
   "milestone": "M-1",
   "system": "Blue-Ether OS / OMI-OJO",
-  "status": "S6C_DMRV_PACKAGE_GATE_DEFINED",
-  "execution_readiness": "S6C.10_DMRV_PACKAGE_READY_EMPIRICAL_EVIDENCE_PENDING",
+  "status": "S6C_BLOCKCHAIN_EVIDENCE_ANCHOR_GATE_DEFINED",
+  "execution_readiness": "S6C.11_ANCHOR_READY_EMPIRICAL_PACKAGE_AND_REGISTRY_CONFIRMATION_PENDING",
   "production_guide": "docs/production-execution-guide.md",
   "institutional_framework": "docs/institutional-production-framework.md",
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
   "s6b_work_package": "config/s6b-builder-grant-work-package.json",
   "s6b_evidence_package": "docs/s6b-builder-grant-evidence-package.md",
-  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V11",
+  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V12",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -70,7 +70,7 @@
     "S6C.8": "IMPLEMENTED_QMS_LAB_ANALYSIS_READINESS_SCHEMA",
     "S6C.9": "IMPLEMENTED_BATCH_SEAL_RELEASE_GATE_SCHEMA",
     "S6C.10": "IMPLEMENTED_DMRV_PACKAGE_GATE_SCHEMA",
-    "S6C.11": "BLOCKCHAIN_ANCHOR_GATE_DEFINED",
+    "S6C.11": "IMPLEMENTED_BLOCKCHAIN_EVIDENCE_ANCHOR_GATE_SCHEMA",
     "S6C.12": "PREMIUM_CONDITION_REVIEW_REQUIRED"
   },
   "institutional_domains": [
@@ -110,7 +110,7 @@
   "physical_status": "NOT_RELEASED",
   "project_token_status": "DEFERRED",
   "funding_award_status": "NOT_AWARDED",
-  "next_gate": "S6C.11_BLOCKCHAIN_ANCHOR_GATE",
+  "next_gate": "S6C.12_PREMIUM_CONDITION_REVIEW",
   "s6c_field_authorization": "config/s6c-lagos-field-authorization.json",
   "s6c_runbook": "docs/s6c-lagos-field-validation-runbook.md",
   "s6c_rain_event_schema": "config/s6c-lagos-rain-event-record.json",
@@ -128,5 +128,7 @@
   "s6c_batch_seal_release_gate": "config/s6c9-lagos-batch-seal-release-gate.json",
   "s6c_batch_seal_release_runbook": "docs/s6c9-lagos-batch-seal-release-gate-runbook.md",
   "s6c_dmrv_package_gate": "config/s6c10-lagos-dmrv-package-gate.json",
-  "s6c_dmrv_package_runbook": "docs/s6c10-lagos-dmrv-package-gate-runbook.md"
+  "s6c_dmrv_package_runbook": "docs/s6c10-lagos-dmrv-package-gate-runbook.md",
+  "s6c_blockchain_evidence_anchor_gate": "config/s6c11-lagos-blockchain-evidence-anchor-gate.json",
+  "s6c_blockchain_evidence_anchor_runbook": "docs/s6c11-lagos-blockchain-evidence-anchor-gate-runbook.md"
 }
