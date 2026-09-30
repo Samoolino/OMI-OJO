@@ -1,0 +1,191 @@
+{
+  "stage": "S9.3",
+  "name": "Governed Scale Assurance Dashboard and Audit Pack",
+  "status": "IMPLEMENTED",
+  "physical_status": "NOT_RELEASED",
+  "objective": "Provide a standards-aware assurance surface that separates operational signals, environmental evidence, DMRV state, control effectiveness and disclosure-ready climate/ESG data without converting dashboard status into certification, environmental truth or product release.",
+  "prerequisites": [
+    "S9.2_GOVERNED_SCALE_CONTROL_EFFECTIVENESS_EXCEPTION_AUTOMATION"
+  ],
+  "ux_conformity": {
+    "principles": [
+      "Every material metric displays reporting boundary, period, unit, evidence class, source/method and status.",
+      "Observed, forecast, modelled, satellite, calculated and proxy data remain visually and semantically distinct.",
+      "Aggregate values retain source lineage and never silently convert missing data to zero.",
+      "Disclosure mappings are shown as alignment/mapping status, not standards certification.",
+      "Climate/GHG metrics expose scope, organizational/operational boundary, methodology, activity data, emission factor and uncertainty where applicable.",
+      "Every assurance conclusion links to evidence, reviewer scope/period and exception state.",
+      "Material unresolved exceptions block claim promotion and are visible at the point of use.",
+      "Administrative coverage is never presented as physical harvest or environmental performance."
+    ],
+    "status_labels": [
+      "SIGNAL",
+      "REPORTABLE",
+      "VALIDATED",
+      "VERIFIED",
+      "ANCHORED",
+      "ASSURANCE REVIEW",
+      "HOLD",
+      "NOT AVAILABLE",
+      "NOT APPLICABLE"
+    ],
+    "required_metric_context": [
+      "metric_id",
+      "metric_name",
+      "value",
+      "unit",
+      "reporting_period",
+      "reporting_boundary",
+      "entity/site_id",
+      "evidence_class",
+      "source",
+      "methodology",
+      "data_quality_status",
+      "uncertainty",
+      "version",
+      "evidence_refs",
+      "review_status"
+    ],
+    "evidence_lineage": [
+      "source_record",
+      "transformation",
+      "calculation",
+      "reconciliation",
+      "review",
+      "anchor"
+    ],
+    "audit_pack_sections": [
+      "control effectiveness matrix",
+      "exception register",
+      "evidence lineage",
+      "DMRV reconciliation",
+      "QMS/custody status",
+      "anchor register",
+      "change/version register",
+      "CAPA register",
+      "independent review log",
+      "claim review",
+      "standards mapping ledger"
+    ]
+  },
+  "climate_esg_alignment": {
+    "ifrs_s2": {
+      "status": "ALIGNMENT_PROFILE",
+      "disclosures": [
+        "governance",
+        "strategy",
+        "risk management",
+        "metrics and targets"
+      ],
+      "climate_metrics": [
+        "Scope 1 GHG emissions",
+        "Scope 2 GHG emissions",
+        "Scope 3 GHG emissions",
+        "transition risks",
+        "physical risks",
+        "climate-related opportunities",
+        "capital deployment",
+        "internal carbon price where applicable",
+        "management remuneration linkage where applicable"
+      ],
+      "measurement_rule": "GHG emissions measurement method, inputs and assumptions must be explicit; GHG Protocol Corporate Standard is the default measurement basis unless an applicable jurisdiction requires another method."
+    },
+    "ghg_protocol": {
+      "status": "ALIGNMENT_PROFILE",
+      "standards": [
+        "Corporate Standard",
+        "Scope 2 Guidance",
+        "Corporate Value Chain (Scope 3) Standard",
+        "Product Standard where product life-cycle analysis is applicable"
+      ],
+      "controls": [
+        "organizational boundary",
+        "operational boundary",
+        "Scope 1",
+        "Scope 2",
+        "Scope 3",
+        "double-counting control",
+        "activity data",
+        "emission factors",
+        "calculation method",
+        "base year/change control where applicable"
+      ]
+    },
+    "esrs_e1": {
+      "status": "MAPPING_PROFILE",
+      "note": "Use current applicable ESRS requirements and jurisdictional adoption status. 2026 EFRAG draft datapoint material is treated as non-authoritative supporting material until final publication.",
+      "domains": [
+        "transition plan",
+        "climate policies",
+        "actions/resources",
+        "targets",
+        "energy and GHG emissions",
+        "carbon removals/credits where applicable",
+        "internal carbon pricing where applicable",
+        "anticipated financial effects where applicable"
+      ]
+    }
+  },
+  "data_contract": {
+    "metric_record": {
+      "required": [
+        "metric_id",
+        "metric_name",
+        "reporting_entity",
+        "reporting_period_start",
+        "reporting_period_end",
+        "value",
+        "unit",
+        "data_type",
+        "evidence_class",
+        "source_id",
+        "methodology_id",
+        "boundary_id",
+        "status",
+        "version",
+        "evidence_refs"
+      ],
+      "conditional": [
+        "uncertainty",
+        "estimation_method",
+        "emission_factor_id",
+        "scope",
+        "base_year",
+        "restatement_reason",
+        "assurance_level",
+        "regulatory_reference"
+      ],
+      "data_types": [
+        "OBSERVATION",
+        "FORECAST",
+        "MODEL_OUTPUT",
+        "SATELLITE",
+        "CALCULATED",
+        "PROXY",
+        "DISCLOSURE_DERIVED"
+      ],
+      "boundary_types": [
+        "SITE",
+        "PROJECT",
+        "ORGANIZATIONAL",
+        "OPERATIONAL",
+        "VALUE_CHAIN",
+        "ADMINISTRATIVE_REPORTING_GRID"
+      ]
+    }
+  },
+  "fail_closed": [
+    "missing unit or reporting period for quantitative metric",
+    "missing boundary for climate/GHG metric",
+    "GHG scope claimed without supporting methodology and source lineage",
+    "disclosure mapping presented as certification",
+    "unresolved material exception supporting a promoted claim",
+    "broken evidence lineage",
+    "stale or incompatible methodology/version without documented change control",
+    "administrative reporting grid represented as physical harvest site",
+    "forecast/model output presented as measured observation",
+    "anchor presented as proof of environmental truth"
+  ],
+  "claims_boundary": "This surface supports standards-aware data preparation, lineage, reconciliation and assurance review. It does not itself constitute IFRS, ESRS, GHG Protocol, regulatory, laboratory, assurance or product certification.",
+  "next_gate": "S9.4_INDEPENDENT_ASSURANCE_AND_GOVERNED_SCALE_CERTIFICATION_READINESS"
+}
