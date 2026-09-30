@@ -1,0 +1,81 @@
+{
+  "id": "S13.13-PREMIUM-CONDITION-DECISION",
+  "title": "Premium-Condition Decision",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.12_EXTERNAL_ASSURANCE_REVIEW_CONCLUDED_WITHIN_SCOPE",
+  "purpose": "Apply the approved Premium RainWater condition criteria to an actual reconciled and assured event record without inferring quality from rainfall opportunity, dashboard status, blockchain anchoring, or readiness.",
+  "decision_principles": [
+    "criteria_version_must_be_frozen",
+    "all_required_observations_and_results_must_be_actual",
+    "scope_and_population_must_match",
+    "qms_results_must_be_admissible",
+    "custody_and_traceability_must_be_intact",
+    "assurance_scope_must_cover_required_evidence",
+    "exceptions_must_be_dispositioned",
+    "limitations_must_be_disclosed",
+    "decision_authority_must_be_identified"
+  ],
+  "sequence": [
+    "FREEZE_PREMIUM_CRITERIA",
+    "CONFIRM_ASSURANCE_SCOPE",
+    "CONFIRM_EVIDENCE_POPULATION",
+    "REVIEW_REQUIRED_FIELD_OBSERVATIONS",
+    "REVIEW_QMS_RESULTS",
+    "REVIEW_CUSTODY_AND_TRACEABILITY",
+    "REVIEW_DMRV_DERIVATIONS",
+    "REVIEW_EXCEPTIONS_AND_LIMITATIONS",
+    "APPLY_CRITERIA",
+    "RECORD_DECISION",
+    "AUTHORIZE_OR_HOLD",
+    "LOCK_DECISION"
+  ],
+  "states": [
+    "READY",
+    "DECISION_REVIEW",
+    "PREMIUM_ELIGIBLE",
+    "NOT_PREMIUM_ELIGIBLE",
+    "CONDITIONAL",
+    "HOLD",
+    "REJECTED",
+    "REOPENED"
+  ],
+  "outcomes": [
+    "PREMIUM_CONDITION_SATISFIED",
+    "PREMIUM_CONDITION_NOT_SATISFIED",
+    "CONDITIONAL_PENDING_SPECIFIED_REQUIREMENTS",
+    "INSUFFICIENT_EVIDENCE",
+    "HOLD"
+  ],
+  "fail_closed": [
+    "S13.12 assurance conclusion missing where required",
+    "criteria version unresolved",
+    "required actual observation missing",
+    "required QMS result missing",
+    "sample/custody integrity unresolved",
+    "batch traceability unresolved",
+    "assurance scope does not cover decision basis",
+    "material exception unresolved",
+    "criterion cannot be evaluated",
+    "decision authority missing"
+  ],
+  "evidence_policy": {
+    "premium_decision": "RELEASE_DECISION",
+    "qms_result": "QMS_LAB_RESULT",
+    "field_observation": "FIELD_OPERATION|INSTRUMENT_MEASUREMENT|SOURCE_OBSERVATION",
+    "derived_metric": "DMRV_DERIVED_METRIC",
+    "synthetic_content": "CONTROL_TEST_ONLY",
+    "fabricated_premium_decision": "PROHIBITED"
+  },
+  "invariants": [
+    "premium condition is a controlled decision against approved criteria",
+    "premium condition is not inferred from rainfall opportunity",
+    "premium condition is not inferred from DMRV completion",
+    "premium condition is not inferred from blockchain anchoring",
+    "premium decision does not itself constitute regulatory approval",
+    "premium decision does not itself constitute product release",
+    "decision must remain tied to the exact evidence population and criteria version"
+  ],
+  "next_gate": "S13.14_REGULATORY_PRODUCT_RELEASE_GATE"
+}
