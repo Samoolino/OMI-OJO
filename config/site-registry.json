@@ -1,0 +1,27 @@
+{
+  "schema_version": "UB-02.SITE-REGISTRY.1",
+  "purpose": "Canonical authorization boundary for project/site coordinates used by reporting ingestion.",
+  "coordinate_rule": "Coordinates are authoritative only when status is AUTHORIZED and coordinate_source is recorded. No city-level inference or user-submitted coordinates can authorize a physical site.",
+  "sites": [
+    {
+      "site_id": "lagos-reference-grid",
+      "project_ids": ["S5-GLOBAL-LAGOS"],
+      "geography": {"country": "NG", "region": "Lagos", "timezone": "Africa/Lagos"},
+      "status": "PENDING_AUTHORIZED_GIS",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_source": null,
+      "coordinate_version": null
+    },
+    {
+      "site_id": "lagos-s6c",
+      "project_ids": ["S6C"],
+      "geography": {"country": "NG", "region": "Lagos", "timezone": "Africa/Lagos"},
+      "status": "PENDING_AUTHORIZED_GIS",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_source": null,
+      "coordinate_version": null
+    }
+  ]
+}

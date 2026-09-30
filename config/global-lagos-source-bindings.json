@@ -1,0 +1,61 @@
+{
+  "schema_version": "UB-02.LAGOS.SOURCE-BINDINGS.1",
+  "program_id": "GLOBAL-LAGOS-NG",
+  "node_coverage_rule": "Every canonical Lagos node receives a collection plan for each applicable indicator; unsupported execution is explicit.",
+  "execution_rule": "No physical or field collection may execute until the node has AUTHORIZED_GIS and the source is authorized. Context/modelled planning may exist without physical-site authorization.",
+  "source_capabilities": {
+    "open-meteo-forecast": {"state":"CONTEXT_CAPABLE","evidence_class":"MODELED","requires_authorized_gis":false},
+    "satellite-derived-context": {"state":"CONTEXT_CAPABLE","evidence_class":"SATELLITE","requires_authorized_gis":false},
+    "air-quality-model": {"state":"MODELED_CONTEXT","evidence_class":"MODELED","requires_authorized_gis":false},
+    "satellite-no2": {"state":"MODELED_CONTEXT","evidence_class":"MODELED","requires_authorized_gis":false},
+    "site-rain-gauge": {"state":"FIELD_AUTHORIZED_ONLY","evidence_class":"MEASURED","requires_authorized_gis":true},
+    "site-telemetry": {"state":"FIELD_AUTHORIZED_ONLY","evidence_class":"MEASURED","requires_authorized_gis":true},
+    "water-lab-result": {"state":"FIELD_AUTHORIZED_ONLY","evidence_class":"VERIFIED_MEASUREMENT","requires_authorized_gis":true},
+    "approved-ghg-activity": {"state":"AUTHORIZED_SOURCE_REQUIRED","evidence_class":"MEASURED","requires_authorized_gis":true},
+    "esg-control-register": {"state":"AUTHORIZED_SOURCE_REQUIRED","evidence_class":"MEASURED","requires_authorized_gis":true}
+  },
+  "class_bindings": {
+    "LCDA_REFERENCE": {
+      "rainfall":["open-meteo-forecast","site-rain-gauge"],
+      "temperature":["open-meteo-forecast"],
+      "relative_humidity":["open-meteo-forecast"],
+      "wind_speed":["open-meteo-forecast"],
+      "solar_radiation":["open-meteo-forecast","satellite-derived-context"],
+      "air_quality":["air-quality-model"],
+      "no2":["satellite-no2"],
+      "pm25":["air-quality-model"],
+      "water_quality":["water-lab-result"],
+      "collection_volume":["site-telemetry"],
+      "ghg_activity_data":["approved-ghg-activity"],
+      "esg_controls":["esg-control-register"]
+    },
+    "STATE_INSTITUTION": {
+      "rainfall":["open-meteo-forecast","site-rain-gauge"],
+      "temperature":["open-meteo-forecast"],
+      "relative_humidity":["open-meteo-forecast"],
+      "wind_speed":["open-meteo-forecast"],
+      "solar_radiation":["open-meteo-forecast","satellite-derived-context"],
+      "air_quality":["air-quality-model"],
+      "no2":["satellite-no2"],
+      "pm25":["air-quality-model"],
+      "water_quality":[],
+      "collection_volume":["site-telemetry"],
+      "ghg_activity_data":["approved-ghg-activity"],
+      "esg_controls":["esg-control-register"]
+    },
+    "ENVIRONMENTAL_REFERENCE": {
+      "rainfall":["open-meteo-forecast"],
+      "temperature":["open-meteo-forecast"],
+      "relative_humidity":["open-meteo-forecast"],
+      "wind_speed":["open-meteo-forecast"],
+      "solar_radiation":["open-meteo-forecast","satellite-derived-context"],
+      "air_quality":["air-quality-model"],
+      "no2":["satellite-no2"],
+      "pm25":["air-quality-model"],
+      "water_quality":["water-lab-result"],
+      "collection_volume":[],
+      "ghg_activity_data":[],
+      "esg_controls":["esg-control-register"]
+    }
+  }
+}

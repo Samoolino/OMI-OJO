@@ -1,0 +1,16 @@
+{
+  "schema_version": "UB-02.REPORTING.2",
+  "rule": "one_canonical_reporting_read_model",
+  "reportability_pipeline": ["DISCOVERED","INGESTED","NORMALIZED","LOCATION_MATCHED","TIME_MATCHED","QC_PASSED","RECONCILED","REPORTABLE"],
+  "terminal_states": ["CONTEXTUAL_ONLY","QUARANTINED","REJECTED","STALE","OUT_OF_BOUNDARY","SOURCE_UNAPPROVED"],
+  "engagement_contract": ["engagement_id","project_ids","geography","sites","reporting_period","reporting_frequency","indicators","source_allowlist","methodology_allowlist","minimum_evidence_class","reconciliation_policy","report_templates","publication_audience","release_gates"],
+  "report_families": ["project_status","environmental_data","climate","water","esg","ghg","dmrv_evidence","grant_funder","investor_vdr","regulatory_audit"],
+  "snapshot_contract": ["reporting_period","project_scope","site_scope","source_versions","observation_ids","indicator_ids","calculation_ids","methodology_versions","evidence_package_ids","review_decisions","release_gate_state","deterministic_hash"],
+  "global_rule": "reuse schemas and source adapters, never reuse unsupported observations across project geographies",
+  "frontend_rule": "frontend reads canonical reporting snapshots/read models; it does not call provider APIs directly",
+  "physical_claim_rule": "remote/modelled data cannot silently become measured evidence",
+  "engagements": [
+    {"engagement_id":"ENG-S6C-LAGOS","project_ids":["S6C"],"geography":{"country":"NG","region":"Lagos","timezone":"Africa/Lagos"},"sites":["lagos-s6c"],"reporting_frequency":"EVENT_AND_DAILY","indicators":["rainfall","collection_volume","water_quality"],"source_allowlist":["open-meteo-forecast","authorized-local-gauge","field-collector","water-lab-qms"],"minimum_evidence_class":{"rainfall":"CONTEXTUAL","collection_volume":"MEASURED","water_quality":"VERIFIED_MEASUREMENT"},"report_templates":["PROJECT","DMRV","GRANT","ESG","VDR","AUDIT"],"blockchain_anchor":true},
+    {"engagement_id":"ENG-S5-LAGOS","project_ids":["S5-GLOBAL-LAGOS"],"geography":{"country":"NG","region":"Lagos","timezone":"Africa/Lagos"},"sites":["lagos-reference-grid"],"reporting_frequency":"DAILY","indicators":["rainfall","temperature","relative_humidity","pressure","wind_speed","air_quality","water","ghg","esg"],"source_allowlist":["open-meteo-forecast","open-meteo-archive","satellite","authorized-local-gauge"],"minimum_evidence_class":{"rainfall":"CONTEXTUAL","temperature":"CONTEXTUAL","air_quality":"MODELED","water":"CONTEXTUAL","ghg":"MODELED","esg":"CONTEXTUAL"},"report_templates":["PROJECT","CLIMATE","ESG","GHG","INSTITUTIONAL"],"blockchain_anchor":false}
+  ]
+}
