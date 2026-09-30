@@ -1,0 +1,72 @@
+{
+  "stage": "S8.4",
+  "name": "Multisite Conformance and Replication Readiness",
+  "status": "IMPLEMENTED",
+  "physical_status": "NOT_RELEASED",
+  "objective": "Determine whether the controlled-pilot control system can be replicated across additional admitted sites without weakening evidence, governance, DMRV, QMS, custody, anchor, or claim boundaries.",
+  "prerequisite_gates": [
+    "S8.1_SITE_ONBOARDING_LOCAL_AUTHORIZATION",
+    "S8.2_SITE_OPERATIONAL_READINESS_CONTROLLED_PILOT",
+    "S8.3_CONTROLLED_PILOT_EVIDENCE_REVIEW_AND_CONFORMANCE"
+  ],
+  "replication_unit": "An independently identified and authorized site; administrative/reporting nodes are not physical installations unless separately admitted.",
+  "review_dimensions": [
+    "site identity and authorization portability",
+    "operator accountability",
+    "collector/equipment readiness",
+    "rain-event and first-flush controls",
+    "sampling and custody continuity",
+    "QMS/laboratory pathway",
+    "DMRV schema and indicator completeness",
+    "evidence-source provenance",
+    "anchor compatibility",
+    "incident/CAPA and rollback",
+    "claim and public-surface consistency",
+    "local regulatory/document requirements",
+    "cross-site comparability",
+    "data segregation and tenant/site boundaries"
+  ],
+  "required_artifacts": [
+    "site admission package",
+    "local authorization evidence",
+    "site operational readiness record",
+    "site-specific collector/equipment inspection",
+    "site-specific event and observation records",
+    "sampling/custody chain",
+    "QMS pathway and results when empirical pilot evidence exists",
+    "site DMRV profile",
+    "site evidence manifest",
+    "anchor record where required",
+    "deviation/CAPA register",
+    "replication conformance review",
+    "site release/hold decision"
+  ],
+  "replication_states": [
+    "READY_FOR_REPLICATION",
+    "CONDITIONAL_REPLICATION",
+    "HOLD",
+    "NONCONFORMING"
+  ],
+  "fail_closed_conditions": [
+    "shared or ambiguous site identity",
+    "missing local authorization",
+    "unresolved operator accountability",
+    "control sequence omitted",
+    "custody/QMS pathway absent where applicable",
+    "evidence schema drift without approved migration",
+    "source-class confusion",
+    "cross-site values presented as interchangeable without evidence",
+    "unresolved material deviation",
+    "unsupported regulatory or product claim"
+  ],
+  "invariants": [
+    "Global Lagos remains the reference/proof pilot.",
+    "International grids inherit evidence semantics, not evidence values.",
+    "Administrative/reporting nodes do not become physical harvest claims by enumeration.",
+    "Brazil remains anchor-pending unless independently evidenced.",
+    "Forecasts/models/proxies cannot be promoted to observed evidence.",
+    "Blockchain anchors establish integrity/traceability, not environmental truth.",
+    "Software replication readiness does not equal physical product release."
+  ],
+  "next_gate": "S8.5_CONTROLLED_MULTISITE_EXECUTION_AND_REPLICATION_REVIEW"
+}
