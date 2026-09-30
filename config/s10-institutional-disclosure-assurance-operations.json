@@ -1,0 +1,70 @@
+{
+  "stage": "S10",
+  "name": "Institutional Disclosure and Assurance Operations",
+  "status": "IMPLEMENTED",
+  "physical_status": "NOT_RELEASED",
+  "objective": "Establish the operating layer for recurring institutional climate/ESG disclosure, assurance coordination, evidence-period management, controlled publication and governance reporting.",
+  "operating_cycle": [
+    "REPORTING_CALENDAR_LOCK",
+    "ENTITY_AND_BOUNDARY_CONFIRMATION",
+    "PERIOD_DATA_CUT",
+    "DMRV_RECONCILIATION",
+    "GHG_METHOD_AND_SCOPE_CHECK",
+    "QMS_CUSTODY_EXCEPTION_REVIEW",
+    "ASSURANCE_COORDINATION",
+    "MANAGEMENT_RESPONSE",
+    "DISCLOSURE_PACK_ASSEMBLY",
+    "AUTHORIZATION_AND_PUBLICATION",
+    "POST_PUBLICATION_MONITORING",
+    "PERIOD_CLOSE_AND_LESSONS"
+  ],
+  "operating_roles": [
+    "DISCLOSURE_OWNER",
+    "DMRV_OWNER",
+    "GHG_DATA_OWNER",
+    "QMS_CUSTODY_OWNER",
+    "ASSURANCE_COORDINATOR",
+    "INDEPENDENT_REVIEWER",
+    "LEGAL_REGULATORY_REVIEWER",
+    "PUBLICATION_AUTHORITY"
+  ],
+  "control_domains": [
+    "reporting calendar",
+    "entity/boundary register",
+    "metric lineage",
+    "DMRV reconciliation",
+    "GHG accounting",
+    "QMS/custody",
+    "exceptions/CAPA",
+    "assurance scope",
+    "disclosure claims",
+    "change/restatement",
+    "publication integrity",
+    "access/audit trail"
+  ],
+  "period_states": [
+    "PLANNED",
+    "OPEN",
+    "DATA_CUT",
+    "UNDER_RECONCILIATION",
+    "ASSURANCE_REVIEW",
+    "DISCLOSURE_REVIEW",
+    "AUTHORIZED",
+    "PUBLISHED",
+    "CLOSED",
+    "REOPENED"
+  ],
+  "fail_closed": [
+    "reporting period or boundary undefined",
+    "material data reconciliation unresolved",
+    "GHG methodology/version missing",
+    "material exception unresolved",
+    "assurance scope not defined",
+    "claim exceeds reviewed evidence",
+    "publication differs from authorized pack",
+    "access or approval trail incomplete",
+    "reopening period without controlled successor record"
+  ],
+  "physical_boundary": "NOT_RELEASED",
+  "next_gate": "S10.1_INSTITUTIONAL_DISCLOSURE_PERIOD_OPERATIONS_AND_ASSURANCE_CALENDAR"
+}
