@@ -4,6 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Sequence
 
+from .evidence_processing import EvidencePackage, EvidenceQCDecision, build_evidence_package, process_evidence
 from .global_lagos_orchestration import build_global_lagos_plan
 from .reportable_data import Observation, EvidenceClass, Location
 from .source_adapters import SourceRequest, adapter_for
@@ -24,6 +25,13 @@ class CollectionRun:
     actions: tuple[CollectionAction, ...]
     observations: tuple[Observation, ...]
     skipped: tuple[CollectionAction, ...]
+
+
+@dataclass(frozen=True)
+class EvidenceProcessingRun:
+    package: EvidencePackage
+    qc_decisions: tuple[EvidenceQCDecision, ...]
+    reportable_observations: tuple[Observation, ...]
 
 
 def build_collection_actions() -> tuple[CollectionAction, ...]:
@@ -76,3 +84,27 @@ def execute_context_collection(
     skipped = tuple(a for a in actions if a.node_id == node_id and a.action == "HOLD")
     executed = tuple(a for a in actions if a.node_id == node_id and a.source_id == source_id)
     return CollectionRun(executed, tuple(observations), skipped)
+
+
+def process_collection_evidence(
+    collection: CollectionRun,
+    *,
+    approved_sources: frozenset[str],
+    now=None,
+    location: tuple[float, float] | None = None,
+    max_age_seconds: int = 172800,
+) -> EvidenceProcessingRun:
+    """Run QC and package creation after collection, before reportability."""
+    passed, decisions = process_evidence(
+        collection.observations,
+        approved_sources=approved_sources,
+        now=now,
+        location=location,
+        max_age_seconds=max_age_seconds,
+    )
+    package = build_evidence_package(collection.observations, decisions)
+    return EvidenceProcessingRun(
+        package=package,
+        qc_decisions=decisions,
+        reportable_observations=passed,
+    )
