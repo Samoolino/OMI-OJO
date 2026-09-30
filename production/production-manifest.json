@@ -1,14 +1,14 @@
 {
   "milestone": "M-1",
   "system": "Blue-Ether OS / OMI-OJO",
-  "status": "S8_CONTROLLED_SCALE_MULTISITE_EXPANSION_DEFINED",
-  "execution_readiness": "S8_SCALE_DESIGN_READY_SITE_AUTHORIZATION_AND_EMPIRICAL_REPLICATION_PENDING",
+  "status": "S8.1_SITE_ONBOARDING_LOCAL_AUTHORIZATION_DEFINED",
+  "execution_readiness": "S8.1_ONBOARDING_READY_SITE_SPECIFIC_AUTHORIZATION_AND_VERIFICATION_PENDING",
   "production_guide": "docs/production-execution-guide.md",
   "institutional_framework": "docs/institutional-production-framework.md",
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
   "s6b_work_package": "config/s6b-builder-grant-work-package.json",
   "s6b_evidence_package": "docs/s6b-builder-grant-evidence-package.md",
-  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V20",
+  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V21",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -78,7 +78,8 @@
     "S7.2": "IMPLEMENTED_EXCEPTION_AND_CORRECTIVE_ACTION_CONTROL",
     "S7.3": "IMPLEMENTED_INDEPENDENT_AUDIT_AND_EFFECTIVENESS_ASSURANCE",
     "S7.4": "IMPLEMENTED_GOVERNANCE_AND_PERIODIC_ASSURANCE_REVIEW",
-    "S8": "IMPLEMENTED_CONTROLLED_SCALE_AND_MULTISITE_EXPANSION"
+    "S8": "IMPLEMENTED_CONTROLLED_SCALE_AND_MULTISITE_EXPANSION",
+    "S8.1": "IMPLEMENTED_SITE_ONBOARDING_AND_LOCAL_AUTHORIZATION"
   },
   "institutional_domains": [
     "governance_authorization",
@@ -117,7 +118,7 @@
   "physical_status": "NOT_RELEASED",
   "project_token_status": "DEFERRED",
   "funding_award_status": "NOT_AWARDED",
-  "next_gate": "S8.1_SITE_ONBOARDING_AND_LOCAL_AUTHORIZATION",
+  "next_gate": "S8.2_SITE_OPERATIONAL_READINESS_AND_CONTROLLED_PILOT",
   "s6c_field_authorization": "config/s6c-lagos-field-authorization.json",
   "s6c_runbook": "docs/s6c-lagos-field-validation-runbook.md",
   "s6c_rain_event_schema": "config/s6c-lagos-rain-event-record.json",
@@ -153,5 +154,7 @@
   "s7_4_governance_review": "config/s7.4-governance-periodic-assurance-review.json",
   "s7_4_governance_runbook": "docs/s7.4-governance-periodic-assurance-review-runbook.md",
   "s8_controlled_scale": "config/s8-controlled-scale-multisite-expansion.json",
-  "s8_controlled_scale_runbook": "docs/s8-controlled-scale-multisite-expansion-runbook.md"
+  "s8_controlled_scale_runbook": "docs/s8-controlled-scale-multisite-expansion-runbook.md",
+  "s8_1_site_onboarding": "config/s8.1-site-onboarding-local-authorization.json",
+  "s8_1_site_onboarding_runbook": "docs/s8.1-site-onboarding-local-authorization-runbook.md"
 }
