@@ -1,14 +1,13 @@
 """SQLite-backed canonical observation store for UB-02 reporting.
 
-The store is deliberately provider-neutral: adapters write canonical observations,
-while reportability and snapshot layers decide what may be published.
+The store is provider-neutral: adapters write canonical observations, while
+reportability and snapshot layers decide what may be published.
 """
 from __future__ import annotations
 
 import hashlib
 import json
 import sqlite3
-from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
 from typing import Iterable
@@ -70,7 +69,7 @@ class ObservationStore:
                     "qc_passed": o.qc_passed,
                 }, sort_keys=True, separators=(",", ":"))
                 digest = hashlib.sha256(raw.encode()).hexdigest()
-                db.execute("""
+                cursor = db.execute("""
                   INSERT OR IGNORE INTO observations VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """, (
                     o.observation_id, o.project_id, o.site_id, o.indicator_id,
@@ -78,7 +77,8 @@ class ObservationStore:
                     json.dumps(o.value), o.unit, o.source_id, o.evidence_class.value,
                     int(o.qc_passed), digest, datetime.utcnow().isoformat() + "Z",
                 ))
-                count += 1
+                if cursor.rowcount == 1:
+                    count += 1
             db.commit()
         return count
 
