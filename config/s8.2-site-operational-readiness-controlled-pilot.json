@@ -1,0 +1,100 @@
+{
+  "stage": "S8.2",
+  "name": "Site Operational Readiness and Controlled Pilot",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Convert an admitted site into a controlled-pilot-ready operating unit without conflating readiness with an actual harvest, measurement, batch, premium determination or release.",
+  "states": [
+    "READINESS_REVIEW",
+    "CONTROLLED_PILOT_READY",
+    "PILOT_ACTIVE",
+    "PILOT_COMPLETE_PENDING_REVIEW",
+    "HOLD",
+    "FAILED"
+  ],
+  "required_inputs": [
+    "S8.1 site admission",
+    "valid authorization scope",
+    "operator accountability",
+    "collector readiness",
+    "equipment/collector inspection",
+    "site geospatial identity",
+    "rain-event watch configuration",
+    "first-flush control",
+    "controlled collection procedure",
+    "sampling/custody procedure",
+    "QMS/laboratory pathway",
+    "DMRV profile",
+    "evidence-anchor configuration",
+    "incident/rollback procedure"
+  ],
+  "readiness_record": {
+    "site_id": "required",
+    "admission_ref": "required",
+    "authorization_ref": "required",
+    "operator_ref": "required",
+    "collector_readiness_ref": "required",
+    "equipment_inspection_ref": "required",
+    "coordinate_verification_ref": "required_if_physical",
+    "rain_event_watch_ref": "required",
+    "first_flush_control_ref": "required",
+    "collection_control_ref": "required",
+    "custody_qms_ref": "required",
+    "dmrv_profile_ref": "required",
+    "anchor_ref": "required",
+    "emergency_hold_ref": "required",
+    "readiness_decision": "required",
+    "decision_authority": "required",
+    "decision_timestamp": "required",
+    "integrity_digest": "required"
+  },
+  "controlled_pilot_sequence": [
+    "readiness review",
+    "pre-event site inspection",
+    "rain-event watch",
+    "first-flush control",
+    "controlled collection",
+    "sample/custody capture",
+    "QMS handoff",
+    "DMRV package assembly",
+    "independent/authorized review",
+    "pilot closeout"
+  ],
+  "fail_closed_conditions": [
+    "S8.1 admission absent",
+    "authorization scope does not cover planned activity",
+    "operator or collector readiness incomplete",
+    "equipment inspection incomplete",
+    "physical identity/coordinates unresolved",
+    "first-flush control unavailable",
+    "custody/QMS pathway unavailable",
+    "DMRV profile unresolved",
+    "hold/rollback procedure absent",
+    "material incident unresolved"
+  ],
+  "permissible_claims": [
+    "site is operationally ready for a defined controlled pilot",
+    "a controlled pilot is active for a defined scope",
+    "a pilot completed its defined procedural sequence pending evidence review"
+  ],
+  "prohibited_claims": [
+    "readiness proves rain occurred",
+    "readiness proves water was collected",
+    "pilot readiness proves water quality",
+    "pilot activity proves premium status",
+    "pilot completion proves regulatory/product release"
+  ],
+  "frontend_surface": {
+    "route_label": "Production Control / S8.2",
+    "components": [
+      "readiness checklist",
+      "pilot sequence timeline",
+      "site status",
+      "evidence-class badges",
+      "hold/rollback banner",
+      "next-gate indicator"
+    ],
+    "semantic_rule": "UI readiness state must remain distinct from empirical observation, validation, verification, anchoring and release."
+  },
+  "next_gate": "S8.3_CONTROLLED_PILOT_EVIDENCE_REVIEW_AND_CONFORMANCE"
+}
