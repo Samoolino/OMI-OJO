@@ -1,0 +1,75 @@
+{
+  "id": "S14.1-RELEASED-EVENT-HANDOFF-AND-MONITORING-ACTIVATION",
+  "title": "Released Event Handoff and Monitoring Activation",
+  "state": "READY_FOR_ACTUAL_RELEASE_AUTHORIZATION",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S14_POST_EVENT_RELEASE_ASSURANCE_AND_CONTINUOUS_CONTROL",
+  "purpose": "Activate post-event monitoring only from a real, authorized S13.14 release record and preserve exact scope, lineage, authority and monitoring responsibilities.",
+  "sequence": [
+    "RELEASE_RECORD_INTAKE",
+    "AUTHORIZATION_AND_SCOPE_RECONCILIATION",
+    "EVENT_BATCH_POPULATION_RECONCILIATION",
+    "EVIDENCE_LINEAGE_HANDOFF",
+    "QMS_AND_CUSTODY_STATUS_HANDOFF",
+    "SOURCE_METHOD_FACTOR_REGISTER_HANDOFF",
+    "CLAIM_LABEL_SURFACE_HANDOFF",
+    "REGULATORY_CONDITION_HANDOFF",
+    "MONITORING_OWNER_ASSIGNMENT",
+    "BASELINE_SNAPSHOT",
+    "MONITORING_WINDOW_ACTIVATION",
+    "HANDOFF_LOCK"
+  ],
+  "required_inputs": [
+    "actual_S13.14_release_decision",
+    "release_scope_and_population",
+    "release_authority",
+    "batch_and_seal_register",
+    "QMS_and_custody_records",
+    "evidence_package_digest",
+    "methodology_boundary_factor_versions",
+    "authorized_claim_register",
+    "applicable_regulatory_conditions",
+    "monitoring_owner_and_escalation_path"
+  ],
+  "states": [
+    "NOT_READY",
+    "INTAKE_REVIEW",
+    "RECONCILIATION",
+    "READY_TO_ACTIVATE",
+    "ACTIVE",
+    "HOLD",
+    "REJECTED"
+  ],
+  "outcomes": [
+    "HANDOFF_ACCEPTED",
+    "HANDOFF_ACCEPTED_WITH_CONTROLS",
+    "ACTIVATION_BLOCKED",
+    "HOLD",
+    "SUPERSEDED"
+  ],
+  "fail_closed": [
+    "no actual release decision",
+    "release authority unresolved",
+    "scope or population mismatch",
+    "evidence lineage incomplete",
+    "batch traceability incomplete",
+    "QMS/custody status unresolved",
+    "methodology/boundary/factor version unresolved",
+    "claim or label surface divergence",
+    "regulatory condition unresolved",
+    "monitoring owner absent",
+    "baseline snapshot absent"
+  ],
+  "invariants": [
+    "activation does not create a release",
+    "monitoring does not create observations",
+    "only authorized release scope enters monitoring",
+    "baseline preserves the handed-off state",
+    "later corrections use controlled reopening or supersession",
+    "software readiness is not release authorization",
+    "blockchain anchor does not substitute for release authority"
+  ],
+  "no_event_policy": "This implementation does not create or imply a release, sale, regulatory approval, harvest observation or monitoring observation. Activation occurs only after an actual authorized release record exists.",
+  "next_gate": "S14.2_CONTINUOUS_SOURCE_QMS_AND_RELEASE_SCOPE_HEALTH_MONITORING"
+}
