@@ -1,0 +1,82 @@
+{
+  "id": "S14-POST-EVENT-RELEASE-ASSURANCE-AND-CONTINUOUS-CONTROL",
+  "title": "Post-Event Release Assurance and Continuous Control",
+  "state": "DESIGNED_FOR_ACTUAL_RELEASED_EVENT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.14_REGULATORY_PRODUCT_RELEASE_GATE",
+  "purpose": "Maintain controlled assurance after any authorized field event or product release, monitoring evidence lineage, QMS, traceability, claims, regulatory conditions, source changes and corrective actions.",
+  "sequence": [
+    "RELEASE_SCOPE_HANDOFF",
+    "POST_EVENT_EVIDENCE_RECONCILIATION",
+    "RELEASE_RECORD_VERIFICATION",
+    "QMS_AND_BATCH_STATUS_MONITORING",
+    "SOURCE_AND_METHOD_HEALTH_CHECK",
+    "CLAIM_AND_LABEL_SURFACE_MONITORING",
+    "REGULATORY_CONDITION_MONITORING",
+    "EXCEPTION_AND_CAPA_MONITORING",
+    "CHANGE_IMPACT_ASSESSMENT",
+    "REOPEN_OR_SUPERSEDE_IF_REQUIRED",
+    "PERIODIC_ASSURANCE_REVIEW",
+    "NEXT_CONTROL_WINDOW_HANDOFF"
+  ],
+  "states": [
+    "PLANNED",
+    "ACTIVE",
+    "MONITORED",
+    "DEGRADED",
+    "ALERT",
+    "IMPACTED",
+    "REVIEW",
+    "CORRECTIVE_ACTION",
+    "REOPENED",
+    "SUPERSEDED",
+    "RESOLVED",
+    "HOLD"
+  ],
+  "outcomes": [
+    "NO_MATERIAL_CHANGE",
+    "OBSERVATION_RECORDED",
+    "CORRECTIVE_ACTION_REQUIRED",
+    "REOPEN_REQUIRED",
+    "RELEASE_SCOPE_REDUCED",
+    "RELEASE_SUSPENDED",
+    "HOLD"
+  ],
+  "monitoring_domains": [
+    "evidence_lineage",
+    "qms_and_lab",
+    "batch_and_seal_traceability",
+    "measurement_and_instrument_status",
+    "weather_and_source_provenance",
+    "methodology_boundaries_and_factors",
+    "regulatory_authorizations",
+    "product_specification_and_labeling",
+    "public_and_investor_claims",
+    "security_and_integrity",
+    "exceptions_and_capa"
+  ],
+  "fail_closed": [
+    "released scope cannot be verified",
+    "material evidence correction unresolved",
+    "QMS or laboratory status materially changes without assessment",
+    "batch traceability breaks",
+    "required authorization expires or changes",
+    "methodology/boundary/factor change lacks controlled impact assessment",
+    "claim or label diverges from authorized release record",
+    "material exception remains unresolved",
+    "security/integrity event unresolved",
+    "historical record silently overwritten"
+  ],
+  "invariants": [
+    "monitoring does not create observations",
+    "corrections preserve lineage",
+    "reopening does not erase prior release history",
+    "release authorization remains scope-specific",
+    "blockchain anchor remains an integrity/reference record",
+    "availability does not equal validity",
+    "regulatory status is independently controlled"
+  ],
+  "no_event_policy": "Implementation creates controls only. It does not assert that a live event, product release, sale, regulatory approval or post-release observation has occurred.",
+  "next_gate": "S14.1_RELEASED_EVENT_HANDOFF_AND_MONITORING_ACTIVATION"
+}
