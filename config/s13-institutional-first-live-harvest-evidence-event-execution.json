@@ -1,0 +1,21 @@
+{
+  "id": "S13-FIRST-LIVE-HARVEST-EVIDENCE-EVENT",
+  "title": "Institutional First Live Harvest and Evidence Event Execution",
+  "state": "READY_FOR_AUTHORIZED_FIELD_EXECUTION",
+  "physical_production_status": "NOT_RELEASED",
+  "purpose": "Define the first controlled empirical rainwater harvest event without fabricating observations, measurements, laboratory results, approvals, or release conclusions.",
+  "precondition": "S12.17_FIELD_AUTHORIZED",
+  "sequence": ["RAIN_EVENT_WATCH","EVENT_ACTIVATION","PRE_EVENT_SITE_CHECK","FIRST_FLUSH_DIVERSION","CONTROLLED_COLLECTION","LIVE_MEASUREMENT_AND_VIDEO","SAMPLE_IDENTIFICATION","CHAIN_OF_CUSTODY","QMS_LAB_HANDOFF","BATCH_AND_SEAL","DMRV_EVENT_PACKAGE","EVIDENCE_RECONCILIATION","ANCHOR_CANDIDATE","ASSURANCE_REVIEW","PREMIUM_CONDITION_DECISION","REGULATORY_PRODUCT_RELEASE_GATE"],
+  "observation_policy": {
+    "rainfall": "OBSERVATION_ONLY_WHEN_SOURCE_AND_PROVENANCE_ARE_VALID",
+    "forecast": "FORECAST_ONLY",
+    "harvest_volume": "MEASURED_ONLY_FROM_CONTROLLED_INSTRUMENT_OR_VERIFIED_MEASUREMENT_PROCESS",
+    "video": "EVIDENCE_ONLY_WHEN_TIMESTAMPED_AND_EVENT_LINKED",
+    "laboratory": "RESULT_ONLY_AFTER_ACTUAL_SAMPLE_AND_QMS_HANDOFF",
+    "premium_condition": "DECISION_ONLY_AFTER_DEFINED_EVIDENCE_REVIEW"
+  },
+  "fail_closed": ["S12.17 authorization absent","physical site identity unresolved","rain event cannot be evidenced","source provenance invalid","critical measurement unavailable or untrusted","first-flush control cannot be evidenced","video/event linkage unavailable where required","sample identity or custody broken","QMS/lab handoff incomplete","batch/seal reconciliation fails","DMRV lineage incomplete","material evidence exception unresolved","release requirement unresolved"],
+  "non_equivalences": ["rainfall observation != Premium RainWater","harvest measurement != product release","DMRV package != verification","blockchain anchor != environmental truth","assurance review != certification","field authorization != regulatory approval","software event record != physical event"],
+  "evidence_classes": ["SOURCE_OBSERVATION","FIELD_OPERATION","INSTRUMENT_MEASUREMENT","VIDEO_EVIDENCE","SAMPLE_CUSTODY","QMS_LAB_RESULT","BATCH_TRACEABILITY","DMRV_DERIVED_METRIC","ANCHOR_INTEGRITY_RECORD","ASSURANCE_RECORD","RELEASE_DECISION"],
+  "release_restriction": "No product, premium-condition, environmental-performance, regulatory, ESG/GHG or investor claim may be represented as established beyond the evidence actually captured and authorized."
+}
