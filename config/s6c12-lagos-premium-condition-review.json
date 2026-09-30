@@ -1,0 +1,94 @@
+{
+  "stage": "S6C.12",
+  "name": "Lagos Premium Condition Review Gate",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Apply the project's evidence-linked premium-condition decision framework to a specific rainwater batch only after collection integrity, QMS/analytical evidence, DMRV review and blockchain anchoring requirements are satisfied. The gate separates eligibility criteria from marketing claims and regulatory release.",
+  "upstream_gates": [
+    "S6C.7_QMS_RECEIVED",
+    "S6C.8_QMS_REVIEW_PENDING",
+    "S6C.9_BATCH_SEAL_REVIEW_PENDING",
+    "S6C.10_DMRV_PACKAGE_GATE",
+    "S6C.11_BLOCKCHAIN_EVIDENCE_ANCHOR_GATE"
+  ],
+  "states": [
+    "PREMIUM_REVIEW_READY",
+    "PREMIUM_REVIEW_IN_PROGRESS",
+    "PREMIUM_ELIGIBLE_PENDING_RELEASE",
+    "PREMIUM_NOT_ESTABLISHED",
+    "HOLD",
+    "FAILED"
+  ],
+  "required_inputs": [
+    "verified rain-event evidence",
+    "first-flush control evidence",
+    "controlled collection evidence",
+    "sampling and custody evidence",
+    "applicable laboratory/QMS evidence",
+    "batch and seal provenance",
+    "accepted DMRV package",
+    "blockchain anchor reference where required by policy",
+    "premium criteria revision",
+    "regulatory/product release criteria",
+    "independent review authority"
+  ],
+  "criteria": {
+    "event_integrity": "required",
+    "collection_integrity": "required",
+    "first_flush_control": "required",
+    "sample_custody": "required",
+    "water_quality_evidence": "required",
+    "batch_seal_traceability": "required",
+    "dmrv_completeness": "required",
+    "anchor_integrity": "required_where_required",
+    "regulatory_release_criteria": "required",
+    "deviation_resolution": "required"
+  },
+  "decision_record": {
+    "review_id": "required",
+    "batch_id": "required",
+    "criteria_revision": "required",
+    "evidence_refs": "required",
+    "criterion_results": "required",
+    "deviations": "required",
+    "independent_reviewer": "required",
+    "decision": "required",
+    "decision_timestamp": "required",
+    "claim_scope": "required",
+    "integrity_digest": "required"
+  },
+  "rules": [
+    "Premium status is never inferred from rainfall alone.",
+    "Every premium criterion must map to evidence with provenance and applicable acceptance criteria.",
+    "Measured, modelled, forecast and proxy evidence retain their classes.",
+    "Material unresolved deviation forces HOLD or PREMIUM_NOT_ESTABLISHED.",
+    "Premium eligibility does not equal regulatory approval or unrestricted commercial release.",
+    "Any changed evidence requires a new review/version and successor package/anchor as applicable."
+  ],
+  "permissible_claims": [
+    "premium eligibility is established only when the recorded criteria and evidence support that decision",
+    "the specific batch has a traceable premium review record",
+    "a premium decision is pending, not established, or eligible pending separate release"
+  ],
+  "prohibited_claims": [
+    "premium status based solely on weather",
+    "potable/safe drinking water without applicable evidence",
+    "regulatory approval without documented authority",
+    "verified GHG reduction without required evidence",
+    "blockchain anchor as proof of water quality",
+    "commercial release without separate authorization"
+  ],
+  "fail_closed_conditions": [
+    "required upstream gate missing",
+    "material evidence absent",
+    "criterion has no traceable evidence",
+    "unresolved QMS or laboratory deviation",
+    "batch/seal identity mismatch",
+    "anchor/reference mismatch where required",
+    "criteria revision missing",
+    "independent review missing",
+    "regulatory/product release criteria unresolved",
+    "integrity evidence missing"
+  ],
+  "next_gate": "POST_S6C_RELEASE_AUTHORIZATION_AND_PUBLIC_VERIFICATION"
+}
