@@ -1,14 +1,14 @@
 {
   "milestone": "M-1",
   "system": "Blue-Ether OS / OMI-OJO",
-  "status": "S10.5_INSTITUTIONAL_QMS_CUSTODY_ENVIRONMENTAL_EVIDENCE_RECONCILIATION_DEFINED",
-  "execution_readiness": "S10.5_QMS_EVIDENCE_RECONCILIATION_READY_EMPIRICAL_DISCLOSURE_EXECUTION_PENDING",
+  "status": "S10.6_INSTITUTIONAL_ENVIRONMENTAL_EVIDENCE_ASSURANCE_EXCEPTION_DISPOSITION_DEFINED",
+  "execution_readiness": "S10.6_ENVIRONMENTAL_EVIDENCE_ASSURANCE_READY_EMPIRICAL_DISCLOSURE_EXECUTION_PENDING",
   "production_guide": "docs/production-execution-guide.md",
   "institutional_framework": "docs/institutional-production-framework.md",
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
   "s6b_work_package": "config/s6b-builder-grant-work-package.json",
   "s6b_evidence_package": "docs/s6b-builder-grant-evidence-package.md",
-  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V40",
+  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V41",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -97,7 +97,8 @@
     "S10.2": "IMPLEMENTED_DISCLOSURE_DATA_CUT_EVIDENCE_POPULATION_LOCK",
     "S10.3": "IMPLEMENTED_DMRV_RECONCILIATION_METRIC_LINEAGE",
     "S10.4": "IMPLEMENTED_GHG_ESG_METHOD_BOUNDARY_FACTOR_CONTROL",
-    "S10.5": "IMPLEMENTED_QMS_CUSTODY_ENVIRONMENTAL_EVIDENCE_RECONCILIATION"
+    "S10.5": "IMPLEMENTED_QMS_CUSTODY_ENVIRONMENTAL_EVIDENCE_RECONCILIATION",
+    "S10.6": "IMPLEMENTED_ENVIRONMENTAL_EVIDENCE_ASSURANCE_EXCEPTION_DISPOSITION"
   },
   "institutional_domains": [
     "governance_authorization",
@@ -136,7 +137,7 @@
   "physical_status": "NOT_RELEASED",
   "project_token_status": "DEFERRED",
   "funding_award_status": "NOT_AWARDED",
-  "next_gate": "S10.6_INSTITUTIONAL_ENVIRONMENTAL_EVIDENCE_ASSURANCE_AND_EXCEPTION_DISPOSITION",
+  "next_gate": "S10.7_INSTITUTIONAL_DISCLOSURE_CLAIM_AUTHORIZATION_AND_PUBLIC_SURFACE_RECONCILIATION",
   "s6c_field_authorization": "config/s6c-lagos-field-authorization.json",
   "s6c_runbook": "docs/s6c-lagos-field-validation-runbook.md",
   "s6c_rain_event_schema": "config/s6c-lagos-rain-event-record.json",
@@ -178,8 +179,8 @@
   "frontend_engagement": {
     "status": "IMPLEMENTED",
     "landing_scope_surface": "apps/web/app/page.tsx",
-    "current_control_surface": "QMS, Custody & Environmental Evidence Reconciliation / S10.5",
-    "production_stage_surface": "M-1 → S6A → S6B → S6C → POST-S6C → S7 → S8 → S9 → S9.1 → S9.2 → S9.3 → S9.4 → S9.5 → S9.6 → S10 → S10.1 → S10.2 → S10.3 → S10.4 → S10.5",
+    "current_control_surface": "Environmental Evidence Assurance & Exception Disposition / S10.6",
+    "production_stage_surface": "M-1 → S6A → S6B → S6C → POST-S6C → S7 → S8 → S9 → S9.1 → S9.2 → S9.3 → S9.4 → S9.5 → S9.6 → S10 → S10.1 → S10.2 → S10.3 → S10.4 → S10.5 → S10.6",
     "operating_ladder_surface": "DESIGNED → IMPLEMENTED → INTEGRATION_READY → CONTROLLED_TEST → REPORTABLE → VALIDATED → VERIFIED → ANCHORED → RELEASED",
     "semantic_boundaries": [
       "administrative node ≠ physical site",
@@ -188,7 +189,7 @@
       "software readiness ≠ product release"
     ],
     "current_physical_state": "NOT_RELEASED",
-    "next_frontend_gate": "S10.6_INSTITUTIONAL_ENVIRONMENTAL_EVIDENCE_ASSURANCE_AND_EXCEPTION_DISPOSITION"
+    "next_frontend_gate": "S10.7_INSTITUTIONAL_DISCLOSURE_CLAIM_AUTHORIZATION_AND_PUBLIC_SURFACE_RECONCILIATION"
   },
   "s8_2_operational_readiness": "config/s8.2-site-operational-readiness-controlled-pilot.json",
   "s8_2_operational_readiness_runbook": "docs/s8.2-site-operational-readiness-controlled-pilot-runbook.md",
@@ -225,5 +226,7 @@
   "s10_4_ghg_esg_method_control": "config/s10.4-institutional-ghg-esg-method-boundary-factor-control.json",
   "s10_4_ghg_esg_method_control_runbook": "docs/s10.4-institutional-ghg-esg-method-boundary-factor-control-runbook.md",
   "s10_5_qms_evidence_reconciliation": "config/s10.5-institutional-qms-custody-environmental-evidence-reconciliation.json",
-  "s10_5_qms_evidence_reconciliation_runbook": "docs/s10.5-institutional-qms-custody-environmental-evidence-reconciliation-runbook.md"
+  "s10_5_qms_evidence_reconciliation_runbook": "docs/s10.5-institutional-qms-custody-environmental-evidence-reconciliation-runbook.md",
+  "s10_6_environmental_evidence_assurance": "config/s10.6-institutional-environmental-evidence-assurance-exception-disposition.json",
+  "s10_6_environmental_evidence_assurance_runbook": "docs/s10.6-institutional-environmental-evidence-assurance-exception-disposition-runbook.md"
 }
