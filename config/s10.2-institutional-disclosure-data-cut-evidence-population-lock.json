@@ -1,0 +1,70 @@
+{
+  "stage": "S10.2",
+  "name": "Institutional Disclosure Data Cut and Evidence Population Lock",
+  "status": "IMPLEMENTED",
+  "objective": "Freeze a reproducible reporting-period evidence population before reconciliation and assurance while preserving immutable lineage and controlled late-change handling.",
+  "lock_states": [
+    "OPEN",
+    "DATA_CUT_READY",
+    "DATA_CUT_COMPLETE",
+    "EVIDENCE_LOCKED",
+    "REOPENED"
+  ],
+  "required_fields": [
+    "period_id",
+    "population_id",
+    "cut_timestamp",
+    "scope_boundary_version",
+    "methodology_versions",
+    "source_register_version",
+    "included_evidence_refs",
+    "excluded_evidence_refs",
+    "owner_id",
+    "reconciliation_status",
+    "lock_authority",
+    "successor_population_id"
+  ],
+  "sequence": [
+    "PERIOD_SCOPE_CONFIRMATION",
+    "SOURCE_REGISTER_FREEZE",
+    "DATA_CUT",
+    "INCLUSION_EXCLUSION_RECONCILIATION",
+    "EVIDENCE_POPULATION_DIGEST",
+    "LOCK_AUTHORIZATION",
+    "DOWNSTREAM_HANDOFF"
+  ],
+  "inclusion_rules": [
+    "evidence reference is stable and attributable",
+    "reporting period and boundary are explicit",
+    "source class is recorded",
+    "methodology/version is identified where applicable",
+    "duplicates and superseded records are dispositioned"
+  ],
+  "exclusion_rules": [
+    "unattributed source",
+    "outside period without approved treatment",
+    "unresolved identity or boundary",
+    "duplicate/superseded evidence",
+    "forecast/model output represented as observation",
+    "administrative coverage represented as physical harvest"
+  ],
+  "late_change": [
+    "Do not mutate locked population",
+    "Create controlled successor population",
+    "Record reason, affected scope/period, source and methodology impact",
+    "Link predecessor and successor",
+    "Re-run reconciliation and authorization"
+  ],
+  "fail_closed": [
+    "missing period or boundary",
+    "missing source register",
+    "cut timestamp absent",
+    "unstable evidence reference",
+    "unresolved duplicate",
+    "material inclusion/exclusion dispute",
+    "digest mismatch",
+    "lock authority absent",
+    "late change inserted without successor"
+  ],
+  "next_gate": "S10.3_INSTITUTIONAL_DMRV_RECONCILIATION_AND_METRIC_LINEAGE"
+}
