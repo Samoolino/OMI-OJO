@@ -29,6 +29,11 @@ export default function ReportingPage() {
   const [project, setProject] = useState("S6C");
   const [model, setModel] = useState<ReadModel | null>(null);
   const [loading, setLoading] = useState(false);
+  const [liveLoading, setLiveLoading] = useState(false);
+  const [site, setSite] = useState(project === "S6C" ? "lagos-s6c" : "lagos-reference-grid");
+  const [lat, setLat] = useState("");
+  const [lon, setLon] = useState("");
+  const [live, setLive] = useState<any | null>(null);
 
   async function refresh() {
     setLoading(true);
@@ -40,7 +45,18 @@ export default function ReportingPage() {
     }
   }
 
-  useEffect(() => { void refresh(); }, [project]);
+  useEffect(() => { setSite(project === "S6C" ? "lagos-s6c" : "lagos-reference-grid"); setLive(null); void refresh(); }, [project]);
+
+  async function refreshLive() {
+    setLiveLoading(true);
+    try {
+      const query = new URLSearchParams({ project, site, lat, lon });
+      const response = await fetch(`/api/reporting/live?${query.toString()}`, { cache: "no-store" });
+      setLive(await response.json());
+    } finally {
+      setLiveLoading(false);
+    }
+  }
 
   return (
     <main className="shell">
@@ -49,6 +65,7 @@ export default function ReportingPage() {
           <a className="secondary" href="/">← Control Plane</a>
           <label className="secondary">Project <select value={project} onChange={(event) => setProject(event.target.value)}><option>S6C</option><option>S5-GLOBAL-LAGOS</option></select></label>
           <button className="primary" onClick={() => void refresh()}>{loading ? "Refreshing…" : "Refresh read model"}</button>
+          <a className="secondary" href="/api/reporting?project=S5-GLOBAL-LAGOS">Read-model JSON</a>
         </div>
 
         <section className="hero" style={{ marginTop: 20 }}>
@@ -63,6 +80,23 @@ export default function ReportingPage() {
             <p className="muted">{model?.source_state}</p>
             <div className="chain">SOURCE → OBSERVATION → LOCATION/TIME MATCH → QC → REPORTABILITY → SNAPSHOT → REPORT</div>
           </div>
+        </section>
+
+        <section className="panel section" style={{ marginTop: 20 }}>
+          <div className="eyebrow">REMOTE SOURCE RUNTIME</div>
+          <h2>Connect an authorized site coordinate</h2>
+          <p className="muted">Open-Meteo is used here only as a governed remote/contextual source. Enter coordinates from the project GIS/site record; the service will not infer a physical site from “Lagos”.</p>
+          <div className="actions">
+            <label className="secondary">Site <input value={site} onChange={(e) => setSite(e.target.value)} /></label>
+            <label className="secondary">Latitude <input inputMode="decimal" value={lat} onChange={(e) => setLat(e.target.value)} placeholder="authorized latitude" /></label>
+            <label className="secondary">Longitude <input inputMode="decimal" value={lon} onChange={(e) => setLon(e.target.value)} placeholder="authorized longitude" /></label>
+            <button className="primary" onClick={() => void refreshLive()}>{liveLoading ? "Fetching…" : "Fetch governed remote data"}</button>
+          </div>
+          {live && <div className="scenario" style={{ marginTop: 16 }}>
+            <strong>{live.state || live.release_state}</strong> · {live.reportability ? `${live.reportability.reportable} reportable / ${live.reportability.contextual_only} contextual-only` : "location input or source response requires attention"}
+            {live.source && <> · {live.source.provider} · {live.source.evidence_class}</>}
+          </div>}
+          {live?.observations && <div className="table" style={{ marginTop: 16, overflowX: "auto" }}><table><thead><tr><th>Time</th><th>Indicator</th><th>Value</th><th>Source</th><th>Evidence</th><th>State</th></tr></thead><tbody>{live.observations.slice(0, 24).map((o: any) => <tr key={o.observation_id}><td>{o.observed_at}</td><td>{o.indicator_id}</td><td>{o.value} {o.unit}</td><td>{o.provider}</td><td>{o.evidence_class}</td><td>{o.reportability}</td></tr>)}</tbody></table></div>}
         </section>
 
         {model && (
