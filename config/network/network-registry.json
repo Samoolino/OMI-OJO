@@ -1,0 +1,17 @@
+{
+  "schema_version": "UB-02.NETWORK-REGISTRY.1",
+  "networks": [],
+  "policy": {
+    "production_requires": [
+      "TESTNET",
+      "CONTROLLED_TEST",
+      "INTEGRATION_READY",
+      "SECURITY_REVIEW",
+      "PRODUCTION_APPROVED"
+    ],
+    "raw_environmental_data_on_chain": false,
+    "pii_on_chain": false,
+    "vdr_documents_on_chain": false,
+    "integrity_anchor_only": true
+  }
+}
