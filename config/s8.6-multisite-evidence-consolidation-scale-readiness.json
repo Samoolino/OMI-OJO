@@ -1,0 +1,65 @@
+{
+  "stage": "S8.6",
+  "name": "Multisite Evidence Consolidation and Scale Readiness",
+  "status": "IMPLEMENTED",
+  "physical_status": "NOT_RELEASED",
+  "objective": "Consolidate independently reviewed multisite evidence into a controlled portfolio view and determine whether the system is ready for governed scale, without collapsing site-level provenance or promoting readiness into product release.",
+  "prerequisites": [
+    "S8.1",
+    "S8.2",
+    "S8.3",
+    "S8.4",
+    "S8.5"
+  ],
+  "sequence": [
+    "PORTFOLIO_SCOPE_LOCK",
+    "SITE_OUTCOME_IMPORT",
+    "PROVENANCE_RECONCILIATION",
+    "EVIDENCE_CLASS_RECONCILIATION",
+    "CROSS_SITE_CONTROL_COMPARISON",
+    "INDICATOR_METHOD_REVIEW",
+    "QMS_AND_CUSTODY_EXCEPTION_REVIEW",
+    "DMRV_SCHEMA_DRIFT_CHECK",
+    "ANCHOR_INTEGRITY_REVIEW",
+    "CAPA_AGGREGATION",
+    "CLAIM_SURFACE_REVIEW",
+    "SCALE_READINESS_DECISION"
+  ],
+  "required_outputs": [
+    "site-level evidence references preserved",
+    "portfolio evidence index",
+    "cross-site conformance matrix",
+    "indicator/method comparability register",
+    "exceptions/CAPA rollup",
+    "DMRV schema/version report",
+    "anchor integrity register",
+    "public/investor claim boundary",
+    "authorized scale-readiness decision"
+  ],
+  "decisions": [
+    "SCALE_READY_WITH_CONTROLS",
+    "CONDITIONAL_SCALE_READY",
+    "HOLD",
+    "NOT_READY"
+  ],
+  "fail_closed_conditions": [
+    "site provenance loss",
+    "evidence-class collapse",
+    "unresolved material cross-site conflict",
+    "schema drift without controlled migration",
+    "custody/QMS material gap",
+    "anchor inconsistency where required",
+    "unsupported aggregate claim",
+    "site-level outcome overwritten by portfolio status"
+  ],
+  "aggregation_rules": [
+    "Aggregates must retain site membership and source provenance.",
+    "Missing observations are not zero.",
+    "Forecast/model/proxy values remain their original classes.",
+    "Portfolio metrics cannot imply physical harvest where no empirical record exists.",
+    "Administrative node counts cannot be presented as installation or harvest counts.",
+    "A portfolio anchor proves integrity of the anchored package only."
+  ],
+  "scale_boundary": "Scale readiness authorizes controlled continuation of the operating framework; it does not constitute product, potable-water, regulatory, commercial, premium-condition or environmental-performance release.",
+  "next_gate": "S9_GOVERNED_SCALE_EXECUTION_AND_CONTINUOUS_ASSURANCE"
+}
