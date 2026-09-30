@@ -1,0 +1,90 @@
+{
+  "id": "S14.3-EXCEPTION-CAPA-AND-RELEASE-SCOPE-CHANGE-CONTROL",
+  "title": "Exception, CAPA and Release-Scope Change Control",
+  "state": "READY_FOR_ACTUAL_MONITORING_WINDOW",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S14.2_CONTINUOUS_SOURCE_QMS_AND_RELEASE_SCOPE_HEALTH_MONITORING",
+  "purpose": "Classify, contain, investigate and close post-release exceptions and control any material change to the authorized release scope without silently altering history.",
+  "sequence": [
+    "EXCEPTION_INTAKE",
+    "EVIDENCE_AND_LINEAGE_CHECK",
+    "MATERIALITY_CLASSIFICATION",
+    "IMMEDIATE_CONTAINMENT",
+    "ROOT_CAUSE_AND_IMPACT_ASSESSMENT",
+    "CAPA_DEFINITION",
+    "RELEASE_SCOPE_IMPACT_DECISION",
+    "REOPEN_OR_SUPERSEDE_IF_REQUIRED",
+    "INDEPENDENT_REVIEW_WHERE_REQUIRED",
+    "CAPA_EFFECTIVENESS_CHECK",
+    "AUTHORIZATION_AND_CLOSURE",
+    "AUDIT_TRAIL_LOCK"
+  ],
+  "exception_classes": [
+    "EVIDENCE_GAP",
+    "QMS_RESULT_CORRECTION",
+    "CUSTODY_BREAK",
+    "BATCH_TRACEABILITY_FAILURE",
+    "SOURCE_PROVENANCE_FAILURE",
+    "METHOD_BOUNDARY_FACTOR_CHANGE",
+    "REGULATORY_CONDITION_CHANGE",
+    "CLAIM_OR_LABEL_DIVERGENCE",
+    "SECURITY_INTEGRITY_EVENT",
+    "OPERATIONAL_CHANGE",
+    "PRODUCT_QUALITY_EXCEPTION"
+  ],
+  "materiality": [
+    "LOW",
+    "MODERATE",
+    "MATERIAL",
+    "CRITICAL",
+    "UNDETERMINED"
+  ],
+  "states": [
+    "OPEN",
+    "TRIAGED",
+    "CONTAINED",
+    "INVESTIGATION",
+    "CAPA_OPEN",
+    "SCOPE_REVIEW",
+    "REOPENED",
+    "SUPERSEDED",
+    "EFFECTIVENESS_REVIEW",
+    "CLOSED",
+    "HOLD"
+  ],
+  "outcomes": [
+    "NO_SCOPE_IMPACT",
+    "CAPA_REQUIRED",
+    "SCOPE_REDUCTION",
+    "RELEASE_SUSPENSION",
+    "REOPEN_REQUIRED",
+    "SUPERSEDE_REQUIRED",
+    "CLOSURE_BLOCKED",
+    "HOLD"
+  ],
+  "fail_closed": [
+    "exception evidence incomplete",
+    "materiality unresolved",
+    "containment absent for critical issue",
+    "root cause/impact not assessed",
+    "CAPA owner absent",
+    "material scope impact not assessed",
+    "required reopening not executed",
+    "effectiveness not demonstrated where required",
+    "closure authority absent",
+    "historical record overwritten"
+  ],
+  "invariants": [
+    "exception does not create an environmental observation",
+    "CAPA does not erase prior evidence",
+    "scope change requires explicit authorization",
+    "reopening preserves the previous record",
+    "supersession creates a successor record",
+    "closure is not certification",
+    "blockchain anchor does not close an exception",
+    "product release remains bounded by current authorized scope"
+  ],
+  "no_event_policy": "Implementation creates control structures only. No exception, CAPA, scope change, product release, environmental observation or regulatory approval is asserted.",
+  "next_gate": "S14.4-CONTINUOUS-ASSURANCE-AND-RELEASE-STATUS-REVIEW"
+}
