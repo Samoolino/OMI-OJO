@@ -1,0 +1,67 @@
+{
+  "schema_version": "UB-02.REPORTING.1",
+  "rule": "one_canonical_reporting_read_model",
+  "reportability_pipeline": [
+    "DISCOVERED",
+    "INGESTED",
+    "NORMALIZED",
+    "LOCATION_MATCHED",
+    "TIME_MATCHED",
+    "QC_PASSED",
+    "RECONCILED",
+    "REPORTABLE"
+  ],
+  "terminal_states": [
+    "CONTEXTUAL_ONLY",
+    "QUARANTINED",
+    "REJECTED",
+    "STALE",
+    "OUT_OF_BOUNDARY",
+    "SOURCE_UNAPPROVED"
+  ],
+  "engagement_contract": [
+    "engagement_id",
+    "project_ids",
+    "geography",
+    "sites",
+    "reporting_period",
+    "reporting_frequency",
+    "indicators",
+    "source_allowlist",
+    "methodology_allowlist",
+    "minimum_evidence_class",
+    "reconciliation_policy",
+    "report_templates",
+    "publication_audience",
+    "release_gates"
+  ],
+  "report_families": [
+    "project_status",
+    "environmental_data",
+    "climate",
+    "water",
+    "esg",
+    "ghg",
+    "dmrv_evidence",
+    "grant_funder",
+    "investor_vdr",
+    "regulatory_audit"
+  ],
+  "snapshot_contract": [
+    "reporting_period",
+    "project_scope",
+    "site_scope",
+    "source_versions",
+    "observation_ids",
+    "indicator_ids",
+    "calculation_ids",
+    "methodology_versions",
+    "evidence_package_ids",
+    "review_decisions",
+    "release_gate_state",
+    "deterministic_hash"
+  ],
+  "global_rule": "reuse schemas and source adapters, never reuse unsupported observations across project geographies",
+  "frontend_rule": "frontend reads canonical reporting snapshots/read models; it does not call provider APIs directly",
+  "physical_claim_rule": "remote/modelled data cannot silently become measured evidence"
+}
