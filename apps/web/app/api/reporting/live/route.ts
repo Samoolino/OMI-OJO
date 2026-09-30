@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";\nimport { buildLiveSnapshot } from "../snapshot";
 
 type ProjectContract = {
   project_id: string;
