@@ -1,0 +1,9 @@
+{
+  "sequence": "S13.9_DMRV_EVENT_PACKAGE_ASSEMBLY",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "observations_created": false,
+  "precondition": "S13.8_BATCH_AND_SEAL_RECONCILED",
+  "next_gate": "S13.10_EVIDENCE_RECONCILIATION"
+}
