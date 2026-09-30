@@ -1,0 +1,14 @@
+{
+  "stage":"S12",
+  "name":"Institutional External Assurance Readiness and Pilot Operationalization",
+  "status":"IMPLEMENTED",
+  "objective":"Prepare the institutional DMRV and Lagos reference pilot for controlled external assurance access and real field operations without confusing readiness with verified environmental performance.",
+  "sequence":["ASSURANCE_SCOPE_FREEZE","EVIDENCE_ROOM_ASSEMBLY","CONTROL_MATRIX_RECONCILIATION","ACCESS_AND_ROLE_REVIEW","SOURCE_AND_METHOD_REGISTER_REVIEW","PILOT_SITE_AUTHORIZATION","FIELD_OPERATOR_READINESS","LIVE_FEED_CONNECTOR_VALIDATION","RAIN_EVENT_AND_HARVEST_EXECUTION","VIDEO_EVIDENCE_CAPTURE","QMS_AND_CUSTODY_HANDOFF","DMRV_PACKAGE_ASSEMBLY","BLOCKCHAIN_ANCHOR_CANDIDATE_BUILD","EXTERNAL_ASSURANCE_REVIEW","FINDINGS_AND_CAPA","PILOT_OPERATIONALIZATION_DECISION"],
+  "assurance_access_states":["PREPARED","ACCESS_PENDING","ACCESS_GRANTED","UNDER_REVIEW","FINDINGS_OPEN","CLOSED"],
+  "pilot_states":["PLANNED","SITE_AUTHORIZED","OPERATOR_READY","LIVE_FEED_READY","RAIN_EVENT_READY","HARVEST_ACTIVE","POST_COLLECTION","EVIDENCE_RECONCILIATION","ASSURANCE_REVIEW","OPERATIONALIZED","HOLD"],
+  "required_evidence_domains":["site_identity","coordinates","rain_event","weather_source","atmospheric_conditions","harvest_measurement","first_flush","video_feed","sample_identity","custody","QMS/lab","batch/seal","DMRV_package","ESG/GHG_method","source_provenance","exception_log"],
+  "fail_closed":["assurance scope not approved","reviewer access not authorized","site identity unresolved","source provenance unresolved","live feed untrusted","rain event not evidenced","harvest measurement absent","video evidence not linked to event","custody/QMS handoff incomplete","DMRV package incomplete","material finding unresolved","blockchain anchor attempted before package integrity"],
+  "invariants":["assurance readiness is not assurance conclusion","pilot readiness is not environmental performance","video is evidence only when linked to a controlled event and provenance","blockchain anchor preserves package integrity and does not prove environmental truth","forecast is not observation","administrative node is not physical site","operationalization does not equal regulatory approval or product release"],
+  "frontend":"apps/web/app/external-assurance-pilot/page.tsx",
+  "next_gate":"S13_INSTITUTIONAL_FIRST_LIVE_HARVEST_AND_EVIDENCE_EVENT_EXECUTION"
+}
