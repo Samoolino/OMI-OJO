@@ -1,0 +1,11 @@
+{
+  "sequence": "S13.14_REGULATORY_PRODUCT_RELEASE_GATE",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "observations_created": false,
+  "regulatory_approval_claimed": false,
+  "product_release_claimed": false,
+  "precondition": "S13.13_PREMIUM_CONDITION_DECISION_COMPLETE",
+  "next_gate": "S14_POST_EVENT_RELEASE_ASSURANCE_AND_CONTINUOUS_CONTROL"
+}
