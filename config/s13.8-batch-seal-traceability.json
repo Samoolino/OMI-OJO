@@ -1,0 +1,72 @@
+{
+  "id": "S13.8-BATCH-SEAL-TRACEABILITY",
+  "title": "Batch and Seal Traceability",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.7_QMS_LAB_HANDOFF_ACCEPTED",
+  "purpose": "Establish controlled batch identity and container/seal traceability for an actual event sample or collected lot without implying product release.",
+  "required_evidence": [
+    "event_identifier",
+    "physical_site_identifier",
+    "sample_identifier",
+    "batch_identifier",
+    "batch_creation_timestamp",
+    "batch_quantity_if_actual",
+    "container_or_unit_identifiers",
+    "seal_identifier_if_used",
+    "seal_application_timestamp",
+    "operator_identity",
+    "qms_handoff_reference",
+    "reconciliation_record",
+    "exception_record"
+  ],
+  "sequence": [
+    "CONFIRM_QMS_HANDOFF",
+    "CREATE_UNIQUE_BATCH_ID",
+    "LINK_BATCH_TO_EVENT_SAMPLE",
+    "RECORD_ACTUAL_QUANTITY_IF_APPLICABLE",
+    "ASSIGN_CONTAINER_UNITS",
+    "APPLY_AND_RECORD_SEAL",
+    "RECONCILE_IDENTIFIERS",
+    "LOCK_TRACEABILITY_RECORD"
+  ],
+  "states": [
+    "READY",
+    "BATCH_CREATED",
+    "TRACEABILITY_ACTIVE",
+    "SEALED",
+    "RECONCILED",
+    "HOLD",
+    "REJECTED",
+    "CORRECTIVE_ACTION"
+  ],
+  "fail_closed": [
+    "S13.7 handoff not accepted",
+    "event/site/sample identity unresolved",
+    "batch identifier duplicated",
+    "actual quantity entered without measurement provenance",
+    "container identity unresolved",
+    "seal identity unresolved where required",
+    "seal application not evidenced",
+    "batch-to-sample linkage broken",
+    "reconciliation incomplete",
+    "material exception unresolved"
+  ],
+  "evidence_policy": {
+    "batch_identity": "BATCH_TRACEABILITY",
+    "quantity": "INSTRUMENT_MEASUREMENT",
+    "seal_record": "BATCH_TRACEABILITY",
+    "qms_reference": "QMS_LAB_RESULT",
+    "synthetic_test": "CONTROL_TEST_ONLY",
+    "fabricated_batch": "PROHIBITED"
+  },
+  "invariants": [
+    "batch identity does not establish product quality",
+    "seal integrity does not establish laboratory validity",
+    "actual quantity must retain measurement provenance",
+    "batch creation is not product release",
+    "traceability is not certification"
+  ],
+  "next_gate": "S13.9_DMRV_EVENT_PACKAGE_ASSEMBLY"
+}
