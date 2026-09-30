@@ -1,0 +1,82 @@
+{
+  "id": "S13.14-REGULATORY-PRODUCT-RELEASE-GATE",
+  "title": "Regulatory and Product Release Gate",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.13_PREMIUM_CONDITION_DECISION_COMPLETE",
+  "purpose": "Control the final authorization boundary between an evidenced field event and any regulatory/product release claim, ensuring legal, product, labeling, quality, traceability and disclosure prerequisites are independently satisfied.",
+  "release_principles": [
+    "jurisdictional_requirements_must_be_identified",
+    "required_authorizations_must_be_current",
+    "product_specification_and_labeling_must_match_actual_product",
+    "qms_and_lab_evidence_must_support_release_scope",
+    "batch_traceability_must_be_complete",
+    "premium_decision_must_be_locked_if_claimed",
+    "public_and_investor_claims_must_match_authorized_record",
+    "release_authority_must_be_identified",
+    "unresolved_material_exception_requires_hold"
+  ],
+  "sequence": [
+    "FREEZE_RELEASE_SCOPE",
+    "CONFIRM_JURISDICTION_AND_REQUIREMENTS",
+    "VERIFY_REQUIRED_AUTHORIZATIONS",
+    "VERIFY_PRODUCT_AND_LABEL_RECORD",
+    "VERIFY_QMS_AND_LAB_RELEASE_EVIDENCE",
+    "VERIFY_BATCH_AND_SEAL_TRACEABILITY",
+    "VERIFY_PREMIUM_DECISION",
+    "RECONCILE_PUBLIC_INVESTOR_CLAIMS",
+    "REVIEW_OPEN_EXCEPTIONS",
+    "RECORD_RELEASE_DECISION",
+    "AUTHORIZE_OR_HOLD",
+    "LOCK_RELEASE_RECORD"
+  ],
+  "states": [
+    "READY",
+    "RELEASE_REVIEW",
+    "CONDITIONAL",
+    "RELEASE_AUTHORIZED",
+    "RELEASE_NOT_AUTHORIZED",
+    "HOLD",
+    "REJECTED",
+    "REOPENED"
+  ],
+  "outcomes": [
+    "RELEASE_AUTHORIZED",
+    "CONDITIONAL_PENDING_REQUIREMENTS",
+    "RELEASE_NOT_AUTHORIZED",
+    "INSUFFICIENT_EVIDENCE",
+    "HOLD"
+  ],
+  "fail_closed": [
+    "S13.13 decision incomplete where required",
+    "jurisdictional scope unresolved",
+    "required authorization missing/expired",
+    "product/label mismatch",
+    "QMS/lab evidence insufficient",
+    "batch traceability incomplete",
+    "premium decision unsupported",
+    "public/investor claim divergence",
+    "material exception unresolved",
+    "release authority missing"
+  ],
+  "evidence_policy": {
+    "release_decision": "RELEASE_DECISION",
+    "authorization": "RELEASE_DECISION",
+    "qms": "QMS_LAB_RESULT",
+    "batch": "BATCH_TRACEABILITY",
+    "premium": "RELEASE_DECISION",
+    "synthetic_content": "CONTROL_TEST_ONLY",
+    "fabricated_release": "PROHIBITED"
+  },
+  "invariants": [
+    "release authorization is jurisdiction- and scope-specific",
+    "software readiness is not regulatory approval",
+    "premium-condition decision does not itself release a product",
+    "blockchain anchoring does not create authorization",
+    "release decision does not create environmental observations",
+    "public disclosure must not exceed authorized release scope",
+    "any later material change requires reopening or supersession"
+  ],
+  "next_gate": "S14_POST_EVENT_RELEASE_ASSURANCE_AND_CONTINUOUS_CONTROL"
+}
