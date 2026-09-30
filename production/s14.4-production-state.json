@@ -1,0 +1,12 @@
+{
+  "sequence": "S14.4_CONTINUOUS_ASSURANCE_AND_RELEASE_STATUS_REVIEW",
+  "state": "READY_FOR_ACTUAL_MONITORING_WINDOW",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "review_window_active": false,
+  "assurance_conclusion_claimed": false,
+  "release_status_change_claimed": false,
+  "environmental_observations_created": false,
+  "precondition": "S14.3_EXCEPTION_CAPA_AND_RELEASE_SCOPE_CHANGE_CONTROL",
+  "next_gate": "S14.5_RELEASE_STATUS CHANGE AUTHORIZATION AND PUBLIC SURFACE RECONCILIATION"
+}
