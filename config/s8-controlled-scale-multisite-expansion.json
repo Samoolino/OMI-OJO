@@ -1,0 +1,91 @@
+{
+  "stage": "S8",
+  "name": "Controlled Scale and Multisite Expansion",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Define a controlled, evidence-inheriting framework for expansion from the reference Lagos proof pilot to additional authorized physical sites and international administrative grids without transferring unsupported evidence values.",
+  "principles": [
+    "reference-pilot evidence semantics are inherited, not evidence values",
+    "administrative nodes remain distinct from physical field sites",
+    "each physical site requires local authorization and readiness",
+    "each batch and evidence package retains site-specific identity",
+    "new geography enters through controlled replication gates",
+    "material deviations trigger HOLD rather than silent normalization"
+  ],
+  "states": [
+    "SCALE_DESIGNED",
+    "SITE_ONBOARDING",
+    "SITE_READY",
+    "CONTROLLED_PILOT",
+    "MULTISITE_OPERATION",
+    "HOLD",
+    "RETIRED"
+  ],
+  "required_inputs": [
+    "approved expansion scope",
+    "site authorization",
+    "site identity and geospatial verification",
+    "local operator/collector readiness",
+    "provider/feed registry",
+    "QMS/laboratory pathway",
+    "DMRV mapping",
+    "evidence anchor configuration",
+    "regulatory/product-release pathway",
+    "independent assurance/governance status"
+  ],
+  "site_record": {
+    "site_id": "required",
+    "geography": "required",
+    "node_type": "required",
+    "physical_site_status": "required",
+    "authorization_ref": "required",
+    "coordinate_verification_ref": "required_when_location_is_physical",
+    "operator_ref": "required",
+    "collector_readiness_ref": "required",
+    "environmental_feed_refs": "required",
+    "qms_pathway_ref": "required",
+    "dmrv_profile_ref": "required",
+    "anchor_registry_ref": "required",
+    "local_regulatory_scope": "required",
+    "pilot_scope": "required",
+    "status": "required",
+    "integrity_digest": "required"
+  },
+  "replication_controls": [
+    "unique site identity",
+    "geospatial verification before physical classification",
+    "local authorization before collection",
+    "local QMS and regulatory pathway confirmation",
+    "provider/source reconciliation",
+    "site-specific DMRV package identity",
+    "site-specific batch/seal provenance",
+    "successor chain for material corrections",
+    "independent assurance sampling across the expanded scope"
+  ],
+  "fail_closed_conditions": [
+    "authorization absent",
+    "site identity ambiguous",
+    "coordinates unverified for a physical site",
+    "operator/collector readiness absent",
+    "QMS pathway absent",
+    "local regulatory scope undefined",
+    "DMRV identity collision",
+    "material source conflict unresolved",
+    "evidence from another site reused as if locally observed",
+    "anchor configuration not controlled"
+  ],
+  "permissible_claims": [
+    "a site is onboarded to the controlled expansion framework",
+    "a defined site completed a controlled pilot",
+    "evidence semantics are replicated across sites",
+    "multisite operation is authorized for a defined scope"
+  ],
+  "prohibited_claims": [
+    "administrative node equals physical installation",
+    "Lagos evidence proves another geography",
+    "model/forecast data proves physical harvest",
+    "scale readiness proves regulatory approval",
+    "multisite framework proves all sites are operational"
+  ],
+  "next_gate": "S8.1_SITE_ONBOARDING_AND_LOCAL_AUTHORIZATION"
+}
