@@ -1,0 +1,11 @@
+{
+  "sequence": "S12_PRE_S13_FIELD_READINESS",
+  "state": "IMPLEMENTED",
+  "physical_production": "NOT_RELEASED",
+  "first_empirical_event": "S13",
+  "procedures": 17,
+  "human_authorization_required": true,
+  "synthetic_dry_run_records": "CONTROL_TEST_ONLY",
+  "fabricated_environmental_evidence": "PROHIBITED",
+  "next_gate": "S13_INSTITUTIONAL_FIRST_LIVE_HARVEST_AND_EVIDENCE_EVENT_EXECUTION"
+}
