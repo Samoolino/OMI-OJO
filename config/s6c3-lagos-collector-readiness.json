@@ -1,0 +1,39 @@
+{
+  "schema": "omi-ojo.s6c3.collector-readiness.v1",
+  "stage": "S6C.3",
+  "title": "Lagos Controlled Collector Readiness Gate",
+  "purpose": "Verify that a proposed rainwater collection assembly is ready for a controlled validation event without treating readiness as authorization, water-quality validation, or product release.",
+  "status": "DESIGNED_FOR_REVIEW",
+  "physical_release": "NOT_RELEASED",
+  "prerequisites": ["S6C.1 authorization evidence accepted", "S6C.2 survey and location verification accepted"],
+  "evidence_domains": {
+    "collector_identity": ["asset_id", "manufacturer_or_fabricator", "configuration_version", "inspection_date"],
+    "capture_surface": ["surface_type", "cleanliness_check", "drainage_path_check", "materials_compatibility"],
+    "first_flush": ["device_id", "configuration", "diversion_logic", "inspection_result"],
+    "storage_and_transfer": ["container_id", "capacity", "closure_condition", "food_contact_or_applicable_material_evidence"],
+    "instrumentation": ["sensor_ids", "calibration_or_verification_records", "clock_sync", "telemetry_path"],
+    "safety": ["operator_safety_review", "public_exposure_controls", "electrical_or_power_controls", "weather_stop_conditions"],
+    "traceability": ["event_id", "site_id", "collector_id", "chain_of_custody_binding"]
+  },
+  "gates": [
+    {"id":"CR-01","requirement":"Collector identity and configuration are uniquely recorded","decision":"PASS_REQUIRED"},
+    {"id":"CR-02","requirement":"Capture and drainage path inspection is documented","decision":"PASS_REQUIRED"},
+    {"id":"CR-03","requirement":"First-flush configuration is inspected and documented","decision":"PASS_REQUIRED"},
+    {"id":"CR-04","requirement":"Storage/container controls and material evidence are documented","decision":"PASS_REQUIRED"},
+    {"id":"CR-05","requirement":"Instrumentation identity and calibration/verification evidence are available where applicable","decision":"PASS_REQUIRED"},
+    {"id":"CR-06","requirement":"Operator/public/weather safety controls are accepted","decision":"PASS_REQUIRED"},
+    {"id":"CR-07","requirement":"Event, site, collector and custody identifiers are bound before collection","decision":"PASS_REQUIRED"}
+  ],
+  "fail_closed": [
+    "missing authorization prerequisite",
+    "unresolved location mismatch",
+    "unsafe collector condition",
+    "unknown collector identity",
+    "unresolved first-flush configuration",
+    "missing required custody identifier",
+    "material instrumentation integrity issue"
+  ],
+  "decision_states": ["PASS", "HOLD", "REJECTED"],
+  "transition": "PASS -> S6C.4 CONTROLLED RAIN EVENT READINESS",
+  "prohibitions": ["No collection authorization is implied by this readiness gate", "No potable-water claim", "No Premium RainWater claim", "No laboratory result may be inferred", "No environmental-credit claim"]
+}
