@@ -1,14 +1,14 @@
 {
   "milestone": "M-1",
   "system": "Blue-Ether OS / OMI-OJO",
-  "status": "S10.3_INSTITUTIONAL_DMRV_RECONCILIATION_METRIC_LINEAGE_DEFINED",
-  "execution_readiness": "S10.3_DMRV_LINEAGE_READY_EMPIRICAL_DISCLOSURE_EXECUTION_PENDING",
+  "status": "S10.4_INSTITUTIONAL_GHG_ESG_METHOD_BOUNDARY_FACTOR_CONTROL_DEFINED",
+  "execution_readiness": "S10.4_GHG_ESG_METHOD_CONTROL_READY_EMPIRICAL_DISCLOSURE_EXECUTION_PENDING",
   "production_guide": "docs/production-execution-guide.md",
   "institutional_framework": "docs/institutional-production-framework.md",
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
   "s6b_work_package": "config/s6b-builder-grant-work-package.json",
   "s6b_evidence_package": "docs/s6b-builder-grant-evidence-package.md",
-  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V38",
+  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V39",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -95,7 +95,8 @@
     "S10": "IMPLEMENTED_INSTITUTIONAL_DISCLOSURE_AND_ASSURANCE_OPERATIONS",
     "S10.1": "IMPLEMENTED_DISCLOSURE_PERIOD_OPERATIONS_ASSURANCE_CALENDAR",
     "S10.2": "IMPLEMENTED_DISCLOSURE_DATA_CUT_EVIDENCE_POPULATION_LOCK",
-    "S10.3": "IMPLEMENTED_DMRV_RECONCILIATION_METRIC_LINEAGE"
+    "S10.3": "IMPLEMENTED_DMRV_RECONCILIATION_METRIC_LINEAGE",
+    "S10.4": "IMPLEMENTED_GHG_ESG_METHOD_BOUNDARY_FACTOR_CONTROL"
   },
   "institutional_domains": [
     "governance_authorization",
@@ -134,7 +135,7 @@
   "physical_status": "NOT_RELEASED",
   "project_token_status": "DEFERRED",
   "funding_award_status": "NOT_AWARDED",
-  "next_gate": "S10.4_INSTITUTIONAL_GHG_ESG_METHOD_BOUNDARY_AND_FACTOR_CONTROL",
+  "next_gate": "S10.5_INSTITUTIONAL_QMS_CUSTODY_AND_ENVIRONMENTAL_EVIDENCE_RECONCILIATION",
   "s6c_field_authorization": "config/s6c-lagos-field-authorization.json",
   "s6c_runbook": "docs/s6c-lagos-field-validation-runbook.md",
   "s6c_rain_event_schema": "config/s6c-lagos-rain-event-record.json",
@@ -176,8 +177,8 @@
   "frontend_engagement": {
     "status": "IMPLEMENTED",
     "landing_scope_surface": "apps/web/app/page.tsx",
-    "current_control_surface": "DMRV Reconciliation & Metric Lineage / S10.3",
-    "production_stage_surface": "M-1 → S6A → S6B → S6C → POST-S6C → S7 → S8 → S9 → S9.1 → S9.2 → S9.3 → S9.4 → S9.5 → S9.6 → S10 → S10.1 → S10.2 → S10.3",
+    "current_control_surface": "GHG / ESG Method, Boundary & Factor Control / S10.4",
+    "production_stage_surface": "M-1 → S6A → S6B → S6C → POST-S6C → S7 → S8 → S9 → S9.1 → S9.2 → S9.3 → S9.4 → S9.5 → S9.6 → S10 → S10.1 → S10.2 → S10.3 → S10.4",
     "operating_ladder_surface": "DESIGNED → IMPLEMENTED → INTEGRATION_READY → CONTROLLED_TEST → REPORTABLE → VALIDATED → VERIFIED → ANCHORED → RELEASED",
     "semantic_boundaries": [
       "administrative node ≠ physical site",
@@ -186,7 +187,7 @@
       "software readiness ≠ product release"
     ],
     "current_physical_state": "NOT_RELEASED",
-    "next_frontend_gate": "S10.4_INSTITUTIONAL_GHG_ESG_METHOD_BOUNDARY_AND_FACTOR_CONTROL"
+    "next_frontend_gate": "S10.5_INSTITUTIONAL_QMS_CUSTODY_AND_ENVIRONMENTAL_EVIDENCE_RECONCILIATION"
   },
   "s8_2_operational_readiness": "config/s8.2-site-operational-readiness-controlled-pilot.json",
   "s8_2_operational_readiness_runbook": "docs/s8.2-site-operational-readiness-controlled-pilot-runbook.md",
@@ -219,5 +220,7 @@
   "s10_2_evidence_population_lock": "config/s10.2-institutional-disclosure-data-cut-evidence-population-lock.json",
   "s10_2_evidence_population_lock_runbook": "docs/s10.2-institutional-disclosure-data-cut-evidence-population-lock-runbook.md",
   "s10_3_dmrv_lineage": "config/s10.3-institutional-dmrv-reconciliation-metric-lineage.json",
-  "s10_3_dmrv_lineage_runbook": "docs/s10.3-institutional-dmrv-reconciliation-metric-lineage-runbook.md"
+  "s10_3_dmrv_lineage_runbook": "docs/s10.3-institutional-dmrv-reconciliation-metric-lineage-runbook.md",
+  "s10_4_ghg_esg_method_control": "config/s10.4-institutional-ghg-esg-method-boundary-factor-control.json",
+  "s10_4_ghg_esg_method_control_runbook": "docs/s10.4-institutional-ghg-esg-method-boundary-factor-control-runbook.md"
 }
