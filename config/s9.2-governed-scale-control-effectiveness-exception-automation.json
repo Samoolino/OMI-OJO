@@ -1,0 +1,79 @@
+{
+  "stage": "S9.2",
+  "name": "Governed Scale Control Effectiveness and Exception Automation",
+  "status": "IMPLEMENTED",
+  "physical_status": "NOT_RELEASED",
+  "objective": "Automate detection, routing, escalation and closure tracking for control failures and material evidence exceptions while preserving human authorization for conformance, CAPA closure and release decisions.",
+  "prerequisites": [
+    "S9_GOVERNED_SCALE_EXECUTION_CONTINUOUS_ASSURANCE",
+    "S9.1_CONTINUOUS_ASSURANCE_INDEPENDENT_CONTROL_EFFECTIVENESS"
+  ],
+  "exception_lifecycle": [
+    "DETECTED",
+    "CLASSIFIED",
+    "ASSIGNED",
+    "CONTAINED",
+    "INVESTIGATING",
+    "CAPA_REQUIRED",
+    "REVIEW_PENDING",
+    "CLOSED",
+    "REOPENED",
+    "SUSPENDED"
+  ],
+  "severity": [
+    "OBSERVATION",
+    "MINOR",
+    "MAJOR",
+    "CRITICAL"
+  ],
+  "automated_controls": [
+    "schema/version mismatch detection",
+    "evidence provenance gap detection",
+    "timestamp/order inconsistency detection",
+    "site identity mismatch detection",
+    "custody continuity anomaly detection",
+    "DMRV reconciliation anomaly detection",
+    "anchor digest mismatch detection",
+    "stale source/API signal detection",
+    "unsupported claim-scope detection",
+    "control-review due-date detection",
+    "repeated exception escalation"
+  ],
+  "human_decisions": [
+    "severity confirmation where material",
+    "containment approval",
+    "CAPA acceptance",
+    "closure authorization",
+    "scope suspension/resumption",
+    "public/investor claim approval"
+  ],
+  "escalation_rules": [
+    "CRITICAL → immediate containment + authorized review",
+    "MAJOR repeated → independent review expansion",
+    "unresolved due date → escalation to control owner and governance",
+    "reopened exception → effectiveness reassessment",
+    "material security breach → suspend affected scope"
+  ],
+  "fail_closed_conditions": [
+    "exception cannot be linked to evidence scope",
+    "material anomaly suppressed without authorized disposition",
+    "CAPA closed without effectiveness evidence",
+    "automated rule bypassed without audit record",
+    "claim released while supporting exception is unresolved"
+  ],
+  "audit_requirements": [
+    "immutable event ID",
+    "detector/rule version",
+    "timestamp",
+    "affected scope",
+    "evidence references",
+    "severity",
+    "owner",
+    "actions",
+    "approvals",
+    "closure evidence",
+    "reopen history"
+  ],
+  "claim_boundary": "Automation identifies and routes exceptions; it does not independently certify environmental truth, premium status, regulatory approval or product release.",
+  "next_gate": "S9.3_GOVERNED_SCALE_ASSURANCE_DASHBOARD_AND_AUDIT_PACK"
+}
