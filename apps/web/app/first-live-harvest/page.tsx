@@ -9,23 +9,23 @@ export default function FirstLiveHarvestPage() {
     ["S13.7","QMS / LAB HANDOFF","READY FOR ACTUAL EVENT INPUT"],
     ["S13.8","BATCH + SEAL","READY FOR ACTUAL EVENT INPUT"],
     ["S13.9","DMRV EVENT PACKAGE","READY FOR ACTUAL EVENT INPUT"],
-    ["S13.10","EVIDENCE RECONCILIATION","PENDING S13.9"],
-    ["S13.11","ANCHOR CANDIDATE","PENDING"],
+    ["S13.10","EVIDENCE RECONCILIATION","READY FOR ACTUAL EVENT INPUT"],
+    ["S13.11","ANCHOR CANDIDATE","PENDING S13.10"],
     ["S13.12","ASSURANCE REVIEW","PENDING"],
     ["S13.13","PREMIUM-CONDITION DECISION","PENDING"],
     ["S13.14","REGULATORY / PRODUCT RELEASE GATE","PENDING"]
   ];
   const controls = [
-    "S13.8 batch/sample/event traceability reconciled",
-    "Event scope and reporting population frozen",
-    "Every evidence item has source, type, timestamp and event linkage",
-    "Weather/source provenance reconciled",
-    "Field measurements retain instrument identity and lineage",
-    "Video, custody, QMS and batch records linked",
-    "Method, boundary and factor versions registered",
-    "Derived metrics preserve input lineage",
-    "Package exceptions and limitations recorded",
-    "Package integrity digest computed and locked"
+    "S13.9 package is locked and event scope is frozen",
+    "Physical site and event identity reconcile across records",
+    "Source observations retain provenance",
+    "Field measurements reconcile to instrument identity and chronology",
+    "Video timeline is linked where required",
+    "Sample custody and QMS records reconcile",
+    "Batch/container/seal traceability reconciles",
+    "Derived metrics reconcile to inputs, methods, boundaries and factors",
+    "Exceptions and limitations are classified",
+    "Reconciliation conclusion and authority are recorded"
   ];
   return (
     <main style={{maxWidth:1120,margin:"0 auto",padding:"48px 24px",fontFamily:"Arial,sans-serif"}}>
@@ -36,12 +36,12 @@ export default function FirstLiveHarvestPage() {
         <div style={{display:"flex",gap:10,flexWrap:"wrap"}}><Badge>NO LIVE EVENT CLAIMED</Badge><Badge>PHYSICAL PRODUCTION NOT RELEASED</Badge><Badge>FAIL-CLOSED</Badge></div>
       </header>
       <section style={{marginTop:28,padding:22,border:"1px solid #ddd",borderRadius:12}}>
-        <h2 style={{marginTop:0}}>S13.9 DMRV event package assembly gate</h2>
-        <p style={{lineHeight:1.6}}>The package consolidates actual event evidence and lineage. It may calculate supported derived metrics, but it cannot create observations or substitute forecasts, model grids, API availability, synthetic values or administrative nodes for field evidence.</p>
+        <h2 style={{marginTop:0}}>S13.10 evidence reconciliation gate</h2>
+        <p style={{lineHeight:1.6}}>Reconciliation tests identity, chronology, provenance, completeness and lineage within the defined event scope. It does not create or upgrade observations.</p>
         <ul>{controls.map(c=><li key={c} style={{margin:"9px 0"}}>{c}</li>)}</ul>
       </section>
       <section style={{marginTop:32}}><h2>Controlled gates</h2><div style={{display:"grid",gap:10}}>{gates.map(([id,name,state])=><div key={id} style={{display:"grid",gridTemplateColumns:"80px 1fr auto",gap:12,alignItems:"center",padding:14,border:"1px solid #ddd",borderRadius:9}}><strong>{id}</strong><span>{name}</span><small>{state}</small></div>)}</div></section>
-      <section style={{marginTop:32,padding:20,background:"#f7f7f7",borderRadius:12}}><h2>Evidence boundary</h2><p style={{lineHeight:1.6}}>DMRV package completion is not verification, certification, premium-condition determination, product release, or environmental truth. A package digest proves integrity of the package only.</p></section>
+      <section style={{marginTop:32,padding:20,background:"#f7f7f7",borderRadius:12}}><h2>Evidence boundary</h2><p style={{lineHeight:1.6}}>Reconciliation is limited to its reviewed scope. It is not external assurance, certification, premium-condition determination or product release.</p></section>
     </main>
   );
 }
