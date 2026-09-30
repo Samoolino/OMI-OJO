@@ -1,0 +1,66 @@
+{
+  "id": "S13.3-FIRST-FLUSH-DIVERSION",
+  "title": "First-Flush Diversion Control",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.2_SITE_CHECK_PASSED",
+  "purpose": "Control first-flush diversion during an actual authorized rain event before controlled collection.",
+  "required_evidence": [
+    "event_identifier",
+    "physical_site_identifier",
+    "diversion_system_identity",
+    "actual_activation_timestamp",
+    "diversion_start_timestamp",
+    "diversion_completion_timestamp",
+    "operator_confirmation",
+    "event_linked_video_or_equivalent_evidence",
+    "diversion_measurement_if_required",
+    "exception_record"
+  ],
+  "sequence": [
+    "CONFIRM_EVENT_ID",
+    "CONFIRM_SITE",
+    "CONFIRM_DIVERSION_PATH",
+    "ACTIVATE_DIVERSION",
+    "OBSERVE_DIVERSION",
+    "CONFIRM_DIVERSION_COMPLETION",
+    "RECONCILE_EVIDENCE",
+    "AUTHORIZE_COLLECTION"
+  ],
+  "states": [
+    "READY",
+    "DIVERSION_ACTIVE",
+    "DIVERSION_COMPLETE",
+    "HOLD",
+    "REJECTED",
+    "CORRECTIVE_ACTION"
+  ],
+  "fail_closed": [
+    "S13.2 site check not passed",
+    "event identity unresolved",
+    "physical site unresolved",
+    "diversion path unavailable",
+    "diversion activation cannot be evidenced",
+    "completion cannot be evidenced",
+    "required video/equivalent evidence unavailable",
+    "operator authorization unresolved",
+    "material exception unresolved"
+  ],
+  "evidence_policy": {
+    "forecast": "FORECAST_ONLY",
+    "source_observation": "SOURCE_OBSERVATION",
+    "diversion_action": "FIELD_OPERATION",
+    "measurement": "INSTRUMENT_MEASUREMENT",
+    "video": "VIDEO_EVIDENCE",
+    "synthetic_test": "CONTROL_TEST_ONLY",
+    "fabricated_event": "PROHIBITED"
+  },
+  "invariants": [
+    "first-flush diversion is not controlled collection",
+    "diversion evidence is not a water-quality result",
+    "readiness is not harvest",
+    "anchor is not verification"
+  ],
+  "next_gate": "S13.4_CONTROLLED_COLLECTION"
+}
