@@ -1,0 +1,104 @@
+{
+  "stage": "S10.4",
+  "name": "Institutional GHG ESG Method Boundary and Factor Control",
+  "status": "IMPLEMENTED",
+  "objective": "Govern GHG/ESG methodology, organizational and operational boundaries, emission-factor provenance, applicability, versioning and change control for disclosure-ready metrics.",
+  "frameworks": {
+    "GHG_Protocol": {
+      "role": "accounting framework",
+      "controls": [
+        "organizational boundary",
+        "operational boundary",
+        "Scope 1",
+        "Scope 2",
+        "Scope 3",
+        "method/source lineage",
+        "factor provenance",
+        "period consistency"
+      ]
+    },
+    "IFRS_S2": {
+      "role": "climate disclosure framework",
+      "controls": [
+        "governance",
+        "strategy",
+        "risk management",
+        "metrics and targets",
+        "materiality",
+        "reporting period alignment"
+      ]
+    },
+    "ESRS_E1": {
+      "role": "jurisdiction-dependent sustainability reporting mapping",
+      "controls": [
+        "applicable adopted version",
+        "reporting perimeter",
+        "effective period",
+        "climate-change disclosures"
+      ]
+    }
+  },
+  "method_record": [
+    "methodology_id",
+    "framework",
+    "requirement_reference",
+    "version_or_effective_date",
+    "applicability",
+    "boundary_definition",
+    "activity_data_source",
+    "emission_factor_id",
+    "emission_factor_source",
+    "factor_geography",
+    "factor_period",
+    "calculation_method",
+    "assumptions",
+    "uncertainty",
+    "review_status"
+  ],
+  "boundary_types": [
+    "ORGANIZATIONAL",
+    "OPERATIONAL",
+    "SITE",
+    "PROJECT",
+    "VALUE_CHAIN",
+    "ADMINISTRATIVE_REPORTING_GRID"
+  ],
+  "factor_states": [
+    "PROPOSED",
+    "APPLICABLE",
+    "APPROVED",
+    "SUPERSEDED",
+    "BLOCKED"
+  ],
+  "control_sequence": [
+    "FRAMEWORK_APPLICABILITY",
+    "BOUNDARY_SELECTION",
+    "METHOD_SELECTION",
+    "ACTIVITY_DATA_MAPPING",
+    "FACTOR_SELECTION",
+    "FACTOR_PROVENANCE_CHECK",
+    "CALCULATION_REVIEW",
+    "UNCERTAINTY_REVIEW",
+    "VERSION_LOCK",
+    "CHANGE_IMPACT_ASSESSMENT",
+    "DISCLOSURE_MAPPING"
+  ],
+  "fail_closed": [
+    "framework/version not identified",
+    "organizational boundary undefined",
+    "operational boundary undefined",
+    "factor source/geography/period missing",
+    "factor applicability unresolved",
+    "methodology changed without impact assessment",
+    "calculation cannot reproduce",
+    "material uncertainty omitted",
+    "administrative grid treated as organizational boundary",
+    "ESG disclosure mapped as certification"
+  ],
+  "notes": [
+    "GHG Protocol provides corporate accounting/reporting standards and distinguishes organizational and operational boundaries and scopes.",
+    "IFRS S1/S2 use governance, strategy, risk management, and metrics/targets as core content areas.",
+    "GHG Protocol and ISO are developing a consolidated corporate standard; future revisions must enter controlled version/change management rather than silently replacing historical methods."
+  ],
+  "next_gate": "S10.5_INSTITUTIONAL_QMS_CUSTODY_AND_ENVIRONMENTAL_EVIDENCE_RECONCILIATION"
+}
