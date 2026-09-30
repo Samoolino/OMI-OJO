@@ -9,9 +9,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Sequence
 
 from .reportable_data import EvidenceClass, Location, ReportingRule
 from .source_adapters import SourceAdapter, SourceRequest, adapter_for
@@ -32,6 +30,8 @@ class Engagement:
 @dataclass(frozen=True)
 class OrchestrationPlan:
     engagement: Engagement
+    project_id: str
+    site_id: str
     location: Location
     adapters: tuple[SourceAdapter, ...]
     skipped_sources: tuple[str, ...]
@@ -42,10 +42,7 @@ def load_engagements(path: str | Path = "config/reporting-engagement-registry.js
     payload = json.loads(Path(path).read_text(encoding="utf-8"))
     result: dict[str, Engagement] = {}
     for raw in payload.get("engagements", []):
-        minimum = {
-            key: EvidenceClass(value)
-            for key, value in raw.get("minimum_evidence_class", {}).items()
-        }
+        minimum = {key: EvidenceClass(value) for key, value in raw.get("minimum_evidence_class", {}).items()}
         engagement = Engagement(
             engagement_id=raw["engagement_id"],
             project_ids=tuple(raw["project_ids"]),
@@ -60,14 +57,9 @@ def load_engagements(path: str | Path = "config/reporting-engagement-registry.js
     return result
 
 
-def build_plan(
-    engagement: Engagement,
-    *,
-    project_id: str,
-    site_id: str,
-    location: Location,
-    max_age_seconds: int = 172800,
-) -> OrchestrationPlan:
+def build_plan(engagement: Engagement, *, project_id: str, site_id: str, location: Location, max_age_seconds: int = 172800) -> OrchestrationPlan:
+    if location is None:
+        raise ValueError("authorized project/site coordinates are required")
     if project_id not in engagement.project_ids:
         raise ValueError("project is not part of engagement")
     if site_id not in engagement.sites:
@@ -87,9 +79,7 @@ def build_plan(
             site_id=site_id,
             indicator_id=indicator,
             allowed_sources=frozenset(engagement.source_allowlist),
-            minimum_evidence_class=engagement.minimum_evidence_class.get(
-                indicator, EvidenceClass.CONTEXTUAL
-            ),
+            minimum_evidence_class=engagement.minimum_evidence_class.get(indicator, EvidenceClass.CONTEXTUAL),
             location=location,
             spatial_tolerance_degrees=0.05,
             max_age_seconds=max_age_seconds,
@@ -98,28 +88,17 @@ def build_plan(
         )
         for indicator in engagement.indicators
     )
-    return OrchestrationPlan(
-        engagement=engagement,
-        location=location,
-        adapters=tuple(adapters),
-        skipped_sources=tuple(skipped),
-        rules=rules,
-    )
+    return OrchestrationPlan(engagement, project_id, site_id, location, tuple(adapters), tuple(skipped), rules)
 
 
 def ingest_plan(plan: OrchestrationPlan) -> tuple[list, tuple[str, ...]]:
-    """Execute every currently registered adapter against the engagement contract."""
     observations = []
     for source_adapter in plan.adapters:
-        observations.extend(
-            source_adapter.ingest(
-                SourceRequest(
-                    project_id=plan.engagement.project_ids[0],
-                    site_id=plan.engagement.sites[0],
-                    indicator_ids=plan.engagement.indicators,
-                    location=plan.location,
-                    source_id=source_adapter.source_id,
-                )
-            )
-        )
+        observations.extend(source_adapter.ingest(SourceRequest(
+            project_id=plan.project_id,
+            site_id=plan.site_id,
+            indicator_ids=plan.engagement.indicators,
+            location=plan.location,
+            source_id=source_adapter.source_id,
+        )))
     return observations, plan.skipped_sources
