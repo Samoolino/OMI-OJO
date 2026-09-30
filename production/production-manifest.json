@@ -1,14 +1,14 @@
 {
   "milestone": "M-1",
   "system": "Blue-Ether OS / OMI-OJO",
-  "status": "S6C_CONTROLLED_FIELD_AUTHORIZATION_READY",
-  "execution_readiness": "S6C.4_RAIN_EVENT_WATCH_READY_FIRST_FLUSH_PENDING",
+  "status": "S6C_CONTROLLED_FIRST_FLUSH_CONTROL_READY",
+  "execution_readiness": "S6C.5_FIRST_FLUSH_CONTROL_READY_COLLECTION_PENDING",
   "production_guide": "docs/production-execution-guide.md",
   "institutional_framework": "docs/institutional-production-framework.md",
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
   "s6b_work_package": "config/s6b-builder-grant-work-package.json",
   "s6b_evidence_package": "docs/s6b-builder-grant-evidence-package.md",
-  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V5",
+  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V6",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -110,11 +110,13 @@
   "physical_status": "NOT_RELEASED",
   "project_token_status": "DEFERRED",
   "funding_award_status": "NOT_AWARDED",
-  "next_gate": "S6C.5_FIRST_FLUSH_CONTROL",
+  "next_gate": "S6C.6_CONTROLLED_COLLECTION_AND_SAMPLE_CAPTURE",
   "s6c_field_authorization": "config/s6c-lagos-field-authorization.json",
   "s6c_runbook": "docs/s6c-lagos-field-validation-runbook.md",
   "s6c_rain_event_schema": "config/s6c-lagos-rain-event-record.json",
   "s6c_sampling_custody_schema": "config/s6c-lagos-sampling-custody.json",
   "s6c_authorization_review": "config/s6c-authorization-package-review.json",
-  "s6c_rain_event_watch": "config/s6c4-lagos-rain-event-watch.json"
+  "s6c_rain_event_watch": "config/s6c4-lagos-rain-event-watch.json",
+  "s6c_first_flush_control": "config/s6c5-lagos-first-flush-control.json",
+  "s6c_first_flush_runbook": "docs/s6c5-lagos-first-flush-control-runbook.md"
 }
