@@ -1,0 +1,113 @@
+{
+  "stage": "S6C.10",
+  "name": "Lagos DMRV Package Gate",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Assemble a deterministic, evidence-linked DMRV package for a rainwater batch while preserving distinctions between observation, forecast, calculation, modelled evidence, verification and release.",
+  "upstream_gates": [
+    "S6C.7_QMS_RECEIVED",
+    "S6C.8_QMS_REVIEW_PENDING",
+    "S6C.9_BATCH_SEAL_REVIEW_PENDING"
+  ],
+  "states": [
+    "PACKAGE_READY",
+    "PACKAGE_ASSEMBLED",
+    "INDEPENDENT_REVIEW_PENDING",
+    "VERIFIED",
+    "HOLD",
+    "FAILED"
+  ],
+  "required_inputs": [
+    "rain-event provenance",
+    "site and collection evidence",
+    "first-flush control record",
+    "sampling/custody record",
+    "QMS and analytical evidence",
+    "batch and seal records",
+    "environmental observations used in claims",
+    "calculation/model metadata",
+    "applicable ESG/GHG indicators",
+    "source timestamps and identifiers"
+  ],
+  "package_contract": {
+    "package_id": "required",
+    "batch_id": "required",
+    "event_id": "required",
+    "site_id": "required",
+    "evidence_items": "required",
+    "evidence_classes": [
+      "OBSERVED",
+      "FORECAST",
+      "MODELLED",
+      "SATELLITE",
+      "CALCULATED",
+      "PROXY"
+    ],
+    "source_registry": "required",
+    "measurement_metadata": "required_where_applicable",
+    "calculation_methods": "required_where_applicable",
+    "model_versions": "required_where_applicable",
+    "quality_flags": "required",
+    "deviations": "required",
+    "claim_register": "required",
+    "verification_record": "required_when_verified",
+    "integrity_digest": "required"
+  },
+  "evidence_item": {
+    "evidence_id": "required",
+    "class": "required",
+    "source_id": "required",
+    "source_timestamp": "required",
+    "observation_or_record_timestamp": "required",
+    "location_or_grid": "required_where_applicable",
+    "method_or_provider_revision": "required_where_applicable",
+    "raw_reference": "required",
+    "quality_status": "required",
+    "transformation_history": "required",
+    "digest": "required"
+  },
+  "claim_controls": {
+    "required": [
+      "claim text",
+      "claim scope",
+      "evidence references",
+      "calculation/model reference if applicable",
+      "status",
+      "review authority"
+    ],
+    "rules": [
+      "forecast must never be represented as observation",
+      "proxy/modelled evidence must retain its class",
+      "material source conflicts must be retained and fail closed where unresolved",
+      "blockchain anchoring is integrity evidence, not environmental truth",
+      "unmeasured values cannot be presented as measured"
+    ]
+  },
+  "fail_closed_conditions": [
+    "upstream gate not accepted",
+    "missing evidence provenance",
+    "source or timestamp missing for material evidence",
+    "evidence-class ambiguity",
+    "unresolved material source conflict",
+    "calculation/model version missing",
+    "claim lacks evidence linkage",
+    "batch/seal mismatch",
+    "material deviation unresolved",
+    "integrity digest missing"
+  ],
+  "permissible_claims": [
+    "a deterministic DMRV package was assembled",
+    "specified evidence is linked to a batch/event",
+    "a calculation or model is traceable to its inputs and version",
+    "verification status is reported when independently recorded"
+  ],
+  "prohibited_claims": [
+    "environmental truth solely from a blockchain hash",
+    "premium status solely from the DMRV package",
+    "regulatory approval",
+    "potable/safe water",
+    "verified GHG reduction without required evidence",
+    "funding award"
+  ],
+  "next_gate": "S6C.11_BLOCKCHAIN_ANCHOR_GATE"
+}
