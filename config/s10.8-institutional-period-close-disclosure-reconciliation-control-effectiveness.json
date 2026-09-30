@@ -1,0 +1,66 @@
+{
+  "stage": "S10.8",
+  "name": "Institutional Period Close, Disclosure Reconciliation and Control Effectiveness",
+  "status": "IMPLEMENTED",
+  "objective": "Close a reporting period by reconciling authorized claims, evidence populations, exceptions and control performance without silently changing historical records.",
+  "sequence": [
+    "PERIOD_CLOSE_SCOPE_FREEZE",
+    "EVIDENCE_POPULATION_RECONCILIATION",
+    "METRIC_LINEAGE_RECONCILIATION",
+    "METHOD_FACTOR_VERSION_RECONCILIATION",
+    "QMS_CUSTODY_EXCEPTION_RECONCILIATION",
+    "ASSURANCE_AND_CLAIM_REGISTER_RECONCILIATION",
+    "PUBLIC_INVESTOR_SURFACE_RECONCILIATION",
+    "CONTROL_EFFECTIVENESS_TEST",
+    "OPEN_EXCEPTION_AND_CAPA_REVIEW",
+    "PERIOD_CLOSE_AUTHORIZATION",
+    "IMMUTABLE_CLOSE_RECORD",
+    "NEXT_PERIOD_CARRY_FORWARD"
+  ],
+  "close_record": [
+    "period_id",
+    "scope_and_boundaries",
+    "evidence_population_id",
+    "metric_lineage_digest",
+    "methodology_versions",
+    "factor_versions",
+    "qms_and_custody_refs",
+    "assurance_refs",
+    "authorized_claim_refs",
+    "surface_reconciliation_refs",
+    "open_exceptions",
+    "capa_refs",
+    "control_tests",
+    "authorization_authority",
+    "close_timestamp",
+    "successor_period_ref"
+  ],
+  "control_effectiveness": [
+    "DESIGNED",
+    "OPERATING_EFFECTIVE",
+    "OPERATING_WITH_EXCEPTION",
+    "INEFFECTIVE",
+    "NOT_TESTED"
+  ],
+  "fail_closed": [
+    "period scope is not frozen",
+    "material evidence population mismatch",
+    "lineage digest mismatch",
+    "method or factor version mismatch",
+    "material QMS/custody exception unresolved",
+    "assurance or claim authorization missing",
+    "public/investor surface divergence",
+    "material control failure lacks disposition",
+    "close authority missing",
+    "historical record would be silently overwritten"
+  ],
+  "invariants": [
+    "period close does not create environmental observations",
+    "closed records remain historically addressable",
+    "restatement uses controlled successor/revision records",
+    "control effectiveness is evidence about the control, not environmental truth",
+    "period close does not imply regulatory approval or product release",
+    "next-period data cannot alter a closed period without controlled revision"
+  ],
+  "next_gate": "S11_INSTITUTIONAL_CONTINUOUS_IMPROVEMENT_AND_CONTROLLED_NEXT_PERIOD_OPERATIONS"
+}
