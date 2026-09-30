@@ -1,0 +1,70 @@
+{
+  "id": "S13.7-QMS-LAB-HANDOFF",
+  "title": "QMS and Laboratory Handoff",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.6_CUSTODY_RECONCILED",
+  "purpose": "Control admission and handoff of an actual sample into the approved QMS/laboratory workflow while preserving custody, method and result provenance.",
+  "required_evidence": [
+    "event_identifier",
+    "physical_site_identifier",
+    "sample_identifier",
+    "custody_record_reference",
+    "receiving_laboratory_or_qms_identity",
+    "laboratory_admission_timestamp",
+    "receiving_person_or_role",
+    "requested_test_panel_or_method_reference",
+    "sample_condition_at_receipt",
+    "container_integrity_reference",
+    "acceptance_or_rejection_record",
+    "exception_record"
+  ],
+  "sequence": [
+    "CONFIRM_CUSTODY_RECONCILIATION",
+    "VERIFY_QMS_LAB_IDENTITY",
+    "VERIFY_SAMPLE_ID",
+    "VERIFY_CONTAINER_INTEGRITY",
+    "RECORD_LAB_ADMISSION",
+    "RECORD_REQUESTED_METHOD_OR_PANEL",
+    "CAPTURE_RECEIPT_CONDITION",
+    "OBTAIN_ACCEPTANCE",
+    "LOCK_HANDOFF_RECORD"
+  ],
+  "states": [
+    "READY",
+    "HANDOFF_ACTIVE",
+    "ADMITTED",
+    "ACCEPTED",
+    "REJECTED",
+    "HOLD",
+    "CORRECTIVE_ACTION"
+  ],
+  "fail_closed": [
+    "S13.6 custody not reconciled",
+    "sample identity unresolved",
+    "laboratory/QMS identity unresolved",
+    "container integrity unresolved where required",
+    "admission timestamp missing",
+    "requested method/panel unresolved",
+    "receipt condition missing where required",
+    "acceptance missing",
+    "material custody exception unresolved"
+  ],
+  "evidence_policy": {
+    "sample_custody": "SAMPLE_CUSTODY",
+    "lab_admission": "QMS_LAB_RESULT",
+    "requested_method": "QMS_LAB_RESULT",
+    "receipt_condition": "QMS_LAB_RESULT",
+    "synthetic_test": "CONTROL_TEST_ONLY",
+    "fabricated_result": "PROHIBITED"
+  },
+  "invariants": [
+    "laboratory admission is not a laboratory result",
+    "requested test is not a test result",
+    "QMS acceptance does not establish premium condition",
+    "laboratory result must originate from actual analysis",
+    "handoff does not constitute product release"
+  ],
+  "next_gate": "S13.8_BATCH_AND_SEAL_TRACEABILITY"
+}
