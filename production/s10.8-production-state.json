@@ -1,0 +1,12 @@
+{
+  "production_map_version":"M-1/S6A-S6B-S6C_INSTITUTIONAL_V43",
+  "status":"S10.8_INSTITUTIONAL_PERIOD_CLOSE_DISCLOSURE_RECONCILIATION_CONTROL_EFFECTIVENESS_DEFINED",
+  "execution_readiness":"S10.8_PERIOD_CLOSE_CONTROL_EFFECTIVENESS_READY_EMPIRICAL_DISCLOSURE_EXECUTION_PENDING",
+  "frontend":"apps/web/app/period-close/page.tsx",
+  "config":"config/s10.8-institutional-period-close-disclosure-reconciliation-control-effectiveness.json",
+  "runbook":"docs/s10.8-institutional-period-close-disclosure-reconciliation-control-effectiveness-runbook.md",
+  "physical_status":"NOT_RELEASED",
+  "project_token_status":"DEFERRED",
+  "funding_award_status":"NOT_AWARDED",
+  "next_gate":"S11_INSTITUTIONAL_CONTINUOUS_IMPROVEMENT_AND_CONTROLLED_NEXT_PERIOD_OPERATIONS"
+}
