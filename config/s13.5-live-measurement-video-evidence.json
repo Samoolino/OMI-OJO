@@ -1,0 +1,71 @@
+{
+  "id": "S13.5-LIVE-MEASUREMENT-VIDEO-EVIDENCE",
+  "title": "Live Measurement and Video Evidence",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.4_COLLECTION_COMPLETE",
+  "purpose": "Control capture and provenance of actual field measurements and event-linked video during the first authorized collection event.",
+  "required_evidence": [
+    "event_identifier",
+    "physical_site_identifier",
+    "measurement_timestamp",
+    "measurement_device_identity",
+    "measurement_value_and_unit",
+    "measurement_method_reference",
+    "device_status_or_calibration_reference",
+    "video_identifier",
+    "video_start_timestamp",
+    "video_end_timestamp_or_event_link",
+    "operator_identity",
+    "exception_record"
+  ],
+  "sequence": [
+    "CONFIRM_COLLECTION_COMPLETE",
+    "CONFIRM_DEVICE_IDENTITY",
+    "CAPTURE_ACTUAL_MEASUREMENT",
+    "RECORD_UNITS_AND_METHOD",
+    "LINK_VIDEO_TO_EVENT",
+    "RECONCILE_TIMESTAMPS",
+    "REVIEW_DEVICE_STATUS",
+    "LOCK_FIELD_RECORD"
+  ],
+  "states": [
+    "READY",
+    "MEASUREMENT_ACTIVE",
+    "VIDEO_CAPTURE_ACTIVE",
+    "EVIDENCE_CAPTURE_COMPLETE",
+    "HOLD",
+    "REJECTED",
+    "CORRECTIVE_ACTION"
+  ],
+  "fail_closed": [
+    "S13.4 collection not complete",
+    "event/site identity unresolved",
+    "device identity unresolved",
+    "measurement value or unit missing",
+    "measurement method unresolved",
+    "device status/calibration provenance unresolved where required",
+    "video cannot be linked to event",
+    "timestamp integrity unresolved",
+    "operator identity unresolved",
+    "material exception unresolved"
+  ],
+  "evidence_policy": {
+    "forecast": "FORECAST_ONLY",
+    "source_observation": "SOURCE_OBSERVATION",
+    "field_measurement": "INSTRUMENT_MEASUREMENT",
+    "video": "VIDEO_EVIDENCE",
+    "operator_record": "FIELD_OPERATION",
+    "synthetic_test": "CONTROL_TEST_ONLY",
+    "fabricated_measurement": "PROHIBITED"
+  },
+  "invariants": [
+    "actual field measurement must not be pre-populated",
+    "video is evidence only when event/site linked",
+    "instrument measurement is not laboratory analysis",
+    "field evidence does not establish premium condition",
+    "field evidence does not establish product release"
+  ],
+  "next_gate": "S13.6_SAMPLE_IDENTIFICATION_AND_CHAIN_OF_CUSTODY"
+}
