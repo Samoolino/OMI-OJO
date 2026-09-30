@@ -1,0 +1,11 @@
+{
+  "sequence": "S14.2_CONTINUOUS_SOURCE_QMS_AND_RELEASE_SCOPE_HEALTH_MONITORING",
+  "state": "READY_FOR_ACTUAL_MONITORING_WINDOW",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "monitoring_window_active": false,
+  "monitoring_observations_created": false,
+  "release_scope_change_claimed": false,
+  "precondition": "S14.1_RELEASED_EVENT_HANDOFF_AND_MONITORING_ACTIVATION",
+  "next_gate": "S14.3_EXCEPTION_CAPA_AND_RELEASE_SCOPE_CHANGE_CONTROL"
+}
