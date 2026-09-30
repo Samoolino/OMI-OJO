@@ -1,0 +1,70 @@
+{
+  "id": "S13.11-ANCHOR-CANDIDATE-BUILD",
+  "title": "Blockchain Anchor Candidate Build",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.10_EVIDENCE_RECONCILIATION_COMPLETE",
+  "purpose": "Construct a deterministic blockchain anchor candidate from a reconciled event package without asserting that the underlying environmental evidence is true, verified or released.",
+  "sequence": [
+    "CONFIRM_RECONCILIATION",
+    "CONFIRM_ANCHOR_SCOPE",
+    "FREEZE_PACKAGE_DIGEST",
+    "REGISTER_ANCHOR_METADATA",
+    "BUILD_DETERMINISTIC_CANDIDATE",
+    "VALIDATE_DIGEST_AND_LINEAGE",
+    "REVIEW_NETWORK_AND_CONTRACT_TARGET",
+    "RECORD_CANDIDATE",
+    "HOLD_FOR_ASSURANCE"
+  ],
+  "required_evidence": [
+    "reconciliation_record",
+    "package_digest",
+    "event_identifier",
+    "scope_identifier",
+    "package_version",
+    "methodology_version",
+    "anchor_schema_version",
+    "network_target",
+    "contract_registry_reference",
+    "candidate_build_timestamp",
+    "candidate_builder_identity"
+  ],
+  "states": [
+    "READY",
+    "CANDIDATE_BUILD_ACTIVE",
+    "CANDIDATE_BUILT",
+    "VALIDATION_PENDING",
+    "VALIDATED",
+    "HOLD",
+    "REJECTED"
+  ],
+  "fail_closed": [
+    "S13.10 reconciliation incomplete",
+    "material reconciliation exception unresolved",
+    "package digest missing",
+    "scope unresolved",
+    "package version unresolved",
+    "anchor schema unresolved",
+    "network/contract target unresolved",
+    "candidate digest mismatch",
+    "lineage mismatch",
+    "anchor metadata incomplete"
+  ],
+  "evidence_policy": {
+    "anchor_candidate": "ANCHOR_INTEGRITY_RECORD",
+    "underlying_environmental_truth": "NOT_ESTABLISHED_BY_ANCHOR",
+    "synthetic_test": "CONTROL_TEST_ONLY",
+    "fabricated_anchor": "PROHIBITED"
+  },
+  "invariants": [
+    "anchor proves integrity/reference to the submitted package only",
+    "anchor does not verify environmental truth",
+    "anchor does not certify quality",
+    "anchor does not create an observation",
+    "anchor does not authorize premium condition",
+    "anchor does not authorize product release",
+    "network transaction must not be represented as completed before actual execution and confirmation"
+  ],
+  "next_gate": "S13.12_EXTERNAL_ASSURANCE_REVIEW"
+}
