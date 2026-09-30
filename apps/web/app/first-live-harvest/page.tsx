@@ -7,8 +7,8 @@ export default function FirstLiveHarvestPage() {
     ["S13.5","LIVE MEASUREMENT + VIDEO","READY FOR ACTUAL EVENT INPUT"],
     ["S13.6","SAMPLE + CUSTODY","READY FOR ACTUAL EVENT INPUT"],
     ["S13.7","QMS / LAB HANDOFF","READY FOR ACTUAL EVENT INPUT"],
-    ["S13.8","BATCH + SEAL","PENDING S13.7"],
-    ["S13.9","DMRV EVENT PACKAGE","PENDING"],
+    ["S13.8","BATCH + SEAL","READY FOR ACTUAL EVENT INPUT"],
+    ["S13.9","DMRV EVENT PACKAGE","PENDING S13.8"],
     ["S13.10","EVIDENCE RECONCILIATION","PENDING"],
     ["S13.11","ANCHOR CANDIDATE","PENDING"],
     ["S13.12","ASSURANCE REVIEW","PENDING"],
@@ -16,13 +16,13 @@ export default function FirstLiveHarvestPage() {
     ["S13.14","REGULATORY / PRODUCT RELEASE GATE","PENDING"]
   ];
   const controls = [
-    "S13.6 custody reconciled for the same sample",
-    "Approved QMS/laboratory identity",
-    "Sample and container identity reconciled",
-    "Actual laboratory admission timestamp",
-    "Requested test panel or method reference",
-    "Sample receipt condition recorded where required",
-    "Receiving acceptance or documented rejection"
+    "S13.7 QMS/laboratory handoff accepted",
+    "Unique batch identifier",
+    "Batch linked to event, physical site and sample",
+    "Actual quantity only with measurement provenance",
+    "Container/unit identifiers reconciled",
+    "Seal/integrity identifier and application record where required",
+    "Event, sample, batch, container and seal reconciliation"
   ];
   return (
     <main style={{maxWidth:1120,margin:"0 auto",padding:"48px 24px",fontFamily:"Arial,sans-serif"}}>
@@ -33,12 +33,12 @@ export default function FirstLiveHarvestPage() {
         <div style={{display:"flex",gap:10,flexWrap:"wrap"}}><Badge>NO LIVE EVENT CLAIMED</Badge><Badge>PHYSICAL PRODUCTION NOT RELEASED</Badge><Badge>FAIL-CLOSED</Badge></div>
       </header>
       <section style={{marginTop:28,padding:22,border:"1px solid #ddd",borderRadius:12}}>
-        <h2 style={{marginTop:0}}>S13.7 QMS / laboratory handoff gate</h2>
-        <p style={{lineHeight:1.6}}>Only an actual sample with reconciled custody may enter the approved QMS/laboratory pathway. Admission is not analysis and a requested test is not a result.</p>
+        <h2 style={{marginTop:0}}>S13.8 batch & seal traceability gate</h2>
+        <p style={{lineHeight:1.6}}>Batch identity and seal traceability may be created only after accepted QMS/laboratory handoff. Any actual quantity must retain measurement provenance.</p>
         <ul>{controls.map(c=><li key={c} style={{margin:"9px 0"}}>{c}</li>)}</ul>
       </section>
       <section style={{marginTop:32}}><h2>Controlled gates</h2><div style={{display:"grid",gap:10}}>{gates.map(([id,name,state])=><div key={id} style={{display:"grid",gridTemplateColumns:"80px 1fr auto",gap:12,alignItems:"center",padding:14,border:"1px solid #ddd",borderRadius:9}}><strong>{id}</strong><span>{name}</span><small>{state}</small></div>)}</div></section>
-      <section style={{marginTop:32,padding:20,background:"#f7f7f7",borderRadius:12}}><h2>Evidence boundary</h2><p style={{lineHeight:1.6}}>Laboratory admission is not a laboratory result. A requested test is not a test result. Only actual analysis can create a QMS laboratory result. QMS admission does not establish premium condition or product release.</p></section>
+      <section style={{marginTop:32,padding:20,background:"#f7f7f7",borderRadius:12}}><h2>Evidence boundary</h2><p style={{lineHeight:1.6}}>Batch identity and seal integrity are traceability controls, not laboratory results or certification. Batch creation does not constitute product release.</p></section>
     </main>
   );
 }
