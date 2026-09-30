@@ -1,0 +1,93 @@
+{
+  "stage": "S7",
+  "name": "Post-Release Monitoring and Audit",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Define controlled post-release monitoring, exception management, auditability, corrective action and evidence succession for any batch that is actually authorized and released. No monitoring record may imply that a release occurred when empirical release evidence is absent.",
+  "upstream_gate": "POST_S6C_RELEASE_AUTHORIZATION_AND_PUBLIC_VERIFICATION",
+  "states": [
+    "MONITORING_READY",
+    "MONITORING_ACTIVE",
+    "EXCEPTION_OPEN",
+    "CORRECTIVE_ACTION",
+    "AUDIT_READY",
+    "CLOSED",
+    "HOLD"
+  ],
+  "required_inputs": [
+    "release record",
+    "batch/seal identity",
+    "public verification reference where applicable",
+    "monitoring plan",
+    "quality/environmental indicators",
+    "complaint/incident channel",
+    "audit authority",
+    "rollback/recall procedure"
+  ],
+  "monitoring_record": {
+    "monitoring_id": "required",
+    "release_id": "required",
+    "batch_id": "required",
+    "site_id": "required",
+    "monitoring_window": "required",
+    "indicators": "required",
+    "observations": "required_when_monitoring_active",
+    "source_refs": "required",
+    "quality_flags": "required",
+    "exceptions": "required_if_any",
+    "corrective_actions": "required_if_any",
+    "reviewer_id": "required_when_reviewed",
+    "audit_record": "required_when_audited",
+    "integrity_digest": "required"
+  },
+  "exception_controls": {
+    "triggers": [
+      "material quality deviation",
+      "seal/tamper incident",
+      "traceability break",
+      "regulatory notification",
+      "material environmental-data anomaly",
+      "customer/product incident",
+      "evidence integrity failure"
+    ],
+    "actions": [
+      "open exception",
+      "place affected scope on HOLD where warranted",
+      "preserve evidence",
+      "assess materiality",
+      "define corrective action",
+      "record authority and disposition",
+      "create successor DMRV package/anchor if evidence changes"
+    ]
+  },
+  "audit_principles": [
+    "historical evidence is append-only",
+    "corrections create successor records",
+    "monitoring observations retain evidence class and provenance",
+    "material discrepancies are not silently overwritten",
+    "release scope is never generalized beyond its authorized boundary"
+  ],
+  "fail_closed_conditions": [
+    "release record absent when claiming released status",
+    "batch identity mismatch",
+    "monitoring evidence provenance missing",
+    "material exception unresolved",
+    "rollback/recall authority unclear",
+    "audit trail incomplete",
+    "successor evidence not linked after material correction"
+  ],
+  "permissible_claims": [
+    "a released batch is being monitored when release is empirically recorded",
+    "an exception has been opened and its status can be reported",
+    "a corrective action is recorded",
+    "an audit trail exists"
+  ],
+  "prohibited_claims": [
+    "monitoring implies product safety",
+    "absence of an incident proves compliance",
+    "historical anchor mutation",
+    "unverified environmental benefit",
+    "future batches inherit prior release status"
+  ],
+  "next_gate": "S7.1_CONTINUOUS_DMRV_AND_AUDIT_RECONCILIATION"
+}
