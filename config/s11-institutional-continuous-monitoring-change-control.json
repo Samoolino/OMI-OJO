@@ -1,0 +1,13 @@
+{
+  "stage":"S11",
+  "name":"Institutional Continuous Monitoring, Reopening and Change Control",
+  "status":"IMPLEMENTED",
+  "objective":"Operate the DMRV continuously after period close while controlling source changes, feed interruptions, corrections, reopenings, methodology changes and successor records.",
+  "sequence":["MONITORING_WINDOW_OPEN","SOURCE_HEALTH_CHECK","LIVE_FEED_RECONCILIATION","ANOMALY_DETECTION","CHANGE_CLASSIFICATION","IMPACT_ASSESSMENT","CORRECTION_OR_CAPA","REOPEN_OR_SUPERSEDE","REVIEW_AND_AUTHORIZATION","AUDIT_TRAIL_UPDATE","NEXT_PERIOD_HANDOFF"],
+  "change_classes":["SOURCE_OUTAGE","SOURCE_VERSION_CHANGE","METHODOLOGY_CHANGE","BOUNDARY_CHANGE","FACTOR_CHANGE","EVIDENCE_CORRECTION","CLAIM_CORRECTION","SECURITY_OR_INTEGRITY_EVENT","OPERATIONAL_CHANGE"],
+  "states":["MONITORED","DEGRADED","ALERT","IMPACTED","REVIEW","CORRECTIVE_ACTION","REOPENED","SUPERSEDED","RESOLVED"],
+  "fail_closed":["untrusted live feed used for reporting","material source outage not disclosed","change impact not assessed","historical value silently overwritten","methodology change without versioning","claim correction without lineage","security/integrity event unresolved"],
+  "invariants":["live feeds are observations only when provenance and source health permit","feed availability is not data validity","correction preserves historical lineage","reopening does not erase prior close","change control does not create empirical values","continuous monitoring does not constitute certification or product release"],
+  "frontend":"apps/web/app/continuous-monitoring/page.tsx",
+  "next_gate":"S12_INSTITUTIONAL_EXTERNAL_ASSURANCE_READINESS_AND_PILOT_OPERATIONALIZATION"
+}
