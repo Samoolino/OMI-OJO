@@ -1,0 +1,86 @@
+{
+  "stage": "POST-S6C",
+  "name": "Lagos Release Authorization and Public Verification",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Define the final authorization boundary after S6C.12 so that any physical/product release and public verification claim requires documented authority, completed evidence review, traceable release scope and a public-safe verification record.",
+  "upstream_gate": "S6C.12_PREMIUM_CONDITION_REVIEW",
+  "states": [
+    "RELEASE_REVIEW_READY",
+    "AUTHORIZED_RELEASE",
+    "PUBLIC_VERIFICATION_READY",
+    "RELEASED",
+    "HOLD",
+    "REJECTED"
+  ],
+  "required_inputs": [
+    "S6C.12 premium review record",
+    "applicable regulatory/product authorization",
+    "batch and seal record",
+    "complete DMRV package",
+    "blockchain anchor/receipt where required",
+    "release authority",
+    "independent review evidence where required",
+    "public-safe claim register",
+    "rollback/recall procedure",
+    "release timestamp and scope"
+  ],
+  "release_record": {
+    "release_id": "required",
+    "batch_id": "required",
+    "site_id": "required",
+    "event_id": "required",
+    "premium_review_id": "required",
+    "dmrv_package_id": "required",
+    "anchor_id": "required_where_required",
+    "authority_id": "required",
+    "authority_basis": "required",
+    "independent_review": "required_where_required",
+    "scope": "required",
+    "decision": "required",
+    "effective_at": "required",
+    "expiry_or_review_date": "required_where_applicable",
+    "public_verification_ref": "required_when_publicly_ready",
+    "rollback_condition": "required",
+    "integrity_digest": "required"
+  },
+  "public_verification": {
+    "verification_id": "required",
+    "public_claims": "required",
+    "claim_scope": "required",
+    "evidence_refs": "required",
+    "anchor_ref": "required_where_required",
+    "verification_timestamp": "required",
+    "redaction_check": "required",
+    "privacy_check": "required",
+    "status": "required"
+  },
+  "fail_closed_conditions": [
+    "S6C.12 not accepted",
+    "required regulatory/product authority absent",
+    "release scope ambiguous",
+    "batch/seal mismatch",
+    "DMRV package mismatch",
+    "anchor mismatch where required",
+    "independent review missing where required",
+    "public claim lacks evidence reference",
+    "privacy/redaction review incomplete",
+    "rollback condition missing",
+    "integrity evidence missing"
+  ],
+  "claim_boundaries": [
+    "public verification exposes only evidence and claims authorized for publication",
+    "release authorization is specific to the recorded batch/scope and does not generalize to other batches",
+    "blockchain anchoring supports integrity verification only",
+    "premium eligibility does not substitute for regulatory authorization"
+  ],
+  "prohibited_claims": [
+    "release authorization inferred from technical readiness",
+    "regulatory approval inferred from blockchain anchoring",
+    "premium status generalized to future batches",
+    "potable/safe water claim without applicable authorization/evidence",
+    "environmental or GHG benefit claim without its required evidence",
+    "funding award inferred from release"
+  ],
+  "next_gate": "S7_POST_RELEASE_MONITORING_AND_AUDIT"
+}
