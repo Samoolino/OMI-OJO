@@ -1,0 +1,63 @@
+{
+  "stage": "S9.6",
+  "name": "Governed Scale Disclosure Assurance and Restatement Control",
+  "status": "IMPLEMENTED",
+  "physical_status": "NOT_RELEASED",
+  "objective": "Control disclosure assurance, material change, correction, restatement and successor-record workflows so published climate/ESG information remains reproducible, scope-bound and historically traceable.",
+  "sequence": [
+    "PERIOD_AND_SCOPE_FREEZE",
+    "DISCLOSURE_POPULATION_SNAPSHOT",
+    "ASSURANCE_EVIDENCE_RECONCILIATION",
+    "CHANGE_IMPACT_ASSESSMENT",
+    "MATERIALITY_REVIEW",
+    "RESTATEMENT_DECISION",
+    "SUCCESSOR_RECORD_CREATION",
+    "DISCLOSURE_REAUTHORIZATION",
+    "PUBLIC_INVESTOR_RECONCILIATION",
+    "PERIOD_CLOSE"
+  ],
+  "restatement_rules": [
+    "Never overwrite historical evidence or published metric records.",
+    "Every material correction receives a reason, affected scope, affected period, methodology/version and authorizing review.",
+    "Successor records link to predecessor records and preserve the original digest/reference.",
+    "A restatement must identify whether the change affects value, boundary, method, source, evidence interpretation or disclosure wording.",
+    "Reauthorization is required when a material change alters an already authorized disclosure."
+  ],
+  "change_classes": [
+    "SOURCE_CHANGE",
+    "METHODOLOGY_CHANGE",
+    "BOUNDARY_CHANGE",
+    "CALCULATION_CHANGE",
+    "EVIDENCE_REINTERPRETATION",
+    "PERIOD_CORRECTION",
+    "DISCLOSURE_WORDING_CHANGE",
+    "REGULATORY_REQUIREMENT_CHANGE"
+  ],
+  "assurance_outputs": [
+    "UNCHANGED",
+    "CORRECTED",
+    "RESTATED",
+    "WITHDRAWN",
+    "HOLD"
+  ],
+  "disclosure_invariants": [
+    "published value must equal authorized value",
+    "published scope must equal reviewed scope",
+    "published period must equal reviewed period",
+    "methodology version must be reproducible",
+    "limitations and material exceptions remain attached",
+    "successor records cannot erase predecessor history"
+  ],
+  "fail_closed": [
+    "material change lacks impact assessment",
+    "restatement decision lacks authority",
+    "successor link missing",
+    "prior disclosure history overwritten",
+    "scope or period differs from assurance population",
+    "methodology version unresolved",
+    "material exception unresolved",
+    "public/investor surface diverges from authorized record",
+    "restatement presented as new measurement without provenance"
+  ],
+  "next_gate": "S10_INSTITUTIONAL_DISCLOSURE_AND_ASSURANCE_OPERATIONS"
+}
