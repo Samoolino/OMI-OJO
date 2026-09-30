@@ -1,0 +1,83 @@
+{
+  "stage": "S6C.6",
+  "name": "Lagos Controlled Collection and Sample Capture",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Control the transition from first-flush eligibility into a bounded collection run and capture traceable samples without asserting water quality or product release.",
+  "upstream_gate": "S6C.5_COLLECTION_ELIGIBLE",
+  "required_inputs": [
+    "accepted S6C.5 first-flush record",
+    "valid field authorization",
+    "verified site and collector identity",
+    "collection vessel/container identity",
+    "sampling plan and identifiers",
+    "operator identity",
+    "synchronized time source",
+    "safe field conditions"
+  ],
+  "states": [
+    "READY",
+    "COLLECTION_ACTIVE",
+    "COLLECTION_COMPLETE",
+    "SAMPLE_CAPTURED",
+    "HOLD",
+    "FAILED"
+  ],
+  "record": {
+    "event_id": "required",
+    "site_id": "required",
+    "collector_id": "required",
+    "collection_container_id": "required",
+    "sample_ids": "required",
+    "collection_start": "required_when_active",
+    "collection_end": "required_when_complete",
+    "sample_capture_timestamps": "required",
+    "collected_volume": "required_if_measured",
+    "sample_volume": "required_if_measured",
+    "instrument_ids": "required_if_instrumented",
+    "calibration_references": "required_if_instrumented",
+    "operator_id": "required",
+    "upstream_first_flush_reference": "required",
+    "integrity_digest": "required"
+  },
+  "evidence_requirements": [
+    "upstream S6C.5 evidence reference",
+    "site/collector/container identity",
+    "collection start and end timestamps with timezone",
+    "measured collection volume where applicable",
+    "sample identifiers and capture timestamps",
+    "sampling-plan revision",
+    "operator/action log",
+    "instrument and calibration references where applicable",
+    "integrity digest"
+  ],
+  "transition_rules": [
+    "READY requires accepted S6C.5 COLLECTION_ELIGIBLE and all collection inputs.",
+    "COLLECTION_ACTIVE begins only after the authorized collection container is connected/placed and the action is recorded.",
+    "COLLECTION_COMPLETE requires bounded end conditions and no unresolved control fault.",
+    "SAMPLE_CAPTURED requires unique sample identifiers and traceable capture timestamps.",
+    "SAMPLE_CAPTURED does not establish laboratory results, water quality, batch release or premium status.",
+    "Any material identity, provenance, contamination, safety, timing or equipment concern forces HOLD or FAILED."
+  ],
+  "fail_closed_conditions": [
+    "missing or expired authorization",
+    "S6C.5 not accepted",
+    "site/collector/container mismatch",
+    "sample identifiers unavailable or duplicated",
+    "collection container integrity concern",
+    "instrument or timestamp failure",
+    "suspected contamination",
+    "unsafe conditions",
+    "missing provenance or integrity evidence"
+  ],
+  "prohibited_claims": [
+    "potable water",
+    "safe drinking water",
+    "premium rainwater",
+    "verified water quality",
+    "completed product batch",
+    "regulatory approval",
+    "verified environmental benefit"
+  ],
+  "next_gate": "S6C.7_SAMPLING_CUSTODY_AND_QMS_HANDOFF"
+}
