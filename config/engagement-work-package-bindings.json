@@ -1,0 +1,19 @@
+{
+  "schema_version": "UB-02.ENGAGEMENT-WP.1",
+  "bindings": [
+    {
+      "engagement_id": "ENG-S6C-LAGOS",
+      "project_id": "S6C",
+      "work_package_ids": ["WP-01", "WP-02", "WP-04", "WP-05", "WP-07"],
+      "release_policy": "controlled_release",
+      "anchor_required": true
+    },
+    {
+      "engagement_id": "ENG-S5-LAGOS",
+      "project_id": "S5-GLOBAL-LAGOS",
+      "work_package_ids": ["WP-01", "WP-02", "WP-05", "WP-06"],
+      "release_policy": "controlled_release",
+      "anchor_required": false
+    }
+  ]
+}
