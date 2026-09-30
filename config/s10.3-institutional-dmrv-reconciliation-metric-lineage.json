@@ -1,0 +1,78 @@
+{
+  "stage": "S10.3",
+  "name": "Institutional DMRV Reconciliation and Metric Lineage",
+  "status": "IMPLEMENTED",
+  "objective": "Reconcile each reportable metric to an immutable evidence lineage across source, method, boundary, period, calculation, uncertainty and review state.",
+  "metric_contract": [
+    "metric_id",
+    "metric_name",
+    "reporting_entity",
+    "reporting_period",
+    "boundary",
+    "value",
+    "unit",
+    "data_type",
+    "evidence_class",
+    "source_id",
+    "methodology_id",
+    "methodology_version",
+    "calculation_reference",
+    "uncertainty_or_estimation",
+    "evidence_refs",
+    "population_id",
+    "review_status",
+    "lineage_digest"
+  ],
+  "data_types": [
+    "OBSERVATION",
+    "FORECAST",
+    "MODEL_OUTPUT",
+    "SATELLITE",
+    "CALCULATED",
+    "PROXY",
+    "DISCLOSURE_DERIVED"
+  ],
+  "lineage_sequence": [
+    "POPULATION_LOCK",
+    "METRIC_REGISTER_FREEZE",
+    "SOURCE_RECONCILIATION",
+    "BOUNDARY_PERIOD_RECONCILIATION",
+    "METHOD_VERSION_CHECK",
+    "CALCULATION_REPRODUCTION",
+    "UNCERTAINTY_REVIEW",
+    "EVIDENCE_REFERENCE_CHECK",
+    "LINEAGE_DIGEST",
+    "OWNER_REVIEW",
+    "INDEPENDENT_REVIEW_HANDOFF"
+  ],
+  "reconciliation_states": [
+    "PENDING",
+    "RECONCILED",
+    "RECONCILED_WITH_OBSERVATION",
+    "EXCEPTION",
+    "HOLD",
+    "SUPERSEDED"
+  ],
+  "invariants": [
+    "one metric record has one explicit reporting period and boundary",
+    "metric value cannot be accepted without unit and source/method context",
+    "calculated metrics retain input references and method version",
+    "forecast/model outputs remain distinct from observations",
+    "missing data is not zero",
+    "superseded records remain historically traceable",
+    "lineage digest must match referenced population"
+  ],
+  "fail_closed": [
+    "missing metric ID or unit",
+    "period/boundary mismatch",
+    "source reference missing",
+    "methodology version missing where required",
+    "calculation cannot be reproduced",
+    "uncertainty omitted where material",
+    "lineage digest mismatch",
+    "metric mapped to wrong evidence class",
+    "unresolved material exception",
+    "disclosure claim exceeds reconciled metric scope"
+  ],
+  "next_gate": "S10.4_INSTITUTIONAL_GHG_ESG_METHOD_BOUNDARY_AND_FACTOR_CONTROL"
+}
