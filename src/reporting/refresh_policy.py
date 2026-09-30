@@ -1,7 +1,8 @@
 """Scheduling contract for engagement refreshes.
 
-Scheduling is declarative here; deployment workers can execute it without
-embedding project-specific rules in the frontend.
+The cadence is derived from the canonical engagement registry. EVENT_AND_DAILY
+means a daily baseline plus event-triggered execution; the scheduler may invoke
+an event refresh without changing the declared baseline cadence.
 """
 from __future__ import annotations
 
@@ -24,6 +25,6 @@ def next_refresh(last_refresh: datetime, policy: RefreshPolicy) -> datetime | No
 
 
 POLICIES = {
-    "ENG-S5-LAGOS": RefreshPolicy("ENG-S5-LAGOS", "hourly", 60),
-    "ENG-S6C-LAGOS": RefreshPolicy("ENG-S6C-LAGOS", "hourly", 60),
+    "ENG-S5-LAGOS": RefreshPolicy("ENG-S5-LAGOS", "DAILY", 24 * 60),
+    "ENG-S6C-LAGOS": RefreshPolicy("ENG-S6C-LAGOS", "EVENT_AND_DAILY", 24 * 60),
 }
