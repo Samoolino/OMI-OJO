@@ -1,14 +1,14 @@
 {
   "milestone": "M-1",
   "system": "Blue-Ether OS / OMI-OJO",
-  "status": "S8.3_CONTROLLED_PILOT_EVIDENCE_REVIEW_CONFORMANCE_DEFINED",
-  "execution_readiness": "S8.3_CONFORMANCE_REVIEW_READY_EMPIRICAL_PILOT_EVIDENCE_PENDING",
+  "status": "S8.4_MULTISITE_CONFORMANCE_REPLICATION_READINESS_DEFINED",
+  "execution_readiness": "S8.4_REPLICATION_REVIEW_READY_SITE_EXECUTION_PENDING",
   "production_guide": "docs/production-execution-guide.md",
   "institutional_framework": "docs/institutional-production-framework.md",
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
   "s6b_work_package": "config/s6b-builder-grant-work-package.json",
   "s6b_evidence_package": "docs/s6b-builder-grant-evidence-package.md",
-  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V24",
+  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V25",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -81,7 +81,8 @@
     "S8": "IMPLEMENTED_CONTROLLED_SCALE_AND_MULTISITE_EXPANSION",
     "S8.1": "IMPLEMENTED_SITE_ONBOARDING_AND_LOCAL_AUTHORIZATION",
     "S8.2": "IMPLEMENTED_SITE_OPERATIONAL_READINESS_AND_CONTROLLED_PILOT",
-    "S8.3": "IMPLEMENTED_CONTROLLED_PILOT_EVIDENCE_REVIEW_AND_CONFORMANCE"
+    "S8.3": "IMPLEMENTED_CONTROLLED_PILOT_EVIDENCE_REVIEW_AND_CONFORMANCE",
+    "S8.4": "IMPLEMENTED_MULTISITE_CONFORMANCE_AND_REPLICATION_READINESS"
   },
   "institutional_domains": [
     "governance_authorization",
@@ -120,7 +121,7 @@
   "physical_status": "NOT_RELEASED",
   "project_token_status": "DEFERRED",
   "funding_award_status": "NOT_AWARDED",
-  "next_gate": "S8.4_MULTISITE_CONFORMANCE_AND_REPLICATION_READINESS",
+  "next_gate": "S8.5_CONTROLLED_MULTISITE_EXECUTION_AND_REPLICATION_REVIEW",
   "s6c_field_authorization": "config/s6c-lagos-field-authorization.json",
   "s6c_runbook": "docs/s6c-lagos-field-validation-runbook.md",
   "s6c_rain_event_schema": "config/s6c-lagos-rain-event-record.json",
@@ -162,7 +163,7 @@
   "frontend_engagement": {
     "status": "IMPLEMENTED",
     "landing_scope_surface": "apps/web/app/page.tsx",
-    "current_control_surface": "Conformance Review / S8.3",
+    "current_control_surface": "Replication Readiness / S8.4",
     "production_stage_surface": "M-1 → S6A → S6B → S6C → POST-S6C → S7 → S8 → S8.1",
     "operating_ladder_surface": "DESIGNED → IMPLEMENTED → INTEGRATION_READY → CONTROLLED_TEST → REPORTABLE → VALIDATED → VERIFIED → ANCHORED → RELEASED",
     "semantic_boundaries": [
@@ -172,10 +173,12 @@
       "software readiness ≠ product release"
     ],
     "current_physical_state": "NOT_RELEASED",
-    "next_frontend_gate": "S8.4_MULTISITE_CONFORMANCE_AND_REPLICATION_READINESS"
+    "next_frontend_gate": "S8.5_CONTROLLED_MULTISITE_EXECUTION_AND_REPLICATION_REVIEW"
   },
   "s8_2_operational_readiness": "config/s8.2-site-operational-readiness-controlled-pilot.json",
   "s8_2_operational_readiness_runbook": "docs/s8.2-site-operational-readiness-controlled-pilot-runbook.md",
   "s8_3_conformance": "config/s8.3-controlled-pilot-evidence-review-conformance.json",
-  "s8_3_conformance_runbook": "docs/s8.3-controlled-pilot-evidence-review-conformance-runbook.md"
+  "s8_3_conformance_runbook": "docs/s8.3-controlled-pilot-evidence-review-conformance-runbook.md",
+  "s8_4_replication_readiness": "config/s8.4-multisite-conformance-replication-readiness.json",
+  "s8_4_replication_readiness_runbook": "docs/s8.4-multisite-conformance-replication-readiness-runbook.md"
 }
