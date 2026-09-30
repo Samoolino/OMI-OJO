@@ -1,0 +1,88 @@
+{
+  "stage": "S6C.8",
+  "name": "Lagos QMS and Laboratory Analysis Readiness",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Define the controlled readiness gate for laboratory/QMS analysis of received rainwater samples, including method selection, sample integrity, laboratory competency evidence, result provenance and nonconformance handling. This gate does not assert analytical results or product release.",
+  "upstream_gate": "S6C.7_QMS_RECEIVED",
+  "required_inputs": [
+    "accepted S6C.7 custody/QMS receipt",
+    "sample identity reconciliation",
+    "approved analytical scope",
+    "applicable test methods and revisions",
+    "laboratory identity and competency evidence",
+    "sample condition assessment",
+    "instrument/calibration status",
+    "quality-control plan",
+    "result reporting format"
+  ],
+  "states": [
+    "ANALYSIS_READY",
+    "ANALYSIS_IN_PROGRESS",
+    "RESULTS_RECORDED",
+    "QMS_REVIEW_PENDING",
+    "HOLD",
+    "FAILED"
+  ],
+  "analysis_record": {
+    "event_id": "required",
+    "sample_ids": "required",
+    "qms_case_id": "required",
+    "laboratory_id": "required",
+    "method_ids_and_revisions": "required",
+    "analyte_scope": "required",
+    "sample_condition_at_analysis": "required",
+    "instrument_ids": "required_if_applicable",
+    "calibration_references": "required_if_applicable",
+    "quality_controls": "required",
+    "analysis_start": "required_when_started",
+    "analysis_end": "required_when_complete",
+    "result_record_ids": "required_when_results_exist",
+    "analyst_ids": "required",
+    "reviewer_id": "required_when_reviewed",
+    "deviation_log": "required_if_any",
+    "integrity_digest": "required"
+  },
+  "evidence_requirements": [
+    "S6C.7 QMS receipt reference",
+    "sample identity and condition",
+    "laboratory/method identity",
+    "method revision and acceptance criteria",
+    "laboratory competency/accreditation evidence where applicable",
+    "instrument/calibration references",
+    "quality-control records",
+    "raw/result record references",
+    "analyst and reviewer identities",
+    "deviation/nonconformance records",
+    "integrity digest"
+  ],
+  "transition_rules": [
+    "ANALYSIS_READY requires accepted QMS receipt, reconciled sample identity, defined analytical scope, approved methods and laboratory readiness evidence.",
+    "ANALYSIS_IN_PROGRESS begins only after method/sample/instrument readiness is recorded.",
+    "RESULTS_RECORDED requires traceable result records tied to sample IDs and methods; it is not a pass/fail release decision.",
+    "QMS_REVIEW_PENDING requires result provenance and quality-control evidence to be complete.",
+    "Any material sample integrity, method, instrument, QC, provenance or competency concern forces HOLD or FAILED."
+  ],
+  "fail_closed_conditions": [
+    "S6C.7 not accepted",
+    "sample identity mismatch",
+    "sample integrity concern without disposition",
+    "method absent or unapproved",
+    "laboratory competency evidence missing where required",
+    "instrument/calibration failure",
+    "quality-control failure without disposition",
+    "result provenance incomplete",
+    "unresolved material deviation",
+    "missing integrity evidence"
+  ],
+  "prohibited_claims": [
+    "potable water",
+    "safe drinking water",
+    "premium rainwater",
+    "laboratory compliant product",
+    "regulatory approval",
+    "verified environmental benefit",
+    "released batch"
+  ],
+  "next_gate": "S6C.9_BATCH_AND_SEAL_RELEASE_GATE"
+}
