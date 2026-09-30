@@ -10,22 +10,21 @@ export default function FirstLiveHarvestPage() {
     ["S13.8","BATCH + SEAL","READY FOR ACTUAL EVENT INPUT"],
     ["S13.9","DMRV EVENT PACKAGE","READY FOR ACTUAL EVENT INPUT"],
     ["S13.10","EVIDENCE RECONCILIATION","READY FOR ACTUAL EVENT INPUT"],
-    ["S13.11","ANCHOR CANDIDATE","PENDING S13.10"],
-    ["S13.12","ASSURANCE REVIEW","PENDING"],
+    ["S13.11","ANCHOR CANDIDATE","READY FOR ACTUAL EVENT INPUT"],
+    ["S13.12","EXTERNAL ASSURANCE REVIEW","PENDING S13.11"],
     ["S13.13","PREMIUM-CONDITION DECISION","PENDING"],
     ["S13.14","REGULATORY / PRODUCT RELEASE GATE","PENDING"]
   ];
   const controls = [
-    "S13.9 package is locked and event scope is frozen",
-    "Physical site and event identity reconcile across records",
-    "Source observations retain provenance",
-    "Field measurements reconcile to instrument identity and chronology",
-    "Video timeline is linked where required",
-    "Sample custody and QMS records reconcile",
-    "Batch/container/seal traceability reconciles",
-    "Derived metrics reconcile to inputs, methods, boundaries and factors",
-    "Exceptions and limitations are classified",
-    "Reconciliation conclusion and authority are recorded"
+    "S13.10 reconciliation complete within defined scope",
+    "Material reconciliation exceptions resolved or dispositioned",
+    "Locked DMRV package digest and version",
+    "Anchor scope and event identifier frozen",
+    "Anchor schema/methodology versions registered",
+    "Network and evidence-anchor registry target identified",
+    "Candidate digest and package lineage validated",
+    "Candidate construction identity and timestamp recorded",
+    "No transaction hash/block confirmation represented unless actually executed"
   ];
   return (
     <main style={{maxWidth:1120,margin:"0 auto",padding:"48px 24px",fontFamily:"Arial,sans-serif"}}>
@@ -36,12 +35,12 @@ export default function FirstLiveHarvestPage() {
         <div style={{display:"flex",gap:10,flexWrap:"wrap"}}><Badge>NO LIVE EVENT CLAIMED</Badge><Badge>PHYSICAL PRODUCTION NOT RELEASED</Badge><Badge>FAIL-CLOSED</Badge></div>
       </header>
       <section style={{marginTop:28,padding:22,border:"1px solid #ddd",borderRadius:12}}>
-        <h2 style={{marginTop:0}}>S13.10 evidence reconciliation gate</h2>
-        <p style={{lineHeight:1.6}}>Reconciliation tests identity, chronology, provenance, completeness and lineage within the defined event scope. It does not create or upgrade observations.</p>
+        <h2 style={{marginTop:0}}>S13.11 blockchain anchor candidate gate</h2>
+        <p style={{lineHeight:1.6}}>A deterministic candidate may be prepared only from a reconciled, locked package. Candidate construction is not a blockchain transaction and does not verify environmental truth.</p>
         <ul>{controls.map(c=><li key={c} style={{margin:"9px 0"}}>{c}</li>)}</ul>
       </section>
       <section style={{marginTop:32}}><h2>Controlled gates</h2><div style={{display:"grid",gap:10}}>{gates.map(([id,name,state])=><div key={id} style={{display:"grid",gridTemplateColumns:"80px 1fr auto",gap:12,alignItems:"center",padding:14,border:"1px solid #ddd",borderRadius:9}}><strong>{id}</strong><span>{name}</span><small>{state}</small></div>)}</div></section>
-      <section style={{marginTop:32,padding:20,background:"#f7f7f7",borderRadius:12}}><h2>Evidence boundary</h2><p style={{lineHeight:1.6}}>Reconciliation is limited to its reviewed scope. It is not external assurance, certification, premium-condition determination or product release.</p></section>
+      <section style={{marginTop:32,padding:20,background:"#f7f7f7",borderRadius:12}}><h2>Evidence boundary</h2><p style={{lineHeight:1.6}}>An anchor candidate is an integrity/reference artifact. It does not establish environmental truth, certification, premium condition or product release. No transaction hash or block confirmation is claimed here.</p></section>
     </main>
   );
 }
