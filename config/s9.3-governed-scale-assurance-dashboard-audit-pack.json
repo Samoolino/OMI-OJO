@@ -113,7 +113,7 @@
     },
     "esrs_e1": {
       "status": "MAPPING_PROFILE",
-      "note": "Use current applicable ESRS requirements and jurisdictional adoption status. 2026 EFRAG draft datapoint material is treated as non-authoritative supporting material until final publication.",
+      "note": "Use current applicable ESRS requirements and jurisdictional adoption status. The 2026 revised ESRS Delegated Act is the current adopted reference in the EFRAG Knowledge Hub; earlier technical advice/draft material is not represented as adopted requirements.",
       "domains": [
         "transition plan",
         "climate policies",
