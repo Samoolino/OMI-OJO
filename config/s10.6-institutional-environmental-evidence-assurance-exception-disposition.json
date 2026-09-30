@@ -1,0 +1,76 @@
+{
+  "stage": "S10.6",
+  "name": "Institutional Environmental Evidence Assurance and Exception Disposition",
+  "status": "IMPLEMENTED",
+  "objective": "Assess reconciled environmental evidence and exceptions against defined assurance criteria, record disposition and prevent unsupported evidence from entering authorized disclosure.",
+  "assurance_domains": [
+    "site/event identity",
+    "observation provenance",
+    "sample/custody/QMS",
+    "batch/seal linkage",
+    "DMRV lineage",
+    "GHG/ESG method context",
+    "source health",
+    "anchor integrity",
+    "claim scope",
+    "exceptions/CAPA"
+  ],
+  "sequence": [
+    "EVIDENCE_RECONCILIATION_INTAKE",
+    "ASSURANCE_CRITERIA_CHECK",
+    "SOURCE_AND_PROVENANCE_REVIEW",
+    "QMS_CUSTODY_REVIEW",
+    "DMRV_LINEAGE_REVIEW",
+    "METHOD_BOUNDARY_REVIEW",
+    "EXCEPTION_CLASSIFICATION",
+    "DISPOSITION_AUTHORIZATION",
+    "CLAIM_SCOPE_REVIEW",
+    "ASSURANCE_HANDOFF"
+  ],
+  "exception_states": [
+    "DETECTED",
+    "CLASSIFIED",
+    "CONTAINED",
+    "INVESTIGATING",
+    "CAPA_REQUIRED",
+    "REVIEW_PENDING",
+    "CLOSED",
+    "REOPENED",
+    "SUSPENDED"
+  ],
+  "assurance_outcomes": [
+    "ACCEPTED_FOR_REVIEW",
+    "ACCEPTED_WITH_LIMITATIONS",
+    "CONDITIONAL",
+    "HOLD",
+    "REJECTED"
+  ],
+  "criteria": [
+    "evidence reference is stable",
+    "period and boundary match locked population",
+    "evidence class is correct",
+    "QMS/custody chain is complete where applicable",
+    "methodology/version is identifiable",
+    "material uncertainty and quality flags are disclosed",
+    "exceptions have disposition",
+    "claim does not exceed evidence scope"
+  ],
+  "fail_closed": [
+    "material exception lacks disposition",
+    "evidence identity conflict",
+    "period/boundary mismatch",
+    "unsupported evidence-class promotion",
+    "broken custody/QMS lineage",
+    "methodology unresolved",
+    "material limitation omitted",
+    "claim exceeds reviewed evidence",
+    "review authority missing"
+  ],
+  "invariants": [
+    "assurance conclusion is scoped to reviewed population",
+    "exception closure does not create a new observation",
+    "anchor integrity does not establish environmental truth",
+    "assurance status does not constitute regulatory approval or product release"
+  ],
+  "next_gate": "S10.7_INSTITUTIONAL_DISCLOSURE_CLAIM_AUTHORIZATION_AND_PUBLIC_SURFACE_RECONCILIATION"
+}
