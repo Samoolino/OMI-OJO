@@ -13,6 +13,7 @@ from pathlib import Path
 
 from .reportable_data import EvidenceClass, Location, ReportingRule
 from .source_adapters import SourceAdapter, SourceRequest, adapter_for
+from .site_registry import SiteRegistry
 
 
 @dataclass(frozen=True)
@@ -57,9 +58,18 @@ def load_engagements(path: str | Path = "config/reporting-engagement-registry.js
     return result
 
 
-def build_plan(engagement: Engagement, *, project_id: str, site_id: str, location: Location, max_age_seconds: int = 172800) -> OrchestrationPlan:
+def build_plan(
+    engagement: Engagement,
+    *,
+    project_id: str,
+    site_id: str,
+    location: Location | None = None,
+    site_registry: SiteRegistry | None = None,
+    max_age_seconds: int = 172800,
+) -> OrchestrationPlan:
     if location is None:
-        raise ValueError("authorized project/site coordinates are required")
+        registry = site_registry or SiteRegistry.load()
+        location = registry.resolve(project_id=project_id, site_id=site_id)
     if project_id not in engagement.project_ids:
         raise ValueError("project is not part of engagement")
     if site_id not in engagement.sites:
