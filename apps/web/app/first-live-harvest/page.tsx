@@ -13,19 +13,19 @@ export default function FirstLiveHarvestPage() {
     ["S13.11","ANCHOR CANDIDATE","READY FOR ACTUAL EVENT INPUT"],
     ["S13.12","EXTERNAL ASSURANCE REVIEW","READY FOR ACTUAL EVENT INPUT"],
     ["S13.13","PREMIUM-CONDITION DECISION","READY FOR ACTUAL EVENT INPUT"],
-    ["S13.14","REGULATORY / PRODUCT RELEASE GATE","PENDING S13.13"]
+    ["S13.14","REGULATORY / PRODUCT RELEASE GATE","READY FOR ACTUAL EVENT INPUT"]
   ];
   const controls = [
-    "Premium-condition criteria and version frozen",
-    "S13.12 assurance scope covers the decision basis",
-    "Exact event, sample and batch population confirmed",
-    "Required actual field observations reviewed",
-    "Admissible QMS/laboratory results reviewed",
-    "Custody, batch and seal traceability intact",
-    "DMRV-derived metrics retain input lineage",
-    "Exceptions and limitations dispositioned",
-    "Each premium criterion evaluated explicitly",
-    "Decision authority, evidence references and timestamp locked"
+    "Release scope, jurisdiction and product/batch population frozen",
+    "Applicable regulatory/product requirements identified",
+    "Required authorizations verified as current and in scope",
+    "Product specification, labeling and claims match actual record",
+    "Required QMS/laboratory release evidence verified",
+    "Batch, container and seal traceability complete",
+    "S13.13 Premium-Condition basis verified where applicable",
+    "Public and investor claims reconciled to authorized record",
+    "Material exceptions reviewed and dispositioned",
+    "Release authority, scope, limitations and timestamp locked"
   ];
   return (
     <main style={{maxWidth:1120,margin:"0 auto",padding:"48px 24px",fontFamily:"Arial,sans-serif"}}>
@@ -36,12 +36,12 @@ export default function FirstLiveHarvestPage() {
         <div style={{display:"flex",gap:10,flexWrap:"wrap"}}><Badge>NO LIVE EVENT CLAIMED</Badge><Badge>PHYSICAL PRODUCTION NOT RELEASED</Badge><Badge>FAIL-CLOSED</Badge></div>
       </header>
       <section style={{marginTop:28,padding:22,border:"1px solid #ddd",borderRadius:12}}>
-        <h2 style={{marginTop:0}}>S13.13 Premium-Condition decision gate</h2>
-        <p style={{lineHeight:1.6}}>Premium status may only be decided against the frozen criteria and exact evidence population. It is never inferred from rainfall opportunity, DMRV completion, blockchain anchoring or software readiness.</p>
+        <h2 style={{marginTop:0}}>S13.14 regulatory / product release gate</h2>
+        <p style={{lineHeight:1.6}}>The final gate separates evidenced readiness from actual authorization. Regulatory scope, product requirements, QMS evidence, traceability and claims must all reconcile before release can be authorized.</p>
         <ul>{controls.map(c=><li key={c} style={{margin:"9px 0"}}>{c}</li>)}</ul>
       </section>
       <section style={{marginTop:32}}><h2>Controlled gates</h2><div style={{display:"grid",gap:10}}>{gates.map(([id,name,state])=><div key={id} style={{display:"grid",gridTemplateColumns:"80px 1fr auto",gap:12,alignItems:"center",padding:14,border:"1px solid #ddd",borderRadius:9}}><strong>{id}</strong><span>{name}</span><small>{state}</small></div>)}</div></section>
-      <section style={{marginTop:32,padding:20,background:"#f7f7f7",borderRadius:12}}><h2>Evidence boundary</h2><p style={{lineHeight:1.6}}>A Premium-Condition decision is a controlled decision against defined evidence and criteria. It is not itself regulatory approval or product release.</p></section>
+      <section style={{marginTop:32,padding:20,background:"#f7f7f7",borderRadius:12}}><h2>Final S13 boundary</h2><p style={{lineHeight:1.6}}>No regulatory approval, market authorization or product release is claimed by this implementation. Software readiness is not regulatory approval; Premium-Condition status is not itself product release; blockchain anchoring does not create authorization.</p></section>
     </main>
   );
 }
