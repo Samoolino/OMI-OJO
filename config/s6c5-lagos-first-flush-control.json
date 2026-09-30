@@ -1,0 +1,83 @@
+{
+  "stage": "S6C.5",
+  "name": "Lagos Controlled First-Flush Control",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Control and document diversion of the initial runoff fraction before a collection window may open. This gate does not establish water quality, premium status, regulatory approval, or completed harvest.",
+  "upstream_gate": "S6C.4_COLLECTION_WINDOW_CANDIDATE",
+  "required_inputs": [
+    "accepted S6C.4 rain-event watch record",
+    "valid site and field authorization",
+    "collector readiness record",
+    "first-flush device identity and configuration",
+    "approved first-flush threshold method",
+    "operator identity and communication status",
+    "synchronized timestamps"
+  ],
+  "states": [
+    "READY",
+    "DIVERSION_ACTIVE",
+    "DIVERSION_COMPLETE",
+    "COLLECTION_ELIGIBLE",
+    "HOLD",
+    "FAILED"
+  ],
+  "control_record": {
+    "event_id": "required",
+    "site_id": "required",
+    "device_id": "required",
+    "method_id": "required",
+    "threshold_type": "volume_or_duration_or_other_approved_method",
+    "threshold_value": "required",
+    "threshold_unit": "required",
+    "diversion_start": "required_when_active",
+    "diversion_end": "required_when_complete",
+    "diverted_volume": "required_if_metered",
+    "diversion_duration_seconds": "required",
+    "operator_id": "required",
+    "instrument_ids": "required",
+    "calibration_reference": "required_when_instrumented",
+    "event_context_reference": "required",
+    "integrity_digest": "required"
+  },
+  "evidence_requirements": [
+    "source event record and provenance",
+    "first-flush device/configuration identity",
+    "threshold methodology and approved revision",
+    "start and completion timestamps with timezone",
+    "diversion volume or duration evidence",
+    "instrument and calibration references where applicable",
+    "operator/action log",
+    "site/collector identity",
+    "integrity digest"
+  ],
+  "transition_rules": [
+    "READY requires valid upstream authorization, site match, collector readiness and an approved first-flush method.",
+    "DIVERSION_ACTIVE begins only after the first-flush control is physically placed in diversion mode and the action is recorded.",
+    "DIVERSION_COMPLETE requires threshold completion evidence and no unresolved control fault.",
+    "COLLECTION_ELIGIBLE may be entered only after successful diversion and explicit gate review.",
+    "COLLECTION_ELIGIBLE authorizes transition to controlled collection; it is not evidence that collection occurred.",
+    "Any material provenance, equipment, safety, timing or contamination concern forces HOLD or FAILED."
+  ],
+  "fail_closed_conditions": [
+    "missing or expired authorization",
+    "event/site mismatch",
+    "first-flush device unavailable or configuration mismatch",
+    "threshold method absent, ambiguous or unapproved",
+    "instrument or timestamp failure",
+    "operator identity unavailable",
+    "suspected contamination or abnormal runoff",
+    "unsafe field condition",
+    "missing provenance or integrity evidence"
+  ],
+  "prohibited_claims": [
+    "potable water",
+    "safe drinking water",
+    "premium rainwater",
+    "verified environmental benefit",
+    "regulatory approval",
+    "completed harvest",
+    "verified water quality"
+  ],
+  "next_gate": "S6C.6_CONTROLLED_COLLECTION_AND_SAMPLE_CAPTURE"
+}
