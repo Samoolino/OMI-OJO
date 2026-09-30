@@ -1,0 +1,84 @@
+{
+  "stage": "S7.4",
+  "name": "Governance and Periodic Assurance Review",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Establish periodic governance review of the complete evidence, release, monitoring, CAPA and independent-assurance system, including policy revisions, authority changes, risk acceptance and continued operation.",
+  "upstream_gates": [
+    "S7.1_CONTINUOUS_DMRV_AUDIT_RECONCILIATION",
+    "S7.2_EXCEPTION_CORRECTIVE_ACTION_CONTROL",
+    "S7.3_INDEPENDENT_AUDIT_EFFECTIVENESS_ASSURANCE"
+  ],
+  "states": [
+    "REVIEW_READY",
+    "REVIEW_IN_PROGRESS",
+    "CONTINUED_OPERATION",
+    "CONDITIONAL_CONTINUATION",
+    "HOLD",
+    "RETIRED"
+  ],
+  "required_inputs": [
+    "periodic review scope",
+    "current policy/criteria revisions",
+    "audit results",
+    "open/closed exceptions",
+    "CAPA effectiveness",
+    "release records",
+    "DMRV/anchor integrity status",
+    "regulatory/authority changes",
+    "risk register",
+    "resource/competency status"
+  ],
+  "governance_record": {
+    "review_id": "required",
+    "period": "required",
+    "scope": "required",
+    "policy_revisions": "required",
+    "authority_matrix": "required",
+    "risk_assessment": "required",
+    "audit_summary": "required",
+    "exception_summary": "required",
+    "capa_summary": "required",
+    "dmrv_integrity_summary": "required",
+    "regulatory_change_review": "required",
+    "resource_competency_review": "required",
+    "decisions": "required",
+    "conditions": "required_if_any",
+    "decision_authority": "required",
+    "next_review_date": "required",
+    "integrity_digest": "required"
+  },
+  "decision_controls": [
+    "review authority must be identified",
+    "material policy or regulatory changes trigger reassessment",
+    "open material exceptions prevent unconditional continuation",
+    "criteria revisions require versioned approval",
+    "risk acceptance must be explicit and authorized",
+    "continued operation is bounded to reviewed scope and period",
+    "retirement preserves historical evidence and successor references"
+  ],
+  "fail_closed_conditions": [
+    "review authority missing",
+    "material regulatory change not assessed",
+    "open material exception ignored",
+    "policy revision unapproved",
+    "risk acceptance undocumented",
+    "DMRV integrity issue unresolved",
+    "competency/resource gap material and undispositioned",
+    "next review date missing",
+    "integrity evidence missing"
+  ],
+  "permissible_claims": [
+    "governance review completed for a defined period and scope",
+    "continued operation was authorized with recorded conditions",
+    "a system component was placed on hold or retired"
+  ],
+  "prohibited_claims": [
+    "periodic review proves universal compliance",
+    "continued operation proves product safety",
+    "governance approval substitutes for regulatory authorization",
+    "prior approval applies indefinitely",
+    "risk acceptance means risk is absent"
+  ],
+  "next_gate": "S8_CONTROLLED_SCALE_AND_MULTISITE_EXPANSION"
+}
