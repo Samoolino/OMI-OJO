@@ -1,0 +1,9 @@
+{
+  "sequence": "S13.7_QMS_LAB_HANDOFF",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "observations_created": false,
+  "precondition": "S13.6_CUSTODY_RECONCILED",
+  "next_gate": "S13.8_BATCH_AND_SEAL_TRACEABILITY"
+}
