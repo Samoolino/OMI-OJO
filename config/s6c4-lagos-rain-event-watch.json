@@ -1,0 +1,62 @@
+{
+  "stage": "S6C.4",
+  "name": "Lagos Controlled Rain Event Watch",
+  "status": "DESIGNED_FOR_CONTROLLED_REVIEW",
+  "purpose": "Observe and qualify a rain event before any controlled collection. This record does not itself authorize harvesting or establish water quality.",
+  "required_inputs": [
+    "site_authorization_reference",
+    "verified_site_reference",
+    "collector_readiness_reference",
+    "event_window_start",
+    "event_window_end",
+    "forecast_sources",
+    "observation_sources",
+    "operator_safety_check"
+  ],
+  "event_states": [
+    "WATCH",
+    "RAIN_CONFIRMED",
+    "FIRST_FLUSH_REQUIRED",
+    "COLLECTION_WINDOW_OPEN",
+    "EVENT_CLOSED",
+    "CANCELLED",
+    "HOLD"
+  ],
+  "evidence_requirements": [
+    "source_provider",
+    "retrieval_or_observation_timestamp",
+    "timezone",
+    "source_record_identifier",
+    "spatial_reference",
+    "indicator",
+    "value",
+    "unit",
+    "quality_status",
+    "forecast_or_observation_class",
+    "integrity_digest"
+  ],
+  "safety_gates": [
+    "no lightning or unsafe weather condition",
+    "site remains authorized and accessible",
+    "collector remains ready",
+    "first-flush control is available",
+    "operator identity and communication are confirmed"
+  ],
+  "fail_closed_conditions": [
+    "authorization expired or absent",
+    "site identity mismatch",
+    "material provider conflict",
+    "unsafe weather",
+    "collector readiness failure",
+    "clock or timestamp integrity failure",
+    "missing provenance"
+  ],
+  "transition_rule": "RAIN_CONFIRMED does not authorize collection. COLLECTION_WINDOW_OPEN requires all upstream gates to be accepted and an explicit collection authorization.",
+  "prohibited_claims": [
+    "potable water",
+    "premium water",
+    "verified environmental benefit",
+    "regulatory approval",
+    "completed harvest"
+  ]
+}
