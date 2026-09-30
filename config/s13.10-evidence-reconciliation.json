@@ -1,0 +1,72 @@
+{
+  "id": "S13.10-EVIDENCE-RECONCILIATION",
+  "title": "Evidence Reconciliation",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.9_DMRV_PACKAGE_LOCKED",
+  "purpose": "Reconcile all evidence items in one actual field-event package for identity, chronology, provenance, completeness, consistency and material exceptions before any anchor candidate is constructed.",
+  "sequence": [
+    "CONFIRM_PACKAGE_LOCK",
+    "VERIFY_EVENT_SCOPE",
+    "RECONCILE_SITE_IDENTITY",
+    "RECONCILE_SOURCE_OBSERVATIONS",
+    "RECONCILE_FIELD_MEASUREMENTS",
+    "RECONCILE_VIDEO_TIMELINE",
+    "RECONCILE_SAMPLE_CUSTODY",
+    "RECONCILE_QMS_RECORDS",
+    "RECONCILE_BATCH_SEAL_TRACEABILITY",
+    "RECONCILE_DMRV_DERIVATIONS",
+    "ASSESS_EXCEPTIONS_AND_LIMITATIONS",
+    "RECONCILIATION_CONCLUSION",
+    "LOCK_RECONCILIATION_RECORD"
+  ],
+  "states": [
+    "READY",
+    "RECONCILIATION_ACTIVE",
+    "RECONCILED",
+    "RECONCILED_WITH_OBSERVATIONS",
+    "CONDITIONAL",
+    "HOLD",
+    "REJECTED",
+    "CORRECTIVE_ACTION"
+  ],
+  "outcomes": [
+    "SUFFICIENT_WITHIN_SCOPE",
+    "SUFFICIENT_WITH_OBSERVATIONS",
+    "CONDITIONAL_PENDING_CORRECTION",
+    "INSUFFICIENT",
+    "HOLD"
+  ],
+  "fail_closed": [
+    "S13.9 package not locked",
+    "scope mismatch",
+    "site identity mismatch",
+    "source provenance unresolved",
+    "chronology conflict",
+    "measurement lineage mismatch",
+    "video/event linkage failure where required",
+    "custody/QMS mismatch",
+    "batch/seal mismatch",
+    "derived metric lineage broken",
+    "material exception unresolved",
+    "reconciliation authority missing"
+  ],
+  "evidence_policy": {
+    "reconciliation": "ASSURANCE_RECORD",
+    "underlying_observation": "SOURCE_OBSERVATION|FIELD_OPERATION|INSTRUMENT_MEASUREMENT|VIDEO_EVIDENCE|SAMPLE_CUSTODY|QMS_LAB_RESULT|BATCH_TRACEABILITY",
+    "derived_metric": "DMRV_DERIVED_METRIC",
+    "synthetic_content": "CONTROL_TEST_ONLY",
+    "fabricated_reconciliation": "PROHIBITED"
+  },
+  "invariants": [
+    "reconciliation does not create observations",
+    "reconciliation conclusion is limited to reviewed scope and evidence",
+    "absence of an exception finding is not a certification",
+    "reconciliation is not external assurance",
+    "reconciliation is not premium-condition determination",
+    "reconciliation is not product release",
+    "anchor candidate may only reference a reconciled package"
+  ],
+  "next_gate": "S13.11_ANCHOR_CANDIDATE_BUILD"
+}
