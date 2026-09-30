@@ -29,12 +29,12 @@ export type NodeSourceBinding = {
   state: CollectionPlanState;
 };
 
-const sourceCapabilities: Record<string, {state: SourceCapabilityState; evidenceClass: string; requiresAuthorizedGis: boolean}> = {
-  "open-meteo-forecast": {state:"CONTEXT_CAPABLE", evidenceClass:"MODELED", requiresAuthorizedGis:false},
-  "satellite-derived-context": {state:"CONTEXT_CAPABLE", evidenceClass:"SATELLITE", requiresAuthorizedGis:false},
+const sourceCapabilities: Record<string, {state: SourceCapabilityState; evidenceClass: string; requiresAuthorizedGis: boolean; executable: boolean}> = {
+  "open-meteo-forecast": {state:"CONTEXT_CAPABLE", evidenceClass:"MODELED", requiresAuthorizedGis:false, executable:true},
+  "satellite-derived-context": {state:"CONTEXT_CAPABLE", evidenceClass:"SATELLITE", requiresAuthorizedGis:false, executable:false},
   "air-quality-model": {state:"MODELED_CONTEXT", evidenceClass:"MODELED", requiresAuthorizedGis:false},
   "satellite-no2": {state:"MODELED_CONTEXT", evidenceClass:"MODELED", requiresAuthorizedGis:false},
-  "site-rain-gauge": {state:"FIELD_AUTHORIZED_ONLY", evidenceClass:"MEASURED", requiresAuthorizedGis:true},
+  "site-rain-gauge": {state:"FIELD_AUTHORIZED_ONLY", evidenceClass:"MEASURED", requiresAuthorizedGis:true, executable:false},
   "site-telemetry": {state:"FIELD_AUTHORIZED_ONLY", evidenceClass:"MEASURED", requiresAuthorizedGis:true},
   "water-lab-result": {state:"FIELD_AUTHORIZED_ONLY", evidenceClass:"VERIFIED_MEASUREMENT", requiresAuthorizedGis:true},
   "approved-ghg-activity": {state:"AUTHORIZED_SOURCE_REQUIRED", evidenceClass:"MEASURED", requiresAuthorizedGis:true},
