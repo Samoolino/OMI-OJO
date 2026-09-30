@@ -1,0 +1,53 @@
+{
+  "id": "S12-PRE-S13-FIELD-READINESS",
+  "title": "Institutional Pre-S13 Field Readiness Gate",
+  "status": "IMPLEMENTED",
+  "physical_production_status": "NOT_RELEASED",
+  "purpose": "Lock and test the institutional control chain required before the first genuinely empirical live rainwater harvest evidence event.",
+  "semantic_controls": [
+    "REPORTABLE != MEASURED != VALIDATED != VERIFIED != ANCHORED != RELEASED",
+    "forecast != observation",
+    "administrative node != physical harvest site",
+    "rainfall opportunity != Premium RainWater",
+    "blockchain anchor != environmental truth",
+    "software readiness != regulatory/product release"
+  ],
+  "procedures": [
+    {"id":"S12.1","name":"Site Authorization & Physical Identity","gate":"SITE_AUTHORIZED"},
+    {"id":"S12.2","name":"Operator & Equipment Qualification","gate":"QUALIFIED"},
+    {"id":"S12.3","name":"Weather/Telemetry Connector Qualification","gate":"CONNECTOR_QUALIFIED"},
+    {"id":"S12.4","name":"Video Evidence Qualification","gate":"VIDEO_QUALIFIED"},
+    {"id":"S12.5","name":"Measurement & Calibration Control","gate":"MEASUREMENT_CONTROLLED"},
+    {"id":"S12.6","name":"First-Flush & Collection Procedure Qualification","gate":"COLLECTION_CONTROLLED"},
+    {"id":"S12.7","name":"Sampling/Custody/QMS Qualification","gate":"CUSTODY_QMS_READY"},
+    {"id":"S12.8","name":"Batch/Seal Traceability Qualification","gate":"TRACEABILITY_READY"},
+    {"id":"S12.9","name":"DMRV Event Schema & Methodology Freeze","gate":"SCHEMA_FROZEN"},
+    {"id":"S12.10","name":"Evidence Package Dry Run","gate":"DRY_RUN_COMPLETE"},
+    {"id":"S12.11","name":"Anchor Workflow Dry Run","gate":"ANCHOR_DRY_RUN_COMPLETE"},
+    {"id":"S12.12","name":"Exception/CAPA & Rollback Drill","gate":"RECOVERY_TESTED"},
+    {"id":"S12.13","name":"External Assurance Evidence-Room Review","gate":"ASSURANCE_READY"},
+    {"id":"S12.14","name":"Regulatory/Product Compliance Gate","gate":"COMPLIANCE_REVIEWED"},
+    {"id":"S12.15","name":"Claims & Investor Surface Freeze","gate":"CLAIMS_FROZEN"},
+    {"id":"S12.16","name":"Integrated Field Readiness Review","gate":"INTEGRATED_READY"},
+    {"id":"S12.17","name":"Final Go/No-Go Authorization","gate":"FIELD_AUTHORIZED"}
+  ],
+  "go_no_go_requirements": [
+    "No unresolved material site identity or authorization issue",
+    "No unqualified critical operator, collector, measurement, telemetry, video, custody or QMS control",
+    "No unfrozen event schema, methodology, evidence-class or provenance requirement",
+    "Dry runs completed without creating fictitious environmental observations",
+    "Exception/CAPA and rollback paths demonstrated",
+    "Claims and investor/public surfaces cannot imply a completed harvest before S13 evidence exists",
+    "Applicable regulatory/product requirements reviewed with unresolved requirements explicitly held",
+    "Final authorization is human-controlled and recorded"
+  ],
+  "evidence_policy": {
+    "synthetic_or_dry_run": "CONTROL_TEST_ONLY",
+    "live_field_evidence": "ONLY_CREATED_BY_S13_OR_LATER_CONTROLLED_FIELD_EVENTS",
+    "fabricated_measurements": "PROHIBITED",
+    "fabricated_coordinates": "PROHIBITED",
+    "fabricated_lab_results": "PROHIBITED",
+    "fabricated_regulatory_approval": "PROHIBITED"
+  },
+  "next_gate": "S13_INSTITUTIONAL_FIRST_LIVE_HARVEST_AND_EVIDENCE_EVENT_EXECUTION"
+}
