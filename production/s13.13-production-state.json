@@ -1,0 +1,10 @@
+{
+  "sequence": "S13.13_PREMIUM_CONDITION_DECISION",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "observations_created": false,
+  "premium_condition_decision_claimed": false,
+  "precondition": "S13.12_EXTERNAL_ASSURANCE_REVIEW_CONCLUDED_WITHIN_SCOPE",
+  "next_gate": "S13.14_REGULATORY_PRODUCT_RELEASE_GATE"
+}
