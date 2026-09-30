@@ -1,0 +1,9 @@
+{
+  "sequence": "S13.4_CONTROLLED_COLLECTION",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "observations_created": false,
+  "precondition": "S13.3_DIVERSION_COMPLETE",
+  "next_gate": "S13.5_LIVE_MEASUREMENT_AND_VIDEO_EVIDENCE"
+}
