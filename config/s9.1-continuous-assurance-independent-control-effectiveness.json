@@ -1,0 +1,84 @@
+{
+  "stage": "S9.1",
+  "name": "Continuous Assurance and Independent Control Effectiveness",
+  "status": "IMPLEMENTED",
+  "physical_status": "NOT_RELEASED",
+  "objective": "Continuously test whether governed-scale controls remain effective, independently reviewable and fail-closed across DMRV, evidence, QMS/custody, anchors, security, ESG/GHG lineage and claims.",
+  "prerequisites": [
+    "S9_GOVERNED_SCALE_EXECUTION_CONTINUOUS_ASSURANCE"
+  ],
+  "assurance_cycle": [
+    "CONTROL_INVENTORY",
+    "CONTROL_SIGNAL_COLLECTION",
+    "AUTOMATED_RECONCILIATION",
+    "EXCEPTION_TRIAGE",
+    "CONTROL_OWNER_ATTESTATION",
+    "INDEPENDENT_SAMPLE_REVIEW",
+    "CONTROL_EFFECTIVENESS_ASSESSMENT",
+    "CAPA_TRACKING",
+    "CLAIM_SURFACE_REVIEW",
+    "PERIODIC_RECERTIFICATION"
+  ],
+  "control_domains": [
+    "site authorization",
+    "site identity",
+    "collector/equipment readiness",
+    "event/observation provenance",
+    "first-flush and collection controls",
+    "sampling/custody",
+    "QMS/laboratory evidence",
+    "DMRV reconciliation",
+    "source/API health",
+    "anchor integrity",
+    "schema/model versioning",
+    "access/security accountability",
+    "ESG/GHG calculation lineage",
+    "regulatory/reporting mapping",
+    "public/investor claims"
+  ],
+  "effectiveness_states": [
+    "EFFECTIVE",
+    "EFFECTIVE_WITH_OBSERVATIONS",
+    "IMPROVEMENT_REQUIRED",
+    "INEFFECTIVE",
+    "SUSPENDED"
+  ],
+  "independence_rules": [
+    "reviewer authority and conflict status must be recorded",
+    "independent review must reference immutable evidence identifiers",
+    "sampled controls must include evidence scope and review period",
+    "control owner attestation cannot substitute for independent review",
+    "material exceptions cannot be closed by claim-surface changes"
+  ],
+  "sampling_policy": {
+    "purpose": "Test operating effectiveness rather than merely confirm documentation exists.",
+    "minimum_dimensions": [
+      "site",
+      "control domain",
+      "time period",
+      "evidence class",
+      "exception history"
+    ],
+    "escalation": "Material failure expands the review scope and may trigger HOLD or SUSPENDED."
+  },
+  "fail_closed_conditions": [
+    "missing control owner",
+    "unreviewable evidence",
+    "material reconciliation failure",
+    "repeated unresolved exception",
+    "control bypass",
+    "unauthorized change",
+    "independence conflict",
+    "unsupported claim",
+    "material security/access breach"
+  ],
+  "outputs": [
+    "continuous assurance record",
+    "control effectiveness matrix",
+    "independent review record",
+    "exception/CAPA linkage",
+    "claim review record",
+    "next-review date"
+  ],
+  "next_gate": "S9.2_GOVERNED_SCALE_CONTROL_EFFECTIVENESS_AND_EXCEPTION_AUTOMATION"
+}
