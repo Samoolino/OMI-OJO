@@ -1,0 +1,76 @@
+{
+  "stage": "S7.1",
+  "name": "Continuous DMRV and Audit Reconciliation",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Continuously reconcile released-batch evidence, environmental observations, QMS/product records, public verification state and audit findings without overwriting historical evidence.",
+  "upstream_gate": "S7_POST_RELEASE_MONITORING_AND_AUDIT",
+  "states": [
+    "RECONCILIATION_READY",
+    "RECONCILIATION_ACTIVE",
+    "RECONCILED",
+    "EXCEPTION_OPEN",
+    "HOLD",
+    "FAILED"
+  ],
+  "required_inputs": [
+    "S7 monitoring record",
+    "release and batch/seal records",
+    "DMRV package and successor chain",
+    "blockchain anchor references",
+    "new observations and source metadata",
+    "QMS/product records",
+    "audit findings",
+    "public verification state"
+  ],
+  "reconciliation_record": {
+    "reconciliation_id": "required",
+    "release_id": "required",
+    "batch_id": "required",
+    "period": "required",
+    "source_records": "required",
+    "indicator_comparisons": "required",
+    "identity_checks": "required",
+    "evidence_class_checks": "required",
+    "anchor_chain_check": "required",
+    "public_claim_check": "required",
+    "exceptions": "required_if_any",
+    "reviewer_id": "required_when_reviewed",
+    "decision": "required",
+    "integrity_digest": "required"
+  },
+  "rules": [
+    "historical records are immutable",
+    "new evidence is appended and linked",
+    "material conflicts are surfaced rather than silently averaged",
+    "observations retain source, timestamp, location/grid and quality metadata",
+    "forecast/modelled/proxy evidence cannot be relabelled as observed",
+    "public claims must remain within the evidence and release scope",
+    "material corrections require successor DMRV packages and anchors"
+  ],
+  "fail_closed_conditions": [
+    "source provenance missing",
+    "identity mismatch",
+    "anchor chain broken",
+    "evidence class mismatch",
+    "material conflict unresolved",
+    "public claim exceeds evidence scope",
+    "audit finding not dispositioned",
+    "successor package missing after material correction",
+    "integrity digest mismatch"
+  ],
+  "permissible_claims": [
+    "a defined monitoring period was reconciled",
+    "a discrepancy was detected and recorded",
+    "a successor evidence version was created",
+    "audit status is traceable"
+  ],
+  "prohibited_claims": [
+    "continuous monitoring proves safety",
+    "no discrepancy means no risk",
+    "historical evidence can be rewritten",
+    "forecast is an observation",
+    "release scope automatically applies to new batches"
+  ],
+  "next_gate": "S7.2_EXCEPTION_AND_CORRECTIVE_ACTION_CONTROL"
+}
