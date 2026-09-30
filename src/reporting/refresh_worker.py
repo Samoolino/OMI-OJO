@@ -1,8 +1,7 @@
-"""Governed refresh orchestration.
+"""Canonical governed refresh pipeline.
 
-A refresh executes source adapters only through an engagement plan, persists
-canonical observations, evaluates reportability, and creates a DRAFT snapshot.
-It never bypasses release gates.
+Refresh now enforces:
+collection → QC/evidence package → reportability → DRAFT snapshot → persistence.
 """
 from __future__ import annotations
 
@@ -10,7 +9,9 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Callable, Iterable
 
+from .agentic_collection import process_collection_evidence
 from .engagement_orchestrator import OrchestrationPlan, ingest_plan
+from .evidence_processing import EvidenceQCDecision, EvidencePackage
 from .observation_store import ObservationStore
 from .refresh_policy import RefreshPolicy, next_refresh
 from .reportable_data import Observation, ReportingRule, evaluate_batch
@@ -28,6 +29,8 @@ class RefreshResult:
     snapshot_id: str
     snapshot_hash: str
     next_refresh_at: str | None
+    evidence_package_id: str | None = None
+    qc_decisions: int = 0
 
 
 def run_refresh(
@@ -42,19 +45,35 @@ def run_refresh(
     observation_store: ObservationStore,
     snapshot_store: SnapshotStore,
     now: datetime | None = None,
+    approved_sources: frozenset[str] | None = None,
+    evidence_location: tuple[float, float] | None = None,
 ) -> RefreshResult:
     current = now or datetime.now(timezone.utc)
     items = list(observations)
-    persisted = observation_store.upsert(items)
+    rule_list = list(rules)
+    approved = approved_sources or frozenset(r.allowed_sources for r in rule_list for _ in [0])
+    # Flattening above is intentionally replaced by the canonical source union.
+    approved = frozenset(source for rule in rule_list for source in rule.allowed_sources)
 
-    decisions = evaluate_batch(items, rules, now=current)
+    passed, qc_decisions = process_collection_evidence(
+        collection=__import__("src.reporting.agentic_collection", fromlist=["CollectionRun"]).CollectionRun(
+            actions=tuple(),
+            observations=tuple(items),
+            skipped=tuple(),
+        ),
+        approved_sources=approved,
+        now=current,
+        location=evidence_location,
+    )
+    reportability = evaluate_batch(passed, rule_list, now=current)
+    persisted = observation_store.upsert(passed)
     snapshot = build_snapshot(
         project_id=project_id,
         report_family=report_family,
         period_start=period_start,
         period_end=period_end,
-        observations=items,
-        decisions=decisions,
+        observations=passed,
+        decisions=reportability,
         release_state="DRAFT",
     )
     snapshot_store.save(snapshot)
@@ -65,11 +84,18 @@ def run_refresh(
         project_id=project_id,
         report_family=report_family,
         ingested=persisted,
-        decisions=len(decisions),
+        decisions=len(reportability),
         snapshot_id=snapshot.snapshot_id,
         snapshot_hash=snapshot.deterministic_hash,
         next_refresh_at=scheduled.isoformat() if scheduled else None,
+        evidence_package_id=build_evidence_package_id(qc_decisions, passed),
+        qc_decisions=len(qc_decisions),
     )
+
+
+def build_evidence_package_id(qc_decisions: tuple[EvidenceQCDecision, ...], passed: tuple[Observation, ...]) -> str | None:
+    from .evidence_processing import build_evidence_package
+    return build_evidence_package(passed, qc_decisions).package_id if qc_decisions else None
 
 
 def run_orchestrated_refresh(
@@ -83,7 +109,7 @@ def run_orchestrated_refresh(
     snapshot_store: SnapshotStore,
     now: datetime | None = None,
 ) -> RefreshResult:
-    """Execute a complete registry-driven refresh from adapters to DRAFT snapshot."""
+    """Execute registry-driven adapters through QC to a DRAFT snapshot."""
     observations, _skipped_sources = ingest_plan(plan)
     return run_refresh(
         policy=policy,
@@ -96,6 +122,7 @@ def run_orchestrated_refresh(
         observation_store=observation_store,
         snapshot_store=snapshot_store,
         now=now,
+        approved_sources=frozenset(source for rule in plan.rules for source in rule.allowed_sources),
     )
 
 
