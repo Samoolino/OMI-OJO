@@ -1,0 +1,79 @@
+{
+  "id": "S13.12-EXTERNAL-ASSURANCE-REVIEW",
+  "title": "External Assurance Review",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.11_ANCHOR_CANDIDATE_VALIDATED",
+  "purpose": "Provide a controlled independent-review gate for the actual event evidence package, reconciliation record and anchor candidate without conflating assurance conclusions with environmental truth or product release.",
+  "sequence": [
+    "FREEZE_ASSURANCE_SCOPE",
+    "CONFIRM_REVIEWER_AUTHORITY",
+    "ASSEMBLE_REVIEW_PACKAGE",
+    "REVIEW_EVIDENCE_LINEAGE",
+    "REVIEW_METHOD_BOUNDARY_FACTOR_CONTROLS",
+    "REVIEW_RECONCILIATION",
+    "REVIEW_ANCHOR_CANDIDATE",
+    "CLASSIFY_FINDINGS",
+    "RECORD_CAPA_OR_DISPOSITION",
+    "ISSUE_ASSURANCE_CONCLUSION",
+    "LOCK_REVIEW_RECORD"
+  ],
+  "review_scope": [
+    "event evidence package",
+    "source provenance",
+    "field measurements",
+    "video linkage",
+    "sample custody",
+    "QMS/laboratory records",
+    "batch/seal traceability",
+    "DMRV derived metrics",
+    "methodology/boundary/factor controls",
+    "S13.10 reconciliation",
+    "S13.11 anchor candidate"
+  ],
+  "states": [
+    "READY",
+    "ACCESS_PENDING",
+    "UNDER_REVIEW",
+    "FINDINGS_OPEN",
+    "CONDITIONAL",
+    "CONCLUDED",
+    "HOLD",
+    "REJECTED"
+  ],
+  "outcomes": [
+    "NO_MATERIAL_FINDINGS_WITHIN_SCOPE",
+    "FINDINGS_WITHIN_SCOPE",
+    "CONDITIONAL_PENDING_CAPA",
+    "INSUFFICIENT_EVIDENCE",
+    "HOLD"
+  ],
+  "fail_closed": [
+    "S13.11 candidate not validated",
+    "assurance scope not frozen",
+    "reviewer authority/access unresolved",
+    "material evidence exception unresolved",
+    "lineage failure",
+    "method/boundary/factor mismatch",
+    "reconciliation unsupported",
+    "anchor candidate mismatch",
+    "finding disposition missing where required",
+    "conclusion authority missing"
+  ],
+  "evidence_policy": {
+    "assurance_record": "ASSURANCE_RECORD",
+    "underlying_observation": "REVIEWED_ONLY_NOT_CREATED",
+    "synthetic_review": "CONTROL_TEST_ONLY",
+    "fabricated_conclusion": "PROHIBITED"
+  },
+  "invariants": [
+    "assurance review does not create observations",
+    "assurance conclusion is limited to approved scope and evidence",
+    "assurance is not certification unless an authorized framework explicitly says so",
+    "assurance does not establish environmental truth beyond reviewed evidence",
+    "anchor does not become verification merely because it is reviewed",
+    "assurance conclusion does not authorize product release"
+  ],
+  "next_gate": "S13.13_PREMIUM_CONDITION_DECISION"
+}
