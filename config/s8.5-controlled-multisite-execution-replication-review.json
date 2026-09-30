@@ -1,0 +1,85 @@
+{
+  "stage": "S8.5",
+  "name": "Controlled Multisite Execution and Replication Review",
+  "status": "IMPLEMENTED",
+  "physical_status": "NOT_RELEASED",
+  "objective": "Execute a controlled multisite replication cycle and review whether each admitted site preserves the approved operational, evidence, DMRV, QMS, custody, governance and claim controls.",
+  "prerequisite_gates": [
+    "S8.1_SITE_ONBOARDING_LOCAL_AUTHORIZATION",
+    "S8.2_SITE_OPERATIONAL_READINESS_CONTROLLED_PILOT",
+    "S8.3_CONTROLLED_PILOT_EVIDENCE_REVIEW_AND_CONFORMANCE",
+    "S8.4_MULTISITE_CONFORMANCE_AND_REPLICATION_READINESS"
+  ],
+  "sequence": [
+    "SITE_SCOPE_LOCK",
+    "LOCAL_AUTHORIZATION_CHECK",
+    "SITE_READINESS_CONFIRMATION",
+    "PRE_EVENT_INSPECTION",
+    "RAIN_EVENT_WATCH",
+    "FIRST_FLUSH_CONTROL",
+    "CONTROLLED_COLLECTION",
+    "SAMPLING_CUSTODY",
+    "QMS_HANDOFF",
+    "SITE_DMRV_ASSEMBLY",
+    "SITE_EVIDENCE_RECONCILIATION",
+    "INDEPENDENT_REPLICATION_REVIEW",
+    "MULTISITE_COMPARABILITY_REVIEW",
+    "DEVIATION_CAPA_REVIEW",
+    "REPLICATION_CLOSEOUT"
+  ],
+  "required_site_artifacts": [
+    "site identity",
+    "local authorization",
+    "operator accountability",
+    "equipment/collector inspection",
+    "event observations",
+    "first-flush record",
+    "collection record",
+    "sample/custody record",
+    "QMS evidence where applicable",
+    "site DMRV package",
+    "evidence manifest",
+    "anchor evidence where required",
+    "deviation/CAPA log",
+    "review decision"
+  ],
+  "review_outputs": [
+    "SITE_CONFORMING",
+    "SITE_CONDITIONAL",
+    "SITE_HOLD",
+    "SITE_NONCONFORMING",
+    "MULTISITE_REVIEW_COMPLETE_PENDING_NEXT_GATE"
+  ],
+  "multisite_invariants": [
+    "Each site retains an independent evidence namespace and identity.",
+    "Cross-site comparison is performed on control conformance unless equivalent evidence is explicitly demonstrated.",
+    "No site inherits observations, laboratory results, premium determinations or release status from another site.",
+    "Administrative reporting coverage does not establish physical harvest.",
+    "Global Lagos remains the reference/proof pilot.",
+    "Brazil remains anchor-pending unless independently evidenced."
+  ],
+  "fail_closed_conditions": [
+    "missing local authorization",
+    "site identity ambiguity",
+    "missing readiness evidence",
+    "custody discontinuity",
+    "QMS provenance gap",
+    "DMRV mismatch",
+    "unresolved material deviation",
+    "cross-site evidence contamination",
+    "unsupported claim",
+    "anchor mismatch where required"
+  ],
+  "frontend_surface": {
+    "route_label": "Production Control / S8.5",
+    "components": [
+      "multisite execution tracker",
+      "site evidence isolation",
+      "cross-site conformance matrix",
+      "exceptions/CAPA",
+      "replication closeout"
+    ],
+    "semantic_banner": "MULTISITE EXECUTION ≠ MULTISITE HARVEST CLAIM · CROSS-SITE COMPARISON ≠ EVIDENCE TRANSFER"
+  },
+  "next_gate": "S8.6_MULTISITE_EVIDENCE_CONSOLIDATION_AND_SCALE_READINESS"
+}
