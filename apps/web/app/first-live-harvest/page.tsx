@@ -18,7 +18,8 @@ export default function FirstLiveHarvestPage() {
     ["S14","POST-EVENT RELEASE ASSURANCE","DESIGNED FOR ACTUAL RELEASED EVENT"],
     ["S14.1","RELEASED EVENT HANDOFF + MONITORING ACTIVATION","READY FOR ACTUAL RELEASE AUTHORIZATION"],
     ["S14.2","CONTINUOUS SOURCE + QMS + RELEASE-SCOPE HEALTH","READY FOR ACTUAL MONITORING WINDOW"],
-    ["S14.3","EXCEPTION + CAPA + RELEASE-SCOPE CHANGE CONTROL","READY FOR ACTUAL MONITORING WINDOW"]
+    ["S14.3","EXCEPTION + CAPA + RELEASE-SCOPE CHANGE CONTROL","READY FOR ACTUAL MONITORING WINDOW"],
+    ["S14.4","CONTINUOUS ASSURANCE + RELEASE-STATUS REVIEW","READY FOR ACTUAL MONITORING WINDOW"]
   ];
   const controls = [
     "Release scope, jurisdiction and product/batch population frozen",
@@ -46,7 +47,7 @@ export default function FirstLiveHarvestPage() {
         <ul>{controls.map(c=><li key={c} style={{margin:"9px 0"}}>{c}</li>)}</ul>
       </section>
       <section style={{marginTop:32}}><h2>Controlled gates</h2><div style={{display:"grid",gap:10}}>{gates.map(([id,name,state])=><div key={id} style={{display:"grid",gridTemplateColumns:"80px 1fr auto",gap:12,alignItems:"center",padding:14,border:"1px solid #ddd",borderRadius:9}}><strong>{id}</strong><span>{name}</span><small>{state}</small></div>)}</div></section>
-      <section style={{marginTop:32,padding:20,background:"#f7f7f7",borderRadius:12}}><h2>Final S13 boundary</h2><p style={{lineHeight:1.6}}>No regulatory approval, market authorization, product release or post-release event is claimed by this implementation. Software readiness is not regulatory approval; Premium-Condition status is not itself product release; blockchain anchoring does not create authorization; post-release monitoring does not create new observations; monitoring activates only from an actual authorized release record. Health monitoring does not create environmental observations; source availability is not source validity. Exceptions require controlled materiality, CAPA and scope-impact assessment; historical release records are never silently overwritten.</p></section>
+      <section style={{marginTop:32,padding:20,background:"#f7f7f7",borderRadius:12}}><h2>Final S13 boundary</h2><p style={{lineHeight:1.6}}>No regulatory approval, market authorization, product release or post-release event is claimed by this implementation. Software readiness is not regulatory approval; Premium-Condition status is not itself product release; blockchain anchoring does not create authorization; post-release monitoring does not create new observations; monitoring activates only from an actual authorized release record. Health monitoring does not create environmental observations; source availability is not source validity. Exceptions require controlled materiality, CAPA and scope-impact assessment; historical release records are never silently overwritten. Assurance remains scoped to reviewed evidence and does not itself create regulatory approval or product quality.</p></section>
     </main>
   );
 }
