@@ -1,55 +1,37 @@
 export default function FirstLiveHarvestPage() {
-  const steps = [
-    "RAIN-EVENT WATCH","EVENT ACTIVATION","PRE-EVENT SITE CHECK","FIRST-FLUSH DIVERSION",
-    "CONTROLLED COLLECTION","LIVE MEASUREMENT + VIDEO","SAMPLE IDENTIFICATION",
-    "CHAIN OF CUSTODY","QMS / LAB HANDOFF","BATCH + SEAL","DMRV EVENT PACKAGE",
-    "EVIDENCE RECONCILIATION","ANCHOR CANDIDATE","ASSURANCE REVIEW",
-    "PREMIUM-CONDITION DECISION","REGULATORY / PRODUCT RELEASE GATE"
+  const gates = [
+    ["S13.1","ACTIVATION READINESS","READY FOR ACTUAL EVENT INPUT"],
+    ["S13.2","RAIN EVENT + PRE-EVENT SITE CHECK","READY FOR ACTUAL EVENT INPUT"],
+    ["S13.3","FIRST-FLUSH DIVERSION","PENDING S13.2"],
+    ["S13.4","CONTROLLED COLLECTION","PENDING"],
+    ["S13.5","LIVE MEASUREMENT + VIDEO","PENDING"],
+    ["S13.6","SAMPLE + CUSTODY","PENDING"],
+    ["S13.7","QMS / LAB HANDOFF","PENDING"],
+    ["S13.8","BATCH + SEAL","PENDING"],
+    ["S13.9","DMRV EVENT PACKAGE","PENDING"],
+    ["S13.10","EVIDENCE RECONCILIATION","PENDING"],
+    ["S13.11","ANCHOR CANDIDATE","PENDING"],
+    ["S13.12","ASSURANCE REVIEW","PENDING"],
+    ["S13.13","PREMIUM-CONDITION DECISION","PENDING"],
+    ["S13.14","REGULATORY / PRODUCT RELEASE GATE","PENDING"]
   ];
-
+  const checks = ["Physical site identity","Actual weather-source observation + provenance","Collector condition","First-flush system condition","Measurement-device identity/readiness","Video evidence path","Authorized operator confirmation"];
   return (
-    <main style={{maxWidth: 1100, margin: "0 auto", padding: "48px 24px", fontFamily: "Arial, sans-serif"}}>
-      <header style={{borderBottom: "1px solid #ddd", paddingBottom: 24}}>
-        <p style={{fontSize: 13, letterSpacing: 1.5, fontWeight: 700}}>S13 · EMPIRICAL EVENT CONTROL</p>
-        <h1 style={{fontSize: 40, margin: "8px 0"}}>First Live Harvest & Evidence Event</h1>
-        <p style={{fontSize: 18, lineHeight: 1.6, maxWidth: 820}}>
-          The first repository-defined sequence permitted to receive genuine field observations.
-          No live harvest is claimed until the authorized physical event actually occurs.
-        </p>
-        <div style={{display: "flex", gap: 10, flexWrap: "wrap"}}>
-          <Badge>READY FOR AUTHORIZED EXECUTION</Badge>
-          <Badge>NO LIVE EVENT CLAIMED</Badge>
-          <Badge>FAIL-CLOSED</Badge>
-        </div>
+    <main style={{maxWidth:1120,margin:"0 auto",padding:"48px 24px",fontFamily:"Arial,sans-serif"}}>
+      <header style={{borderBottom:"1px solid #ddd",paddingBottom:24}}>
+        <p style={{fontSize:13,letterSpacing:1.5,fontWeight:700}}>S13 · EMPIRICAL EVENT CONTROL</p>
+        <h1 style={{fontSize:40,margin:"8px 0"}}>First Live Harvest & Evidence Event</h1>
+        <p style={{fontSize:18,lineHeight:1.6,maxWidth:850}}>Controlled pathway for the first actual authorized field event. This interface does not assert that a rain event has occurred.</p>
+        <div style={{display:"flex",gap:10,flexWrap:"wrap"}}><Badge>NO LIVE EVENT CLAIMED</Badge><Badge>PHYSICAL PRODUCTION NOT RELEASED</Badge><Badge>FAIL-CLOSED</Badge></div>
       </header>
-      <section style={{marginTop: 28, padding: 20, border: "1px solid #ddd", borderRadius: 12}}>
-        <strong>Evidence boundary</strong>
-        <p style={{lineHeight: 1.6}}>
-          This surface is an execution control. It does not create rainfall, harvest, laboratory, premium-condition,
-          regulatory, ESG/GHG or investor evidence. Forecasts remain forecasts and blockchain anchors prove package integrity only.
-        </p>
+      <section style={{marginTop:28,padding:22,border:"1px solid #ddd",borderRadius:12}}>
+        <h2 style={{marginTop:0}}>S13.2 event confirmation gate</h2>
+        <p style={{lineHeight:1.6}}>Proceed only after an actual authorized rain event is evidenced, the physical installation is reconciled to its authorization, and pre-event controls are inspected.</p>
+        <ul>{checks.map(c=><li key={c} style={{margin:"9px 0"}}>{c}</li>)}</ul>
       </section>
-      <section style={{marginTop: 32}}>
-        <h2>Controlled event sequence</h2>
-        <ol style={{display: "grid", gap: 12, paddingLeft: 28}}>
-          {steps.map((step, index) => (
-            <li key={step} style={{padding: 14, border: "1px solid #ddd", borderRadius: 9}}>
-              <strong>{index + 1}. {step}</strong>
-            </li>
-          ))}
-        </ol>
-      </section>
-      <section style={{marginTop: 32, padding: 20, background: "#f7f7f7", borderRadius: 12}}>
-        <h2>Gate discipline</h2>
-        <p style={{lineHeight: 1.6}}>
-          Site identity, authorization, source provenance, measurement integrity, first-flush evidence,
-          video linkage, custody/QMS lineage, traceability and methodology must reconcile before dependent states advance.
-        </p>
-        <p style={{fontFamily: "monospace"}}>forecast ≠ observation · rainfall ≠ premium · anchor ≠ verification · harvest ≠ release</p>
-      </section>
+      <section style={{marginTop:32}}><h2>Controlled gates</h2><div style={{display:"grid",gap:10}}>{gates.map(([id,name,state])=><div key={id} style={{display:"grid",gridTemplateColumns:"80px 1fr auto",gap:12,alignItems:"center",padding:14,border:"1px solid #ddd",borderRadius:9}}><strong>{id}</strong><span>{name}</span><small>{state}</small></div>)}</div></section>
+      <section style={{marginTop:32,padding:20,background:"#f7f7f7",borderRadius:12}}><h2>Evidence boundary</h2><p style={{lineHeight:1.6}}>Forecast is not observation. Administrative geography is not physical-site evidence. Readiness is not harvest. Harvest is not product release. Any later blockchain anchor proves package integrity only and does not establish environmental truth.</p></section>
     </main>
   );
 }
-function Badge({children}: {children: React.ReactNode}) {
-  return <span style={{fontSize: 12, fontWeight: 700, padding: "7px 10px", border: "1px solid #bbb", borderRadius: 999}}>{children}</span>;
-}
+function Badge({children}:{children:React.ReactNode}) { return <span style={{fontSize:12,fontWeight:700,padding:"7px 10px",border:"1px solid #bbb",borderRadius:999}}>{children}</span>; }
