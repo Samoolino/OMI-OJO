@@ -1,0 +1,78 @@
+{
+  "stage": "S9.4",
+  "name": "Independent Assurance and Governed Scale Certification Readiness",
+  "status": "IMPLEMENTED",
+  "physical_status": "NOT_RELEASED",
+  "objective": "Establish the controlled readiness layer for independent assurance of climate/ESG data, DMRV controls and governed-scale claims, without representing readiness as completed assurance or certification.",
+  "assurance_model": {
+    "independence": [
+      "reviewer scope and authority recorded",
+      "conflict-of-interest declaration recorded",
+      "management/owner attestation separated from independent conclusion",
+      "review period and population defined",
+      "sampling methodology documented",
+      "evidence IDs immutable/referentially stable"
+    ],
+    "review_domains": [
+      "governance and authorization",
+      "data model and provenance",
+      "GHG boundary/scope methodology",
+      "environmental observations and evidence classes",
+      "DMRV reconciliation",
+      "QMS/custody",
+      "blockchain anchor integrity",
+      "exception/CAPA effectiveness",
+      "standards mapping",
+      "claim/disclosure controls"
+    ],
+    "conclusion_states": [
+      "READY_FOR_INDEPENDENT_ASSURANCE",
+      "CONDITIONAL_READINESS",
+      "HOLD",
+      "NOT_READY",
+      "ASSURANCE_IN_PROGRESS",
+      "ASSURANCE_COMPLETE_PENDING_DISCLOSURE_AUTHORIZATION"
+    ]
+  },
+  "standards_basis": {
+    "ifrs_s2": "Alignment/readiness mapping to governance, strategy, risk management, metrics and targets; materiality and applicable jurisdictional requirements remain subject to the reporting entity.",
+    "ghg_protocol": "Use current applicable GHG Protocol requirements/guidance for organizational and operational boundaries and Scope 1/2/3 accounting; methodology version and change control are mandatory.",
+    "esrs_e1": "Use the current adopted ESRS requirements applicable to the reporting perimeter and jurisdiction. The EFRAG Knowledge Hub currently identifies the 2026 revised ESRS Delegated Act as the latest version; prior technical advice/drafts must not be presented as adopted requirements."
+  },
+  "evidence_contract": {
+    "required": [
+      "review_id",
+      "review_period",
+      "population_scope",
+      "reviewer_id",
+      "reviewer_authority",
+      "conflict_status",
+      "methodology_version",
+      "sample_method",
+      "evidence_refs",
+      "exception_refs",
+      "conclusion",
+      "limitations"
+    ],
+    "prohibited_shortcuts": [
+      "owner_attestation_as_independent_assurance",
+      "dashboard_status_as_verification",
+      "anchor_as_environmental_truth",
+      "standards_mapping_as_certification",
+      "software_control_as_environmental_measurement"
+    ]
+  },
+  "fail_closed": [
+    "reviewer authority missing",
+    "conflict status missing",
+    "review population/period undefined",
+    "material evidence references missing",
+    "unresolved material exception without documented disposition",
+    "GHG boundary/scope/methodology incomplete",
+    "standards version not identified",
+    "assurance limitation omitted",
+    "claim exceeds reviewed evidence scope",
+    "physical product release inferred from assurance readiness"
+  ],
+  "next_gate": "S9.5_GOVERNED_SCALE_ASSURANCE_EXECUTION_AND_DISCLOSURE_CONTROL"
+}
