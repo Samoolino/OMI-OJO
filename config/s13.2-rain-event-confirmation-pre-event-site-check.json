@@ -1,0 +1,50 @@
+{
+  "id": "S13.2-RAIN-EVENT-CONFIRMATION",
+  "title": "Rain Event Confirmation and Pre-Event Site Check",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.1_ACTIVATION_READY",
+  "purpose": "Control confirmation of an actual authorized rain event and completion of the pre-event physical site check before first-flush or collection activity.",
+  "required_evidence": [
+    "authorized_event_identifier",
+    "physical_site_identity",
+    "event_start_timestamp",
+    "approved_weather_source_observation",
+    "source_provenance",
+    "pre_event_site_check",
+    "collector_condition",
+    "first_flush_system_condition",
+    "measurement_device_condition",
+    "video_device_condition",
+    "operator_confirmation"
+  ],
+  "states": [
+    "READY",
+    "RAIN_CONFIRMED",
+    "SITE_CHECK_ACTIVE",
+    "SITE_CHECK_PASSED",
+    "HOLD",
+    "CANCELLED"
+  ],
+  "fail_closed": [
+    "rain event cannot be evidenced",
+    "source provenance unresolved",
+    "physical site mismatch",
+    "collector condition unacceptable",
+    "first-flush control unavailable",
+    "critical measurement device unavailable",
+    "required video path unavailable",
+    "operator authorization unresolved",
+    "material pre-event exception unresolved"
+  ],
+  "evidence_policy": {
+    "forecast": "FORECAST_ONLY",
+    "weather_observation": "SOURCE_OBSERVATION",
+    "site_check": "FIELD_OPERATION",
+    "device_check": "CONTROL_READINESS",
+    "synthetic_test": "CONTROL_TEST_ONLY",
+    "fabricated_event": "PROHIBITED"
+  },
+  "next_gate": "S13.3_FIRST_FLUSH_DIVERSION_CONTROL"
+}
