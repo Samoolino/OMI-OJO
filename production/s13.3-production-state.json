@@ -1,0 +1,9 @@
+{
+  "sequence": "S13.3_FIRST_FLUSH_DIVERSION_CONTROL",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "observations_created": false,
+  "precondition": "S13.2_SITE_CHECK_PASSED",
+  "next_gate": "S13.4_CONTROLLED_COLLECTION"
+}
