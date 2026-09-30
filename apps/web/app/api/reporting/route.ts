@@ -49,7 +49,7 @@ export async function GET(request: NextRequest) {
       quarantine: 0,
     },
     observations: [],
-    snapshots: [],
+    snapshots: [],\n    refresh: { endpoint: "/api/reporting/refresh", state: "SCHEDULE_BOUNDARY_READY", durable_persistence: "ADAPTER_REQUIRED" },
     next_required_inputs: [
       "authorized_source_endpoint",
       "project_site_coordinates_or_geometry",
