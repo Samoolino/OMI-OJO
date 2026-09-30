@@ -1,0 +1,75 @@
+{
+  "id": "S13.6-SAMPLE-IDENTIFICATION-CHAIN-OF-CUSTODY",
+  "title": "Sample Identification and Chain of Custody",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.5_FIELD_EVIDENCE_LOCKED",
+  "purpose": "Create and control the identity, custody, transfer and integrity record for an actual sample produced by the authorized collection event.",
+  "required_evidence": [
+    "event_identifier",
+    "physical_site_identifier",
+    "sample_identifier",
+    "collection_record_reference",
+    "sample_creation_timestamp",
+    "sample_volume_or_container_reference_if_required",
+    "container_identity",
+    "seal_or_integrity_reference_if_used",
+    "collector_identity",
+    "custodian_identity",
+    "transfer_timestamps",
+    "transfer_locations",
+    "receiving_party_identity",
+    "custody_acceptance",
+    "exception_record"
+  ],
+  "sequence": [
+    "CONFIRM_FIELD_RECORD_LOCK",
+    "CREATE_SAMPLE_ID",
+    "LINK_SAMPLE_TO_EVENT",
+    "IDENTIFY_CONTAINER",
+    "RECORD_INITIAL_CUSTODY",
+    "TRANSFER_WITH_TIMESTAMP",
+    "RECEIVE_AND_ACCEPT",
+    "RECONCILE_CUSTODY_CHAIN",
+    "LOCK_CUSTODY_RECORD"
+  ],
+  "states": [
+    "READY",
+    "SAMPLE_CREATED",
+    "CUSTODY_ACTIVE",
+    "RECEIVED",
+    "CUSTODY_RECONCILED",
+    "HOLD",
+    "REJECTED",
+    "CORRECTIVE_ACTION"
+  ],
+  "fail_closed": [
+    "S13.5 field evidence not locked",
+    "event/site identity unresolved",
+    "sample identifier missing or duplicated",
+    "sample-to-event linkage missing",
+    "container identity unresolved where required",
+    "custodian identity unresolved",
+    "transfer timestamp missing",
+    "receiving acceptance missing",
+    "custody chain has unexplained gap",
+    "integrity/seal exception unresolved",
+    "material exception unresolved"
+  ],
+  "evidence_policy": {
+    "sample_identity": "SAMPLE_CUSTODY",
+    "transfer_record": "SAMPLE_CUSTODY",
+    "container_record": "BATCH_TRACEABILITY",
+    "operator_record": "FIELD_OPERATION",
+    "synthetic_test": "CONTROL_TEST_ONLY",
+    "fabricated_sample": "PROHIBITED"
+  },
+  "invariants": [
+    "sample identity is not a laboratory result",
+    "custody continuity is not laboratory validity",
+    "container/seal identity is not product release",
+    "no sample may be invented to fill an evidence gap"
+  ],
+  "next_gate": "S13.7_QMS_LAB_HANDOFF"
+}
