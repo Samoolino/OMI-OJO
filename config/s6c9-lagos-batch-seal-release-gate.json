@@ -1,0 +1,91 @@
+{
+  "stage": "S6C.9",
+  "name": "Lagos Batch and Seal Release Gate",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Define the controlled gate that converts a fully traceable analytical/QMS case into a uniquely identified batch and tamper-evident seal record without asserting product release, premium status, regulatory approval, or water-quality compliance.",
+  "upstream_gates": [
+    "S6C.7_QMS_RECEIVED",
+    "S6C.8_QMS_REVIEW_PENDING"
+  ],
+  "states": [
+    "BATCH_READY",
+    "BATCH_CREATED",
+    "SEAL_APPLIED",
+    "RELEASE_REVIEW_PENDING",
+    "HOLD",
+    "FAILED"
+  ],
+  "required_inputs": [
+    "accepted QMS receipt",
+    "sample and analysis provenance",
+    "applicable QMS review outcome",
+    "site and rain-event identity",
+    "collection record",
+    "container/product identity",
+    "batch numbering policy",
+    "seal identity and integrity record",
+    "release authority"
+  ],
+  "batch_record": {
+    "batch_id": "required",
+    "event_id": "required",
+    "site_id": "required",
+    "collection_record_id": "required",
+    "sample_record_ids": "required",
+    "qms_case_id": "required",
+    "analysis_result_refs": "required",
+    "quantity": "required_when_measured",
+    "unit": "required_when_quantity_recorded",
+    "production_timestamp": "required",
+    "operator_id": "required",
+    "status": "required",
+    "integrity_digest": "required"
+  },
+  "seal_record": {
+    "seal_id": "required",
+    "batch_id": "required",
+    "seal_type": "required",
+    "application_timestamp": "required",
+    "operator_id": "required",
+    "tamper_evidence_status": "required",
+    "inspection_record": "required",
+    "integrity_digest": "required"
+  },
+  "release_review": {
+    "authority_id": "required",
+    "decision": "required",
+    "evidence_refs": "required",
+    "independent_check": "required_when_required",
+    "prohibited_claim_check": "required",
+    "rollback_or_hold_condition": "required"
+  },
+  "fail_closed_conditions": [
+    "S6C.7 receipt not accepted",
+    "S6C.8 analytical/QMS review not complete where required",
+    "batch identity collision or mismatch",
+    "missing collection/sample provenance",
+    "quantity asserted without measurement evidence",
+    "seal identity missing or duplicated",
+    "tamper-evidence concern unresolved",
+    "release authority missing",
+    "material QMS deviation unresolved",
+    "integrity digest missing"
+  ],
+  "permissible_claims": [
+    "a batch identifier was created",
+    "a seal was applied if empirically recorded",
+    "traceability exists to upstream evidence when references are complete",
+    "release review status can be reported"
+  ],
+  "prohibited_claims": [
+    "potable water",
+    "safe drinking water",
+    "premium rainwater",
+    "regulatory approval",
+    "verified environmental benefit",
+    "successful laboratory pass unless supported by reviewed results",
+    "commercial product release unless separately authorized"
+  ],
+  "next_gate": "S6C.10_DMRV_PACKAGE_GATE"
+}
