@@ -1,0 +1,12 @@
+{
+  "sequence": "S14.3_EXCEPTION_CAPA_AND_RELEASE_SCOPE_CHANGE_CONTROL",
+  "state": "READY_FOR_ACTUAL_MONITORING_WINDOW",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "exceptions_open": false,
+  "capa_active": false,
+  "release_scope_change_claimed": false,
+  "reopening_claimed": false,
+  "precondition": "S14.2_CONTINUOUS_SOURCE_QMS_AND_RELEASE_SCOPE_HEALTH_MONITORING",
+  "next_gate": "S14.4_CONTINUOUS_ASSURANCE_AND_RELEASE_STATUS_REVIEW"
+}
