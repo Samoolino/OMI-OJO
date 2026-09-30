@@ -1,0 +1,9 @@
+{
+  "sequence":"S13.1_FIRST_LIVE_EVENT_ACTIVATION",
+  "state":"READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status":"NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status":"NOT_RELEASED",
+  "authorization_required":"S12.17_FIELD_AUTHORIZED",
+  "observations_created":false,
+  "next_gate":"S13.2_RAIN_EVENT_CONFIRMATION_AND_PRE_EVENT_SITE_CHECK"
+}
