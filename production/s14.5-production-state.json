@@ -1,0 +1,12 @@
+{
+  "sequence": "S14.5_RELEASE_STATUS_CHANGE_AUTHORIZATION_AND_PUBLIC_SURFACE_RECONCILIATION",
+  "state": "READY_FOR_ACTUAL_MONITORING_WINDOW",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "status_change_triggered": false,
+  "status_change_authorized": false,
+  "successor_record_created": false,
+  "public_surface_reconciled": false,
+  "precondition": "S14.4_CONTINUOUS_ASSURANCE_AND_RELEASE_STATUS_REVIEW",
+  "next_gate": "S14.6_RELEASE_CONTINUITY_AND_DATA_INTEGRITY_ASSURANCE"
+}
