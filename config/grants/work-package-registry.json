@@ -1,0 +1,13 @@
+{
+  "schema_version": "UB-02.GRANT-WORK-PACKAGE.1",
+  "work_packages": [
+    {"id":"WP-01","name":"Climate Data Infrastructure","capabilities":["source-registry","ingestion","normalization","qc","evidence-package","reporting-snapshot"]},
+    {"id":"WP-02","name":"dMRV Evidence Infrastructure","capabilities":["methodology-registry","claim-evidence","calculation","review","release"]},
+    {"id":"WP-03","name":"Blockchain Integrity Service","capabilities":["network-registry","anchor-adapter","anchor-registry","public-verification"]},
+    {"id":"WP-04","name":"Physical and Field Validation","capabilities":["site-authorization","field-evidence","measurement-custody","verification"]},
+    {"id":"WP-05","name":"ESG/GHG Reporting","capabilities":["indicator-mapping","calculation","reporting","disclosure"]},
+    {"id":"WP-06","name":"Global Deployment Adapters","capabilities":["project-adapters","regional-source-bindings","location-policies"]},
+    {"id":"WP-07","name":"Institutional VDR Infrastructure","capabilities":["vdr-workspace","claim-evidence-links","diligence-artifacts","access-policy"]}
+  ],
+  "acceptance_rule": "Each work package must map implementation, tests, evidence, acceptance criteria and release state."
+}
