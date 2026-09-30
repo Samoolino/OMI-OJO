@@ -1,0 +1,75 @@
+{
+  "stage": "S10.1",
+  "name": "Institutional Disclosure Period Operations and Assurance Calendar",
+  "status": "IMPLEMENTED",
+  "objective": "Operationalize recurring reporting periods and assurance windows with controlled cutoffs, owners, evidence locks, dependencies, exceptions, authorization gates and closeout.",
+  "period_types": [
+    "MONTHLY_OPERATIONAL",
+    "QUARTERLY_ESG",
+    "ANNUAL_CLIMATE",
+    "EVENT_DRIVEN",
+    "RESTATEMENT"
+  ],
+  "period_states": [
+    "PLANNED",
+    "OPEN",
+    "DATA_CUT",
+    "RECONCILIATION",
+    "ASSURANCE_REVIEW",
+    "DISCLOSURE_REVIEW",
+    "AUTHORIZED",
+    "PUBLISHED",
+    "CLOSED",
+    "REOPENED"
+  ],
+  "calendar_fields": [
+    "period_id",
+    "period_type",
+    "start_date",
+    "end_date",
+    "data_cut_deadline",
+    "assurance_window",
+    "disclosure_authorization_deadline",
+    "publication_target",
+    "owner_ids",
+    "boundary_version",
+    "methodology_versions",
+    "evidence_population_id",
+    "status"
+  ],
+  "control_sequence": [
+    "CALENDAR_APPROVAL",
+    "PERIOD_OPEN",
+    "BOUNDARY_LOCK",
+    "DATA_CUT",
+    "EVIDENCE_POPULATION_LOCK",
+    "DMRV_RECONCILIATION",
+    "GHG_METHOD_CHECK",
+    "QMS_CUSTODY_EXCEPTION_REVIEW",
+    "ASSURANCE_WINDOW",
+    "DISCLOSURE_REVIEW",
+    "AUTHORIZATION",
+    "PUBLICATION",
+    "PERIOD_CLOSE"
+  ],
+  "fail_closed": [
+    "missing period dates",
+    "missing owner",
+    "boundary version unresolved",
+    "evidence population changed after lock",
+    "material reconciliation unresolved",
+    "assurance window absent",
+    "methodology version absent",
+    "material exception unresolved",
+    "authorization missing",
+    "publication differs from authorized pack",
+    "late reopening without successor record"
+  ],
+  "rules": [
+    "No period may close with unresolved material evidence reconciliation.",
+    "Calendar dates are control metadata, not evidence of environmental activity.",
+    "A reporting period does not imply a harvest, observation, batch, premium condition or product release.",
+    "Reopening creates an auditable successor record; historical records remain immutable."
+  ],
+  "next_gate": "S10.2_INSTITUTIONAL_DISCLOSURE_DATA_CUT_AND_EVIDENCE_POPULATION_LOCK"
+}
