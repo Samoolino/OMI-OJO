@@ -1,0 +1,33 @@
+{
+  "status": "IMPLEMENTED",
+  "surface": "apps/web/app/page.tsx",
+  "current_gate": "S8.1",
+  "purpose": "Make the frontend an explicit operational interpretation of the production framework.",
+  "rules": [
+    "Every displayed production stage maps to a defined production gate.",
+    "Current status is displayed separately from empirical evidence.",
+    "Frontend labels never promote simulated, forecast or administrative data to measured physical evidence.",
+    "S8.1 onboarding is shown as a controlled procedure with fail-closed admission controls.",
+    "Physical status remains NOT_RELEASED until the production manifest records empirical authorization and release evidence."
+  ],
+  "navigation": [
+    "Project Scope",
+    "Production Control",
+    "Global Lagos",
+    "Harvest Intelligence",
+    "Evidence & DMRV",
+    "ESG / GHG",
+    "Investor Room"
+  ],
+  "production_stage_surface": [
+    "M-1",
+    "S6A",
+    "S6B",
+    "S6C",
+    "POST-S6C",
+    "S7",
+    "S8",
+    "S8.1"
+  ],
+  "next_gate": "S8.2_SITE_OPERATIONAL_READINESS_AND_CONTROLLED_PILOT"
+}
