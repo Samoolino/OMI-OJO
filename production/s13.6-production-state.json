@@ -1,0 +1,9 @@
+{
+  "sequence": "S13.6_SAMPLE_IDENTIFICATION_AND_CHAIN_OF_CUSTODY",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "observations_created": false,
+  "precondition": "S13.5_FIELD_EVIDENCE_LOCKED",
+  "next_gate": "S13.7_QMS_LAB_HANDOFF"
+}
