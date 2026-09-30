@@ -73,11 +73,9 @@ export const buildGlobalLagosCollectionPlan = (): NodeSourceBinding[] =>
         const requiresAuthorizedGis = capability.requiresAuthorizedGis;
         const state: CollectionPlanState =
           !capability ? "UNSUPPORTED_ADAPTER" :
-          requiresAuthorizedGis && node.coordinateStatus !== "CANDIDATE_PUBLIC_REFERENCE"
+          requiresAuthorizedGis
             ? "BLOCKED_PENDING_GIS"
-            : requiresAuthorizedGis
-              ? "READY_FOR_AUTHORIZED_COLLECTION"
-              : "CONTEXT_PLAN";
+            : "CONTEXT_PLAN";
         return {
           nodeId: node.id,
           nodeClass: node.class,
