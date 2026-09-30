@@ -1,0 +1,76 @@
+{
+  "stage": "S6C.11",
+  "name": "Lagos Blockchain Evidence Anchor Gate",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Anchor the deterministic DMRV package to the configured blockchain evidence registry only after package integrity, identity reconciliation and authorization checks pass. The anchor proves integrity and ordering of the submitted evidence root, not environmental truth, water quality or regulatory compliance.",
+  "upstream_gate": "S6C.10_DMRV_PACKAGE_GATE",
+  "states": [
+    "ANCHOR_READY",
+    "ANCHOR_SUBMITTED",
+    "ANCHOR_CONFIRMED",
+    "HOLD",
+    "FAILED"
+  ],
+  "required_inputs": [
+    "accepted DMRV package",
+    "package integrity digest/root",
+    "batch/event/site identifiers",
+    "anchor network and registry configuration",
+    "authorized submitter identity",
+    "deployment/contract reference",
+    "successor/version reference where applicable",
+    "submission timestamp"
+  ],
+  "anchor_record": {
+    "anchor_id": "required",
+    "package_id": "required",
+    "evidence_root": "required",
+    "root_algorithm": "required",
+    "batch_id": "required",
+    "event_id": "required",
+    "site_id": "required",
+    "registry_address": "required",
+    "network_id": "required",
+    "transaction_or_receipt_ref": "required_when_confirmed",
+    "submitted_at": "required",
+    "confirmed_at": "required_when_confirmed",
+    "submitter": "required",
+    "successor_anchor": "required_for_replacement_or_revision",
+    "integrity_digest": "required"
+  },
+  "controls": [
+    "recompute package root before submission",
+    "verify package root against deterministic DMRV package",
+    "verify batch/event/site identity reconciliation",
+    "verify authorized registry and network configuration",
+    "record submitter and timestamps",
+    "retain transaction/receipt reference when confirmed",
+    "treat corrections as successor evidence rather than mutating prior anchors"
+  ],
+  "fail_closed_conditions": [
+    "S6C.10 package not accepted",
+    "root mismatch",
+    "identity mismatch",
+    "unauthorized registry/network",
+    "missing deployment reference",
+    "missing submitter authorization",
+    "duplicate or ambiguous anchor identity",
+    "transaction confirmation absent when confirmation is claimed",
+    "integrity evidence missing"
+  ],
+  "permissible_claims": [
+    "the specified evidence root was submitted to the configured registry",
+    "an anchor confirmation exists when a valid receipt is recorded",
+    "a historical package version can be linked to its anchor"
+  ],
+  "prohibited_claims": [
+    "blockchain proves environmental truth",
+    "blockchain proves water quality",
+    "blockchain proves regulatory compliance",
+    "blockchain proves premium status",
+    "blockchain proves GHG reduction",
+    "anchor confirmation equals product release"
+  ],
+  "next_gate": "S6C.12_PREMIUM_CONDITION_REVIEW"
+}
