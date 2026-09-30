@@ -1,0 +1,63 @@
+{
+  "stage": "S9.5",
+  "name": "Governed Scale Assurance Execution and Disclosure Control",
+  "status": "IMPLEMENTED",
+  "physical_status": "NOT_RELEASED",
+  "objective": "Execute independent-review-ready controls and govern climate/ESG disclosure promotion so claims remain traceable to defined evidence populations, periods, methodologies and authorized conclusions.",
+  "execution_cycle": [
+    "REVIEW_SCOPE_FREEZE",
+    "EVIDENCE_POPULATION_LOCK",
+    "SOURCE_LINEAGE_RECONCILIATION",
+    "GHG_BOUNDARY_METHOD_CHECK",
+    "DMRV_QMS_CUSTODY_REVIEW",
+    "CONTROL_EFFECTIVENESS_REVIEW",
+    "EXCEPTION_CAPA_DISPOSITION",
+    "INDEPENDENT_REVIEW_CONCLUSION",
+    "DISCLOSURE_MAPPING_REVIEW",
+    "CLAIM_PROMOTION_AUTHORIZATION",
+    "PUBLIC_INVESTOR_RECONCILIATION",
+    "PERIOD_CLOSE"
+  ],
+  "disclosure_states": [
+    "DRAFT",
+    "EVIDENCE_MAPPED",
+    "REVIEWED",
+    "CONDITIONALLY_APPROVED",
+    "AUTHORIZED_FOR_DISCLOSURE",
+    "BLOCKED",
+    "WITHDRAWN"
+  ],
+  "required_metric_fields": [
+    "metric_id",
+    "reporting_entity",
+    "reporting_period",
+    "boundary",
+    "value",
+    "unit",
+    "data_type",
+    "evidence_class",
+    "source_id",
+    "methodology_id",
+    "methodology_version",
+    "uncertainty_or_estimation",
+    "evidence_refs",
+    "review_status"
+  ],
+  "climate_esg": {
+    "ifrs_s2": "Governance, strategy, risk management, metrics and targets; materiality and applicable jurisdiction determine disclosure.",
+    "ghg_protocol": "Organizational/operational boundaries, Scope 1/2/3, activity data, emission factors, methods, period and change control.",
+    "esrs_e1": "Applicable adopted ESRS version, reporting perimeter and effective period; retain impact and financial materiality distinctly where applicable."
+  },
+  "fail_closed": [
+    "evidence population changes after review",
+    "claim lacks evidence references",
+    "claim exceeds reviewed scope or period",
+    "GHG context incomplete",
+    "methodology change lacks controlled transition",
+    "material exception unresolved",
+    "independent conclusion absent or out of scope",
+    "public surface differs from authorized record",
+    "release inferred from disclosure authorization"
+  ],
+  "next_gate": "S9.6_GOVERNED_SCALE_DISCLOSURE_ASSURANCE_AND_RESTATEMENT_CONTROL"
+}
