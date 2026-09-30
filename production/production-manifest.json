@@ -1,14 +1,14 @@
 {
   "milestone": "M-1",
   "system": "Blue-Ether OS / OMI-OJO",
-  "status": "S6C_SAMPLING_CUSTODY_QMS_HANDOFF_READY",
-  "execution_readiness": "S6C.7_CUSTODY_READY_EMPIRICAL_QMS_RECEIPT_PENDING",
+  "status": "S6C_QMS_LAB_ANALYSIS_READINESS_DEFINED",
+  "execution_readiness": "S6C.8_ANALYSIS_READY_EMPIRICAL_LAB_EVIDENCE_PENDING",
   "production_guide": "docs/production-execution-guide.md",
   "institutional_framework": "docs/institutional-production-framework.md",
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
   "s6b_work_package": "config/s6b-builder-grant-work-package.json",
   "s6b_evidence_package": "docs/s6b-builder-grant-evidence-package.md",
-  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V8",
+  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V9",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -67,7 +67,7 @@
     "S6C.5": "IMPLEMENTED_FIRST_FLUSH_CONTROL",
     "S6C.6": "IMPLEMENTED_CONTROLLED_COLLECTION_SCHEMA",
     "S6C.7": "IMPLEMENTED_SAMPLING_CUSTODY_QMS_HANDOFF_SCHEMA",
-    "S6C.8": "QMS_LAB_READINESS_REQUIRED",
+    "S6C.8": "IMPLEMENTED_QMS_LAB_ANALYSIS_READINESS_SCHEMA",
     "S6C.9": "BATCH_SEAL_RELEASE_GATE_DEFINED",
     "S6C.10": "DMRV_PACKAGE_GATE_DEFINED",
     "S6C.11": "BLOCKCHAIN_ANCHOR_GATE_DEFINED",
@@ -110,7 +110,7 @@
   "physical_status": "NOT_RELEASED",
   "project_token_status": "DEFERRED",
   "funding_award_status": "NOT_AWARDED",
-  "next_gate": "S6C.8_QMS_LAB_ANALYSIS_READINESS",
+  "next_gate": "S6C.9_BATCH_AND_SEAL_RELEASE_GATE",
   "s6c_field_authorization": "config/s6c-lagos-field-authorization.json",
   "s6c_runbook": "docs/s6c-lagos-field-validation-runbook.md",
   "s6c_rain_event_schema": "config/s6c-lagos-rain-event-record.json",
@@ -122,5 +122,7 @@
   "s6c_controlled_collection": "config/s6c6-lagos-controlled-collection-sample-capture.json",
   "s6c_controlled_collection_runbook": "docs/s6c6-lagos-controlled-collection-sample-capture-runbook.md",
   "s6c_sampling_custody_qms_handoff": "config/s6c7-lagos-sampling-custody-qms-handoff.json",
-  "s6c_sampling_custody_qms_runbook": "docs/s6c7-lagos-sampling-custody-qms-handoff-runbook.md"
+  "s6c_sampling_custody_qms_runbook": "docs/s6c7-lagos-sampling-custody-qms-handoff-runbook.md",
+  "s6c_qms_lab_analysis_readiness": "config/s6c8-lagos-qms-lab-analysis-readiness.json",
+  "s6c_qms_lab_analysis_runbook": "docs/s6c8-lagos-qms-lab-analysis-readiness-runbook.md"
 }
