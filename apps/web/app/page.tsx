@@ -2,7 +2,7 @@
 import { useMemo, useState } from "react";
 import WebGLGlobe from "./components/WebGLGlobe";
 
-const nav=["Command Center","Project Scope","Production Control","Controlled Pilot","Conformance Review","Replication Readiness","Multisite Execution","Scale Readiness","Governed Scale","Continuous Assurance","Exception Automation","Assurance Dashboard","Independent Assurance","Global Lagos","Harvest Intelligence","Evidence & DMRV","ESG / GHG","Investor Room"];
+const nav=["Command Center","Project Scope","Production Control","Controlled Pilot","Conformance Review","Replication Readiness","Multisite Execution","Scale Readiness","Governed Scale","Continuous Assurance","Exception Automation","Assurance Dashboard","Independent Assurance","Disclosure Control","Global Lagos","Harvest Intelligence","Evidence & DMRV","ESG / GHG","Investor Room"];
 const productionStages=[["M-1","Institutional foundation","IMPLEMENTED"],["S6A","Blockchain evidence","CONTROLLED"],["S6B","Builder / grant evidence","READY"],["S6C","Lagos physical validation","GATED"],["POST-S6C","Release + public verification","GATED"],["S7","Monitoring + assurance","IMPLEMENTED"],["S8","Controlled multisite expansion","IMPLEMENTED"],["S8.1","Site onboarding + local authorization","CURRENT"]];
 const operatingLadder=["DESIGNED","IMPLEMENTED","INTEGRATION_READY","CONTROLLED_TEST","REPORTABLE","VALIDATED","VERIFIED","ANCHORED","RELEASED"];
 const scopeDomains=["Rain harvesting + controlled collection","Premium-condition evidence","Water/QMS + batch/seal provenance","Environmental DMRV + ESG/GHG","Blockchain evidence integrity","Investor / public verification"];
@@ -34,7 +34,7 @@ export default function Home(){
  const independentAssurance=active==="Independent Assurance";
  const scope=active==="Project Scope";
  const selectedVenue=useMemo(()=>selected?([...venues.map((v,i)=>({id:String(i+1).padStart(2,"0"),name:v[0],detail:v[1]})),...institutional.map((v,i)=>({id:String(38+i),name:v,detail:"Institutional / environmental reference venue"}))].find(v=>v.id===selected)):null,[selected]);
- const go=(n:string)=>{if(n==="Assurance Dashboard"){window.location.href="/assurance";return;}if(n==="Independent Assurance"){window.location.href="/assurance-readiness";return;}setActive(n);window.scrollTo({top:0,behavior:"smooth"})};
+ const go=(n:string)=>{if(n==="Assurance Dashboard"){window.location.href="/assurance";return;}if(n==="Independent Assurance"){window.location.href="/assurance-readiness";return;}if(n==="Disclosure Control"){window.location.href="/disclosure-control";return;}setActive(n);window.scrollTo({top:0,behavior:"smooth"})};
  return <div className="shell">
  <header className="topbar"><div className="brand"><div className="mark">B</div><div>BLUE-ETHER <span>OS</span></div></div><div className="top-actions"><button className={global?"top-link active":"top-link"} onClick={()=>go("Global Lagos")}>◎ Global Lagos</button><div className="status">M-1 · S9.3 CURRENT · EVIDENCE-FIRST</div></div></header>
  <div className="layout"><aside className="nav">{nav.map(n=><button key={n} className={active===n?"active":""} onClick={()=>go(n)}>{n}</button>)}</aside><main className="main">
