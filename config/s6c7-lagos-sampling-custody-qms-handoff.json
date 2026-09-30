@@ -1,0 +1,86 @@
+{
+  "stage": "S6C.7",
+  "name": "Lagos Sampling Custody and QMS Handoff",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Preserve identity, custody, integrity and traceability of samples produced by S6C.6 until controlled laboratory/QMS intake. This gate does not establish analytical results or product release.",
+  "upstream_gate": "S6C.6_SAMPLE_CAPTURED",
+  "required_inputs": [
+    "accepted S6C.6 collection/sample-capture record",
+    "unique sample identifiers",
+    "sealed sample/container identity",
+    "sampling plan revision",
+    "custodian identities",
+    "custody transfer points",
+    "storage/transport conditions",
+    "synchronized timestamps"
+  ],
+  "states": [
+    "CUSTODY_READY",
+    "IN_CUSTODY",
+    "TRANSFER_RECORDED",
+    "QMS_RECEIVED",
+    "HOLD",
+    "FAILED"
+  ],
+  "custody_record": {
+    "event_id": "required",
+    "site_id": "required",
+    "sample_ids": "required",
+    "container_ids": "required",
+    "seal_or_integrity_ids": "required_if_used",
+    "sampling_plan_revision": "required",
+    "origin_custodian_id": "required",
+    "destination_qms_id": "required",
+    "transfer_records": "required",
+    "transfer_timestamps": "required",
+    "storage_conditions": "required",
+    "transport_conditions": "required_if_transported",
+    "temperature_records": "required_if_applicable",
+    "condition_on_transfer": "required",
+    "deviation_log": "required_if_any",
+    "operator_ids": "required",
+    "integrity_digest": "required"
+  },
+  "evidence_requirements": [
+    "S6C.6 sample-capture reference",
+    "sample/container identity reconciliation",
+    "seal/integrity condition where used",
+    "custody transfer timestamps and identities",
+    "storage/transport conditions",
+    "condition at receipt",
+    "deviation/nonconformance record where applicable",
+    "QMS receiving acknowledgement",
+    "integrity digest"
+  ],
+  "transition_rules": [
+    "CUSTODY_READY requires accepted S6C.6 evidence and complete sample identity reconciliation.",
+    "IN_CUSTODY begins when responsibility is formally accepted by the designated custodian.",
+    "TRANSFER_RECORDED requires each custody handoff to identify sender, receiver, timestamp, sample/container IDs and condition.",
+    "QMS_RECEIVED requires documented QMS intake acknowledgement and unresolved deviations are either accepted under procedure or placed on HOLD.",
+    "A custody record never substitutes for laboratory analysis.",
+    "Any broken seal, identity mismatch, unexplained custody gap, unsuitable storage/transport condition or missing provenance forces HOLD or FAILED."
+  ],
+  "fail_closed_conditions": [
+    "S6C.6 not accepted",
+    "sample/container identity mismatch",
+    "broken or unexplained seal/integrity condition",
+    "missing custodian or transfer identity",
+    "unexplained custody time gap",
+    "storage/transport excursion without disposition",
+    "missing QMS intake acknowledgement",
+    "unresolved material deviation",
+    "missing integrity evidence"
+  ],
+  "prohibited_claims": [
+    "potable water",
+    "safe drinking water",
+    "premium rainwater",
+    "verified water quality",
+    "laboratory pass",
+    "regulatory approval",
+    "completed product batch",
+    "verified environmental benefit"
+  ],
+  "next_gate": "S6C.8_QMS_LAB_ANALYSIS_READINESS"
+}
