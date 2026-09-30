@@ -9,13 +9,12 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Callable, Iterable
 
-from .agentic_collection import process_collection_evidence
+from .agentic_collection import CollectionRun, process_collection_evidence
 from .engagement_orchestrator import OrchestrationPlan, ingest_plan
-from .evidence_processing import EvidenceQCDecision, EvidencePackage
 from .observation_store import ObservationStore
 from .refresh_policy import RefreshPolicy, next_refresh
 from .reportable_data import Observation, ReportingRule, evaluate_batch
-from .reporting_snapshot import ReportingSnapshot, build_snapshot
+from .reporting_snapshot import build_snapshot
 from .snapshot_store import SnapshotStore
 
 
@@ -49,30 +48,27 @@ def run_refresh(
     evidence_location: tuple[float, float] | None = None,
 ) -> RefreshResult:
     current = now or datetime.now(timezone.utc)
-    items = list(observations)
-    rule_list = list(rules)
-    approved = approved_sources or frozenset(r.allowed_sources for r in rule_list for _ in [0])
-    # Flattening above is intentionally replaced by the canonical source union.
-    approved = frozenset(source for rule in rule_list for source in rule.allowed_sources)
+    items = tuple(observations)
+    rule_list = tuple(rules)
+    approved = approved_sources or frozenset(
+        source for rule in rule_list for source in rule.allowed_sources
+    )
 
-    passed, qc_decisions = process_collection_evidence(
-        collection=__import__("src.reporting.agentic_collection", fromlist=["CollectionRun"]).CollectionRun(
-            actions=tuple(),
-            observations=tuple(items),
-            skipped=tuple(),
-        ),
+    evidence_run = process_collection_evidence(
+        collection=CollectionRun(actions=tuple(), observations=items, skipped=tuple()),
         approved_sources=approved,
         now=current,
         location=evidence_location,
     )
-    reportability = evaluate_batch(passed, rule_list, now=current)
-    persisted = observation_store.upsert(passed)
+    reportability = evaluate_batch(evidence_run.reportable_observations, rule_list, now=current)
+
+    persisted = observation_store.upsert(evidence_run.reportable_observations)
     snapshot = build_snapshot(
         project_id=project_id,
         report_family=report_family,
         period_start=period_start,
         period_end=period_end,
-        observations=passed,
+        observations=evidence_run.reportable_observations,
         decisions=reportability,
         release_state="DRAFT",
     )
@@ -88,14 +84,9 @@ def run_refresh(
         snapshot_id=snapshot.snapshot_id,
         snapshot_hash=snapshot.deterministic_hash,
         next_refresh_at=scheduled.isoformat() if scheduled else None,
-        evidence_package_id=build_evidence_package_id(qc_decisions, passed),
-        qc_decisions=len(qc_decisions),
+        evidence_package_id=evidence_run.package.package_id,
+        qc_decisions=len(evidence_run.qc_decisions),
     )
-
-
-def build_evidence_package_id(qc_decisions: tuple[EvidenceQCDecision, ...], passed: tuple[Observation, ...]) -> str | None:
-    from .evidence_processing import build_evidence_package
-    return build_evidence_package(passed, qc_decisions).package_id if qc_decisions else None
 
 
 def run_orchestrated_refresh(
@@ -122,7 +113,9 @@ def run_orchestrated_refresh(
         observation_store=observation_store,
         snapshot_store=snapshot_store,
         now=now,
-        approved_sources=frozenset(source for rule in plan.rules for source in rule.allowed_sources),
+        approved_sources=frozenset(
+            source for rule in plan.rules for source in rule.allowed_sources
+        ),
     )
 
 
