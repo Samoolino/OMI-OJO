@@ -8,7 +8,7 @@
   "s6a_specification": "docs/s6a-blockchain-evidence-anchor.md",
   "s6b_work_package": "config/s6b-builder-grant-work-package.json",
   "s6b_evidence_package": "docs/s6b-builder-grant-evidence-package.md",
-  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V21",
+  "production_map_version": "M-1/S6A-S6B-S6C_INSTITUTIONAL_V22",
   "gates": {
     "P1": "PASS",
     "P2": "PASS",
@@ -156,5 +156,20 @@
   "s8_controlled_scale": "config/s8-controlled-scale-multisite-expansion.json",
   "s8_controlled_scale_runbook": "docs/s8-controlled-scale-multisite-expansion-runbook.md",
   "s8_1_site_onboarding": "config/s8.1-site-onboarding-local-authorization.json",
-  "s8_1_site_onboarding_runbook": "docs/s8.1-site-onboarding-local-authorization-runbook.md"
+  "s8_1_site_onboarding_runbook": "docs/s8.1-site-onboarding-local-authorization-runbook.md",
+  "frontend_engagement": {
+    "status": "IMPLEMENTED",
+    "landing_scope_surface": "apps/web/app/page.tsx",
+    "current_control_surface": "Production Control / S8.1",
+    "production_stage_surface": "M-1 → S6A → S6B → S6C → POST-S6C → S7 → S8 → S8.1",
+    "operating_ladder_surface": "DESIGNED → IMPLEMENTED → INTEGRATION_READY → CONTROLLED_TEST → REPORTABLE → VALIDATED → VERIFIED → ANCHORED → RELEASED",
+    "semantic_boundaries": [
+      "administrative node ≠ physical site",
+      "forecast ≠ observation",
+      "anchor ≠ environmental truth",
+      "software readiness ≠ product release"
+    ],
+    "current_physical_state": "NOT_RELEASED",
+    "next_frontend_gate": "S8.2_SITE_OPERATIONAL_READINESS_AND_CONTROLLED_PILOT"
+  }
 }
