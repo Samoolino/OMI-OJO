@@ -1,0 +1,77 @@
+{
+  "id": "S13.9-DMRV-EVENT-PACKAGE-ASSEMBLY",
+  "title": "DMRV Event Package Assembly",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.8_BATCH_AND_SEAL_RECONCILED",
+  "purpose": "Assemble a complete, lineage-preserving DMRV evidence package for one actual field event without creating observations or treating derived metrics as independently observed facts.",
+  "sequence": [
+    "CONFIRM_BATCH_TRACEABILITY",
+    "FREEZE_EVENT_SCOPE",
+    "REGISTER_EVIDENCE_ITEMS",
+    "RECONCILE_SOURCE_PROVENANCE",
+    "RECONCILE_FIELD_MEASUREMENTS",
+    "RECONCILE_VIDEO_AND_CUSTODY",
+    "RECONCILE_QMS_AND_BATCH_RECORDS",
+    "REGISTER_METHOD_BOUNDARIES_FACTORS",
+    "BUILD_DMRV_DERIVED_METRICS_WHEN_SUPPORTED",
+    "COMPUTE_PACKAGE_DIGEST",
+    "LOCK_PACKAGE"
+  ],
+  "required_evidence": [
+    "event_scope",
+    "site_identity",
+    "weather_source_observation",
+    "field_operation_records",
+    "instrument_measurements",
+    "video_evidence_reference",
+    "sample_custody",
+    "qms_lab_record_or_result_when_available",
+    "batch_traceability",
+    "methodology_reference",
+    "boundary_reference",
+    "factor_version_reference",
+    "exception_record"
+  ],
+  "states": [
+    "READY",
+    "ASSEMBLY_ACTIVE",
+    "RECONCILIATION_PENDING",
+    "PACKAGE_COMPLETE",
+    "HOLD",
+    "REJECTED",
+    "CORRECTIVE_ACTION"
+  ],
+  "fail_closed": [
+    "S13.8 traceability unresolved",
+    "event scope not frozen",
+    "missing evidence lineage",
+    "source provenance unresolved",
+    "field measurement identity unresolved",
+    "video linkage unresolved where required",
+    "custody linkage unresolved",
+    "QMS linkage unresolved",
+    "batch linkage unresolved",
+    "method/boundary/factor version unresolved",
+    "unsupported derived metric",
+    "package digest missing",
+    "material exception unresolved"
+  ],
+  "evidence_policy": {
+    "observations": "SOURCE_OBSERVATION|INSTRUMENT_MEASUREMENT|FIELD_OPERATION",
+    "derived_metrics": "DMRV_DERIVED_METRIC",
+    "integrity_digest": "ANCHOR_INTEGRITY_RECORD",
+    "synthetic_content": "CONTROL_TEST_ONLY",
+    "fabricated_environmental_evidence": "PROHIBITED"
+  },
+  "invariants": [
+    "DMRV package is a record of evidence, not new environmental evidence",
+    "derived metric must preserve input lineage and methodology",
+    "package digest proves package integrity only",
+    "DMRV completion is not verification",
+    "DMRV completion is not premium condition",
+    "DMRV completion is not product release"
+  ],
+  "next_gate": "S13.10_EVIDENCE_RECONCILIATION"
+}
