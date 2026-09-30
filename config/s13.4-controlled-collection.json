@@ -1,0 +1,68 @@
+{
+  "id": "S13.4-CONTROLLED-COLLECTION",
+  "title": "Controlled Collection",
+  "state": "READY_FOR_ACTUAL_EVENT_INPUT",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S13.3_DIVERSION_COMPLETE",
+  "purpose": "Control the first authorized collection of rainwater after documented first-flush diversion, with actual field measurement and event-linked evidence.",
+  "required_evidence": [
+    "event_identifier",
+    "physical_site_identifier",
+    "diversion_completion_record",
+    "collection_start_timestamp",
+    "collection_end_timestamp",
+    "collector_identity",
+    "collection_measurement",
+    "measurement_device_identity",
+    "operator_confirmation",
+    "event_linked_video_or_equivalent_evidence",
+    "exception_record"
+  ],
+  "sequence": [
+    "CONFIRM_DIVERSION_COMPLETE",
+    "CONFIRM_EVENT_AND_SITE",
+    "START_CONTROLLED_COLLECTION",
+    "RECORD_ACTUAL_MEASUREMENT",
+    "CAPTURE_EVENT_EVIDENCE",
+    "END_COLLECTION",
+    "RECONCILE_COLLECTION_RECORD",
+    "AUTHORIZE_SAMPLE_HANDOFF"
+  ],
+  "states": [
+    "READY",
+    "COLLECTION_ACTIVE",
+    "COLLECTION_COMPLETE",
+    "HOLD",
+    "REJECTED",
+    "CORRECTIVE_ACTION"
+  ],
+  "fail_closed": [
+    "S13.3 diversion not complete",
+    "event or site unresolved",
+    "collector identity unresolved",
+    "measurement device unresolved",
+    "actual collection measurement unavailable or untrusted",
+    "collection start/end cannot be evidenced",
+    "required event-linked evidence unavailable",
+    "operator authorization unresolved",
+    "material exception unresolved"
+  ],
+  "evidence_policy": {
+    "forecast": "FORECAST_ONLY",
+    "source_observation": "SOURCE_OBSERVATION",
+    "collection_activity": "FIELD_OPERATION",
+    "collection_measurement": "INSTRUMENT_MEASUREMENT",
+    "video": "VIDEO_EVIDENCE",
+    "synthetic_test": "CONTROL_TEST_ONLY",
+    "fabricated_observation": "PROHIBITED"
+  },
+  "invariants": [
+    "collection measurement must be actual",
+    "measurement provenance must remain attached",
+    "collection completion does not establish water quality",
+    "collection does not establish premium condition",
+    "collection does not constitute product release"
+  ],
+  "next_gate": "S13.5_LIVE_MEASUREMENT_AND_VIDEO_EVIDENCE"
+}
