@@ -1,0 +1,30 @@
+{
+  "project": "Illuvi Canada",
+  "stage": "CA-1",
+  "status": "IMPLEMENTED_NATIONAL_GEOGRAPHIC_REPORTING_CONTRACT",
+  "execution_readiness": "CA-1_GEOGRAPHY_GRAPH_READY_SOURCE_ACTUALIZATION_PENDING",
+  "production_map": "M-1/S5/CA-1",
+  "physical_status": "NOT_RELEASED",
+  "evidence_state": "DESIGNED_FOR_IMPLEMENTATION",
+  "canonical_authority": "Statistics Canada Standard Geographical Classification",
+  "hierarchy": "Canada -> region -> province/territory -> census division -> census subdivision -> site",
+  "reporting_aliases": {
+    "state": "province_or_territory_presentation_alias",
+    "district": "census_division_reporting_alias",
+    "municipality": "census_subdivision_when_municipal"
+  },
+  "implemented_surfaces": [
+    "config/canada-national-project.json",
+    "docs/canada-national-project.md",
+    "apps/web/app/lagos-to-dubai/canada/page.tsx"
+  ],
+  "next_sequence": [
+    "CA-2 municipal parent-child graph",
+    "CA-3 Canadian provider/source registry",
+    "CA-4 representative decarbonization pilots",
+    "CA-5 data/framework relic asset registry",
+    "CA-6 DMRV evidence packages and anchors",
+    "CA-7 controlled geographic scale"
+  ],
+  "claim_boundary": "Geographic presence, reportability and software readiness do not imply physical measurement, decarbonization impact, carbon-credit issuance, regulatory approval or verified project outcomes."
+}
