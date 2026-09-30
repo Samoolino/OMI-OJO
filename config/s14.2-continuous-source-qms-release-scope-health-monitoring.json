@@ -1,0 +1,91 @@
+{
+  "id": "S14.2-CONTINUOUS-SOURCE-QMS-AND-RELEASE-SCOPE-HEALTH-MONITORING",
+  "title": "Continuous Source, QMS and Release-Scope Health Monitoring",
+  "state": "READY_FOR_ACTUAL_MONITORING_WINDOW",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S14.1_RELEASED_EVENT_HANDOFF_AND_MONITORING_ACTIVATION",
+  "purpose": "Continuously monitor the integrity and status of an authorized release scope without creating, overwriting or inferring environmental observations.",
+  "sequence": [
+    "MONITORING_WINDOW_CONFIRMATION",
+    "SOURCE_HEALTH_CHECK",
+    "QMS_LAB_STATUS_CHECK",
+    "CUSTODY_AND_BATCH_TRACEABILITY_CHECK",
+    "METHOD_BOUNDARY_FACTOR_VERSION_CHECK",
+    "RELEASE_SCOPE_RECONCILIATION",
+    "CLAIM_LABEL_AND_DISCLOSURE_CHECK",
+    "REGULATORY_CONDITION_CHECK",
+    "ANOMALY_CLASSIFICATION",
+    "IMPACT_ASSESSMENT",
+    "CORRECTIVE_ACTION_OR_REOPEN",
+    "MONITORING_RECORD_LOCK"
+  ],
+  "monitoring_checks": [
+    "source availability_and_provenance",
+    "QMS_lab_status_and_result_corrections",
+    "sample_custody_and_batch_traceability",
+    "instrument_and_calibration_status",
+    "methodology_boundary_factor_versions",
+    "release_scope_population",
+    "product_label_claim_register",
+    "public_investor_disclosure_surfaces",
+    "regulatory_authorization_conditions",
+    "security_and_integrity"
+  ],
+  "event_classes": [
+    "NO_MATERIAL_CHANGE",
+    "SOURCE_DEGRADED",
+    "QMS_CHANGE",
+    "TRACEABILITY_EXCEPTION",
+    "METHOD_CHANGE",
+    "SCOPE_CHANGE",
+    "CLAIM_DIVERGENCE",
+    "REGULATORY_CHANGE",
+    "SECURITY_INTEGRITY_EVENT",
+    "MATERIAL_EXCEPTION"
+  ],
+  "states": [
+    "MONITORED",
+    "DEGRADED",
+    "ALERT",
+    "IMPACTED",
+    "REVIEW",
+    "CORRECTIVE_ACTION",
+    "REOPENED",
+    "SUPERSEDED",
+    "RESOLVED",
+    "HOLD"
+  ],
+  "outcomes": [
+    "HEALTHY",
+    "OBSERVATION_RECORDED",
+    "CORRECTIVE_ACTION_REQUIRED",
+    "REOPEN_REQUIRED",
+    "SCOPE_REDUCTION_REQUIRED",
+    "RELEASE_SUSPENSION_REQUIRED",
+    "HOLD"
+  ],
+  "fail_closed": [
+    "monitoring window not activated",
+    "untrusted source used for reporting",
+    "material QMS correction not assessed",
+    "traceability break unresolved",
+    "method/boundary/factor change not versioned",
+    "release population changes without scope assessment",
+    "claim or label divergence unresolved",
+    "regulatory condition change not assessed",
+    "security/integrity issue unresolved",
+    "historical record silently overwritten"
+  ],
+  "invariants": [
+    "monitoring checks do not create environmental observations",
+    "source availability is not source validity",
+    "QMS correction preserves prior result lineage",
+    "scope changes require controlled impact assessment",
+    "alerts are not proof of environmental failure",
+    "reopening preserves prior authorization history",
+    "blockchain integrity does not establish product quality or regulatory validity"
+  ],
+  "no_event_policy": "No monitoring event, release, harvest, environmental observation or regulatory approval is asserted by implementation.",
+  "next_gate": "S14.3_EXCEPTION_CAPA_AND_RELEASE_SCOPE_CHANGE_CONTROL"
+}
