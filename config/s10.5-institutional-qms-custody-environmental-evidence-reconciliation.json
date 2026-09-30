@@ -1,0 +1,77 @@
+{
+  "stage": "S10.5",
+  "name": "Institutional QMS Custody and Environmental Evidence Reconciliation",
+  "status": "IMPLEMENTED",
+  "objective": "Reconcile environmental evidence, sampling custody, QMS/laboratory records and DMRV lineage for disclosure periods without fabricating empirical results.",
+  "evidence_domains": [
+    "site identity",
+    "rain-event observation",
+    "first-flush control",
+    "collection record",
+    "sample identity",
+    "custody transfer",
+    "laboratory/QMS result",
+    "batch/seal linkage",
+    "DMRV evidence reference",
+    "exception/CAPA"
+  ],
+  "sequence": [
+    "EVIDENCE_POPULATION_LOCK",
+    "SITE_AND_EVENT_IDENTITY_RECONCILIATION",
+    "SAMPLE_IDENTITY_CHECK",
+    "CUSTODY_CHAIN_RECONCILIATION",
+    "QMS_METHOD_AND_RESULT_CHECK",
+    "BATCH_SEAL_LINKAGE",
+    "DMRV_LINEAGE_CHECK",
+    "EXCEPTION_REVIEW",
+    "INDEPENDENT_REVIEW_HANDOFF"
+  ],
+  "qms_record": [
+    "sample_id",
+    "batch_id",
+    "collection_event_id",
+    "collector_id",
+    "custody_transfers",
+    "laboratory_id",
+    "method_id",
+    "method_version",
+    "result_refs",
+    "result_status",
+    "chain_of_custody_status",
+    "quality_flags",
+    "evidence_refs"
+  ],
+  "result_states": [
+    "NOT_RECEIVED",
+    "RECEIVED_PENDING_QMS",
+    "QMS_REVIEW",
+    "VALIDATED",
+    "QUALIFIED",
+    "REJECTED",
+    "SUPERSEDED"
+  ],
+  "invariants": [
+    "sample identity remains stable across custody and QMS",
+    "chain of custody does not prove laboratory result validity by itself",
+    "QMS readiness is not a result",
+    "result provenance must link method/version and source record",
+    "batch linkage cannot create a batch where none exists",
+    "absence of evidence remains absence, not zero"
+  ],
+  "fail_closed": [
+    "sample identity mismatch",
+    "broken custody chain",
+    "laboratory method/version missing",
+    "result reference missing",
+    "batch/sample mismatch",
+    "material quality flag unresolved",
+    "DMRV reference mismatch",
+    "unsupported result promotion",
+    "administrative node substituted for physical evidence"
+  ],
+  "notes": [
+    "No laboratory or harvest values are created by S10.5. Existing evidence is reconciled only when supplied by controlled empirical operations.",
+    "QMS status and laboratory result status remain separate states."
+  ],
+  "next_gate": "S10.6_INSTITUTIONAL_ENVIRONMENTAL_EVIDENCE_ASSURANCE_AND_EXCEPTION_DISPOSITION"
+}
