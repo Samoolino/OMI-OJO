@@ -1,0 +1,12 @@
+{
+  "sequence": "S14.1_RELEASED_EVENT_HANDOFF_AND_MONITORING_ACTIVATION",
+  "state": "READY_FOR_ACTUAL_RELEASE_AUTHORIZATION",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "release_record_present": false,
+  "monitoring_active": false,
+  "baseline_snapshot_created": false,
+  "post_release_observations_created": false,
+  "precondition": "S14_POST_EVENT_RELEASE_ASSURANCE_AND_CONTINUOUS_CONTROL",
+  "next_gate": "S14.2_CONTINUOUS_SOURCE_QMS_AND_RELEASE_SCOPE_HEALTH_MONITORING"
+}
