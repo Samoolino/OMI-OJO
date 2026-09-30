@@ -1,0 +1,82 @@
+{
+  "id": "S14.4-CONTINUOUS-ASSURANCE-AND-RELEASE-STATUS-REVIEW",
+  "title": "Continuous Assurance and Release-Status Review",
+  "state": "READY_FOR_ACTUAL_MONITORING_WINDOW",
+  "live_event_status": "NO_LIVE_EVENT_CLAIMED",
+  "physical_production_status": "NOT_RELEASED",
+  "precondition": "S14.3_EXCEPTION_CAPA_AND_RELEASE_SCOPE_CHANGE_CONTROL",
+  "purpose": "Periodically reassess whether an authorized release remains supported by current evidence, QMS, traceability, regulatory conditions, claims and closed/open control findings.",
+  "sequence": [
+    "REVIEW_WINDOW_OPEN",
+    "AUTHORIZED_SCOPE_RECONFIRMATION",
+    "EVIDENCE_LINEAGE_REVIEW",
+    "QMS_AND_TRACEABILITY_REVIEW",
+    "SOURCE_METHOD_AND_FACTOR_REVIEW",
+    "REGULATORY_STATUS_REVIEW",
+    "CLAIM_LABEL_AND_DISCLOSURE_REVIEW",
+    "EXCEPTION_CAPA_STATUS_REVIEW",
+    "ASSURANCE_MATERIALITY_ASSESSMENT",
+    "ASSURANCE_CONCLUSION",
+    "RELEASE_STATUS_ACTION",
+    "REVIEW_RECORD_LOCK"
+  ],
+  "review_domains": [
+    "authorized_release_scope",
+    "evidence_lineage",
+    "QMS_lab_status",
+    "custody_batch_seal_traceability",
+    "source_provenance",
+    "methodology_boundary_factor_versions",
+    "regulatory_authorizations_and_conditions",
+    "product_specification_labeling",
+    "public_investor_claims",
+    "exceptions_and_capa",
+    "security_and_integrity"
+  ],
+  "conclusions": [
+    "ASSURANCE_CURRENT_WITHIN_SCOPE",
+    "ASSURANCE_CURRENT_WITH_OBSERVATIONS",
+    "CONDITIONAL_PENDING_REMEDIATION",
+    "RELEASE_SCOPE_REDUCTION_REQUIRED",
+    "RELEASE_SUSPENSION_RECOMMENDED",
+    "INSUFFICIENT_EVIDENCE",
+    "HOLD"
+  ],
+  "states": [
+    "SCHEDULED",
+    "IN_REVIEW",
+    "CURRENT",
+    "OBSERVATIONS",
+    "CONDITIONAL",
+    "IMPACTED",
+    "SUSPENSION_REVIEW",
+    "HOLD",
+    "CLOSED",
+    "REOPENED"
+  ],
+  "fail_closed": [
+    "review scope not frozen",
+    "authorized release record unavailable",
+    "evidence lineage broken",
+    "material QMS issue unresolved",
+    "traceability incomplete",
+    "source provenance invalid",
+    "method/boundary/factor version uncontrolled",
+    "regulatory condition unresolved",
+    "claim/label divergence unresolved",
+    "material CAPA overdue or ineffective",
+    "security/integrity issue unresolved",
+    "assurance conclusion exceeds reviewed evidence"
+  ],
+  "invariants": [
+    "assurance is a scoped review not a new observation",
+    "assurance does not create regulatory approval",
+    "assurance does not create product quality",
+    "current status can change without rewriting historical conclusions",
+    "scope reduction or suspension requires explicit authorization",
+    "blockchain anchor does not substitute for assurance",
+    "release status remains bounded by evidence and applicable authority"
+  ],
+  "no_event_policy": "No assurance conclusion, release status, environmental observation, product release or regulatory approval is asserted by implementation.",
+  "next_gate": "S14.5-RELEASE-STATUS-CHANGE-AUTHORIZATION-AND-PUBLIC-SURFACE-RECONCILIATION"
+}
