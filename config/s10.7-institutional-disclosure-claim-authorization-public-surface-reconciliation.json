@@ -1,0 +1,46 @@
+{
+  "stage": "S10.7",
+  "name": "Institutional Disclosure Claim Authorization and Public Surface Reconciliation",
+  "status": "IMPLEMENTED",
+  "objective": "Authorize evidence-supported disclosure claims and reconcile public and investor surfaces to the same authorized record.",
+  "sequence": [
+    "DISCLOSURE_SCOPE_FREEZE",
+    "ASSURANCE_CONCLUSION_CHECK",
+    "CLAIM_REGISTER_RECONCILIATION",
+    "EVIDENCE_SCOPE_CHECK",
+    "LIMITATION_AND_EXCEPTION_CHECK",
+    "AUTHORITY_REVIEW",
+    "CLAIM_PROMOTION_AUTHORIZATION",
+    "PUBLIC_SURFACE_RECONCILIATION",
+    "INVESTOR_SURFACE_RECONCILIATION",
+    "POST_PUBLICATION_INTEGRITY_CHECK"
+  ],
+  "claim_states": [
+    "DRAFT",
+    "EVIDENCE_MAPPED",
+    "ASSURANCE_REVIEWED",
+    "CONDITIONALLY_AUTHORIZED",
+    "AUTHORIZED",
+    "BLOCKED",
+    "WITHDRAWN",
+    "SUPERSEDED"
+  ],
+  "fail_closed": [
+    "missing evidence references",
+    "claim exceeds assurance scope",
+    "period or methodology mismatch",
+    "unresolved material exception",
+    "missing limitation",
+    "missing authority",
+    "public/investor divergence",
+    "product release inferred"
+  ],
+  "invariants": [
+    "authorized claim is not a new observation",
+    "public and investor surfaces use the same authorized record",
+    "withdrawal preserves history",
+    "disclosure authorization is not certification",
+    "disclosure is not product release"
+  ],
+  "next_gate": "S10.8_INSTITUTIONAL_PERIOD_CLOSE_DISCLOSURE_RECONCILIATION_AND_CONTROL_EFFECTIVENESS"
+}
