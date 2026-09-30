@@ -1,0 +1,93 @@
+{
+  "stage": "S7.3",
+  "name": "Independent Audit and Effectiveness Assurance",
+  "status": "DESIGNED_FOR_CONTROLLED_TEST",
+  "physical_status": "NOT_RELEASED",
+  "purpose": "Provide an independent assurance layer over release evidence, monitoring reconciliations and CAPA effectiveness, with explicit independence, sampling, findings, evidence linkage and escalation.",
+  "upstream_gates": [
+    "S7.1_CONTINUOUS_DMRV_AUDIT_RECONCILIATION",
+    "S7.2_EXCEPTION_CORRECTIVE_ACTION_CONTROL"
+  ],
+  "states": [
+    "AUDIT_READY",
+    "AUDIT_IN_PROGRESS",
+    "FINDINGS_OPEN",
+    "ASSURANCE_QUALIFIED",
+    "ASSURANCE_COMPLETE",
+    "HOLD",
+    "FAILED"
+  ],
+  "required_inputs": [
+    "audit scope",
+    "release/batch evidence",
+    "DMRV and anchor chain",
+    "monitoring/reconciliation records",
+    "exception/CAPA records",
+    "independence declaration",
+    "audit criteria",
+    "sampling plan"
+  ],
+  "audit_record": {
+    "audit_id": "required",
+    "scope": "required",
+    "criteria_revision": "required",
+    "auditor_id": "required",
+    "independence_declaration": "required",
+    "period": "required",
+    "sample_selection_method": "required",
+    "records_examined": "required",
+    "findings": "required",
+    "evidence_refs": "required",
+    "capa_effectiveness_assessment": "required_when_applicable",
+    "limitations": "required",
+    "assurance_status": "required",
+    "review_timestamp": "required",
+    "integrity_digest": "required"
+  },
+  "finding_record": {
+    "finding_id": "required",
+    "severity": "required",
+    "condition": "required",
+    "criterion": "required",
+    "evidence_refs": "required",
+    "affected_scope": "required",
+    "owner": "required_when_actionable",
+    "due_date": "required_when_actionable",
+    "disposition": "required"
+  },
+  "controls": [
+    "auditor independence must be declared",
+    "audit criteria and scope are frozen before examination",
+    "sample selection is recorded",
+    "findings cite evidence and criteria",
+    "limitations are explicit",
+    "CAPA effectiveness is assessed against predefined criteria",
+    "material findings trigger HOLD/escalation",
+    "historical evidence is never rewritten"
+  ],
+  "fail_closed_conditions": [
+    "independence not established",
+    "scope/criteria missing",
+    "sample selection undocumented",
+    "material finding lacks evidence",
+    "affected scope unclear",
+    "CAPA effectiveness claimed without evidence",
+    "material finding closed without authorized disposition",
+    "limitations concealed",
+    "integrity evidence missing"
+  ],
+  "permissible_claims": [
+    "an independent audit was performed for the defined scope",
+    "specified findings were identified",
+    "CAPA effectiveness was assessed against recorded criteria",
+    "assurance status is traceable"
+  ],
+  "prohibited_claims": [
+    "audit proves universal compliance",
+    "limited sampling proves absence of all issues",
+    "assurance substitutes for regulatory authorization",
+    "audit confirmation proves water safety",
+    "historical evidence can be altered"
+  ],
+  "next_gate": "S7.4_GOVERNANCE_AND_PERIODIC_ASSURANCE_REVIEW"
+}
