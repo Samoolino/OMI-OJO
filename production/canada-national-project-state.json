@@ -1,26 +1,29 @@
 {
   "project": "Illuvi Canada",
-  "stage": "CA-1",
-  "status": "IMPLEMENTED_NATIONAL_GEOGRAPHIC_REPORTING_CONTRACT",
-  "execution_readiness": "CA-1_GEOGRAPHY_GRAPH_READY_SOURCE_ACTUALIZATION_PENDING",
-  "production_map": "M-1/S5/CA-1",
+  "stage": "CA-3",
+  "status": "CA-2_GRAPH_AND_CA-3_SOURCE_CONTRACTS_IMPLEMENTED",
+  "execution_readiness": "CA-2_GRAPH_SYNC_READY_CA-3_SOURCE_REGISTRY_READY",
+  "production_map": "M-1/S5/CA-3",
   "physical_status": "NOT_RELEASED",
   "evidence_state": "DESIGNED_FOR_IMPLEMENTATION",
-  "canonical_authority": "Statistics Canada Standard Geographical Classification",
+  "canonical_authority": "Statistics Canada Standard Geographical Classification 2021",
   "hierarchy": "Canada -> region -> province/territory -> census division -> census subdivision -> site",
-  "reporting_aliases": {
-    "state": "province_or_territory_presentation_alias",
-    "district": "census_division_reporting_alias",
-    "municipality": "census_subdivision_when_municipal"
-  },
   "implemented_surfaces": [
     "config/canada-national-project.json",
+    "config/canada-source-registry.json",
+    "data/canada/sgc-2021-manifest.json",
     "docs/canada-national-project.md",
+    "docs/ca2-canada-municipal-graph.md",
+    "scripts/canada-sync-sgc.mjs",
     "apps/web/app/lagos-to-dubai/canada/page.tsx"
   ],
+  "source_contracts": [
+    "STATCAN-SGC-2021",
+    "STATCAN-CENSUS-PROFILES",
+    "STATCAN-CD-POP-ESTIMATES",
+    "STATCAN-CSD-POP-ESTIMATES"
+  ],
   "next_sequence": [
-    "CA-2 municipal parent-child graph",
-    "CA-3 Canadian provider/source registry",
     "CA-4 representative decarbonization pilots",
     "CA-5 data/framework relic asset registry",
     "CA-6 DMRV evidence packages and anchors",
