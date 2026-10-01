@@ -1,0 +1,62 @@
+{
+  "dataset": "Statistics Canada Standard Geographical Classification 2021",
+  "release": "2021",
+  "authority": "Statistics Canada",
+  "canonical": true,
+  "source_urls": {
+    "classification_structure_csv": "https://www.statcan.gc.ca/en/statistical-programs/document/sgc-cgt-2021-structure-eng.csv",
+    "elements_csv": "https://www.statcan.gc.ca/en/statistical-programs/document/sgc-cgt-2021-element-eng.csv",
+    "classification_page": "https://www.statcan.gc.ca/en/subjects/standard/sgc/2021/index"
+  },
+  "hierarchy": [
+    "CA",
+    "REGION",
+    "PR",
+    "CD",
+    "CSD"
+  ],
+  "expected_counts": {
+    "regions": 6,
+    "provinces": 10,
+    "territories": 3,
+    "census_divisions": 293,
+    "census_subdivisions": 5161
+  },
+  "regions": [
+    {"code":"1","name":"Atlantic","provinces":["10","11","12","13"]},
+    {"code":"2","name":"Quebec","provinces":["24"]},
+    {"code":"3","name":"Ontario","provinces":["35"]},
+    {"code":"4","name":"Prairies","provinces":["46","47","48"]},
+    {"code":"5","name":"British Columbia","provinces":["59"]},
+    {"code":"6","name":"Territories","provinces":["60","61","62"]}
+  ],
+  "province_territories": [
+    {"code":"10","name":"Newfoundland and Labrador","region":"1","type":"province"},
+    {"code":"11","name":"Prince Edward Island","region":"1","type":"province"},
+    {"code":"12","name":"Nova Scotia","region":"1","type":"province"},
+    {"code":"13","name":"New Brunswick","region":"1","type":"province"},
+    {"code":"24","name":"Quebec","region":"2","type":"province"},
+    {"code":"35","name":"Ontario","region":"3","type":"province"},
+    {"code":"46","name":"Manitoba","region":"4","type":"province"},
+    {"code":"47","name":"Saskatchewan","region":"4","type":"province"},
+    {"code":"48","name":"Alberta","region":"4","type":"province"},
+    {"code":"59","name":"British Columbia","region":"5","type":"province"},
+    {"code":"60","name":"Yukon","region":"6","type":"territory"},
+    {"code":"61","name":"Northwest Territories","region":"6","type":"territory"},
+    {"code":"62","name":"Nunavut","region":"6","type":"territory"}
+  ],
+  "node_rules": {
+    "region_id": "CA/R/{REGION_CODE}",
+    "province_territory_id": "CA/PR/{PRUID}",
+    "census_division_id": "CA/CD/{CDUID}",
+    "census_subdivision_id": "CA/CSD/{CSDUID}",
+    "site_id": "CA/SITE/{CSDUID}/{SITE_ID}",
+    "canonical_relationship": "CSD -> CD -> PR/territory -> region -> CA"
+  },
+  "refresh_policy": {
+    "source_version": "pin-to-explicit-release",
+    "boundary_changes": "create-new-version; do-not-mutate-historical-evidence",
+    "checksum": "sha256",
+    "promotion": "source_download -> schema_validation -> relationship_validation -> snapshot -> reportable"
+  }
+}

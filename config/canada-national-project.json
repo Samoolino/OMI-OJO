@@ -1,0 +1,117 @@
+{
+  "schema_id": "CANADA-NATIONAL-EVIDENCE-GRID-1",
+  "project": "CANADA NATIONAL DECARBONIZATION & ASSETIFICATION GRID",
+  "project_label": "Illuvi Canada",
+  "strategy": "NATIONAL_GRID_WITH_REGIONAL_AND_DISTRICT_ANCHORS",
+  "purpose": "Map Canada as a reportable environmental, infrastructure and decarbonization evidence system while preserving official geography, source provenance, DMRV controls and versioned data/framework assets.",
+  "status": "DESIGNED_FOR_IMPLEMENTATION",
+  "canonical_geography": {
+    "authority": "Statistics Canada Standard Geographical Classification (SGC)",
+    "hierarchy": "nation > geographical region > province_or_territory > census_division > census_subdivision > site",
+    "reporting_aliases": {
+      "nation": "Canada",
+      "region": "SGC geographical region",
+      "state": "Province or territory (presentation alias only; never stored as the legal administrative type)",
+      "district": "Census division / provincially legislated equivalent",
+      "municipality": "Census subdivision where the CSD represents a municipality"
+    },
+    "regions": ["Atlantic", "Quebec", "Ontario", "Prairies", "British Columbia", "Territories"],
+    "province_territory_count": 13,
+    "census_division_count_sgc_2021": 293,
+    "census_subdivision_count_sgc_2021": 5161,
+    "rule": "Canonical codes and names come from the selected SGC release. Presentation labels may be simplified, but the canonical administrative type and code are retained."
+  },
+  "node_model": {
+    "node_id": "CA/{PRUID}/{CDUID}/{CSDUID}/{SITE_ID}",
+    "levels": [
+      "NATION",
+      "REGION",
+      "PROVINCE_OR_TERRITORY",
+      "DISTRICT",
+      "MUNICIPALITY_OR_CSD",
+      "SITE"
+    ],
+    "evidence_state": ["UNCONFIGURED", "READY", "CONFIGURED", "RECEIVING", "DEGRADED", "OFFLINE", "ARCHIVE_READY", "REPORTABLE", "VALIDATED", "VERIFIED", "ANCHORED"]
+  },
+  "national_mapping": {
+    "phase_1": "Load official SGC geography and boundary references for all Canada.",
+    "phase_2": "Resolve province/territory -> census division -> census subdivision relationships.",
+    "phase_3": "Create representative environmental/infrastructure nodes per region and province/territory.",
+    "phase_4": "Qualify district and municipality sites for field deployment and project-specific evidence.",
+    "phase_5": "Attach measured observations, decarbonization projects, infrastructure assets and evidence packages only when source-backed."
+  },
+  "municipality_strategy": {
+    "rule": "Municipal reporting rolls upward from CSD to its parent census division, then province/territory, region and nation.",
+    "municipality_asset": "A CSD is a geographic/reporting asset; it is not evidence that a Blue-Ether installation exists.",
+    "district_asset": "A census division is a regional aggregation/reporting asset and may represent a county, regional municipality, regional district or equivalent depending on jurisdiction."
+  },
+  "decarbonization_product_strategy": {
+    "objective": "Use Blue-Ether infrastructure to create auditable product development packages for measurable decarbonization and climate-resilience interventions.",
+    "product_tracks": [
+      "municipal climate evidence packages",
+      "infrastructure asset condition and resilience records",
+      "rainwater and water-resilience pilots",
+      "building and facility energy/emissions evidence",
+      "transport and mobility activity-data packages",
+      "nature-based and land-use intervention evidence",
+      "GHG activity-data and factor-controlled reporting",
+      "climate-risk and adaptation investment evidence"
+    ],
+    "product_lifecycle": "BASELINE -> PROJECT_BOUNDARY -> ACTIVITY_DATA -> EMISSION_FACTOR_METHOD -> INTERVENTION -> MEASUREMENT -> QA -> RECONCILIATION -> DMRV -> EVIDENCE_ASSET -> VERIFIED_REPORT"
+  },
+  "assetification": {
+    "principle": "Convert governed observations and framework artifacts into reusable, versioned evidence assets without treating data itself as a financial security or inventing ownership rights.",
+    "asset_classes": [
+      "GEOGRAPHY_ASSET",
+      "OBSERVATION_ASSET",
+      "INFRASTRUCTURE_ASSET",
+      "DECARBONIZATION_PROJECT_ASSET",
+      "GHG_EVIDENCE_ASSET",
+      "ESG_REPORTING_ASSET",
+      "METHODOLOGY_RELIC",
+      "EVIDENCE_PACKAGE",
+      "VERIFICATION_ANCHOR"
+    ],
+    "relic_definition": "A methodology, schema, boundary, calculation rule, source mapping or approved framework version preserved with content hash, effective date, supersession state and provenance.",
+    "asset_identity": ["asset_id", "asset_class", "geography_code", "source", "observation_or_effective_time", "methodology_version", "quality_state", "content_hash", "custody_state"],
+    "rule": "Assetification preserves provenance and reproducibility; it does not imply financial valuation, ownership, carbon-credit issuance or regulatory approval."
+  },
+  "universal_indicators": [
+    "rainfall",
+    "rainfall_prediction",
+    "atmospheric_moisture",
+    "temperature",
+    "relative_humidity",
+    "wind",
+    "pressure",
+    "solar_radiation",
+    "NO2",
+    "SO2",
+    "O3",
+    "CO",
+    "PM2.5",
+    "PM10",
+    "GHG_scope_1_activity_data",
+    "GHG_scope_2_activity_data",
+    "GHG_scope_3_activity_data",
+    "energy",
+    "transport",
+    "waste",
+    "water",
+    "land_use",
+    "climate_risk",
+    "adaptation",
+    "ESG_social",
+    "ESG_governance",
+    "regulatory_evidence"
+  ],
+  "evidence_rule": {
+    "required_before_claim": ["source", "source_id", "observation_or_effective_time", "retrieval_time", "location", "unit", "data_class", "methodology_version", "quality_status"],
+    "fail_closed": ["missing_provenance", "missing_timestamp", "missing_unit", "unresolved_geography", "material_source_conflict", "unsupported_claim_promotion"],
+    "principle": "REPORTABLE != MEASURED != VALIDATED != VERIFIED != ANCHORED"
+  },
+  "dmrv_sequence": "SOURCE -> OBSERVATION -> QA -> RECONCILIATION -> CANONICAL EVIDENCE PACKAGE -> SHA-256 ROOT -> SUPPORTED NETWORK ANCHOR -> VERIFICATION REGISTRY",
+  "infrastructure_role": "The same Blue-Ether evidence infrastructure is reused for geographic intelligence, environmental monitoring, GHG/ESG reporting, infrastructure records, project measurement and investor/public reporting.",
+  "funding_boundary": "Grant, procurement, municipal partnership and institutional funding packages are mapped to measurable geography, asset coverage, indicator coverage, evidence quality and deployment milestones. No token or speculative financing assumption is required.",
+  "source_policy": "Official Canadian geographic/statistical sources establish the geography layer. Environmental, infrastructure, emissions and meteorological providers are separately registered and their claims remain source-specific."
+}
