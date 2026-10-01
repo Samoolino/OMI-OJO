@@ -2,7 +2,9 @@
 
 ## Objective
 
-Turn the Illuvi Canada geography contract into an executable, versioned graph without copying a static list into the application. Statistics Canada's SGC 2021 is the canonical source. It defines four national geographic levels: geographical region, province/territory, census division and census subdivision. The hierarchy is explicitly related and covers all Canada. citeturn0search3
+Turn the Illuvi Canada geography contract into an executable, versioned graph without copying a static list into the application. Statistics Canada's SGC 2021 is the canonical source. It defines four national geographic levels: geographical region, province/territory, census division and census subdivision. The hierarchy is explicitly related and covers all Canada.
+
+Official source: https://www.statcan.gc.ca/en/subjects/standard/sgc/2021/introduction
 
 ## Implemented
 
@@ -10,7 +12,7 @@ Turn the Illuvi Canada geography contract into an executable, versioned graph wi
 2. `scripts/canada-sync-sgc.mjs` downloads the two official CSV products, validates the hierarchy, hashes the inputs and produces a versioned graph snapshot.
 3. `config/canada-source-registry.json` establishes source-specific claim boundaries for geography, census context and future environmental/GHG/infrastructure adapters.
 
-Statistics Canada publishes the SGC 2021 classification structure and elements as CSV downloads, making them suitable for a reproducible ingestion pipeline. citeturn0search0
+Statistics Canada publishes the SGC 2021 classification structure and elements as CSV downloads, making them suitable for a reproducible ingestion pipeline.
 
 ## Canonical graph
 
@@ -56,7 +58,7 @@ The graph is the address layer for:
 - public-interest reporting;
 - investment evidence rooms.
 
-The Statistics Canada census-profile products provide published contextual data at province/territory, census-division and census-subdivision levels, while annual population estimate tables provide current population context on 2021 boundaries. citeturn0search8turn0search10
+Statistics Canada census-profile products provide published contextual data at province/territory, census-division and census-subdivision levels. Annual population estimate tables provide current population context on 2021 boundaries.
 
 ## Important boundary
 
