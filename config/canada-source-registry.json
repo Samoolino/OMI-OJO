@@ -1,0 +1,57 @@
+{
+  "registry_id": "CA-SOURCE-REGISTRY-1",
+  "country": "Canada",
+  "status": "SOURCE_CONTRACTS_DEFINED",
+  "sources": [
+    {
+      "source_id": "STATCAN-SGC-2021",
+      "class": "GEOGRAPHY",
+      "authority": "Statistics Canada",
+      "role": "canonical geography and administrative relationships",
+      "url": "https://www.statcan.gc.ca/en/subjects/standard/sgc/2021/index",
+      "dataset_urls": [
+        "https://www.statcan.gc.ca/en/statistical-programs/document/sgc-cgt-2021-structure-eng.csv",
+        "https://www.statcan.gc.ca/en/statistical-programs/document/sgc-cgt-2021-element-eng.csv"
+      ],
+      "version": "2021",
+      "refresh": "explicit release / boundary change",
+      "claim_scope": "geographic identity and hierarchy"
+    },
+    {
+      "source_id": "STATCAN-CENSUS-PROFILES",
+      "class": "SOCIODEMOGRAPHIC",
+      "authority": "Statistics Canada",
+      "role": "municipal and district contextual indicators",
+      "url": "https://www150.statcan.gc.ca/n1/en/catalogue/98-401-X2021005",
+      "version": "2021 Census",
+      "claim_scope": "published census profile indicators"
+    },
+    {
+      "source_id": "STATCAN-CD-POP-ESTIMATES",
+      "class": "SOCIODEMOGRAPHIC",
+      "authority": "Statistics Canada",
+      "role": "annual population context by census division",
+      "url": "https://www150.statcan.gc.ca/n1/en/catalogue/1710015201",
+      "version": "2021 boundaries",
+      "claim_scope": "annual population estimates"
+    },
+    {
+      "source_id": "STATCAN-CSD-POP-ESTIMATES",
+      "class": "SOCIODEMOGRAPHIC",
+      "authority": "Statistics Canada",
+      "role": "annual population context by census subdivision",
+      "url": "https://www150.statcan.gc.ca/n1/en/catalogue/1710015501",
+      "version": "2021 boundaries",
+      "claim_scope": "annual population estimates"
+    }
+  ],
+  "future_adapters": [
+    {"source_id":"ECCC-WEATHER","class":"ENVIRONMENT","status":"PLANNED","scope":"meteorological observations and forecasts"},
+    {"source_id":"ECCC-AIR","class":"ENVIRONMENT","status":"PLANNED","scope":"air quality / atmospheric indicators"},
+    {"source_id":"NATIONAL-GHG","class":"GHG","status":"PLANNED","scope":"emissions/activity data and reporting references"},
+    {"source_id":"MUNICIPAL-OPEN-DATA","class":"INFRASTRUCTURE","status":"PLANNED","scope":"local assets, energy, water, waste, mobility and resilience datasets"}
+  ],
+  "ingestion_rule": "No source adapter may promote a geographic, environmental, GHG or infrastructure claim beyond the source's documented scope.",
+  "provenance_required": ["source_id","source_version","retrieved_at","effective_at","geography_code","unit","methodology_version","quality_status"],
+  "fail_closed": ["unresolved_source","missing_geography","missing_timestamp","missing_unit","unsupported_methodology","source_conflict"]
+}
